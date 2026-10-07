@@ -5,7 +5,7 @@
 
 **Last verified:** 7 October 2026.
 
-### How to read this repo
+### How to read this page
 
 | Marker | Meaning |
 |---|---|
@@ -475,5 +475,3 @@ Microsoft retired and replaced several AI, developer and security exams in 2026.
 | **HVE / RPI** | Hyper Velocity Engineering / Research-Plan-Implement-Review |
 | **DSPM** | Purview Data Security Posture Management |
 | **IRAP** | Australian Infosec Registered Assessors Program, a risk-based assessment, not a certification |
-
----

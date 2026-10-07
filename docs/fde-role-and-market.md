@@ -5,7 +5,7 @@
 
 **Last verified:** 7 October 2026.
 
-### How to read this repo
+### How to read this page
 
 | Marker | Meaning |
 |---|---|
@@ -31,7 +31,7 @@ A forward-deployed engineer is a customer-facing software engineer who implement
 - Palantir popularised the role and was using the title by 2009 ([Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer)). Third-party profiles credit Shyam Sankar, who joined as employee #13 in 2006, with creating the model ([Gold House](https://goldhouse.org/people/shyam-sankar/)).
 - Inside Palantir, forward-deployed software engineers are called **Deltas**. The name comes from early business-development teams being named after NATO-alphabet letters. Deltas sit in Business Development and deploy and customise Palantir's platforms to reach technical outcomes for customers. Palantir sums up the split as: a Dev's focus is **one capability for many customers**; a Delta's is **one customer, many capabilities** ([Palantir blog](https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87)).
 - Deltas work with **Echoes** (deployment strategists): embedded people with domain depth who find the problem worth solving, which the Delta then prototypes fast ([third-party analysis](https://shivanathd.substack.com/p/the-difference-between-a-forward)).
-- ⚠️ Not to be confused with **"The Delta"** used later in this README, which is the original roadmap's name for the product-to-reality gap.
+- ⚠️ Not to be confused with **"The Delta"** used later on this page, which is the original roadmap's name for the product-to-reality gap.
 
 The operating loop that makes the role different from consulting is the **feedback path back into the product** 💬:
 

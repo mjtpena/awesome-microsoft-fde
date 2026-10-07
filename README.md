@@ -105,7 +105,7 @@ quadrantChart
 
 AI models got very capable very fast. Companies still can't turn them into systems that run safely every day on their own data, and the vendors worked out that sending engineers is the fastest fix. Investors call this "services-led growth": accept lower margins now in exchange for customers who stay.[^a16z]
 
-- Job postings with "forward deployed engineer" in the title grew about **12-fold** (up 1,165%) in 2025 compared with 2024.[^bloomberry]
+- Job postings with "forward deployed engineer" in the title grew almost **13-fold** (up 1,165%) in 2025 compared with 2024.[^bloomberry]
 - In 2026, every major AI lab and cloud provider launched a dedicated FDE organisation:
 
 ```mermaid
@@ -113,7 +113,7 @@ timeline
     title Forward deployed engineering goes mainstream
     Late 2000s : Palantir popularises the role
     June 2025 : Investors call FDEs the hottest job in startups
-    2025 : Job postings grow about 12-fold
+    2025 : Job postings grow almost 13-fold
     May 2026 : OpenAI launches a deployment company : Anthropic launches Ode with private-equity partners : Google Cloud hires hundreds of FDEs
     June 2026 : AWS commits $1 billion
     July 2026 : Microsoft launches Frontier Company with $2.5 billion
@@ -133,7 +133,7 @@ These figures aren't like for like. OpenAI's and Anthropic's are money raised fr
 
 ## 4. An engagement, start to finish
 
-An engagement usually runs **6 to 13 weeks**. AWS runs 45-day sprints with teams of five or six engineers.[^aws] We think shorter is better: if you can't show value in six weeks, the scope is wrong.
+In our experience, an engagement runs **6 to 13 weeks**. AWS runs 45-day sprints with teams of five or six engineers.[^aws] We think shorter is better: if you can't show value in six weeks, the scope is wrong.
 
 ```mermaid
 flowchart LR

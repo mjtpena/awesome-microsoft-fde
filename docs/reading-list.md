@@ -5,23 +5,6 @@
 
 **Last verified:** 7 October 2026.
 
-### How to read this repo
-
-| Marker | Meaning |
-|---|---|
-| ✅ **GA** | Generally available, per the linked source |
-| 🧪 **Preview** | Public or private preview: no SLA, may change |
-| 🔜 **Announced** | Announced or on the roadmap, not yet shipped |
-| 💬 **Field guidance** | Opinion and practitioner judgement, not a sourced fact |
-| ⚠️ **Watch out** | Gotcha, breaking change, or conflicting sources |
-| 🗓 **Changed since Build** | Status moved after Build 2026; older blogs will be wrong |
-
-Every factual claim links to its source. Microsoft Learn and Microsoft blogs are preferred, and third-party sources are named as such. Text marked 💬 is opinion.
-
----
-
-## 📚 Reading List & Official Sources
-
 **The FDE role**
 
 - [Wikipedia: Forward deployed engineer](https://en.wikipedia.org/wiki/Forward_deployed_engineer) · [Palantir: Dev versus Delta](https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87) · [a16z: Trading Margin for Moat](https://a16z.com/services-led-growth/)
