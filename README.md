@@ -1,12 +1,27 @@
 # 🚀 Awesome Microsoft FDE
 
-> A beginner-friendly guide to becoming a **Forward Deployed Engineer (FDE)**. Part 1 explains the role and the skills in plain language and applies to any company. Part 2 shows how it's done on Microsoft's cloud.
+> An opinionated guide to becoming a **Forward Deployed Engineer (FDE)**: the engineer who goes into a customer's organisation and doesn't leave until the thing works. Part 1 covers the role and applies anywhere. Part 2 shows how it's done on Microsoft's cloud.
 
-**Who this is for:** software engineers, data people, consultants and students who keep hearing "forward deployed engineer" and want to know what it is, whether it suits them, and how to get there.
+**This guide takes sides.** Facts carry numbered footnotes. Everything without a footnote is our opinion, formed from field work, and you're free to disagree. A guide that lists every option equally is a bookmark folder, and this one tries not to be.
 
-**How to use it:** read Part 1 top to bottom (about 15 minutes). Then pick the parts of Part 2 you need. Every acronym is spelled out the first time it appears and listed in the [glossary](#-glossary). Sources are numbered footnotes at the bottom, so the text stays readable. The fully sourced technical detail lives in [`docs/`](#-go-deeper).
+**Who it's for:** engineers, data people, consultants and students who want to know what the job really is and how to get good at it. Every acronym is spelled out the first time it appears and listed in the [glossary](#-glossary).
 
-*Facts checked on 7 October 2026. This field moves fast, so check dates before relying on anything.*
+*Facts checked on 7 October 2026.*
+
+---
+
+## 🔥 What we believe
+
+1. **An FDE ships production code inside the customer's walls.** If you're mostly making slides, you're a consultant. That's fine, but it's a different job.
+2. **The hard part is rarely the AI.** It's access, data, security review and getting someone to own the result. Plan for those first.
+3. **Security review is a design input, not a final gate.** Meet the security team in week one, not week ten.
+4. **Your first deliverable should run on real data within two weeks.** A demo on fake data proves nothing to the people who'll use it.
+5. **If you can't measure it, you can't ship it.** Write the tests for the AI's answers before you tune the prompt.
+6. **Default to the simplest platform that works.** Low code if business users will own it, code only when you need control. Most teams reach for code too early.
+7. **Preview features are a loan against your go-live date.** Use them only with a written fallback.
+8. **You've succeeded when the customer runs it without you.** If they call you after handover for routine work, the handover failed.
+9. **Feed what you learn back to the product.** That loop is what makes this engineering and not staffing.
+10. **Learn Python and SQL before you learn any vendor's product names.** Product names change every year. The fundamentals don't.
 
 ---
 
@@ -14,25 +29,25 @@
 
 **Part 1: The role (applies everywhere)**
 
-1. [What is a forward deployed engineer?](#1-what-is-a-forward-deployed-engineer)
+1. [What a forward deployed engineer actually does](#1-what-a-forward-deployed-engineer-actually-does)
 2. [How it differs from similar jobs](#2-how-it-differs-from-similar-jobs)
 3. [Why everyone is hiring FDEs now](#3-why-everyone-is-hiring-fdes-now)
-4. [What the work looks like, start to finish](#4-what-the-work-looks-like-start-to-finish)
-5. [The six skill areas](#5-the-six-skill-areas)
+4. [An engagement, start to finish](#4-an-engagement-start-to-finish)
+5. [The six pillars](#5-the-six-pillars)
 6. [A learning path](#6-a-learning-path)
-7. [The honest downsides](#7-the-honest-downsides)
+7. [Should you do this job?](#7-should-you-do-this-job)
 
 **Part 2: Doing it on Microsoft**
 
 8. [Who does FDE work at Microsoft](#8-who-does-fde-work-at-microsoft)
 9. [The Microsoft toolbox, translated](#9-the-microsoft-toolbox-translated)
 10. [Choosing where to build an AI agent](#10-choosing-where-to-build-an-ai-agent)
-11. [Microsoft certifications worth having](#11-microsoft-certifications-worth-having)
+11. [Certifications: which ones, and how much they matter](#11-certifications-which-ones-and-how-much-they-matter)
 
 **Part 3: Practise and go deeper**
 
 12. [Practise: four interview scenarios](#12-practise-four-interview-scenarios)
-13. [Templates](#13-templates)
+13. [Templates and scenario packs](#13-templates-and-scenario-packs)
 14. [Go deeper](#-go-deeper)
 15. [Glossary](#-glossary)
 
@@ -40,11 +55,11 @@
 
 # Part 1: The role
 
-## 1. What is a forward deployed engineer?
+## 1. What a forward deployed engineer actually does
 
-A forward deployed engineer is **a software engineer who works inside a customer's organisation to make a product solve that customer's real problem**, and then tells the product team what they learned.[^wiki]
+A forward deployed engineer is **a software engineer who works inside a customer's organisation to make a product solve that customer's real problem**, then tells the product team what they learned.[^wiki]
 
-Most software is built once and used by many customers. But real organisations are messy: their data is scattered across old systems, security teams lock things down, networks are restricted, and regulations apply. The product works in the demo, then hits all of this. That distance between "works in the demo" and "works here, every day" is often called **the gap**, and closing it is the FDE's job.
+Products work in demos. Real organisations have data scattered across old systems, security teams who say no by default, locked-down networks, regulators and busy people. The distance between "works in the demo" and "works here, every day" is **the gap**. Closing it is the whole job.
 
 ```mermaid
 flowchart LR
@@ -54,7 +69,9 @@ flowchart LR
     G -. "lessons learned" .-> P
 ```
 
-**Where the name comes from.** "Forward deployed" is military language for being stationed close to the action. The data-analytics company Palantir made the job title popular in the late 2000s.[^wiki] Palantir sums up the difference between its two kinds of engineers like this: a product engineer works on **one capability for many customers**, while a forward deployed engineer works with **one customer, using many capabilities**.[^palantir]
+The data-analytics company Palantir made the title popular in the late 2000s.[^wiki] Its own one-line definition is still the best: a product engineer works on **one capability for many customers**; a forward deployed engineer works with **one customer, using many capabilities**.[^palantir]
+
+**Our take:** most of an FDE's week isn't coding. Expect roughly a third building, a third unblocking (access, data, security, approvals) and a third talking (discovery, demos, decisions). People who only want the first third hate this job.
 
 ## 2. How it differs from similar jobs
 
@@ -66,7 +83,7 @@ flowchart LR
 | Changes the product? | Yes | Sometimes | No | **Yes, by feeding lessons back** |
 | Has a sales target? | No | Often | Billable-hours target | **Usually not**[^bloomberry] |
 
-The last two rows matter most. An FDE **builds real software** (not slides) **and feeds what they learn back into the product** (unlike a consultant). Job postings from Microsoft and Anthropic both list this feedback loop as a duty.[^ise-swe][^anthropic-job]
+Microsoft's and Anthropic's FDE postings both list feeding lessons back to the product as a duty.[^ise-swe][^anthropic-job] **That loop is the test.** If your employer has no route from your field notes into the product backlog, you're in a consulting job with a new title.
 
 ```mermaid
 quadrantChart
@@ -86,10 +103,10 @@ quadrantChart
 
 ## 3. Why everyone is hiring FDEs now
 
-AI models became very capable very quickly, but most companies struggle to turn them into something that runs safely every day on their own data. AI vendors found that sending engineers to sit with the customer is the fastest way to get there. Investors call this "services-led growth": the vendor accepts lower profit margins in exchange for customers who stay.[^a16z]
+AI models got very capable very fast. Companies still can't turn them into systems that run safely every day on their own data, and the vendors worked out that sending engineers is the fastest fix. Investors call this "services-led growth": accept lower margins now in exchange for customers who stay.[^a16z]
 
 - Job postings with "forward deployed engineer" in the title grew about **12-fold** (up 1,165%) in 2025 compared with 2024.[^bloomberry]
-- In 2026, the biggest AI and cloud companies all launched dedicated FDE organisations:
+- In 2026, every major AI lab and cloud provider launched a dedicated FDE organisation:
 
 ```mermaid
 timeline
@@ -110,11 +127,13 @@ xychart-beta horizontal
     bar [4.0, 2.5, 1.5, 1.0]
 ```
 
-These numbers aren't like for like: OpenAI's and Anthropic's figures are money raised from outside investors, while Microsoft's and AWS's are their own internal spending. Google didn't publish a figure.[^openai][^ode][^msft-frontier][^aws][^google]
+These figures aren't like for like. OpenAI's and Anthropic's are money raised from outside investors; Microsoft's and AWS's are internal spending. Google didn't publish a figure.[^openai][^ode][^msft-frontier][^aws][^google]
 
-## 4. What the work looks like, start to finish
+**Our take:** the hiring wave is real, but it won't last at this pace. As platforms mature, routine deployments get automated and the job moves towards the hard cases: regulated industries, legacy data and sensitive workloads. Build depth in those and you'll stay employable when the hype fades.
 
-A single customer engagement usually runs for **6 to 13 weeks**. AWS, for example, runs 45-day sprints with teams of five or six engineers.[^aws] The steps are the same whatever the platform:
+## 4. An engagement, start to finish
+
+An engagement usually runs **6 to 13 weeks**. AWS runs 45-day sprints with teams of five or six engineers.[^aws] We think shorter is better: if you can't show value in six weeks, the scope is wrong.
 
 ```mermaid
 flowchart LR
@@ -126,39 +145,41 @@ flowchart LR
     F -. "lessons back to the product team" .-> P(["Product"])
 ```
 
-| Step | What you actually do | What you leave behind |
+| Step | What you do | Where people go wrong |
 |---|---|---|
-| 1. Get access | Chase accounts and permissions, and find the data. This often takes longer than people expect | A list of who granted what |
-| 2. Understand | Interview people. Keep asking "why?" until you reach a business number, such as hours saved or errors avoided | A one-page problem statement and success measure |
-| 3. Design | Decide how it will work and how it stays secure. Write each important decision down | Architecture diagram and decision records |
-| 4. Build | Ship something small that works on real data, quickly, and show it every week | Working code in the customer's systems |
-| 5. Harden | Add tests, including tests of the AI's answers. Add monitoring, cost controls and security fixes | A system the customer's security team signs off |
-| 6. Hand over | Teach the customer's team to run it without you | Runbooks, a test baseline and a backlog of next steps |
+| 1. Get access | Request every account, permission and dataset on day one, in one document | Waiting until week two to discover nobody can approve access to production data |
+| 2. Understand | Keep asking "why?" until you reach a number the sponsor cares about | Accepting "we want an AI agent" as a requirement |
+| 3. Design | Write down each important decision and its alternatives. Bring security in now | Designing alone, then presenting a finished design to a security team that rejects it |
+| 4. Build | Ship something small on real data and demo it every week | Polishing a demo on fake data |
+| 5. Harden | Tests for the AI's answers, monitoring, a cost cap, security sign-off | Treating evaluation as a final step instead of a daily habit |
+| 6. Hand over | Train the people who'll run it and name one owner | Handing over a Word document nobody reads |
 
-**The rule of thumb:** you're done when the system runs in the customer's environment, has tests that prove it works, and someone at the customer owns it. Merging code isn't the finish line.
+**When are you done?** The system runs in the customer's environment, tests prove it works, and a named person at the customer owns it. A merged pull request doesn't count.
 
-## 5. The six skill areas
+Every step has a ready-made template. See [templates and scenario packs](#13-templates-and-scenario-packs).
 
-FDEs are generalists. You don't need to be an expert in all six areas, but you need to be dangerous in each.
+## 5. The six pillars
 
-| Skill area | Why it matters | Where a beginner starts |
+FDEs are generalists. You don't need to be an expert in all six pillars, but you need to be dangerous in each and genuinely deep in one or two. Each pillar has its own deep-dive page.
+
+| Pillar | Our stance in one line | Deep dive |
 |---|---|---|
-| **1. Software engineering** | You ship production code, often alone | Python, Git, writing tests, calling web APIs |
-| **2. Data** | Almost every project starts with "where is the data and is it any good?" | SQL, cleaning data, building simple data pipelines |
-| **3. Cloud and networking** | Customer systems run in the cloud behind strict network rules | One cloud's basics: accounts, virtual networks, private connections, infrastructure-as-code (setting up servers from scripts instead of by hand) |
-| **4. Security and identity** | Security review is where most projects stall | Who or what is allowed to do what: sign-in, permissions, secrets, data protection |
-| **5. AI applications** | Most FDE work today is getting AI into production | The five AI ideas below |
-| **6. Consulting skills** | You work with executives, security teams and end users | Asking good questions, writing clearly, running a workshop, handing over |
+| **1. Software engineering** | Production habits (tests, logging, deployment from code) matter more than clever algorithms | [Software engineering](docs/pillars/01-software-engineering.md) |
+| **2. Data** | Every AI project is a data project in disguise, so audit the data before you promise anything | [Data](docs/pillars/02-data.md) |
+| **3. Cloud and networking** | Learn private networking properly; it's where most deployments break | [Cloud and networking](docs/pillars/03-cloud-and-networking.md) |
+| **4. Security and identity** | Give every agent its own identity and the least access it needs | [Security and identity](docs/pillars/04-security-and-identity.md) |
+| **5. AI applications** | Retrieval quality and evaluation matter more than model choice | [AI applications](docs/pillars/05-ai-applications.md) |
+| **6. Consulting and delivery** | Discovery and handover decide success more than the build does | [Consulting and delivery](docs/pillars/06-consulting-and-delivery.md) |
 
-**Five AI ideas to understand first** (each one is spelled out in the [glossary](#-glossary)):
+**Five AI ideas to understand first** (all in the [glossary](#-glossary)):
 
 1. **Large language model (LLM):** the AI model that reads and writes text, such as GPT or Claude.
-2. **Retrieval-augmented generation (RAG):** the AI looks up the company's own documents before it answers, so it answers from facts rather than memory.
+2. **Retrieval-augmented generation (RAG):** the AI looks up the company's own documents before answering, so it answers from facts rather than memory.
 3. **Agent:** an AI model that can take actions with tools (search, send an email, update a record), not just chat.
 4. **Evaluation:** automated tests for AI answers. Is it correct? Is it based on the documents? Is it safe?
 5. **Model Context Protocol (MCP):** an open standard for plugging tools and data into AI agents, a bit like USB for AI.
 
-**What employers ask for.** In an analysis of 1,000 FDE job postings, Python was by far the most requested skill:[^bloomberry]
+**What employers ask for.** In an analysis of 1,000 FDE job postings, Python dominated:[^bloomberry]
 
 ```mermaid
 xychart-beta horizontal
@@ -168,7 +189,9 @@ xychart-beta horizontal
     bar [66, 35, 35, 32, 31, 22, 18, 14, 12]
 ```
 
-Most postings want 3–5 years of experience (60%), but 12% are open to people with 0–2 years. The median advertised salary was about US$174,000.[^bloomberry] Posted pay varies a lot by employer: one Microsoft FDE posting lists US$85,000–168,000, while Anthropic lists US$200,000–300,000 for New York.[^msft-job][^anthropic-job]
+Most postings want 3–5 years of experience (60%), but 12% accept 0–2 years. The median advertised salary was about US$174,000.[^bloomberry] Pay varies a lot by employer: one Microsoft FDE posting lists US$85,000–168,000, while Anthropic lists US$200,000–300,000 in New York.[^msft-job][^anthropic-job]
+
+**Our take:** Azure appears in only 18% of postings. That's an opening, not a warning. Fewer FDEs know Microsoft's stack deeply, and Microsoft's customers (governments, banks, healthcare) are exactly where the hard deployments are.
 
 ## 6. A learning path
 
@@ -179,20 +202,25 @@ flowchart LR
     S3 --> S4["Stage 4 · Field-ready<br/>ongoing<br/>run a mock engagement,<br/>write the handover,<br/>practise interviews"]
 ```
 
-| Stage | Prove it with this project |
-|---|---|
-| 1. Foundations | Load a public dataset into a database, clean it with SQL and Python, and publish it with automated tests |
-| 2. Build with AI | Build a chatbot that answers questions about a set of PDFs and cites its sources. Write 50 test questions and measure how often it's right |
-| 3. Make it real | Deploy the chatbot so it has no public internet exposure, users sign in, every request is logged, and spending has a cap. Deploy it from a script, not by clicking |
-| 4. Field-ready | Treat a friend or colleague as "the customer". Run a discovery interview, build for two weeks, and hand over with a runbook they can follow without you |
+| Stage | Prove it with this project | Pillars |
+|---|---|---|
+| 1. Foundations | Load a public dataset into a database, clean it with SQL and Python, and publish it with automated tests | 1, 2 |
+| 2. Build with AI | A chatbot that answers questions about a set of PDFs and cites its sources. Write 50 test questions and measure how often it's right | 5 |
+| 3. Make it real | Deploy that chatbot with no public internet exposure, user sign-in, logging of every request and a spending cap, all from a script | 3, 4 |
+| 4. Field-ready | Treat a friend as "the customer". Run discovery, build for two weeks, hand over with a runbook they can follow without you | 6 |
 
-## 7. The honest downsides
+**Our take:** skip Stage 3 and you'll fail your first real engagement. Tutorials stop at Stage 2, and customers start at Stage 3.
 
-- **Travel and pressure.** Postings commonly ask for 25–50% travel, and deadlines are short.[^ise-swe][^deloitte][^wiki]
-- **"Consulting with a better title?"** Some academics see the title as a rebrand of older roles.[^wiki] One industry newsletter argues the job is drifting towards consulting now that AI labs hire FDEs into separate companies.[^pragmatic]
-- **Lock-in.** When a vendor's engineer designs your system, it tends to use that vendor's products. One Microsoft analyst put it bluntly: free deployment help is how the vendor wins future cloud spending.[^foley]
+## 7. Should you do this job?
 
-💬 *Our view:* the role is real when you ship production code **and** the product gets better because of what you learned. If neither happens, it's consulting.
+**Do it if** you like variety, learn fast in unfamiliar places, can explain technical trade-offs to executives, and get satisfaction from people using what you built.
+
+**Avoid it if** you want deep focus on one codebase, hate ambiguity, or can't travel. Postings commonly ask for 25–50% travel.[^ise-swe][^deloitte]
+
+The fair criticisms:
+
+- **"Consulting with a better title."** Some academics see the title as a rebrand of older roles.[^wiki] One industry newsletter argues the job is drifting towards consulting now that AI labs hire FDEs into separate companies.[^pragmatic] This is real, so check for the product feedback loop before you accept an offer.
+- **Lock-in.** When a vendor's engineer designs your system, it uses the vendor's products. One analyst called free deployment help the vendor's "customer acquisition cost".[^foley] If you work for a vendor, be honest with customers about this. They'll trust you more.
 
 ---
 
@@ -204,8 +232,8 @@ Microsoft has done this work for over a decade. It reorganised it publicly in 20
 
 | Team | What it is |
 |---|---|
-| **Industry Solutions Engineering (ISE)** | The engineering group whose job postings say it "has operated Microsoft's Forward Deployed Engineering function for over a decade". Small teams embed with customers, build alongside them and pass patterns back to Microsoft's product teams. It works with an AI-assisted method called Hypervelocity Engineering (HVE), which is published as open source.[^ise-swe][^hve] |
-| **Microsoft Frontier Company** | A new business announced in July 2026: US$2.5 billion and 6,000 industry and engineering experts placed inside customer organisations to deliver measurable business results. Early customers include the London Stock Exchange Group, Unilever, Land O'Lakes and Novo Nordisk.[^msft-frontier] |
+| **Industry Solutions Engineering (ISE)** | The engineering group whose postings say it "has operated Microsoft's Forward Deployed Engineering function for over a decade". Small teams embed with customers and pass patterns back to Microsoft's product teams, using an AI-assisted method called Hypervelocity Engineering (HVE) that's published as open source.[^ise-swe][^hve] |
+| **Microsoft Frontier Company** | Announced July 2026: US$2.5 billion and 6,000 industry and engineering experts placed inside customer organisations. Early customers include the London Stock Exchange Group, Unilever, Land O'Lakes and Novo Nordisk.[^msft-frontier] |
 | **Partners** | Consulting firms with Microsoft FDE practices, including Accenture, Capgemini, Deloitte, EY, KPMG and PwC.[^msft-frontier][^accenture][^deloitte] |
 
 ```mermaid
@@ -217,30 +245,30 @@ flowchart TB
     PG -. "better products" .-> C
 ```
 
-⚠️ Microsoft hasn't said how ISE and Frontier Company relate. If you apply, ask the recruiter which team the role sits in.[^foley]
+Microsoft hasn't said how ISE and Frontier Company relate.[^foley] **Our take:** if you want the engineering version of the job, ask in the interview how field findings reach the product teams, and ask for an example from the last quarter.
 
 **A real example.** Novo Nordisk worked with Microsoft's Forward Deployed Engineering team to build an AI agent over its clinical-trial data. Its researchers went from evaluating 5–10 ideas per quarter to more than 50.[^fy26]
 
 ## 9. The Microsoft toolbox, translated
 
-Microsoft's product names change often. This table maps each of the six skill areas to the Microsoft product you'll meet, in plain words.
+Microsoft renames products often, so learn what each one does rather than what it's called this year.
 
-| Skill area | Microsoft product | What it is, in one sentence |
+| Pillar | Microsoft product | What it is, in one sentence |
 |---|---|---|
 | Data | **Microsoft Fabric** | One place to store, clean and analyse company data, with Power BI for reports |
 | Cloud | **Azure** | Microsoft's cloud: servers, networks, databases, storage |
 | Cloud | **Azure API Management** | A gateway in front of AI models that controls who can call them and how much they can spend |
-| AI applications | **Microsoft Foundry** | Where you choose AI models, build agents, host them and test their answers |
-| AI applications | **Microsoft Agent Framework** | Microsoft's open-source code library for building agents in Python or C# |
-| AI applications | **Copilot Studio** | A low-code tool for building agents that live in Teams and Microsoft 365 |
-| AI applications | **Microsoft 365 Copilot** | The AI assistant inside Word, Outlook and Teams, which you can extend with your own agents |
+| AI | **Microsoft Foundry** | Where you choose AI models, build agents, host them and test their answers |
+| AI | **Microsoft Agent Framework** | Microsoft's open-source code library for building agents in Python or C# |
+| AI | **Copilot Studio** | A low-code tool for building agents that live in Teams and Microsoft 365 |
+| AI | **Microsoft 365 Copilot** | The AI assistant inside Word, Outlook and Teams, which you can extend with your own agents |
 | Security | **Microsoft Entra** | Sign-in and permissions for people and, now, for AI agents too |
 | Security | **Microsoft Purview** | Finds and protects sensitive data so AI doesn't leak it |
 | Security | **Microsoft Defender** | Detects attacks, including attacks on AI systems |
 | Security | **Agent 365** | A register of every AI agent in the company, so IT can see and control them |
-| Software engineering | **GitHub Copilot** | An AI coding assistant; ISE's HVE method is built on it |
+| Software engineering | **GitHub Copilot** | An AI coding assistant. ISE's HVE method is built on it |
 
-How these fit together in a typical project:
+How they fit together in a typical project:
 
 ```mermaid
 flowchart LR
@@ -251,9 +279,9 @@ flowchart LR
     SEC["Security and oversight<br/>Entra · Purview · Defender · Agent 365"] -. "controls and watches" .-> AG
 ```
 
-## 10. Choosing where to build an AI agent
+**Our take:** put a gateway (Azure API Management) in front of every model from day one, even for a prototype. Adding cost limits and logging later is much harder than starting with them.
 
-The most common early design question. Start at the top:
+## 10. Choosing where to build an AI agent
 
 ```mermaid
 flowchart TD
@@ -265,23 +293,23 @@ flowchart TD
     Q3 -->|No| PA["Simple agent in Microsoft Foundry<br/>no code"]
 ```
 
-Special cases, such as sites with no internet connection, agents already built elsewhere, and strict private networking, are covered in the [technical reference](docs/microsoft-technical-reference.md#-the-applied-ai-playbook).
+**Our take:** start at the bottom-right box (a simple Foundry agent) or with Copilot Studio, and move to code only when you hit a wall you can name. Writing code first feels productive but leaves the customer with something only engineers can maintain. Special cases (no internet, agents built elsewhere, strict private networking) are in the [technical reference](docs/microsoft-technical-reference.md#-the-applied-ai-playbook).
 
-## 11. Microsoft certifications worth having
+## 11. Certifications: which ones, and how much they matter
 
-Certifications don't make you an FDE, but they give a structured syllabus. Microsoft replaced several exams in 2026, so check the official page before booking.[^certs]
+**Our take:** certifications get you past a recruiter's filter; they don't get you the job. A public repository with a deployed, tested, secured project beats three certificates. Take two or three as a syllabus, not a trophy shelf. Microsoft replaced several exams in 2026, so check before booking.[^certs]
 
-| Order | Exam | What it proves |
-|---|---|---|
-| 1 | **AI-901** Azure AI Fundamentals | You understand basic AI concepts and Microsoft's AI tools |
-| 2 | **AZ-104** Azure Administrator | You can run Azure: networks, identity, storage |
-| 3 | **DP-700** Fabric Data Engineer | You can build data pipelines in Microsoft Fabric |
-| 4 | **AI-103** Azure AI Apps and Agents Developer | You can build AI apps and agents in Microsoft Foundry |
-| 5 | **AZ-305** Azure Solutions Architect | You can design complete solutions (requires AZ-104) |
-| Optional | **SC-500** Cloud and AI Security Engineer | You can secure cloud and AI workloads |
-| Optional | **AB-620** AI Agent Builder | You can build advanced agents in Copilot Studio |
+| Order | Exam | What it proves | Worth it? |
+|---|---|---|---|
+| 1 | **AI-901** Azure AI Fundamentals | Basic AI concepts and Microsoft's AI tools | Only if you're new to AI |
+| 2 | **AZ-104** Azure Administrator | You can run Azure: networks, identity, storage | **Yes**, it covers pillar 3 well |
+| 3 | **AI-103** Azure AI Apps and Agents Developer | You can build AI apps and agents in Foundry | **Yes**, the most relevant one |
+| 4 | **DP-700** Fabric Data Engineer | You can build data pipelines in Fabric | If data is your deep pillar |
+| 5 | **AZ-305** Azure Solutions Architect | You can design complete solutions (requires AZ-104) | Later, for senior roles |
+| Optional | **SC-500** Cloud and AI Security Engineer | You can secure cloud and AI workloads | If security is your deep pillar |
+| Optional | **AB-620** AI Agent Builder | Advanced agents in Copilot Studio | If your customers are low-code |
 
-The full list, with retirement dates and sources, is in the [technical reference](docs/microsoft-technical-reference.md#-certification-path-post-2026-reset).
+Full list with retirement dates: [technical reference](docs/microsoft-technical-reference.md#-certification-path-post-2026-reset).
 
 ---
 
@@ -289,33 +317,36 @@ The full list, with retirement dates and sources, is in the [technical reference
 
 ## 12. Practise: four interview scenarios
 
-Talk through each one out loud, using the six steps from [section 4](#4-what-the-work-looks-like-start-to-finish).
+Talk through each out loud using the six steps from [section 4](#4-an-engagement-start-to-finish). Interviewers care more about your first three questions than your final architecture.
 
-1. **The locked-down company.** You can't create new accounts or apps, nothing can touch the public internet, and you have four weeks to ship a chatbot over internal documents. *What do you ask for on day one? How do you keep it private?*
-2. **The wrong answers.** The customer's AI assistant gave a confidently wrong answer to an executive. *How do you find out whether the problem was the search or the AI? How do you stop it happening again?*
-3. **Low code or full code?** The architecture board asks why you chose Copilot Studio over Microsoft Foundry, or the other way round. *Cover cost, who maintains it, and the skills the customer's team has.*
-4. **Too many agents.** A company discovers 300 AI agents built by different teams, and nobody knows what they can access. *How do you take inventory, assign owners and control access?*
+1. **The locked-down company.** No new accounts or apps, nothing touches the public internet, four weeks to ship a chatbot over internal documents. *What do you ask for on day one? How do you keep it private?*
+2. **The wrong answers.** The customer's AI assistant gave a confidently wrong answer to an executive. *How do you find out whether search or the AI caused it? How do you stop it happening again?*
+3. **Low code or full code?** The architecture board asks why you chose Copilot Studio over Microsoft Foundry, or the reverse. *Cover cost, who maintains it, and the customer team's skills.*
+4. **Too many agents.** A company finds 300 AI agents built by different teams, and nobody knows what they can access. *How do you take inventory, assign owners and control access?*
 
-Microsoft's interview loop, as candidates report it, has a recruiter screen, an online test, coding screens, and an onsite with coding, system design and a behavioural round.[^interviews] More scenarios and rapid-fire questions are in [interview prep](docs/interview-prep.md).
+Candidates report Microsoft's loop as a recruiter screen, an online test, coding screens, then an onsite with coding, system design and a behavioural round.[^interviews] More in [interview prep](docs/interview-prep.md).
 
-## 13. Templates
+## 13. Templates and scenario packs
 
-Copy-paste starting points for the documents an FDE writes, in [`/templates`](./templates):
+[`/templates`](./templates) has a template for every step of an engagement, each tagged with the pillar it serves. It also has **scenario packs**: opinionated starting kits for the five engagements you'll meet most often.
 
-| Template | Use it in step |
+| Scenario pack | The engagement |
 |---|---|
-| [`data-audit.md`](./templates/data-audit.md): where the data is, and whether it's any good | 2. Understand |
-| [`ai-use-case-canvas.md`](./templates/ai-use-case-canvas.md): the problem, users, success measure and risks on one page | 2. Understand |
-| [`adr.md`](./templates/adr.md): an architecture decision record, one page per important decision | 3. Design |
-| [`copilot-instructions.md`](./templates/copilot-instructions.md): instructions for GitHub Copilot in the customer's code repository | 4. Build |
-| [`go-live-readiness.md`](./templates/go-live-readiness.md): the checklist before real users arrive | 5. Harden |
+| [Knowledge assistant](templates/scenarios/knowledge-assistant.md) | Answer questions from company documents (RAG) |
+| [Action-taking agent](templates/scenarios/action-agent.md) | An agent that updates records, sends messages or triggers workflows |
+| [Data and analytics agent](templates/scenarios/data-agent.md) | Natural-language questions over business data |
+| [Regulated, private-only](templates/scenarios/regulated-private.md) | Banks, government, health: private networking and strict review |
+| [Disconnected or sovereign](templates/scenarios/disconnected-sovereign.md) | Sites with limited or no internet connection |
+
+Start with the [templates index](templates/README.md).
 
 ## 📚 Go deeper
 
 | Document | What's in it |
 |---|---|
+| [Pillar deep dives](docs/pillars/) | Six in-depth pages, one per pillar: concepts, our stance, the Microsoft specifics, common mistakes, projects and interview questions |
 | [The FDE role and market](docs/fde-role-and-market.md) | Palantir's origins, the 2026 investments company by company, job-posting statistics, critiques and Microsoft's FDE teams, all fully sourced |
-| [Microsoft technical reference](docs/microsoft-technical-reference.md) | The detailed seven-phase curriculum (data, cloud architecture, security, AI, delivery method, consulting, tooling), which features are generally available versus in preview, disconnected deployments, and the full certification table |
+| [Microsoft technical reference](docs/microsoft-technical-reference.md) | The detailed seven-phase curriculum, which features are generally available versus in preview, disconnected deployments and the full certification table |
 | [Interview prep](docs/interview-prep.md) | The reported interview loop, seven case studies and rapid-fire questions |
 | [Reading list](docs/reading-list.md) | Every primary source, grouped by topic |
 
@@ -326,6 +357,7 @@ Copy-paste starting points for the documents an FDE writes, in [`/templates`](./
 | **FDE** | Forward deployed engineer: a software engineer who works inside a customer's organisation to make a product work for them |
 | **The gap** | The distance between a product working in a demo and working in a real customer's environment. Also called "the Delta" |
 | **Delta / Echo** | Palantir's internal names for forward deployed engineers (Delta) and the domain experts who find the problem worth solving (Echo) |
+| **Pillar** | One of the six skill areas in this guide |
 | **AI** | Artificial intelligence |
 | **LLM** | Large language model: an AI model that reads and writes text |
 | **RAG** | Retrieval-augmented generation: the AI looks up relevant documents before answering |
@@ -333,12 +365,15 @@ Copy-paste starting points for the documents an FDE writes, in [`/templates`](./
 | **MCP** | Model Context Protocol: an open standard for connecting tools and data to AI agents |
 | **A2A** | Agent-to-agent: a standard for AI agents to talk to each other |
 | **Evaluation (evals)** | Automated tests that score AI answers for correctness, grounding and safety |
+| **Golden set** | A fixed list of test questions with agreed good answers, used to score an AI system every time it changes |
 | **API** | Application programming interface: a way for one program to call another |
 | **SQL** | Structured Query Language: the standard language for querying databases |
 | **Infrastructure-as-code (IaC)** | Setting up cloud resources from scripts instead of clicking in a portal |
 | **CI/CD** | Continuous integration / continuous delivery: automatically testing and deploying code on every change |
 | **Production** | The live system real users depend on, as opposed to a demo or test copy |
 | **Runbook** | Step-by-step instructions for operating and fixing a system |
+| **ADR** | Architecture decision record: a one-page note of a decision, the options and why |
+| **RACI** | Responsible, Accountable, Consulted, Informed: a table of who does what after handover |
 | **Tenant** | A company's own private space in Microsoft's cloud, with its own users and rules |
 | **ISE** | Industry Solutions Engineering: Microsoft's long-running FDE team |
 | **HVE** | Hypervelocity Engineering: ISE's method for building with AI coding assistants throughout a project |
@@ -350,7 +385,7 @@ The [technical reference](docs/microsoft-technical-reference.md#-glossary) has a
 
 ## 🤝 Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md). Keep this README readable for a beginner. Put detailed, fast-changing facts in `docs/`, and cite sources there.
+See [CONTRIBUTING.md](./CONTRIBUTING.md). Opinions are welcome: label them as opinions and argue for them. Facts need a source.
 
 Inspired by [pierpaolo28/Awesome-FDE-Roadmap](https://github.com/pierpaolo28/Awesome-FDE-Roadmap).
 

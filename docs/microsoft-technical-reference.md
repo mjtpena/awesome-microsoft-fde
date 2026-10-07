@@ -419,13 +419,7 @@ timeline
 
 ## 📋 Artifact Templates
 
-Copy-paste templates live in [`/templates`](../templates):
-
-- [`data-audit.md`](../templates/data-audit.md)
-- [`adr.md`](../templates/adr.md)
-- [`ai-use-case-canvas.md`](../templates/ai-use-case-canvas.md)
-- [`go-live-readiness.md`](../templates/go-live-readiness.md)
-- [`copilot-instructions.md`](../templates/copilot-instructions.md)
+The [templates index](../templates/README.md) has 14 templates, one or more for each engagement step and tagged by pillar, plus five scenario packs: [knowledge assistant](../templates/scenarios/knowledge-assistant.md), [action-taking agent](../templates/scenarios/action-agent.md), [data agent](../templates/scenarios/data-agent.md), [regulated / private-only](../templates/scenarios/regulated-private.md) and [disconnected / sovereign](../templates/scenarios/disconnected-sovereign.md).
 
 ## 🏅 Certification Path (post-2026 reset)
 
