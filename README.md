@@ -4,7 +4,7 @@
 >
 > Structure inspired by [pierpaolo28/Awesome-FDE-Roadmap](https://github.com/pierpaolo28/Awesome-FDE-Roadmap) (GCP/ADK-centric). Delivery method based on [Microsoft HVE Core](https://microsoft.github.io/hve-core/) (Hyper Velocity Engineering).
 
-**Last verified:** 7 October 2026 (fourth claim-by-claim pass; every README link opened during research).
+**Last verified:** 7 October 2026 (fifth pass; added role origins, the 2026 deployment-company wave, Microsoft's own FDE organisations and job-market data). Diagrams use [Mermaid](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams), which GitHub renders natively.
 
 ### How to read this repo
 
@@ -23,9 +23,15 @@ Every factual claim links to its source. Microsoft Learn and Microsoft blogs are
 
 ## 📑 Table of Contents
 
-1. [The Microsoft FDE Persona](#-the-microsoft-fde-persona)
-2. [The Microsoft FDE Stack (Oct 2026)](#-the-microsoft-fde-stack-oct-2026)
-3. [The Master Curriculum](#-the-master-curriculum)
+1. [What an FDE Actually Is](#-what-an-fde-actually-is)
+   - [Origins: Palantir's Deltas and Echoes](#origins-palantirs-deltas-and-echoes)
+   - [FDE vs adjacent roles](#fde-vs-adjacent-roles-)
+   - [The 2025–2026 deployment-company wave](#the-20252026-deployment-company-wave)
+   - [What the job postings actually ask for](#what-the-job-postings-actually-ask-for)
+   - [The critiques](#the-critiques-know-them-before-the-interview)
+2. [The Microsoft FDE Persona](#-the-microsoft-fde-persona)
+3. [The Microsoft FDE Stack (Oct 2026)](#-the-microsoft-fde-stack-oct-2026)
+4. [The Master Curriculum](#-the-master-curriculum)
    - [Phase 1: Data Engineering on Microsoft Fabric](#phase-1-data-engineering-on-microsoft-fabric)
    - [Phase 2: Azure Architecture & AI Landing Zones](#phase-2-azure-architecture--ai-landing-zones)
    - [Phase 3: Identity, Security & Governance for Agents](#phase-3-identity-security--governance-for-agents)
@@ -33,19 +39,166 @@ Every factual claim links to its source. Microsoft Learn and Microsoft blogs are
    - [Phase 5: Hyper Velocity Engineering (HVE / RPI)](#phase-5-hyper-velocity-engineering-hve--rpi)
    - [Phase 6: The Consulting Mindset](#phase-6-the-consulting-mindset)
    - [Phase 7: FDE Developer Toolchain (MCP, Copilot cloud agent, azd)](#phase-7-fde-developer-toolchain-mcp-copilot-cloud-agent-azd)
-4. [The Applied AI Playbook](#-the-applied-ai-playbook)
-5. [Sovereign, Air-Gapped & Tactical-Edge Deployment](#-sovereign-air-gapped--tactical-edge-deployment)
-6. [Engagement Lifecycle (Day 0 → Day 90)](#-engagement-lifecycle-day-0--day-90)
-7. [Artifact Templates](#-artifact-templates)
-8. [Interview Blackbook](#-interview-blackbook)
-9. [Certification Path (post-2026 reset)](#-certification-path-post-2026-reset)
-10. [Reading List & Official Sources](#-reading-list--official-sources)
-11. [Glossary](#-glossary)
-12. [Contributing](#-contributing)
+5. [The Applied AI Playbook](#-the-applied-ai-playbook)
+6. [Sovereign, Air-Gapped & Tactical-Edge Deployment](#-sovereign-air-gapped--tactical-edge-deployment)
+7. [Engagement Lifecycle (Day 0 → Day 90)](#-engagement-lifecycle-day-0--day-90)
+8. [Artifact Templates](#-artifact-templates)
+9. [Interview Blackbook](#-interview-blackbook)
+10. [Certification Path (post-2026 reset)](#-certification-path-post-2026-reset)
+11. [Reading List & Official Sources](#-reading-list--official-sources)
+12. [Glossary](#-glossary)
+13. [Contributing](#-contributing)
+
+---
+
+## 🧭 What an FDE Actually Is
+
+### Definition
+
+A forward-deployed engineer is a customer-facing software engineer who implements a product inside a client organisation, often working alongside the client's staff for a set period. The name comes from the US military term for forward basing. The role overlaps with solutions architects, sales engineers, professional-services engineers, systems integrators and IT consultants ([Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer)).
+
+### Origins: Palantir's Deltas and Echoes
+
+- Palantir popularised the role and was using the title by 2009 ([Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer)). Third-party profiles credit Shyam Sankar, who joined as employee #13 in 2006, with creating the model ([Gold House](https://goldhouse.org/people/shyam-sankar/)).
+- Inside Palantir, forward-deployed software engineers are called **Deltas**. The name comes from early business-development teams being named after NATO-alphabet letters. Deltas sit in Business Development and deploy and customise Palantir's platforms to reach technical outcomes for customers ([Palantir blog](https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87)).
+- Deltas work with **Echoes** (deployment strategists): embedded people with domain depth who find the problem worth solving, which the Delta then prototypes fast ([third-party analysis](https://shivanathd.substack.com/p/the-difference-between-a-forward)).
+- ⚠️ Not to be confused with **"The Delta"** used later in this README, which is the original roadmap's name for the product-to-reality gap.
+
+The operating loop that makes the role different from consulting is the **feedback path back into the product** 💬:
+
+```mermaid
+flowchart LR
+    P["Customer problem<br/>+ business KPI"] --> E["Echo / deployment strategist<br/>scopes the problem worth solving"]
+    E --> D["Delta / FDE<br/>prototypes inside the customer environment"]
+    D --> PR["Production in the<br/>customer tenant"]
+    PR --> H["Handover<br/>runbooks · eval baseline · named owner"]
+    D -. "recurring patterns" .-> PG["Product group roadmap"]
+    PG -. "better platform" .-> D
+    PR -. "measured outcome" .-> P
+```
+
+### FDE vs adjacent roles 💬
+
+| | FDE | Solutions architect | SI / consultant | Product SWE |
+|---|---|---|---|---|
+| Writes production code in the customer's environment | ✅ core of the job | Rarely; designs and advises | Often, billed by the hour | No; ships to all customers |
+| Owns the customer outcome | ✅ | Shared with account team | Owns the statement of work | No |
+| Feeds patterns back to the product | ✅ explicit duty (e.g. Microsoft ISE postings list "product roadmap feedback" ([posting](https://jobs.anitab.org/companies/microsoft/jobs/79366247-principal-software-engineer-ise))) | Sometimes | No | Receives it |
+| Carries a sales quota | No: 0% of 1,000 analysed postings were quota-carrying ([Bloomberry](https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/)) | Often tied to consumption targets | Utilisation target | No |
+| Typical travel | Up to 25–50% in Microsoft and Deloitte postings ([ISE TPM](https://jobs.anitab.org/companies/microsoft/jobs/81414702-principal-technical-program-manager-forward-deployed-engineering), [ISE SWE](https://jobs.anitab.org/companies/microsoft/jobs/79366247-principal-software-engineer-ise), [Deloitte](https://apply.deloitte.com/en_US/careers/JobDetail/Forward-Deployed-Engineer-Microsoft-AI-Data/350591)) | Moderate | High | Low |
+
+### The 2025–2026 deployment-company wave
+
+In June 2025, Andreessen Horowitz framed the FDE as "services-led growth": AI startups trading near-term gross margin for enterprise lock-in, as Salesforce, ServiceNow and Workday once did ([a16z](https://a16z.com/services-led-growth/)). In 2026, the model labs and the hyperscalers all built dedicated deployment organisations.
+
+```mermaid
+timeline
+    title Forward deployed engineering goes mainstream
+    2006–2009 : Palantir builds the forward-deployed model, title in use by 2009
+    June 2025 : a16z frames the FDE as services-led growth
+    Jan–Oct 2025 : FDE postings up 1,165% year on year
+    March 2026 : Accenture launches a Microsoft FDE practice
+    May 2026 : OpenAI Deployment Company launches and acquires Tomoro : Ode with Anthropic launches with $1.5B : Google Cloud hiring hundreds of FDEs
+    June 2026 : AWS commits $1B to an FDE unit
+    July 2026 : Microsoft Frontier Company, $2.5B and 6,000 experts
+```
+
+| Organisation | Launched | Money | People | Engagement model | Source |
+|---|---|---|---|---|---|
+| **OpenAI Deployment Company** | 11 May 2026 | >US$4B initial capital from 19 investors, led by TPG | ~150 FDEs on day one via the Tomoro acquisition | Embedded FDE teams building and operating production AI | [OpenAI](https://openai.com/index/openai-launches-the-deployment-company/), [Pragmatic Engineer](https://blog.pragmaticengineer.com/the-pulse-forward-deployed-engineering-heats-up-again/) |
+| **Ode with Anthropic** | May 2026 | US$1.5B JV with Blackstone, Hellman & Friedman, Goldman Sachs and others | 100 engineers | "Claude-first", works with Anthropic's applied AI team | [TechCrunch](https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/) |
+| **Google Cloud** | 12 May 2026 | Not disclosed | Hiring hundreds | "Innovator-builder" who codes, debugs and ships agentic solutions in the customer environment | [Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer), [Google Careers](https://careers.google.com/jobs/results/119921187990971078-forward-deployed-engineer/) |
+| **AWS** | 30 Jun 2026 | US$1B | "Thousands" | Pods of 5–6 engineers, 45-day sprints, agents left running | [CIO Dive](https://www.ciodive.com/news/aws-creates-forward-deployed-engineering-hub/824109/) |
+| **Microsoft Frontier Company** | 2 Jul 2026 | US$2.5B | 6,000 industry and engineering experts | Co-design, deploy and continuously improve against measurable business outcomes | [Microsoft](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/) |
+
+```mermaid
+xychart-beta horizontal
+    title "Disclosed deployment commitments, 2026 (US$ billions)"
+    x-axis ["OpenAI DeployCo", "Microsoft Frontier", "Ode with Anthropic", "AWS FDE unit"]
+    y-axis "US$ billions" 0 --> 5
+    bar [4.0, 2.5, 1.5, 1.0]
+```
+
+⚠️ These figures aren't like for like. OpenAI's and Anthropic's are external capital raised for separate companies; Microsoft's and AWS's are internal investment. Google didn't disclose a figure.
+
+### What the job postings actually ask for
+
+An analysis of 1,000 FDE postings (via the Revealera jobs dataset, updated 25 Jan 2026) found ([Bloomberry](https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/)):
+
+- Postings grew **1,165%** year on year (Jan–Oct 2025 vs the same period in 2024). October 2025 was the highest month on record.
+- Median disclosed salary **US$173,816**; 70% mention equity; 58% of hiring companies have 11–200 employees.
+- Top responsibilities: working directly with customers (55%), building/deploying AI/ML systems (37%), integrating systems and APIs (32%).
+
+```mermaid
+xychart-beta horizontal
+    title "Share of FDE postings naming each skill (%)"
+    x-axis ["Python", "TypeScript", "AI agents", "AWS", "LLMs", "GCP", "Azure", "Kubernetes", "RAG"]
+    y-axis "% of postings" 0 --> 70
+    bar [66, 35, 35, 32, 31, 22, 18, 14, 12]
+```
+
+```mermaid
+pie showData title "Experience asked for in FDE postings (%)"
+    "Entry, 0–2 yrs" : 12
+    "Mid, 3–5 yrs" : 60
+    "Senior, 6–8 yrs" : 20
+    "Staff+, 9+ yrs" : 8
+```
+
+| Target industry | Share of postings |
+|---|---|
+| Financial services / banking | 24% |
+| Government / defence | 18% |
+| Healthcare / life sciences | 17% |
+| Insurance | 17% |
+| Energy / utilities | 13% |
+
+💬 Azure appears in only 18% of postings, behind AWS (32%) and GCP (22%). Most FDE prep material is AWS- or GCP-flavoured, which is why a Microsoft-specific roadmap is worth having. Government/defence at 18% matches the sovereign section of this guide.
+
+### The critiques (know them before the interview)
+
+- **Title arbitrage:** academics describe the title as rebranding solutions or integration engineering to signal importance ([Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer)).
+- **Convergence with consulting:** The Pragmatic Engineer argues the role is "about to become indistinguishable from a solutions architect or consultant", now that OpenAI and Anthropic hire FDEs into separate companies. Those FDEs get equity in the spin-out, not the parent lab ([Pragmatic Engineer](https://blog.pragmaticengineer.com/the-pulse-forward-deployed-engineering-heats-up-again/)).
+- **Labour-intensive economics:** the model deliberately gives up gross margin ([a16z](https://a16z.com/services-led-growth/)) and doesn't scale like self-serve software ([Pragmatic Engineer](https://blog.pragmaticengineer.com/the-pulse-forward-deployed-engineering-heats-up-again/)).
+- **Travel and time pressure** are the most cited downsides for engineers ([Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer)).
+
+💬 The defence that holds up: an FDE ships production code inside the customer's guardrails **and** changes the product. If neither happens, it's consulting.
 
 ---
 
 ## 🛸 The Microsoft FDE Persona
+
+### Who does FDE work in the Microsoft ecosystem
+
+| Organisation | What it is | Source |
+|---|---|---|
+| **Industry Solutions Engineering (ISE)** | A global engineering org that "has operated Microsoft's Forward Deployed Engineering function for over a decade". Small multidisciplinary teams embed with customers, co-engineer solutions, run lighthouse engagements and feed recurring patterns into product roadmaps. Work is done with **Hypervelocity Engineering (HVE)**, the method behind [HVE Core](https://microsoft.github.io/hve-core/) and [Phase 5](#phase-5-hyper-velocity-engineering-hve--rpi). Senior postings ask for 8+ years of coding and travel of up to 50% | [ISE posting](https://jobs.anitab.org/companies/microsoft/jobs/79366247-principal-software-engineer-ise), [ISE FDE TPM posting](https://jobs.anitab.org/companies/microsoft/jobs/81414702-principal-technical-program-manager-forward-deployed-engineering), [Code-With playbook](https://microsoft.github.io/code-with-engineering-playbook/ISE/) |
+| **Microsoft Frontier Company** | New operating business announced 2 Jul 2026 by Judson Althoff (CEO, Commercial Business), with Rodrigo Kede Lima as President. US$2.5B and 6,000 industry and engineering experts embedded at customers. Combines industry knowledge, change management and AI engineering; customer "IQ" (data, IP, workflows) isn't used to train models in ways that commoditise it. Early customers: LSEG, Land O'Lakes, Unilever, Novo Nordisk. Microsoft says it "goes beyond what has been labeled as Forward Deployed Engineering" | [Microsoft](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/), [TechCrunch](https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/) |
+| **FDE-titled engineering roles** | Postings titled "Software Engineer – Forward Deployed Engineer" (Washington, Oct 2026): partner with customers to define success criteria, then build, deploy and operate production software from prototype to production. Posted pay range US$85,400–168,100 (US standard) | [Job aggregator copy](https://zapply.jobs/jobs/26fc61ca-ad9a-4c72-9158-9b034a0bb550/) of the Microsoft posting |
+| **Partner FDE practices** | Frontier Company partners: Accenture, Capgemini, EY, KPMG, PwC. Accenture launched a Microsoft FDE practice on 18 Mar 2026 (Microsoft brings the platform; Accenture leads change management and process redesign). Deloitte's "Forward Deployed Engineer, Microsoft AI & Data" asks for 1+ year of hands-on Azure AI Foundry, 50% travel, US$134,500–265,100 | [Microsoft](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/), [Accenture](https://newsroom.accenture.com/news/2026/accenture-launches-microsoft-forward-deployed-engineering-practice-to-help-organizations-scale-ai-across-the-enterprise), [Deloitte](https://apply.deloitte.com/en_US/careers/JobDetail/Forward-Deployed-Engineer-Microsoft-AI-Data/350591) |
+
+```mermaid
+flowchart TB
+    subgraph MSFT["Microsoft"]
+        FC["Microsoft Frontier Company<br/>US$2.5B · 6,000 experts · Jul 2026"]
+        ISE["Industry Solutions Engineering<br/>FDE function for 10+ years · HVE"]
+        PG["Product groups<br/>Foundry · Fabric · Copilot · Entra"]
+    end
+    subgraph PARTNERS["Partner FDE practices"]
+        PX["Accenture · Capgemini · EY · KPMG · PwC · Deloitte"]
+    end
+    C["Customer tenant<br/>measurable business outcome"]
+    FC --> C
+    ISE --> C
+    PX --> C
+    FC --- PX
+    ISE -. "patterns & roadmap feedback" .-> PG
+    PG -. "platform" .-> C
+```
+
+⚠️ Microsoft hasn't said publicly how ISE relates to Frontier Company, or where the 6,000 people come from. Don't assume one replaced the other.
+
+### Where the Delta comes from
 
 The original roadmap describes the FDE as part software engineer, part AI/data architect and part strategic consultant. Their job is to close "The Delta", meaning the gap between a core product and a client's messy reality ([source](https://github.com/pierpaolo28/Awesome-FDE-Roadmap)).
 
@@ -84,6 +237,37 @@ The original roadmap describes the FDE as part software engineer, part AI/data a
 | **M365 grounding for any agent** | Work IQ APIs (A2A, remote MCP, REST) | ✅ GA 16 Jun 2026 ([Microsoft](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/)) |
 | **Observability** | Azure Monitor, Application Insights, OpenTelemetry, Foundry tracing | MAF harness ships OpenTelemetry built in ([InfoQ](https://www.infoq.com/news/2026/08/agent-framework-harness-ga/)) |
 | **Sovereign / edge** | Azure Local (incl. disconnected), Azure Arc, Foundry Local, M365 Local | See [Sovereign](#-sovereign-air-gapped--tactical-edge-deployment) |
+
+### How the stack fits together 💬
+
+A typical connected agent engagement, with each box linked to its phase below:
+
+```mermaid
+flowchart LR
+    U["Users<br/>Teams · M365 Copilot"] --> CH["Channel<br/>Copilot Studio · declarative agent<br/>Activity Protocol"]
+    CH --> GW
+    subgraph LZ["AI Landing Zone · private networking (Phase 2)"]
+        GW["APIM AI gateway<br/>token limits · semantic cache · content safety"]
+        AG["Foundry hosted agent<br/>MAF harness · Toolbox MCP endpoint (Phase 4)"]
+        M["Models in Foundry"]
+        K1["Foundry IQ<br/>AI Search agentic retrieval"]
+    end
+    GW --> AG
+    AG --> M
+    AG --> K1
+    AG --> K2["Work IQ<br/>mail · files · meetings"]
+    AG --> K3["Fabric IQ / data agents<br/>OneLake Gold layer (Phase 1)"]
+    subgraph GOV["Governance plane (Phase 3)"]
+        ID["Entra Agent ID"]
+        A365["Agent 365 registry"]
+        PV["Purview DSPM / DLP"]
+        DF["Defender for AI"]
+        CP["Foundry Control Plane"]
+    end
+    GOV -. "identity · policy · threat signals" .-> AG
+```
+
+⚠️ The arrow from Teams/M365 into a private landing zone is the hardest part to get through security review. See the M365 publishing caveat in [Phase 2](#phase-2-azure-architecture--ai-landing-zones).
 
 ---
 
@@ -325,6 +509,26 @@ HVE Core is Microsoft's open-source set of GitHub Copilot agents, prompts, instr
 | Business-data Q&A over Fabric | Fabric data agent → Copilot Studio | GA route since FabCon Europe 2026 |
 | Fully disconnected | Foundry Local on Azure Local | 🧪 Preview |
 
+The same choice as a decision tree:
+
+```mermaid
+flowchart TD
+    Q0{"Must run fully<br/>disconnected?"} -->|Yes| FL["Foundry Local on Azure Local 🧪"]
+    Q0 -->|No| Q1{"Business users build it,<br/>lives in Teams / M365?"}
+    Q1 -->|Yes| CS["Copilot Studio"]
+    Q1 -->|No| Q2{"Only extending M365 Copilot<br/>with knowledge + actions?"}
+    Q2 -->|Yes| DA["Declarative agent"]
+    Q2 -->|No| Q3{"Agent already<br/>runs elsewhere?"}
+    Q3 -->|Yes| RA["Foundry Responses API"]
+    Q3 -->|No| Q4{"Need code control, multi-agent<br/>or long-running sessions?"}
+    Q4 -->|Yes| HA["MAF → Foundry hosted agent"]
+    Q4 -->|No| PA["Foundry prompt agent"]
+    CS -.-> KB["Ground on Foundry IQ · Work IQ · Fabric data agents"]
+    DA -.-> KB
+    HA -.-> KB
+    PA -.-> KB
+```
+
 ### Multi-agent orchestration (MAF)
 
 | Pattern | Use when ([MAF blog](https://devblogs.microsoft.com/agent-framework/agent-frameworks-orchestration-patterns-reach-1-0/)) |
@@ -398,6 +602,19 @@ HVE Core is Microsoft's open-source set of GitHub Copilot agents, prompts, instr
 | Weeks 7–10 | Hardening | AI Landing Zone fit, APIM gateway, tracing, red-team, cost model |
 | Weeks 11–13 | Handover | Runbooks, RACI, eval baseline, backlog (Backlog Manager) |
 
+```mermaid
+timeline
+    title FDE engagement, Day 0 to Day 90
+    Day 0 : Access pack and Entra roles
+    Week 1 : Discovery and data audit : Stakeholder map and KPIs
+    Week 2 : ADRs : Threat model and RAI assessment
+    Weeks 3–6 : MVP in the customer tenant : Golden eval set : CI/CD
+    Weeks 7–10 : Landing-zone fit and APIM gateway : Tracing and red-team : Cost model
+    Weeks 11–13 : Runbooks, RACI, eval baseline : Handover to a named owner
+```
+
+💬 For comparison, AWS runs its FDE engagements as 45-day sprints with pods of 5–6 engineers ([CIO Dive](https://www.ciodive.com/news/aws-creates-forward-deployed-engineering-hub/824109/)). A 90-day plan is long by that standard, so agree up front which milestones the customer will judge you on.
+
 ---
 
 ## 📋 Artifact Templates
@@ -442,6 +659,11 @@ Copy-paste templates live in [`/templates`](./templates):
 - Since July 2026, what licence does Defender need to protect Foundry and Copilot Studio agents?
 - Which evaluators should you avoid when the agent uses the Azure AI Search tool, and what's the workaround?
 - Work IQ vs Microsoft Graph + your own RAG: when do you choose each?
+- What are a Palantir Delta and Echo, and why does the role need both?
+- Which Microsoft organisation has run its FDE function for over a decade, and what delivery method does it use?
+- What did Microsoft announce on 2 Jul 2026, and how does it say it differs from "FDE"?
+- How do OpenAI's, Anthropic's, AWS's and Microsoft's 2026 deployment organisations differ in funding and structure?
+- Answer the "isn't this just consulting with a better title?" critique.
 
 ---
 
@@ -472,9 +694,15 @@ Microsoft retired and replaced several AI, developer and security exams in 2026.
 
 ## 📚 Reading List & Official Sources
 
+**The FDE role**
+
+- [Wikipedia: Forward deployed engineer](https://en.wikipedia.org/wiki/Forward_deployed_engineer) · [Palantir: Dev versus Delta](https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87) · [a16z: Trading Margin for Moat](https://a16z.com/services-led-growth/)
+- [Microsoft Frontier Company announcement](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/) · [ISE Code-With Engineering Playbook](https://microsoft.github.io/code-with-engineering-playbook/ISE/) · [Accenture Microsoft FDE practice](https://newsroom.accenture.com/news/2026/accenture-launches-microsoft-forward-deployed-engineering-practice-to-help-organizations-scale-ai-across-the-enterprise)
+- [Bloomberry: 1,000 FDE postings analysed](https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/) · [The Pragmatic Engineer: FDE heats up again](https://blog.pragmaticengineer.com/the-pulse-forward-deployed-engineering-heats-up-again/)
+
 **Frameworks**
 
-[ALZ-Bicep (AVM migration notes)](https://github.com/Azure/ALZ-Bicep)
+- [ALZ-Bicep (AVM migration notes)](https://github.com/Azure/ALZ-Bicep)
 - [Well-Architected Framework: AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/)
 - [Azure AI Landing Zones](https://github.com/Azure/AI-Landing-Zones)
 
@@ -519,6 +747,10 @@ Microsoft retired and replaced several AI, developer and security exams in 2026.
 | Term | Meaning |
 |---|---|
 | **The Delta** | Gap between the core product and the customer's reality |
+| **Delta / Echo (Palantir)** | Palantir's internal names for forward-deployed software engineers and deployment strategists |
+| **ISE** | Industry Solutions Engineering: Microsoft's long-running forward-deployed engineering organisation |
+| **Microsoft Frontier Company** | Microsoft's US$2.5B customer-embedded AI deployment business (Jul 2026) |
+| **Services-led growth** | a16z's term for trading services margin for enterprise lock-in via FDEs |
 | **ALDO** | Azure Local Disconnected Operations |
 | **AVM** | Azure Verified Modules: Microsoft-supported IaC modules |
 | **AI Landing Zone** | Agent Landing Zone + AI Gateway Landing Zone reference implementation |
