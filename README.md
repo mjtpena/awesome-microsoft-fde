@@ -1,783 +1,384 @@
-# 🚀 Awesome Microsoft FDE Roadmap
+# 🚀 Awesome Microsoft FDE
 
-> The roadmap to becoming a **Forward Deployed Engineer (FDE) on the Microsoft Cloud**: Azure, Microsoft Fabric, Microsoft Foundry, Copilot Studio, Microsoft 365 Copilot, GitHub Copilot, Entra, Purview, Defender, and the Microsoft Sovereign Cloud.
->
-> Structure inspired by [pierpaolo28/Awesome-FDE-Roadmap](https://github.com/pierpaolo28/Awesome-FDE-Roadmap) (GCP/ADK-centric). Delivery method based on [Microsoft HVE Core](https://microsoft.github.io/hve-core/) (Hyper Velocity Engineering).
+> A beginner-friendly guide to becoming a **Forward Deployed Engineer (FDE)**. Part 1 explains the role and the skills in plain language and applies to any company. Part 2 shows how it's done on Microsoft's cloud.
 
-**Last verified:** 7 October 2026 (fifth pass; added role origins, the 2026 deployment-company wave, Microsoft's own FDE organisations and job-market data). Diagrams use [Mermaid](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams), which GitHub renders natively.
+**Who this is for:** software engineers, data people, consultants and students who keep hearing "forward deployed engineer" and want to know what it is, whether it suits them, and how to get there.
 
-### How to read this repo
+**How to use it:** read Part 1 top to bottom (about 15 minutes). Then pick the parts of Part 2 you need. Every acronym is spelled out the first time it appears and listed in the [glossary](#-glossary). Sources are numbered footnotes at the bottom, so the text stays readable. The fully sourced technical detail lives in [`docs/`](#-go-deeper).
 
-| Marker | Meaning |
-|---|---|
-| ✅ **GA** | Generally available, per the linked source |
-| 🧪 **Preview** | Public or private preview: no SLA, may change |
-| 🔜 **Announced** | Announced or on the roadmap, not yet shipped |
-| 💬 **Field guidance** | Opinion and practitioner judgement, not a sourced fact |
-| ⚠️ **Watch out** | Gotcha, breaking change, or conflicting sources |
-| 🗓 **Changed since Build** | Status moved after Build 2026; older blogs will be wrong |
-
-Every factual claim links to its source. Microsoft Learn and Microsoft blogs are preferred, and third-party sources are named as such. Text marked 💬 is opinion.
+*Facts checked on 7 October 2026. This field moves fast, so check dates before relying on anything.*
 
 ---
 
-## 📑 Table of Contents
+## 📑 Contents
 
-1. [What an FDE Actually Is](#-what-an-fde-actually-is)
-   - [Origins: Palantir's Deltas and Echoes](#origins-palantirs-deltas-and-echoes)
-   - [FDE vs adjacent roles](#fde-vs-adjacent-roles-)
-   - [The 2025–2026 deployment-company wave](#the-20252026-deployment-company-wave)
-   - [What the job postings actually ask for](#what-the-job-postings-actually-ask-for)
-   - [The critiques](#the-critiques-know-them-before-the-interview)
-2. [The Microsoft FDE Persona](#-the-microsoft-fde-persona)
-3. [The Microsoft FDE Stack (Oct 2026)](#-the-microsoft-fde-stack-oct-2026)
-4. [The Master Curriculum](#-the-master-curriculum)
-   - [Phase 1: Data Engineering on Microsoft Fabric](#phase-1-data-engineering-on-microsoft-fabric)
-   - [Phase 2: Azure Architecture & AI Landing Zones](#phase-2-azure-architecture--ai-landing-zones)
-   - [Phase 3: Identity, Security & Governance for Agents](#phase-3-identity-security--governance-for-agents)
-   - [Phase 4: Applied AI: Foundry, Agent Framework & Copilot](#phase-4-applied-ai-foundry-agent-framework--copilot)
-   - [Phase 5: Hyper Velocity Engineering (HVE / RPI)](#phase-5-hyper-velocity-engineering-hve--rpi)
-   - [Phase 6: The Consulting Mindset](#phase-6-the-consulting-mindset)
-   - [Phase 7: FDE Developer Toolchain (MCP, Copilot cloud agent, azd)](#phase-7-fde-developer-toolchain-mcp-copilot-cloud-agent-azd)
-5. [The Applied AI Playbook](#-the-applied-ai-playbook)
-6. [Sovereign, Air-Gapped & Tactical-Edge Deployment](#-sovereign-air-gapped--tactical-edge-deployment)
-7. [Engagement Lifecycle (Day 0 → Day 90)](#-engagement-lifecycle-day-0--day-90)
-8. [Artifact Templates](#-artifact-templates)
-9. [Interview Blackbook](#-interview-blackbook)
-10. [Certification Path (post-2026 reset)](#-certification-path-post-2026-reset)
-11. [Reading List & Official Sources](#-reading-list--official-sources)
-12. [Glossary](#-glossary)
-13. [Contributing](#-contributing)
+**Part 1: The role (applies everywhere)**
+
+1. [What is a forward deployed engineer?](#1-what-is-a-forward-deployed-engineer)
+2. [How it differs from similar jobs](#2-how-it-differs-from-similar-jobs)
+3. [Why everyone is hiring FDEs now](#3-why-everyone-is-hiring-fdes-now)
+4. [What the work looks like, start to finish](#4-what-the-work-looks-like-start-to-finish)
+5. [The six skill areas](#5-the-six-skill-areas)
+6. [A learning path](#6-a-learning-path)
+7. [The honest downsides](#7-the-honest-downsides)
+
+**Part 2: Doing it on Microsoft**
+
+8. [Who does FDE work at Microsoft](#8-who-does-fde-work-at-microsoft)
+9. [The Microsoft toolbox, translated](#9-the-microsoft-toolbox-translated)
+10. [Choosing where to build an AI agent](#10-choosing-where-to-build-an-ai-agent)
+11. [Microsoft certifications worth having](#11-microsoft-certifications-worth-having)
+
+**Part 3: Practise and go deeper**
+
+12. [Practise: four interview scenarios](#12-practise-four-interview-scenarios)
+13. [Templates](#13-templates)
+14. [Go deeper](#-go-deeper)
+15. [Glossary](#-glossary)
 
 ---
 
-## 🧭 What an FDE Actually Is
+# Part 1: The role
 
-### Definition
+## 1. What is a forward deployed engineer?
 
-A forward-deployed engineer is a customer-facing software engineer who implements a product inside a client organisation, often working alongside the client's staff for a set period. The name comes from the US military term for forward basing. The role overlaps with solutions architects, sales engineers, professional-services engineers, systems integrators and IT consultants ([Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer)).
+A forward deployed engineer is **a software engineer who works inside a customer's organisation to make a product solve that customer's real problem**, and then tells the product team what they learned.[^wiki]
 
-### Origins: Palantir's Deltas and Echoes
-
-- Palantir popularised the role and was using the title by 2009 ([Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer)). Third-party profiles credit Shyam Sankar, who joined as employee #13 in 2006, with creating the model ([Gold House](https://goldhouse.org/people/shyam-sankar/)).
-- Inside Palantir, forward-deployed software engineers are called **Deltas**. The name comes from early business-development teams being named after NATO-alphabet letters. Deltas sit in Business Development and deploy and customise Palantir's platforms to reach technical outcomes for customers ([Palantir blog](https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87)).
-- Deltas work with **Echoes** (deployment strategists): embedded people with domain depth who find the problem worth solving, which the Delta then prototypes fast ([third-party analysis](https://shivanathd.substack.com/p/the-difference-between-a-forward)).
-- ⚠️ Not to be confused with **"The Delta"** used later in this README, which is the original roadmap's name for the product-to-reality gap.
-
-The operating loop that makes the role different from consulting is the **feedback path back into the product** 💬:
+Most software is built once and used by many customers. But real organisations are messy: their data is scattered across old systems, security teams lock things down, networks are restricted, and regulations apply. The product works in the demo, then hits all of this. That distance between "works in the demo" and "works here, every day" is often called **the gap**, and closing it is the FDE's job.
 
 ```mermaid
 flowchart LR
-    P["Customer problem<br/>+ business KPI"] --> E["Echo / deployment strategist<br/>scopes the problem worth solving"]
-    E --> D["Delta / FDE<br/>prototypes inside the customer environment"]
-    D --> PR["Production in the<br/>customer tenant"]
-    PR --> H["Handover<br/>runbooks · eval baseline · named owner"]
-    D -. "recurring patterns" .-> PG["Product group roadmap"]
-    PG -. "better platform" .-> D
-    PR -. "measured outcome" .-> P
+    P["The product<br/>works in the demo"] --> G{{"The gap<br/>messy data · strict security rules<br/>old systems · regulations · busy people"}}
+    G --> R["Running in production<br/>for this customer"]
+    F(["Forward deployed engineer"]) -. "closes" .-> G
+    G -. "lessons learned" .-> P
 ```
 
-### FDE vs adjacent roles 💬
+**Where the name comes from.** "Forward deployed" is military language for being stationed close to the action. The data-analytics company Palantir made the job title popular in the late 2000s.[^wiki] Palantir sums up the difference between its two kinds of engineers like this: a product engineer works on **one capability for many customers**, while a forward deployed engineer works with **one customer, using many capabilities**.[^palantir]
 
-| | FDE | Solutions architect | SI / consultant | Product SWE |
+## 2. How it differs from similar jobs
+
+| | Product engineer | Solutions architect | Consultant | **Forward deployed engineer** |
 |---|---|---|---|---|
-| Writes production code in the customer's environment | ✅ core of the job | Rarely; designs and advises | Often, billed by the hour | No; ships to all customers |
-| Owns the customer outcome | ✅ | Shared with account team | Owns the statement of work | No |
-| Feeds patterns back to the product | ✅ explicit duty (e.g. Microsoft ISE postings list "product roadmap feedback" ([posting](https://jobs.anitab.org/companies/microsoft/jobs/79366247-principal-software-engineer-ise))) | Sometimes | No | Receives it |
-| Carries a sales quota | No: 0% of 1,000 analysed postings were quota-carrying ([Bloomberry](https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/)) | Often tied to consumption targets | Utilisation target | No |
-| Typical travel | Up to 25–50% in Microsoft and Deloitte postings ([ISE TPM](https://jobs.anitab.org/companies/microsoft/jobs/81414702-principal-technical-program-manager-forward-deployed-engineering), [ISE SWE](https://jobs.anitab.org/companies/microsoft/jobs/79366247-principal-software-engineer-ise), [Deloitte](https://apply.deloitte.com/en_US/careers/JobDetail/Forward-Deployed-Engineer-Microsoft-AI-Data/350591)) | Moderate | High | Low |
+| Works for | Every customer at once | Customers, during the sale | One client, under a contract | **One customer at a time** |
+| Main output | Product features | Designs and advice | Reports and delivered projects | **Working software running at the customer** |
+| Writes production code? | Yes | Rarely | Sometimes | **Yes, every day** |
+| Changes the product? | Yes | Sometimes | No | **Yes, by feeding lessons back** |
+| Has a sales target? | No | Often | Billable-hours target | **Usually not**[^bloomberry] |
 
-### The 2025–2026 deployment-company wave
+The last two rows matter most. An FDE **builds real software** (not slides) **and feeds what they learn back into the product** (unlike a consultant). Job postings from Microsoft and Anthropic both list this feedback loop as a duty.[^ise-swe][^anthropic-job]
 
-In June 2025, Andreessen Horowitz framed the FDE as "services-led growth": AI startups trading near-term gross margin for enterprise lock-in, as Salesforce, ServiceNow and Workday once did ([a16z](https://a16z.com/services-led-growth/)). In 2026, the model labs and the hyperscalers all built dedicated deployment organisations.
+```mermaid
+quadrantChart
+    title Where the jobs sit (a rough sketch, not measured data)
+    x-axis Mostly advises --> Mostly builds
+    y-axis Serves one customer --> Serves every customer
+    quadrant-1 Builds for everyone
+    quadrant-2 Advises many
+    quadrant-3 Advises one
+    quadrant-4 Builds for one
+    Product engineer: [0.85, 0.88]
+    Solutions architect: [0.3, 0.62]
+    Sales engineer: [0.15, 0.75]
+    Consultant: [0.4, 0.2]
+    Forward deployed engineer: [0.78, 0.15]
+```
+
+## 3. Why everyone is hiring FDEs now
+
+AI models became very capable very quickly, but most companies struggle to turn them into something that runs safely every day on their own data. AI vendors found that sending engineers to sit with the customer is the fastest way to get there. Investors call this "services-led growth": the vendor accepts lower profit margins in exchange for customers who stay.[^a16z]
+
+- Job postings with "forward deployed engineer" in the title grew about **12-fold** (up 1,165%) in 2025 compared with 2024.[^bloomberry]
+- In 2026, the biggest AI and cloud companies all launched dedicated FDE organisations:
 
 ```mermaid
 timeline
     title Forward deployed engineering goes mainstream
-    2006–2009 : Palantir builds the forward-deployed model, title in use by 2009
-    June 2025 : a16z frames the FDE as services-led growth
-    Jan–Oct 2025 : FDE postings up 1,165% year on year
-    March 2026 : Accenture launches a Microsoft FDE practice
-    May 2026 : OpenAI Deployment Company launches and acquires Tomoro : Ode with Anthropic launches with $1.5B : Google Cloud hiring hundreds of FDEs
-    June 2026 : AWS commits $1B to an FDE unit
-    July 2026 : Microsoft Frontier Company, $2.5B and 6,000 experts
+    Late 2000s : Palantir popularises the role
+    June 2025 : Investors call FDEs the hottest job in startups
+    2025 : Job postings grow about 12-fold
+    May 2026 : OpenAI launches a deployment company : Anthropic launches Ode with private-equity partners : Google Cloud hires hundreds of FDEs
+    June 2026 : AWS commits $1 billion
+    July 2026 : Microsoft launches Frontier Company with $2.5 billion
 ```
-
-| Organisation | Launched | Money | People | Engagement model | Source |
-|---|---|---|---|---|---|
-| **OpenAI Deployment Company** | 11 May 2026 | >US$4B initial capital from 19 investors, led by TPG | ~150 FDEs on day one via the Tomoro acquisition | Embedded FDE teams building and operating production AI | [OpenAI](https://openai.com/index/openai-launches-the-deployment-company/), [Pragmatic Engineer](https://blog.pragmaticengineer.com/the-pulse-forward-deployed-engineering-heats-up-again/) |
-| **Ode with Anthropic** | May 2026 | US$1.5B JV with Blackstone, Hellman & Friedman, Goldman Sachs and others | 100 engineers | "Claude-first", works with Anthropic's applied AI team | [TechCrunch](https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/) |
-| **Google Cloud** | 12 May 2026 | Not disclosed | Hiring hundreds | "Innovator-builder" who codes, debugs and ships agentic solutions in the customer environment | [Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer), [Google Careers](https://careers.google.com/jobs/results/119921187990971078-forward-deployed-engineer/) |
-| **AWS** | 30 Jun 2026 | US$1B | "Thousands" | Pods of 5–6 engineers, 45-day sprints, agents left running | [CIO Dive](https://www.ciodive.com/news/aws-creates-forward-deployed-engineering-hub/824109/) |
-| **Microsoft Frontier Company** | 2 Jul 2026 | US$2.5B | 6,000 industry and engineering experts | Co-design, deploy and continuously improve against measurable business outcomes | [Microsoft](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/) |
 
 ```mermaid
 xychart-beta horizontal
-    title "Disclosed deployment commitments, 2026 (US$ billions)"
-    x-axis ["OpenAI DeployCo", "Microsoft Frontier", "Ode with Anthropic", "AWS FDE unit"]
+    title "Money committed to FDE-style organisations in 2026 (US$ billions)"
+    x-axis ["OpenAI Deployment Co.", "Microsoft Frontier Co.", "Ode with Anthropic", "AWS FDE unit"]
     y-axis "US$ billions" 0 --> 5
     bar [4.0, 2.5, 1.5, 1.0]
 ```
 
-⚠️ These figures aren't like for like. OpenAI's and Anthropic's are external capital raised for separate companies; Microsoft's and AWS's are internal investment. Google didn't disclose a figure.
+These numbers aren't like for like: OpenAI's and Anthropic's figures are money raised from outside investors, while Microsoft's and AWS's are their own internal spending. Google didn't publish a figure.[^openai][^ode][^msft-frontier][^aws][^google]
 
-### What the job postings actually ask for
+## 4. What the work looks like, start to finish
 
-An analysis of 1,000 FDE postings (via the Revealera jobs dataset, updated 25 Jan 2026) found ([Bloomberry](https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/)):
+A single customer engagement usually runs for **6 to 13 weeks**. AWS, for example, runs 45-day sprints with teams of five or six engineers.[^aws] The steps are the same whatever the platform:
 
-- Postings grew **1,165%** year on year (Jan–Oct 2025 vs the same period in 2024). October 2025 was the highest month on record.
-- Median disclosed salary **US$173,816**; 70% mention equity; 58% of hiring companies have 11–200 employees.
-- Top responsibilities: working directly with customers (55%), building/deploying AI/ML systems (37%), integrating systems and APIs (32%).
+```mermaid
+flowchart LR
+    A["1. Get access<br/>accounts, permissions,<br/>data, code repository"] --> B["2. Understand<br/>the real problem<br/>and how to measure success"]
+    B --> C["3. Design<br/>architecture, security,<br/>risks, written decisions"]
+    C --> D["4. Build a first version<br/>in the customer's environment"]
+    D --> E["5. Make it production-ready<br/>tests, monitoring, cost,<br/>security review"]
+    E --> F["6. Hand over<br/>runbooks, training,<br/>a named owner"]
+    F -. "lessons back to the product team" .-> P(["Product"])
+```
+
+| Step | What you actually do | What you leave behind |
+|---|---|---|
+| 1. Get access | Chase accounts and permissions, and find the data. This often takes longer than people expect | A list of who granted what |
+| 2. Understand | Interview people. Keep asking "why?" until you reach a business number, such as hours saved or errors avoided | A one-page problem statement and success measure |
+| 3. Design | Decide how it will work and how it stays secure. Write each important decision down | Architecture diagram and decision records |
+| 4. Build | Ship something small that works on real data, quickly, and show it every week | Working code in the customer's systems |
+| 5. Harden | Add tests, including tests of the AI's answers. Add monitoring, cost controls and security fixes | A system the customer's security team signs off |
+| 6. Hand over | Teach the customer's team to run it without you | Runbooks, a test baseline and a backlog of next steps |
+
+**The rule of thumb:** you're done when the system runs in the customer's environment, has tests that prove it works, and someone at the customer owns it. Merging code isn't the finish line.
+
+## 5. The six skill areas
+
+FDEs are generalists. You don't need to be an expert in all six areas, but you need to be dangerous in each.
+
+| Skill area | Why it matters | Where a beginner starts |
+|---|---|---|
+| **1. Software engineering** | You ship production code, often alone | Python, Git, writing tests, calling web APIs |
+| **2. Data** | Almost every project starts with "where is the data and is it any good?" | SQL, cleaning data, building simple data pipelines |
+| **3. Cloud and networking** | Customer systems run in the cloud behind strict network rules | One cloud's basics: accounts, virtual networks, private connections, infrastructure-as-code (setting up servers from scripts instead of by hand) |
+| **4. Security and identity** | Security review is where most projects stall | Who or what is allowed to do what: sign-in, permissions, secrets, data protection |
+| **5. AI applications** | Most FDE work today is getting AI into production | The five AI ideas below |
+| **6. Consulting skills** | You work with executives, security teams and end users | Asking good questions, writing clearly, running a workshop, handing over |
+
+**Five AI ideas to understand first** (each one is spelled out in the [glossary](#-glossary)):
+
+1. **Large language model (LLM):** the AI model that reads and writes text, such as GPT or Claude.
+2. **Retrieval-augmented generation (RAG):** the AI looks up the company's own documents before it answers, so it answers from facts rather than memory.
+3. **Agent:** an AI model that can take actions with tools (search, send an email, update a record), not just chat.
+4. **Evaluation:** automated tests for AI answers. Is it correct? Is it based on the documents? Is it safe?
+5. **Model Context Protocol (MCP):** an open standard for plugging tools and data into AI agents, a bit like USB for AI.
+
+**What employers ask for.** In an analysis of 1,000 FDE job postings, Python was by far the most requested skill:[^bloomberry]
 
 ```mermaid
 xychart-beta horizontal
-    title "Share of FDE postings naming each skill (%)"
-    x-axis ["Python", "TypeScript", "AI agents", "AWS", "LLMs", "GCP", "Azure", "Kubernetes", "RAG"]
+    title "Share of FDE job postings asking for each skill (%)"
+    x-axis ["Python", "TypeScript", "AI agents", "AWS", "LLMs", "Google Cloud", "Azure", "Kubernetes", "RAG"]
     y-axis "% of postings" 0 --> 70
     bar [66, 35, 35, 32, 31, 22, 18, 14, 12]
 ```
 
-```mermaid
-pie showData title "Experience asked for in FDE postings (%)"
-    "Entry, 0–2 yrs" : 12
-    "Mid, 3–5 yrs" : 60
-    "Senior, 6–8 yrs" : 20
-    "Staff+, 9+ yrs" : 8
-```
+Most postings want 3–5 years of experience (60%), but 12% are open to people with 0–2 years. The median advertised salary was about US$174,000.[^bloomberry] Posted pay varies a lot by employer: one Microsoft FDE posting lists US$85,000–168,000, while Anthropic lists US$200,000–300,000 for New York.[^msft-job][^anthropic-job]
 
-| Target industry | Share of postings |
-|---|---|
-| Financial services / banking | 24% |
-| Government / defence | 18% |
-| Healthcare / life sciences | 17% |
-| Insurance | 17% |
-| Energy / utilities | 13% |
-
-💬 Azure appears in only 18% of postings, behind AWS (32%) and GCP (22%). Most FDE prep material is AWS- or GCP-flavoured, which is why a Microsoft-specific roadmap is worth having. Government/defence at 18% matches the sovereign section of this guide.
-
-### The critiques (know them before the interview)
-
-- **Title arbitrage:** academics describe the title as rebranding solutions or integration engineering to signal importance ([Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer)).
-- **Convergence with consulting:** The Pragmatic Engineer argues the role is "about to become indistinguishable from a solutions architect or consultant", now that OpenAI and Anthropic hire FDEs into separate companies. Those FDEs get equity in the spin-out, not the parent lab ([Pragmatic Engineer](https://blog.pragmaticengineer.com/the-pulse-forward-deployed-engineering-heats-up-again/)).
-- **Labour-intensive economics:** the model deliberately gives up gross margin ([a16z](https://a16z.com/services-led-growth/)) and doesn't scale like self-serve software ([Pragmatic Engineer](https://blog.pragmaticengineer.com/the-pulse-forward-deployed-engineering-heats-up-again/)).
-- **Travel and time pressure** are the most cited downsides for engineers ([Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer)).
-
-💬 The defence that holds up: an FDE ships production code inside the customer's guardrails **and** changes the product. If neither happens, it's consulting.
-
----
-
-## 🛸 The Microsoft FDE Persona
-
-### Who does FDE work in the Microsoft ecosystem
-
-| Organisation | What it is | Source |
-|---|---|---|
-| **Industry Solutions Engineering (ISE)** | A global engineering org that "has operated Microsoft's Forward Deployed Engineering function for over a decade". Small multidisciplinary teams embed with customers, co-engineer solutions, run lighthouse engagements and feed recurring patterns into product roadmaps. Work is done with **Hypervelocity Engineering (HVE)**, the method behind [HVE Core](https://microsoft.github.io/hve-core/) and [Phase 5](#phase-5-hyper-velocity-engineering-hve--rpi). Senior postings ask for 8+ years of coding and travel of up to 50% | [ISE posting](https://jobs.anitab.org/companies/microsoft/jobs/79366247-principal-software-engineer-ise), [ISE FDE TPM posting](https://jobs.anitab.org/companies/microsoft/jobs/81414702-principal-technical-program-manager-forward-deployed-engineering), [Code-With playbook](https://microsoft.github.io/code-with-engineering-playbook/ISE/) |
-| **Microsoft Frontier Company** | New operating business announced 2 Jul 2026 by Judson Althoff (CEO, Commercial Business), with Rodrigo Kede Lima as President. US$2.5B and 6,000 industry and engineering experts embedded at customers. Combines industry knowledge, change management and AI engineering; customer "IQ" (data, IP, workflows) isn't used to train models in ways that commoditise it. Early customers: LSEG, Land O'Lakes, Unilever, Novo Nordisk. Microsoft says it "goes beyond what has been labeled as Forward Deployed Engineering" | [Microsoft](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/), [TechCrunch](https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/) |
-| **FDE-titled engineering roles** | Postings titled "Software Engineer – Forward Deployed Engineer" (Washington, Oct 2026): partner with customers to define success criteria, then build, deploy and operate production software from prototype to production. Posted pay range US$85,400–168,100 (US standard) | [Job aggregator copy](https://zapply.jobs/jobs/26fc61ca-ad9a-4c72-9158-9b034a0bb550/) of the Microsoft posting |
-| **Partner FDE practices** | Frontier Company partners: Accenture, Capgemini, EY, KPMG, PwC. Accenture launched a Microsoft FDE practice on 18 Mar 2026 (Microsoft brings the platform; Accenture leads change management and process redesign). Deloitte's "Forward Deployed Engineer, Microsoft AI & Data" asks for 1+ year of hands-on Azure AI Foundry, 50% travel, US$134,500–265,100 | [Microsoft](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/), [Accenture](https://newsroom.accenture.com/news/2026/accenture-launches-microsoft-forward-deployed-engineering-practice-to-help-organizations-scale-ai-across-the-enterprise), [Deloitte](https://apply.deloitte.com/en_US/careers/JobDetail/Forward-Deployed-Engineer-Microsoft-AI-Data/350591) |
-
-```mermaid
-flowchart TB
-    subgraph MSFT["Microsoft"]
-        FC["Microsoft Frontier Company<br/>US$2.5B · 6,000 experts · Jul 2026"]
-        ISE["Industry Solutions Engineering<br/>FDE function for 10+ years · HVE"]
-        PG["Product groups<br/>Foundry · Fabric · Copilot · Entra"]
-    end
-    subgraph PARTNERS["Partner FDE practices"]
-        PX["Accenture · Capgemini · EY · KPMG · PwC · Deloitte"]
-    end
-    C["Customer tenant<br/>measurable business outcome"]
-    FC --> C
-    ISE --> C
-    PX --> C
-    FC --- PX
-    ISE -. "patterns & roadmap feedback" .-> PG
-    PG -. "platform" .-> C
-```
-
-⚠️ Microsoft hasn't said publicly how ISE relates to Frontier Company, or where the 6,000 people come from. Don't assume one replaced the other.
-
-### Where the Delta comes from
-
-The original roadmap describes the FDE as part software engineer, part AI/data architect and part strategic consultant. Their job is to close "The Delta", meaning the gap between a core product and a client's messy reality ([source](https://github.com/pierpaolo28/Awesome-FDE-Roadmap)).
-
-💬 On the Microsoft cloud, most of that Delta comes from four places:
-
-| Delta source | What breaks | Microsoft FDE response |
-|---|---|---|
-| **Tenant reality** | Locked-down Entra tenant, Conditional Access, no app-registration rights, unknown agent sprawl | Managed identities, Entra Agent ID, Agent 365 registry, PIM requests prepared on Day 0 |
-| **Data reality** | Legacy SQL Server, SAP, Dataverse, SharePoint oversharing | Fabric Mirroring/Shortcuts, Medallion Lakehouse, Purview DSPM |
-| **Network reality** | Private endpoints only, no public egress, hub-spoke firewall | AI Landing Zone, Private Link, APIM AI gateway |
-| **Sovereignty reality** | Classified/regulated, intermittently or fully disconnected | Azure Local disconnected operations, Foundry Local, M365 Local, SQL Server on Azure Local |
-
-| | Software Engineer | Microsoft FDE |
-|---|---|---|
-| User | Anonymous users | CIO, CISO, CDO, agency/Defence executives |
-| Environment | Uniform subscription | Customer tenant, landing-zone policy, sovereign or air-gapped |
-| Goal | Scale & stability | Time-to-value inside the customer's guardrails |
-| Definition of done | Merged PR | 💬 Running in the customer tenant, with an evaluation baseline, handed over |
-
----
-
-## 🛠 The Microsoft FDE Stack (Oct 2026)
-
-| Layer | Core tools | Status / source |
-|---|---|---|
-| **Languages** | Python, C#/.NET, TypeScript, T-SQL, KQL, DAX, Bicep, PowerShell | MAF docs offer C#, Python and Go pivots ([Learn](https://learn.microsoft.com/en-us/agent-framework/hosting/foundry-hosted-agent)) |
-| **Data** | Microsoft Fabric (OneLake, Lakehouse, Warehouse, Real-Time Intelligence, Data Factory, Power BI), Fabric IQ | Fabric IQ ✅ GA announced at Build 2026 ([Fabric blog](https://www.microsoft.com/en-us/microsoft-fabric/blog/2026/06/25/fabcon-europe-2026-the-sessions-were-most-excited-to-bring-to-barcelona/)); Fabric IQ ontology and the Foundry Fabric IQ tool 🧪 preview ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/fabric-iq)) |
-| **AI platform** | Microsoft Foundry (models, Agent Service, Toolboxes, Foundry IQ, evaluations), Azure AI Search | See [Phase 4](#phase-4-applied-ai-foundry-agent-framework--copilot) |
-| **Agent SDK** | Microsoft Agent Framework (MAF) | ✅ 1.0 GA on 2 Apr 2026 ([MAF blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/)) |
-| **Copilot extensibility** | Copilot Studio, declarative agents, custom engine agents, M365 Agents Toolkit/SDK | [Learn](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview) |
-| **Dev velocity** | GitHub Copilot + HVE Core, GitHub Actions, Azure DevOps | [HVE Core](https://microsoft.github.io/hve-core/) |
-| **IaC** | Bicep/Terraform with Azure Verified Modules, `azd` | AVM is the default ALZ accelerator starter module ([ALZ-Bicep repo](https://github.com/Azure/ALZ-Bicep)) |
-| **Integration / gateway** | Azure API Management AI gateway, Logic Apps, Service Bus, Event Grid | [Learn](https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities) |
-| **Identity & governance** | Entra ID, Entra Agent ID, Microsoft Agent 365, Purview, Defender | Agent ID ✅ GA ([Learn](https://learn.microsoft.com/en-us/entra/agent-id/whats-new-agent-id)); Agent 365 ✅ GA 1 May 2026 ([Learn](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)) |
-| **Fleet ops** | Foundry Control Plane (inventory, compliance, cost across projects) | [Learn](https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview) |
-| **M365 grounding for any agent** | Work IQ APIs (A2A, remote MCP, REST) | ✅ GA 16 Jun 2026 ([Microsoft](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/)) |
-| **Observability** | Azure Monitor, Application Insights, OpenTelemetry, Foundry tracing | MAF harness ships OpenTelemetry built in ([InfoQ](https://www.infoq.com/news/2026/08/agent-framework-harness-ga/)) |
-| **Sovereign / edge** | Azure Local (incl. disconnected), Azure Arc, Foundry Local, M365 Local | See [Sovereign](#-sovereign-air-gapped--tactical-edge-deployment) |
-
-### How the stack fits together 💬
-
-A typical connected agent engagement, with each box linked to its phase below:
+## 6. A learning path
 
 ```mermaid
 flowchart LR
-    U["Users<br/>Teams · M365 Copilot"] --> CH["Channel<br/>Copilot Studio · declarative agent<br/>Activity Protocol"]
-    CH --> GW
-    subgraph LZ["AI Landing Zone · private networking (Phase 2)"]
-        GW["APIM AI gateway<br/>token limits · semantic cache · content safety"]
-        AG["Foundry hosted agent<br/>MAF harness · Toolbox MCP endpoint (Phase 4)"]
-        M["Models in Foundry"]
-        K1["Foundry IQ<br/>AI Search agentic retrieval"]
-    end
-    GW --> AG
-    AG --> M
-    AG --> K1
-    AG --> K2["Work IQ<br/>mail · files · meetings"]
-    AG --> K3["Fabric IQ / data agents<br/>OneLake Gold layer (Phase 1)"]
-    subgraph GOV["Governance plane (Phase 3)"]
-        ID["Entra Agent ID"]
-        A365["Agent 365 registry"]
-        PV["Purview DSPM / DLP"]
-        DF["Defender for AI"]
-        CP["Foundry Control Plane"]
-    end
-    GOV -. "identity · policy · threat signals" .-> AG
+    S1["Stage 1 · Foundations<br/>about 3 months<br/>Python, SQL, Git,<br/>one cloud's basics"] --> S2["Stage 2 · Build with AI<br/>about 3 months<br/>a RAG chatbot,<br/>an agent with tools,<br/>tests for its answers"]
+    S2 --> S3["Stage 3 · Make it real<br/>about 3 months<br/>private networking, sign-in,<br/>monitoring, cost limits,<br/>automated deployment"]
+    S3 --> S4["Stage 4 · Field-ready<br/>ongoing<br/>run a mock engagement,<br/>write the handover,<br/>practise interviews"]
 ```
 
-⚠️ The arrow from Teams/M365 into a private landing zone is the hardest part to get through security review. See the M365 publishing caveat in [Phase 2](#phase-2-azure-architecture--ai-landing-zones).
-
----
-
-## 🎓 The Master Curriculum
-
-### Phase 1: Data Engineering on Microsoft Fabric
-
-Almost every engagement starts with a data audit.
-
-**Core concepts**
-
-- **Shortcuts vs Mirroring:**
-  - *Shortcuts* reference selected tables, folders or files and leave the data at its source. They work with open formats only.
-  - *Mirroring* adds a whole external database or catalog, either accessing it in place or continuously replicating it into OneLake.
-  - If the source uses a proprietary format, mirroring is the only option ([Learn](https://learn.microsoft.com/en-us/fabric/onelake/unify-data)).
-- **Shortcut behaviour:** shortcuts act like symbolic links and keep schemas in sync automatically. In a lakehouse `Tables` folder, you can only create them at the top level ([Learn](https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts)).
-- **Medallion (Bronze → Silver → Gold):** 💬 Shortcut, Mirror or copy into Bronze. Clean and conform in Silver with Spark notebooks or Dataflow Gen2. Model Gold as a star schema served through Direct Lake.
-- **Modelling & Delta hygiene:** 💬 SCD1/SCD2 with `MERGE`, `OPTIMIZE`/V-Order, and `VACUUM` retention traded off against time travel.
-
-**ALM / CI/CD**
-
-- `fabric-cicd` is Microsoft's open-source Python library for code-first Fabric deployments ([repo](https://github.com/microsoft/fabric-cicd)).
-- ⚠️ **Breaking change:** `token_credential` is now **required**. The `DefaultAzureCredential` fallback is no longer supported. The Fabric CLI (`fab`) also has a `deploy` command that runs `fabric-cicd` under the hood ([docs](https://microsoft.github.io/fabric-cicd/1.3.0/how_to/getting_started/)).
-- Deploy from the directory committed through Fabric Source Control, plus a `parameter.yml` for environment-specific values ([docs](https://microsoft.github.io/fabric-cicd/1.3.0/how_to/getting_started/)).
-
-**What's new from FabCon Europe 2026 (Barcelona, 28 Sep – 1 Oct)**
-
-| Capability | Status | Source |
-|---|---|---|
-| Fabric IQ in Microsoft Copilot Chat & Cowork | ✅ GA | [Azure blog](https://azure.microsoft.com/en-us/blog/fabcon-and-sqlcon-2026-in-barcelona-building-the-data-foundation-for-microsoft-copilot-and-agents/), [Solv recap](https://solv-systems.com/resources/fabcon-europe-2026-recap) |
-| Fabric data agents in Copilot Studio | ✅ GA | [Solv recap](https://solv-systems.com/resources/fabcon-europe-2026-recap) |
-| Fabric IQ MCP server | ✅ GA | [Solv recap](https://solv-systems.com/resources/fabcon-europe-2026-recap) |
-| Fabric Policies (item creation, workspace settings, external sharing) | 🧪 Preview | [ProcureSQL](https://procuresql.com/blog/2026/10/05/top-10-announcements-from-fabcon-europe-2026/) |
-| Deployment plans (ordered, dependency-aware deployments) | 🧪 Preview | [ProcureSQL](https://procuresql.com/blog/2026/10/05/top-10-announcements-from-fabcon-europe-2026/) |
-| Observability in Fabric (consolidated workspace monitoring, alerts) | 🧪 Preview | [ProcureSQL](https://procuresql.com/blog/2026/10/05/top-10-announcements-from-fabcon-europe-2026/) |
-| F0 SKU + on-demand billing | 🔜 Coming soon | [Solv recap](https://solv-systems.com/resources/fabcon-europe-2026-recap) |
-| Fabric Core MCP server; DLP policies to restrict sensitive data; branch workspace & selective branching | ✅ GA | [Sept 2026 feature summary](https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-september-2026-feature-summary/5325825) |
-| OneLake outbound access protection with external shortcuts | ✅ GA | [Sept 2026 feature summary](https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-september-2026-feature-summary/5325825) |
-
-**Prove it 💬** Mirror an Azure SQL DB, then build an SCD2 Silver dimension. Publish a Direct Lake model on top. Deploy it Dev → Test → Prod with `fabric-cicd` and a deployment plan.
-
----
-
-### Phase 2: Azure Architecture & AI Landing Zones
-
-- **CAF platform landing zone:** use the ALZ accelerator. Bicep AVM is now its default starter module ([ALZ-Bicep repo](https://github.com/Azure/ALZ-Bicep)).
-- ⚠️ **ALZ-Bicep (Classic):** removed from the accelerator on 16 Feb 2026, and the repo will be archived on 16 Feb 2027. Use AVM-based modules for new work ([repo](https://github.com/Azure/ALZ-Bicep)).
-- **AI Landing Zones** ([Azure/AI-Landing-Zones](https://github.com/Azure/AI-Landing-Zones)):
-  - An application landing zone with two parts: an **Agent Landing Zone** and an **AI Gateway Landing Zone**. You can deploy them together or separately.
-  - Implemented in Bicep and Terraform on AVM. It may use preview services.
-- **Well-Architected Framework for AI:** covers design principles, grounding-data design, MLOps/GenAIOps, testing/evaluation and responsible AI, plus a Foundry chat baseline in a landing zone ([Learn](https://learn.microsoft.com/en-us/azure/well-architected/ai/)). Low-code workloads such as Copilot Studio are **explicitly out of scope**; Microsoft points to Copilot Studio reference architectures instead ([Learn](https://learn.microsoft.com/en-us/azure/well-architected/ai/get-started), [Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/ai-overview)). An AI workload assessment tool is also available ([Learn](https://learn.microsoft.com/en-us/azure/well-architected/ai/assessment)).
-- **APIM as the AI gateway** ([Learn](https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities)):
-  - Governs LLM APIs (OpenAI Chat Completions/Responses, Anthropic Messages on v2 tiers, Google Vertex AI), remote **MCP servers** and **A2A agent APIs**. It extends the existing API gateway rather than being a separate product.
-  - Adds a unified OpenAI-compatible model API (🧪 preview) and can integrate directly into Foundry.
-  - 🧪 **AI Gateway tier** (new APIM tier, preview in East US 2 and Sweden Central): a managed gateway for models and MCP tools; pricing to be announced ([Learn](https://learn.microsoft.com/en-us/azure/api-management/ai-gateway-overview)).
-  - Since Build 2026, the `llm-content-safety` policy also covers MCP tool-call arguments and A2A payloads, with a prompt-shield option ([InfoQ](https://www.infoq.com/news/2026/06/azure-apim-ai-gateway-build/)).
-- **Semantic caching:**
-  - Uses an external Redis-compatible cache such as Azure Managed Redis ([Learn](https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities)).
-  - ⚠️ APIM connects to Redis by connection string, so access-key authentication must be enabled. Entra auth isn't supported for this link. External caches aren't available in APIM workspaces ([Docs](https://docs.azure.cn/en-us/api-management/api-management-howto-cache-external)).
-
-**Foundry Agent Service networking**
-
-- **Standard Setup with private networking:** a delegated subnet from your VNet, no public egress, BYO Storage/AI Search/Cosmos DB ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/virtual-networks), [options](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/networking-options)).
-- ⚠️ All workspace resources must be in the same region as the VNet (models excepted) ([Microsoft template](https://github.com/microsoft-foundry/foundry-samples/tree/main/infrastructure/infrastructure-setup-terraform/15b-private-network-standard-agent-setup-byovnet/)). The agent subnet choice reportedly can't be changed after deployment, so design IP space first ([summary of Microsoft field guide](https://www.smfclearinghouse.com/blog/2026-07-25-foundry-standard-agents-byovnet-networking-playbook/)).
-- ⚠️ The standard private-network template doesn't route **agent tools** through the VNet; Microsoft points to a separate template for that ([Microsoft template](https://github.com/microsoft-foundry/foundry-samples/blob/main/infrastructure/infrastructure-setup-bicep/15-private-network-standard-agent-setup/README.md)).
-- ⚠️ **M365/Teams publishing breaks the "fully private" story:** Microsoft 365 doesn't support private connectivity to agents. With public network access disabled, you must use the REST API and `enable_m365_public_endpoint`, which opens only the source-IP-filtered Activity Protocol route ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot-virtual-network)). Publishing also needs Azure Bot Service rights, which Foundry roles don't grant ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot)).
-
-**Prove it 💬** Deploy the AI Landing Zone (Bicep or Terraform) with private networking. Put APIM in front of a Foundry model, with token limits and semantic caching.
-
----
-
-### Phase 3: Identity, Security & Governance for Agents
-
-💬 In Microsoft enterprises, security review is the most common reason projects stall before production. Treat it as part of the build, not a final gate.
-
-| Capability | What an FDE must know | Status / source |
-|---|---|---|
-| **Entra Agent ID** | Agent identity blueprints, agent identities, sidecar Auth SDK, federation for AWS Bedrock/GCP/n8n, migration from app registrations and Copilot Studio | ✅ GA ([Learn](https://learn.microsoft.com/en-us/entra/agent-id/whats-new-agent-id)) |
-| **Microsoft Agent 365** | Control plane to observe, govern and secure agents: registry, lifecycle, Entra/Purview/Defender integration. Licensed **per user, not per agent**: US$15/user/month standalone or in M365 E7 (US$99). License users who delegate to agents, and the owners/sponsors/managers of agents that have their own access | ✅ GA 1 May 2026 for Commercial ([Learn](https://learn.microsoft.com/en-us/microsoft-agent-365/overview), [Licensing FAQ](https://www.microsoft.com/licensing/faqs/122)) |
-| ⚠️ **Agent 365 licensing gotcha (Entra)** | Agent-related Entra Identity Governance (access packages, lifecycle workflows) and Network Control for agents need an Agent 365 licence | [Message-center summary](https://m365admin.handsontek.net/microsoft-agent-365-becomes-generally-available-ga/) |
-| ⚠️ **Agent 365 licensing gotcha (Defender) 🗓** | **Since 1 Jul 2026**, Defender agent discovery, posture, threat detection and Advanced Hunting for **Copilot Studio and Foundry agents** need an Agent 365 licence. Defender for Cloud Apps / Defender for Cloud alone no longer cover them. Hunting moves from `AIAgentsInfo` to `AgentsInfo` | [Learn](https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/transition-agent-security-to-agent-365) |
-| **Defender for AI Services** | Model-level threat protection (jailbreak, data leakage, credential theft) using Prompt Shields + threat intel; alerts flow to Defender XDR. Text tokens only; 30-day trial capped at 75B tokens; not in Azure Government | ✅ GA ([Learn](https://learn.microsoft.com/en-us/azure/defender-for-cloud/ai-threat-protection)) |
-| **Purview + Entra network DLP for AI** | Blocks sensitive files/text going to unsanctioned AI apps at the network layer, for users and on-behalf-of agent traffic | ✅ GA (Sep 2026) ([Microsoft Security](https://www.microsoft.com/en-us/security/blog/2026/09/24/whats-new-in-microsoft-security-september-2026/)) |
-| **Foundry RBAC** | Roles renamed: Azure AI User/Owner/Account Owner/Project Manager → **Foundry** User/Owner/Account Owner/Project Manager (same IDs). Use **Foundry Agent Consumer** for callers who only invoke agents. Use key-less Entra auth, because keys bypass RBAC | [Learn](https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry) |
-| **Purview DSPM** | The current DSPM replaces "DSPM for AI (classic)". It covers AI apps and agents across M365, Azure, Fabric and third-party SaaS | ✅ ([Learn](https://learn.microsoft.com/en-us/purview/data-security-posture-management-learn-about), [classic](https://learn.microsoft.com/en-us/purview/dspm-for-ai)) |
-| **Oversharing assessment** | DSPM for AI automatically runs a weekly risk assessment on the top 100 SharePoint sites by usage | [Learn](https://learn.microsoft.com/en-us/purview/dspm-for-ai) |
-| **DSPM for AI licensing** | Requires Microsoft 365 E5 or E5 Compliance (or equivalent add-ons). Auditing must be on; Fabric/Security Copilot monitoring needs enterprise Purview data governance | [Zero Trust workshop](https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_046), [Learn](https://learn.microsoft.com/en-us/purview/dspm-for-ai-considerations) |
-| **AI Red Teaming Agent** | PyRIT integrated into Foundry: automated scans, Attack Success Rate, scorecards. Cloud runs support scheduled post-deployment scans and agentic risk scenarios | [Learn](https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent), [cloud runs](https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/run-ai-red-teaming-cloud) |
-| **MAF + Purview** | `agent-framework-purview` middleware enforces Purview DLP on prompts and responses. Needs M365 E5 + pay-as-you-go setup | 🧪 Preview ([PyPI](https://pypi.org/project/agent-framework-purview/)) |
-
-**🇦🇺 Australian public sector**
-
-- Azure in-scope services are IRAP-assessed up to and including **PROTECTED** in Australian regions ([Learn](https://learn.microsoft.com/en-us/azure/compliance/offerings/offering-australia-irap)).
-- The 2026 assessments for Azure, Dynamics 365 and Microsoft 365 were done by Neon Cloud. Microsoft reassesses every 24 months, and the reports are on the Service Trust Portal ([Microsoft](https://news.microsoft.com/source/asia/2026/03/26/irap-au-2026/)).
-- IRAP is **not a certification** or a pass/fail exercise. It's a risk-based framework, so your own deployment still needs its own risk decision ([Microsoft](https://news.microsoft.com/source/asia/2026/03/26/irap-au-2026/)).
-
----
-
-### Phase 4: Applied AI: Foundry, Agent Framework & Copilot
-
-#### Microsoft Foundry Agent Service
-
-Foundry offers four ways to build ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)):
-
-- **Prompt agents:** no code.
-- **Voice prompt agents:** via Voice Live.
-- **Hosted agents:** your own code and framework in a container.
-- **Responses API:** for agents you already run elsewhere.
-
-It also provides **Toolboxes** (one governed MCP endpoint for tools), tracing/evals, an **agent optimizer**, and publishing to Teams, M365 Copilot and the Entra Agent Registry ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)).
-
-| Capability | Status | Source |
-|---|---|---|
-| Foundry Agent Service (with private networking) | ✅ GA (Mar 2026) | [Foundry What's New](https://devblogs.microsoft.com/foundry/category/whats-new/) |
-| Hosted agents: VM-isolated session sandbox, persistent `$HOME` and `/files` (sessions up to 30 days; idle timeout 2–60 min, default 15), own Entra identity, Responses + Invocations protocols | ✅ GA 9 Jul 2026 🗓 | [Jul–Aug update](https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-july-august-2026/), [Learn: sessions](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/manage-hosted-sessions), [Learn: MAF hosting](https://learn.microsoft.com/en-us/agent-framework/hosting/foundry-hosted-agent) |
-| Toolboxes (curated tools behind one MCP-compatible endpoint, central credentials and governance) | ✅ GA 🗓 | [Jul–Aug update](https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-july-august-2026/), [Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/toolbox-overview) |
-| Voice Live integration | ✅ GA 🗓 | [Jul–Aug update](https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-july-august-2026/) |
-| Routines (scheduled/event-triggered agent runs) | ✅ GA (Sep 2026) 🗓 | [Foundry blog](https://devblogs.microsoft.com/foundry/) |
-| Network egress policy for hosted agents | New (Sep 2026) | [Foundry blog](https://devblogs.microsoft.com/foundry/) |
-| Publish to Teams & M365 Copilot | ✅ GA (June 2026) | [June update](https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-june-2026/) |
-| Claude in Foundry (Azure-hosted, Global/US data zones; Anthropic operates inference) | ✅ GA 29 Jun 2026 | [Azure blog](https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/) |
-| Foundry Toolkit for VS Code | ✅ GA | [Build recap](https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/) |
-| Toolbox add-ons: Skills, Work IQ, Fabric IQ, Browser Automation, Tool Search | 🧪 Preview (as of June; check current) | [June update](https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-june-2026/) |
-| Memory (procedural, user, session; TTL) | 🧪 Preview | [June update](https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-june-2026/) |
-| Agent Optimizer: prompt agents via portal wizard (instructions, tool descriptions, model); hosted agents via Foundry Toolkit or `azd ai agent optimize` (adds skills) | 🧪 Preview 🗓 | [Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/agent-optimizer-overview), [how-to](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/optimize-agent-targets) |
-| ⚠️ Protocol choice: Microsoft says the Responses protocol is mapped automatically to Activity Protocol for one-click M365 publishing ([Foundry blog](https://devblogs.microsoft.com/foundry/introducing-the-new-hosted-agents-in-foundry-agent-service-secure-scalable-compute-built-for-agents/)). With Invocations, you own the schema and conversation state ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/manage-hosted-sessions)). A third-party analysis says publishing and A2A are Responses-only ([analysis](https://dreaming.press/posts/foundry-hosted-agents-responses-vs-invocations-protocol.html)) | Default to Responses | — |
-| Agent-to-Agent (A2A) endpoints for Foundry agents | 🧪 Preview (announced June) | [Foundry blog](https://devblogs.microsoft.com/foundry/from-building-agents-to-working-with-them-enterprise-agent-distribution-in-microsoft-foundry/) |
-| **Foundry Control Plane:** cross-project inventory of agents/models/tools, compliance, Defender/Purview/Entra signals, cost and token tracking; needs an AI gateway for advanced governance | See Learn | [Learn](https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview), [manage agents](https://learn.microsoft.com/en-us/azure/foundry/control-plane/how-to-manage-agents) |
-| Autopilot agents (own Entra Agent ID, email, calendar, Teams presence) | 🧪 Preview | [June update](https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-june-2026/) |
-
-- **Framework neutrality:** Microsoft says investments in LangGraph, the GitHub Copilot SDK or the Claude Agent SDK carry forward ([Foundry Build blog](https://devblogs.microsoft.com/foundry/agent-service-build2026/)).
-- ⚠️ The managed hosted-agents service is GA, but MAF's Python `agent-framework-foundry-hosting` integration is still prerelease ([Learn](https://learn.microsoft.com/en-us/agent-framework/hosting/foundry-hosted-agent)).
-
-#### Microsoft Agent Framework (MAF)
-
-- Open-source SDK and runtime that brings Semantic Kernel and AutoGen together. ✅ 1.0 GA on 2 April 2026 ([MAF blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/)).
-- **Agent Harness:** context compaction, plan/execute modes, file memory, todo tracking, skills, background sub-agents, tool approval and web search ([MAF blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/)).
-  - Most are on by default and can be removed individually.
-  - Shell, file access, background sub-agents and auto-looping are opt-in and emit warnings ([InfoQ](https://www.infoq.com/news/2026/08/agent-framework-harness-ga/)).
-- **Built-in orchestrations:** Sequential, Concurrent, Handoff, Group Chat and Magentic, built on the same workflow primitives (executors, edges, events) ([MAF blog](https://devblogs.microsoft.com/agent-framework/agent-frameworks-orchestration-patterns-reach-1-0/)). All five are ✅ 1.0 in Python and .NET ([MAF blog](https://devblogs.microsoft.com/agent-framework/agent-frameworks-orchestration-patterns-reach-1-0/)).
-- **Protocols:**
-  - **AG-UI** for agent-to-UI: SSE streaming, human-in-the-loop approvals, shared state, generative UI; CopilotKit provides the React front end ([Learn](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/)).
-  - **A2A:** APIM can import and govern A2A agent APIs ([Learn](https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities)); AB-620 also tests A2A for Copilot Studio ([Learn](https://learn.microsoft.com/en-us/credentials/certifications/ai-agent-builder-associate/)).
-
-#### Foundry IQ (enterprise knowledge)
-
-- **Foundry IQ knowledge bases are ✅ GA**, with an SLA and the Foundry IQ MCP server. Foundry IQ Serverless and the new knowledge sources (Work IQ, Fabric IQ, Azure SQL, MCP) are 🧪 preview ([Foundry blog](https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/)).
-- **Built on Azure AI Search agentic retrieval** ([Learn](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview)):
-  - LLM query planning (🧪 preview) into parallel subqueries.
-  - Semantic reranking, merged results with source references.
-  - Adds latency compared with single-query retrieval.
-- **API versions:** use `2026-04-01` for GA knowledge sources and `2026-08-01-preview` for preview sources or LLM-based planning on non-web sources ([Learn](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-knowledge-base)).
-
-#### Work IQ (M365 context for any agent)
-
-- **Work IQ APIs ✅ GA 16 Jun 2026:** A2A, remote MCP and REST endpoints that ground agents in mail, meetings, files, Teams, people and Planner, permission-trimmed ([Learn](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview), [Microsoft](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/)).
-- Work IQ MCP collapses Microsoft 365 operations into **10 generic tools** ([Learn](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/)).
-- **Billing:** consumption in Copilot Credits, independent of M365 Copilot licences. Tool API calls cost 0.1 credit each; chat/context calls vary ([Microsoft licensing](https://www.microsoft.com/en-us/licensing/news/work-iq-general-availability)).
-- 💬 Choose Work IQ over raw Graph + your own vector store when the agent needs Copilot-quality M365 grounding without building a retrieval pipeline.
-
-#### Copilot Studio & M365 Copilot extensibility
-
-- **Declarative agents** use Copilot's own orchestrator and models with your instructions, knowledge and actions. **Custom engine agents** bring their own orchestrator and models ([Learn](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview)).
-- The M365 Agents Toolkit (successor to Teams Toolkit) scaffolds agents for M365 Copilot and Teams, integrates with the M365 Agents SDK for self-hosted agents, and ships CI/CD actions for GitHub and Azure DevOps ([M365 dev blog](https://devblogs.microsoft.com/microsoft365dev/introducing-the-microsoft-365-agents-toolkit/)).
-- MCP support in declarative agents ✅ GA (Dec 2025) ([M365 dev blog](https://devblogs.microsoft.com/microsoft365dev/build-declarative-agents-for-microsoft-365-copilot-with-mcp/)). Copilot discovers MCP tools dynamically at runtime by default, or you can pin them in the plugin manifest ([Learn](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins)).
-- **Fabric data agents ✅ GA** need F2+ (or P1+ with Fabric enabled) and run under the user's Entra identity and data permissions ([Learn](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent), [create](https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-data-agent)). In Copilot Studio they're now added as a tool (**Fabric IQ Data MCP**), not a connected agent ([Fabric blog](https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-data-agents-in-microsoft-copilot-studio-generally-available/5362882)).
-- **Copilot Studio billing (standard harness)** ([Learn](https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management)):
-  - Billed in **Copilot Credits**: classic answer = 1, generative answer = 2, agent action = 5, tenant graph grounding = 10, 100 agent-flow actions = 13.
-  - Not charged for M365 Copilot-licensed employees (B2E). Bring-your-own Foundry models are billed separately.
-- ⚠️ **GitHub Copilot harness:** building, testing, evaluating and running these agents all consume Copilot Credits, and **this is not covered by an M365 Copilot licence**. Computer use (CUA) is also always billed ([Learn](https://learn.microsoft.com/en-us/power-platform/admin/manage-usage-github-copilot-harness)). Use the Power Platform admin center controls to cap and monitor credits per environment and per agent ([Learn](https://learn.microsoft.com/en-us/power-platform/admin/manage-usage-github-copilot-harness)).
-
----
-
-### Phase 5: Hyper Velocity Engineering (HVE / RPI)
-
-HVE Core is Microsoft's open-source set of GitHub Copilot agents, prompts, instructions and skills ([HVE](https://microsoft.github.io/hve-core/)).
-
-- **Install:** use the `ise-hve-essentials.hve-core` VS Code extension (Stable and PreRelease channels), or the Copilot CLI plugin `hve-core@hve-core`, which tracks `main` ([HVE install](https://microsoft.github.io/hve-core/docs/getting-started/install/)). Some agents write artifacts into your project, so check the `.gitignore` guidance in the install docs ([Marketplace](https://marketplace.visualstudio.com/items?itemName=ise-hve-essentials.hve-installer)).
-- **Selective adoption:** the `hve-core-installer` skill copies chosen agents, prompts, instructions and skills into your repo and records them in `.hve-tracking.json` (schema v2). Hooks aren't copied ([HVE install](https://microsoft.github.io/hve-core/docs/getting-started/install/)).
-- **RPI lifecycle:** Research → Plan → Implement → Review → Follow-up ([HVE RPI](https://microsoft.github.io/hve-core/docs/rpi/)).
-  - Research is read-only and runs only when the evidence you already have isn't enough.
-  - Its output lands in `.copilot-tracking/research/{date}/{task}-research.md`.
-- **Agent groups** ([catalog](https://microsoft.github.io/hve-core/docs/agents/)):
-
-| Group | Use in an FDE engagement 💬 |
+| Stage | Prove it with this project |
 |---|---|
-| RPI Orchestration (RPI Agent + `rpi-challenger` skill) | Get up to speed on a customer codebase; stress-test decisions |
-| Code Review: one human-gated agent dispatching functional, standards, accessibility, security and PR perspectives, with basic/standard/comprehensive depth | Pre-PR review in the customer repo |
-| Backlog Management (ADO, GitHub, Jira): read-only `backlog-plan` vs mutating `backlog-execute`, with dry-run | Turn workshop outputs into a backlog |
-| Project Planning (9 agents: BRD, PRD, ADR builders, architecture review, meeting analysis, UX/UI) | Produce the documents stakeholders sign off |
-| Security Planning (Security Planner, SSSC Planner), RAI Planning | Threat model, supply-chain and RAI assessment drafts |
-| Data Science, Design Thinking | Discovery and experiment design |
+| 1. Foundations | Load a public dataset into a database, clean it with SQL and Python, and publish it with automated tests |
+| 2. Build with AI | Build a chatbot that answers questions about a set of PDFs and cites its sources. Write 50 test questions and measure how often it's right |
+| 3. Make it real | Deploy the chatbot so it has no public internet exposure, users sign in, every request is logged, and spending has a cap. Deploy it from a script, not by clicking |
+| 4. Field-ready | Treat a friend or colleague as "the customer". Run a discovery interview, build for two weeks, and hand over with a runbook they can follow without you |
 
-- ⚠️ **Caveat:** HVE's security, RAI and supply-chain agents are **assistive only**. They don't replace SAST/DAST/pen-testing or qualified human review ([Marketplace](https://marketplace.visualstudio.com/items?itemName=ise-hve-essentials.hve-core-all)).
+## 7. The honest downsides
 
----
+- **Travel and pressure.** Postings commonly ask for 25–50% travel, and deadlines are short.[^ise-swe][^deloitte][^wiki]
+- **"Consulting with a better title?"** Some academics see the title as a rebrand of older roles.[^wiki] One industry newsletter argues the job is drifting towards consulting now that AI labs hire FDEs into separate companies.[^pragmatic]
+- **Lock-in.** When a vendor's engineer designs your system, it tends to use that vendor's products. One Microsoft analyst put it bluntly: free deployment help is how the vendor wins future cloud spending.[^foley]
 
-### Phase 6: The Consulting Mindset
-
-💬 Field guidance (not sourced):
-
-- **Discovery:** use five whys to move from "we want an agent" to the business KPI behind it.
-- **Stakeholder map:** sponsor (CIO/CDO), likely blocker (CISO / architecture review board), operator (platform team), end users.
-- **Commercials:** be able to explain Fabric capacity, Copilot Credits, Agent 365 and Foundry consumption in one slide. Cost questions can kill a project late.
-- **Exit criteria:** agree them before the MVP starts: eval thresholds, security sign-off, and the named owner after handover.
-- **Handover:** runbooks, RACI, eval baseline, backlog. The engagement only succeeds if the customer can run it without you.
+💬 *Our view:* the role is real when you ship production code **and** the product gets better because of what you learned. If neither happens, it's consulting.
 
 ---
 
-### Phase 7: FDE Developer Toolchain (MCP, Copilot cloud agent, azd)
+# Part 2: Doing it on Microsoft
 
-| Tool | What it gives an FDE | Status / source |
+## 8. Who does FDE work at Microsoft
+
+Microsoft has done this work for over a decade. It reorganised it publicly in 2026.
+
+| Team | What it is |
+|---|---|
+| **Industry Solutions Engineering (ISE)** | The engineering group whose job postings say it "has operated Microsoft's Forward Deployed Engineering function for over a decade". Small teams embed with customers, build alongside them and pass patterns back to Microsoft's product teams. It works with an AI-assisted method called Hypervelocity Engineering (HVE), which is published as open source.[^ise-swe][^hve] |
+| **Microsoft Frontier Company** | A new business announced in July 2026: US$2.5 billion and 6,000 industry and engineering experts placed inside customer organisations to deliver measurable business results. Early customers include the London Stock Exchange Group, Unilever, Land O'Lakes and Novo Nordisk.[^msft-frontier] |
+| **Partners** | Consulting firms with Microsoft FDE practices, including Accenture, Capgemini, Deloitte, EY, KPMG and PwC.[^msft-frontier][^accenture][^deloitte] |
+
+```mermaid
+flowchart TB
+    ISE["Industry Solutions Engineering<br/>FDE work for 10+ years"] --> C["Customer"]
+    FC["Microsoft Frontier Company<br/>$2.5B · 6,000 people · 2026"] --> C
+    PX["Partner consulting firms<br/>Accenture · Deloitte · EY · KPMG · PwC · Capgemini"] --> C
+    ISE -. "lessons from the field" .-> PG["Microsoft product teams"]
+    PG -. "better products" .-> C
+```
+
+⚠️ Microsoft hasn't said how ISE and Frontier Company relate. If you apply, ask the recruiter which team the role sits in.[^foley]
+
+**A real example.** Novo Nordisk worked with Microsoft's Forward Deployed Engineering team to build an AI agent over its clinical-trial data. Its researchers went from evaluating 5–10 ideas per quarter to more than 50.[^fy26]
+
+## 9. The Microsoft toolbox, translated
+
+Microsoft's product names change often. This table maps each of the six skill areas to the Microsoft product you'll meet, in plain words.
+
+| Skill area | Microsoft product | What it is, in one sentence |
 |---|---|---|
-| **Azure MCP Server 2.0** | All Azure MCP tools in one server; works with GitHub Copilot, VS Code/Visual Studio, Copilot CLI/SDK, Claude Code; Entra auth; tool availability follows your RBAC. Ships as npm/NuGet/PyPI/Docker/`.mcpb` | ✅ GA ([GitHub MCP registry](https://github.com/mcp/com.microsoft/azure), [Learn](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/get-started)) |
-| **Azure Skills Plugin** | 26+ reusable skills (e.g., `azure-prepare`, `azure-validate`, `azure-deploy`, `azure-diagnostics`, `azure-cost`) on top of the Azure and Foundry MCP servers | [MicrosoftDocs](https://github.com/MicrosoftDocs/azure-dev-docs/blob/main/articles/azure-mcp-server/overview.md) |
-| **GitHub Copilot cloud agent** (formerly coding agent) + Azure | `azd coding-agent config` creates a managed identity (Reader by default), federated credential, and `copilot-setup-steps.yml` so issue-assigned PRs can use Azure context | [Learn](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/extensions/copilot-coding-agent-extension), [Learn](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/how-to/github-copilot-cloud-agent) |
-| ⚠️ Copilot cloud agent MCP limits | Tools only (no resources/prompts); no remote MCP servers that use OAuth; tools run **without asking for approval** | [GitHub Docs](https://docs.github.com/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp) |
-| **Custom agents** (`.agent.md`) | YAML frontmatter: `tools`, `model`, `mcp-servers`, `disable-model-invocation`; prompt up to 30,000 chars. This is the format HVE Core agents plug into | [GitHub Docs](https://docs.github.com/en/copilot/reference/custom-agents-configuration) |
-| **`azd ai agent`** | `init` (template / your code / existing project) → `run` locally → `up` → `invoke` / `monitor` → `down`. Infra is Bicep-less by default and can be ejected | [Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/init-agent-project), [Learn](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/extensions/azure-ai-foundry-extension), [Azure SDK blog](https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-march-2026/) |
-| **Azure DevOps Remote MCP Server** | Hosted MCP endpoint (`https://mcp.dev.azure.com/{org}`), Entra-backed orgs only; supported in VS Code + Copilot and Foundry | ✅ GA 5 Aug 2026 ([Azure DevOps blog](https://devblogs.microsoft.com/devops/azure-devops-remote-mcp-server-ga/)) |
-| **Work IQ MCP / CLI** | Bring M365 context into GitHub Copilot; needs tenant admin consent | [microsoft/work-iq](https://github.com/microsoft/work-iq) |
+| Data | **Microsoft Fabric** | One place to store, clean and analyse company data, with Power BI for reports |
+| Cloud | **Azure** | Microsoft's cloud: servers, networks, databases, storage |
+| Cloud | **Azure API Management** | A gateway in front of AI models that controls who can call them and how much they can spend |
+| AI applications | **Microsoft Foundry** | Where you choose AI models, build agents, host them and test their answers |
+| AI applications | **Microsoft Agent Framework** | Microsoft's open-source code library for building agents in Python or C# |
+| AI applications | **Copilot Studio** | A low-code tool for building agents that live in Teams and Microsoft 365 |
+| AI applications | **Microsoft 365 Copilot** | The AI assistant inside Word, Outlook and Teams, which you can extend with your own agents |
+| Security | **Microsoft Entra** | Sign-in and permissions for people and, now, for AI agents too |
+| Security | **Microsoft Purview** | Finds and protects sensitive data so AI doesn't leak it |
+| Security | **Microsoft Defender** | Detects attacks, including attacks on AI systems |
+| Security | **Agent 365** | A register of every AI agent in the company, so IT can see and control them |
+| Software engineering | **GitHub Copilot** | An AI coding assistant; ISE's HVE method is built on it |
 
-💬 FDE pattern: HVE Core custom agents for the SDLC, Azure MCP + Copilot cloud agent for Azure-aware PRs, and `azd ai agent` for a repeatable demo-to-deploy loop.
+How these fit together in a typical project:
 
----
+```mermaid
+flowchart LR
+    U["People at work<br/>Teams · Microsoft 365 Copilot"] --> GW["Gateway<br/>Azure API Management<br/>limits cost and traffic"]
+    GW --> AG["The AI agent<br/>built and hosted in<br/>Microsoft Foundry"]
+    AG --> MD["AI models"]
+    AG --> KN["Company knowledge<br/>documents, email, files,<br/>data in Microsoft Fabric"]
+    SEC["Security and oversight<br/>Entra · Purview · Defender · Agent 365"] -. "controls and watches" .-> AG
+```
 
-## 🧠 The Applied AI Playbook
+## 10. Choosing where to build an AI agent
 
-### Which agent platform? 💬
-
-| Need | Choose | Why |
-|---|---|---|
-| Business-built agent in Teams/M365, low code | Copilot Studio | Managed SaaS, Power Platform governance |
-| Extend M365 Copilot with knowledge and actions, no hosting | Declarative agent | Runs on Copilot's orchestrator |
-| Simple Azure agent, no code | Foundry prompt agent | Least to manage ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)) |
-| Full code control, multi-agent, long-running | MAF → Foundry hosted agent | Harness and managed runtime |
-| Agents already running elsewhere | Foundry Responses API | No agent resource needed ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)) |
-| Grounding on enterprise knowledge | Foundry IQ knowledge base | GA, SLA-backed, reusable |
-| Business-data Q&A over Fabric | Fabric data agent → Copilot Studio | GA route since FabCon Europe 2026 |
-| Fully disconnected | Foundry Local on Azure Local | 🧪 Preview |
-
-The same choice as a decision tree:
+The most common early design question. Start at the top:
 
 ```mermaid
 flowchart TD
-    Q0{"Must run fully<br/>disconnected?"} -->|Yes| FL["Foundry Local on Azure Local 🧪"]
-    Q0 -->|No| Q1{"Business users build it,<br/>lives in Teams / M365?"}
-    Q1 -->|Yes| CS["Copilot Studio"]
-    Q1 -->|No| Q2{"Only extending M365 Copilot<br/>with knowledge + actions?"}
-    Q2 -->|Yes| DA["Declarative agent"]
-    Q2 -->|No| Q3{"Agent already<br/>runs elsewhere?"}
-    Q3 -->|Yes| RA["Foundry Responses API"]
-    Q3 -->|No| Q4{"Need code control, multi-agent<br/>or long-running sessions?"}
-    Q4 -->|Yes| HA["MAF → Foundry hosted agent"]
-    Q4 -->|No| PA["Foundry prompt agent"]
-    CS -.-> KB["Ground on Foundry IQ · Work IQ · Fabric data agents"]
-    DA -.-> KB
-    HA -.-> KB
-    PA -.-> KB
+    Q1{"Will business users<br/>build and change it themselves?"} -->|Yes| CS["Copilot Studio<br/>low code"]
+    Q1 -->|No| Q2{"Do you only need to add<br/>knowledge and actions<br/>to Microsoft 365 Copilot?"}
+    Q2 -->|Yes| DA["Declarative agent<br/>configuration, no hosting"]
+    Q2 -->|No| Q3{"Do you need full control<br/>in code, several agents,<br/>or long-running tasks?"}
+    Q3 -->|Yes| HA["Code it with Agent Framework,<br/>host it in Microsoft Foundry"]
+    Q3 -->|No| PA["Simple agent in Microsoft Foundry<br/>no code"]
 ```
 
-### Multi-agent orchestration (MAF)
+Special cases, such as sites with no internet connection, agents already built elsewhere, and strict private networking, are covered in the [technical reference](docs/microsoft-technical-reference.md#-the-applied-ai-playbook).
 
-| Pattern | Use when ([MAF blog](https://devblogs.microsoft.com/agent-framework/agent-frameworks-orchestration-patterns-reach-1-0/)) |
+## 11. Microsoft certifications worth having
+
+Certifications don't make you an FDE, but they give a structured syllabus. Microsoft replaced several exams in 2026, so check the official page before booking.[^certs]
+
+| Order | Exam | What it proves |
+|---|---|---|
+| 1 | **AI-901** Azure AI Fundamentals | You understand basic AI concepts and Microsoft's AI tools |
+| 2 | **AZ-104** Azure Administrator | You can run Azure: networks, identity, storage |
+| 3 | **DP-700** Fabric Data Engineer | You can build data pipelines in Microsoft Fabric |
+| 4 | **AI-103** Azure AI Apps and Agents Developer | You can build AI apps and agents in Microsoft Foundry |
+| 5 | **AZ-305** Azure Solutions Architect | You can design complete solutions (requires AZ-104) |
+| Optional | **SC-500** Cloud and AI Security Engineer | You can secure cloud and AI workloads |
+| Optional | **AB-620** AI Agent Builder | You can build advanced agents in Copilot Studio |
+
+The full list, with retirement dates and sources, is in the [technical reference](docs/microsoft-technical-reference.md#-certification-path-post-2026-reset).
+
+---
+
+# Part 3: Practise and go deeper
+
+## 12. Practise: four interview scenarios
+
+Talk through each one out loud, using the six steps from [section 4](#4-what-the-work-looks-like-start-to-finish).
+
+1. **The locked-down company.** You can't create new accounts or apps, nothing can touch the public internet, and you have four weeks to ship a chatbot over internal documents. *What do you ask for on day one? How do you keep it private?*
+2. **The wrong answers.** The customer's AI assistant gave a confidently wrong answer to an executive. *How do you find out whether the problem was the search or the AI? How do you stop it happening again?*
+3. **Low code or full code?** The architecture board asks why you chose Copilot Studio over Microsoft Foundry, or the other way round. *Cover cost, who maintains it, and the skills the customer's team has.*
+4. **Too many agents.** A company discovers 300 AI agents built by different teams, and nobody knows what they can access. *How do you take inventory, assign owners and control access?*
+
+Microsoft's interview loop, as candidates report it, has a recruiter screen, an online test, coding screens, and an onsite with coding, system design and a behavioural round.[^interviews] More scenarios and rapid-fire questions are in [interview prep](docs/interview-prep.md).
+
+## 13. Templates
+
+Copy-paste starting points for the documents an FDE writes, in [`/templates`](./templates):
+
+| Template | Use it in step |
 |---|---|
-| Sequential | Each step builds on the last (extract → validate → post) |
-| Concurrent | Independent perspectives in parallel, then aggregate |
-| Handoff | Triage hands off to a specialist based on context |
-| Group Chat | Agents collaborate in a shared, managed conversation |
-| Magentic | A manager agent plans and coordinates specialists |
+| [`data-audit.md`](./templates/data-audit.md): where the data is, and whether it's any good | 2. Understand |
+| [`ai-use-case-canvas.md`](./templates/ai-use-case-canvas.md): the problem, users, success measure and risks on one page | 2. Understand |
+| [`adr.md`](./templates/adr.md): an architecture decision record, one page per important decision | 3. Design |
+| [`copilot-instructions.md`](./templates/copilot-instructions.md): instructions for GitHub Copilot in the customer's code repository | 4. Build |
+| [`go-live-readiness.md`](./templates/go-live-readiness.md): the checklist before real users arrive | 5. Harden |
 
-💬 Rules: give every tool a narrow contract. Require approval for anything that writes. Checkpoint long workflows. Emit OpenTelemetry from day one.
+## 📚 Go deeper
 
-### Enterprise RAG blueprint (Azure)
-
-1. **Ingest:** Foundry IQ knowledge sources or AI Search indexers. Layout-aware ingestion is 🧪 preview ([Foundry IQ blog](https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/)).
-2. **Security trimming:** Foundry IQ knowledge bases are permission-aware ([Learn](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview)). New encryption, permissions-sync and sensitivity-label controls are 🧪 preview ([Foundry IQ blog](https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/)). 💬 Test with a low-privilege user.
-3. **Retrieve:** agentic retrieval for multi-part or conversational questions, single-query retrieval for simple lookups ([Learn](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview)).
-4. **Ground & cite:** return source references ([Learn](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview)).
-5. **Evaluate:** Groundedness + Relevance (the "RAG triad" with Retrieval), and Document Retrieval when you have ground truth ([Foundry blog](https://devblogs.microsoft.com/foundry/how-to-debug-and-optimize-rag-agents-in-azure-ai-foundry/)). ⚠️ See the Azure AI Search limitation below.
-
-### Evaluation & AgentOps
-
-- **Agent evaluators** act like unit tests and return pass/fail ([Learn](https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators)):
-  - *System level:* Task Completion, Task Adherence, Customer Satisfaction, Task Navigation Efficiency.
-  - *Process level:* tool-call evaluators. Several are 🧪 preview.
-  - Microsoft's how-to uses an 85% Task Adherence pass rate as its example release threshold ([Learn](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluate-agent)).
-  - Microsoft's primary pattern is a **rubric evaluator generated from the agent's context**, plus built-in safety evaluators ([Learn](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluate-agent)).
-- ⚠️ **Confirmed limitation:** when an agent calls Azure AI Search, avoid Groundedness, Tool Output Utilization, Tool Call Accuracy, Tool Input Accuracy and Tool Call Success. Instead, put retrieved content into the dataset as `context`, and use the Retrieval / Document Retrieval evaluators for search quality ([Microsoft Q&A citing Learn](https://learn.microsoft.com/en-us/answers/questions/6023266/azure-ai-search-tool-in-foundry-not-producing-tool), [Learn](https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators)).
-- **Closed loop:** tracing → evaluation → monitoring → Agent Optimizer. Tracing and evaluations reached GA in spring 2026 ([Foundry blog](https://devblogs.microsoft.com/foundry/build-2026-from-observability-to-roi-for-ai-agents-on-any-framework/)).
-- **Red teaming:** run the AI Red Teaming Agent before launch, then schedule it post-deployment. Cloud runs target Foundry prompt and container agents ([Learn](https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/run-ai-red-teaming-cloud)).
-- 💬 **Golden set:** 50–200 cases written with the customer.
-
----
-
-## 🛰 Sovereign, Air-Gapped & Tactical-Edge Deployment
-
-| Component | Status | What changes when disconnected |
-|---|---|---|
-| **Azure Local disconnected operations (ALDO)** | ✅ Available (Feb 2026) | The control plane runs on-premises. Updates use offline or staged workflows. Identity and monitoring are local ([Learn](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/azure-local/disconnected-operations-overview), [Microsoft blog](https://blogs.microsoft.com/blog/2026/02/24/microsoft-sovereign-cloud-adds-governance-productivity-and-support-for-large-ai-models-securely-running-even-when-completely-disconnected/)) |
-| **Microsoft 365 Local (disconnected)** | ✅ Available (Feb 2026) | Exchange Server, SharePoint Server and Skype for Business Server on Azure Local ([Microsoft blog](https://blogs.microsoft.com/blog/2026/02/24/microsoft-sovereign-cloud-adds-governance-productivity-and-support-for-large-ai-models-securely-running-even-when-completely-disconnected/)) |
-| **Foundry Local on Azure Local** | 🧪 Preview | Models come from a local `edgeartifacts` registry filled by expansion packs. cert-manager/trust-manager replace azure-cert-manager. No telemetry goes to Microsoft. Authentication uses local Active Directory ([Learn](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/foundry-local/disconnected-operations/concept-overview)). Multi-node Kubernetes, air-gapped operation and a vLLM runtime option added in June 2026 ([June update](https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-june-2026/)). Extension 2607 adds on-cluster model evaluation (works disconnected) and vLLM model parallelism; 2609 adds Kubernetes service-account-token auth for in-cluster inference ([Learn what's new](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/foundry-local/whats-new)). Note that Foundry Local itself (device runtime) went GA on 9 April 2026 ([Foundry blog](https://devblogs.microsoft.com/foundry/foundry-local-ga/)) |
-| **SQL Server on Azure Local** | ✅ GA 28 Sep 2026 (connected + ALDO) | The SQL Server Arc extension is **not supported** when disconnected, so use local tools. SQL Server licensing is separate from ALDO platform licensing ([SQL blog](https://www.microsoft.com/en-us/sql-server/blog/2026/09/28/sql-server-on-azure-local-is-now-generally-available/), [Learn](https://learn.microsoft.com/en-us/sql/sql-server/azure-local/deploy-disconnected?view=sql-server-ver17)). Microsoft's Azure SQL team and the FabCon Azure blog both state GA for connected and disconnected ([Azure SQL blog](https://devblogs.microsoft.com/azure-sql/whats-new-across-microsoft-sql-at-sqlcon-fabcon-europe-2026/)) |
-
-**Planning facts**
-
-- Production disconnected deployments need a **dedicated three-node management cluster** for the local control plane. Minimum spec per node: 24 physical cores, 128 GB RAM (standard) or 512 GB (datacenter) ([Learn](https://learn.microsoft.com/en-us/azure/azure-local/manage/disconnected-operations-control-plane-appliance?view=azloc-2607)).
-- Buy management-cluster hardware from the Azure Local catalog, filtered by the *Disconnected operations* solution capability ([Learn](https://learn.microsoft.com/en-us/azure/azure-local/manage/disconnected-operations-control-plane-appliance?view=azloc-2607)).
-- Each Azure Local deployment is tied to a single site, but the disconnected control plane can be shared across sites. You provide the private cross-site networking ([Learn](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/azure-local/disconnected-operations-overview)).
-
-**FDE checklist 💬** Organisational approval, plus:
-
-- Expansion packs staged
-- Offline model and eval packs
-- Local AD integration tested
-- `az k8s-extension troubleshoot` support bundle tested
-- Sneakernet update runbook
-- SBOM and signed artifacts
-
----
-
-## 🗓 Engagement Lifecycle (Day 0 → Day 90)
-
-💬 Field guidance.
-
-| Window | Goal | Outputs (HVE agent that helps) |
-|---|---|---|
-| Day 0 | Unblock access | Access pack: Entra roles, Agent ID blueprint, subscriptions, Fabric workspace, repo |
-| Week 1 | Discovery & data audit | Stakeholder map, data audit, KPIs (RPI research) |
-| Week 2 | Architecture | ADRs, threat model, RAI assessment (ADR builder, Security/RAI Planner) |
-| Weeks 3–6 | MVP | Agent or pipeline in the customer tenant, golden eval set, CI/CD |
-| Weeks 7–10 | Hardening | AI Landing Zone fit, APIM gateway, tracing, red-team, cost model |
-| Weeks 11–13 | Handover | Runbooks, RACI, eval baseline, backlog (Backlog Manager) |
-
-```mermaid
-timeline
-    title FDE engagement, Day 0 to Day 90
-    Day 0 : Access pack and Entra roles
-    Week 1 : Discovery and data audit : Stakeholder map and KPIs
-    Week 2 : ADRs : Threat model and RAI assessment
-    Weeks 3–6 : MVP in the customer tenant : Golden eval set : CI/CD
-    Weeks 7–10 : Landing-zone fit and APIM gateway : Tracing and red-team : Cost model
-    Weeks 11–13 : Runbooks, RACI, eval baseline : Handover to a named owner
-```
-
-💬 For comparison, AWS runs its FDE engagements as 45-day sprints with pods of 5–6 engineers ([CIO Dive](https://www.ciodive.com/news/aws-creates-forward-deployed-engineering-hub/824109/)). A 90-day plan is long by that standard, so agree up front which milestones the customer will judge you on.
-
----
-
-## 📋 Artifact Templates
-
-Copy-paste templates live in [`/templates`](./templates):
-
-- [`data-audit.md`](./templates/data-audit.md)
-- [`adr.md`](./templates/adr.md)
-- [`ai-use-case-canvas.md`](./templates/ai-use-case-canvas.md)
-- [`go-live-readiness.md`](./templates/go-live-readiness.md)
-- [`copilot-instructions.md`](./templates/copilot-instructions.md)
-
----
-
-## 🎯 Interview Blackbook
-
-### Case studies (practise out loud) 💬
-
-1. **The locked tenant:** no app registrations, private endpoints only, 4 weeks to ship a RAG agent. *Expected answer covers:* Entra Agent ID blueprint, AI Landing Zone, Foundry IQ with ACL trimming, APIM.
-2. **SAP + SharePoint variance agent:** *covers:* Mirroring vs Shortcuts, Gold semantic model, Fabric data agent → Copilot Studio, DSPM oversharing assessment.
-3. **The hallucination incident:** *covers:* tracing, retrieval vs generation root cause, eval gate, Agent Optimizer.
-4. **Copilot Studio vs Foundry at the ARB:** *covers:* Copilot Credits and harness billing, ALM, WAF-AI scope, skills available in the customer team.
-5. **Air-gapped Defence site:** *covers:* ALDO, management cluster sizing, Foundry Local (preview risk), local AD, SQL Server on Azure Local.
-6. **Agent sprawl:** *covers:* Agent 365 registry, Foundry Control Plane, Entra Agent ID, Defender (Agent 365 licence since July), DSPM, licensing (E5/E7).
-7. **"Private-only" bank wants the agent in Teams:** *covers:* Standard Setup BYO VNet, `enable_m365_public_endpoint`, Bot Service rights, compensating controls.
-
-### Rapid-fire (each answer has a source in this README)
-
-- Shortcuts vs Mirroring: when is Mirroring the only option?
-- What does the MAF harness enable by default, and what is opt-in?
-- Name the five MAF orchestration patterns. Which one uses a manager agent that re-plans when the team stalls?
-- MCP vs A2A vs AG-UI?
-- Which Foundry IQ API version for GA vs preview knowledge sources?
-- What's not supported for SQL Server on Azure Local when disconnected?
-- Is GitHub Copilot harness usage in Copilot Studio covered by an M365 Copilot licence?
-- Is Agent 365 licensed per agent or per user, and who must be licensed?
-- Hosted agents: Responses vs Invocations protocol, and how long do sessions persist?
-- What can Agent Optimizer change for a prompt agent vs a hosted agent?
-- What does an Agent 365 licence unlock in Entra?
-- Why is IRAP not a certification?
-- Your Foundry project has public network access disabled. How do you publish an agent to Teams?
-- Since July 2026, what licence does Defender need to protect Foundry and Copilot Studio agents?
-- Which evaluators should you avoid when the agent uses the Azure AI Search tool, and what's the workaround?
-- Work IQ vs Microsoft Graph + your own RAG: when do you choose each?
-- What are a Palantir Delta and Echo, and why does the role need both?
-- Which Microsoft organisation has run its FDE function for over a decade, and what delivery method does it use?
-- What did Microsoft announce on 2 Jul 2026, and how does it say it differs from "FDE"?
-- How do OpenAI's, Anthropic's, AWS's and Microsoft's 2026 deployment organisations differ in funding and structure?
-- Answer the "isn't this just consulting with a better title?" critique.
-
----
-
-## 🏅 Certification Path (post-2026 reset)
-
-Microsoft retired and replaced several AI, developer and security exams in 2026. **Always confirm on [Microsoft Learn credentials](https://learn.microsoft.com/credentials/) before booking.**
-
-| Track | Current exam | Notes | Source |
-|---|---|---|---|
-| AI fundamentals | **AI-901** | Replaced AI-900 (retired 30 Jun 2026). Same credential; two domains: AI concepts, and implementing AI solutions with Foundry. Python required | [Learn](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-901/), [Learn cert](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/) |
-| AI apps & agents | **AI-103**: Azure AI Apps and Agents Developer Associate | Replaced AI-102 (retired 30 Jun 2026). Python-first, Foundry-centric | [Microsoft Q&A](https://learn.microsoft.com/en-us/answers/questions/5893448/ai-102-retires-on-30th-june-2026), [howtoai](https://howtoai.com/ai-102-vs-ai-103/) |
-| Azure developer | **AI-200**: Azure AI Cloud Developer Associate | Replaced AZ-204 (retired 31 Jul 2026) | [Microsoft Q&A](https://learn.microsoft.com/en-us/answers/questions/5955907/will-ai-200-replace-az-204-after-its-retirement) |
-| MLOps / GenAIOps | **AI-300**: MLOps Engineer Associate | Replaced DP-100 (retired 1 Jun 2026) | [certcrush](https://www.certcrush.app/blog/dp-100-retired-what-replaces-azure-data-scientist-2026) |
-| Copilot Studio pro dev | **AB-620**: AI Agent Builder Associate | Covers MCP, A2A, Foundry/Fabric integration, computer use | [Learn](https://learn.microsoft.com/en-us/credentials/certifications/ai-agent-builder-associate/) |
-| Cloud & AI security | **SC-500**: Cloud and AI Security Engineer Associate | ✅ Live on Learn; includes "Securing AI solutions". AZ-500 retired 31 Aug 2026 | [Learn](https://learn.microsoft.com/en-us/credentials/certifications/cloud-and-ai-security-engineer-associate/), [study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-500), [gitgood](https://gitgood.dev/blog/azure-sc-500-what-changed-from-az-500) |
-| Information security | **SC-401** | Includes protecting data used by AI services. Skills updated 28 Oct 2026 | [Study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-401) |
-| Security architect | **SC-100** | Prerequisite: SC-300, SC-200 or SC-500 | [Microsoft Q&A](https://learn.microsoft.com/en-us/answers/questions/5979471/will-sc-500-satisfy-the-prerequisite-for-sc-100-st) |
-| SQL + AI | **DP-800**: SQL AI Developer Associate | SQL Server, Azure SQL, Fabric SQL + vectors/RAG. English update 19 Oct 2026 | [Learn](https://learn.microsoft.com/en-us/credentials/certifications/developing-ai-enabled-database-solutions/) |
-| Fabric analytics | **DP-600** | ✅ Active. English update 19 Oct 2026; now includes "Prepare AI-ready analytics data" | [Learn](https://learn.microsoft.com/en-us/credentials/certifications/fabric-analytics-engineer-associate/) |
-| Fabric data engineering | **DP-700** | ✅ Active. English update 19 Oct 2026 | [Learn](https://learn.microsoft.com/en-us/credentials/certifications/fabric-data-engineer-associate/) |
-| Azure architecture | **AZ-104 → AZ-305** | ✅ Still a valid path. AZ-104 remains the AZ-305 prerequisite | [Microsoft Q&A](https://learn.microsoft.com/en-us/answers/questions/6010067/prerequisite-requirements-for-az-400-and-az-305-fo) |
-| DevOps | **AZ-400** | ⚠️ Prereq still lists AZ-204 (retired). AI-200 not yet confirmed as a prereq | [Microsoft Q&A](https://learn.microsoft.com/en-us/answers/questions/6010067/prerequisite-requirements-for-az-400-and-az-305-fo) |
-| Windows Server hybrid | **AZ-802** | AZ-800/801 retired 30 Sep 2026; AZ-802 is now the single exam | [Learn study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-802), [Certification Camps](https://www.certificationcamps.com/az-802-exam-guide/) |
-| M365 + AI admin | **AB-650**: AI Services Administrator Associate (beta) | MS-102 and M365 Administrator Expert retire 30 Nov 2026 | [Learn: MS-102](https://learn.microsoft.com/en-us/credentials/certifications/exams/ms-102/), [Learn: course retirements](https://learn.microsoft.com/en-us/credentials/certifications/retired-courses) |
-| Power Platform dev / Databricks | **AB-400** course replaces PL-400T00; **DP-750** course for Azure Databricks data engineering | Course-level replacements; check the exam pages | [Learn: course retirements](https://learn.microsoft.com/en-us/credentials/certifications/retired-courses) |
-
----
-
-## 📚 Reading List & Official Sources
-
-**The FDE role**
-
-- [Wikipedia: Forward deployed engineer](https://en.wikipedia.org/wiki/Forward_deployed_engineer) · [Palantir: Dev versus Delta](https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87) · [a16z: Trading Margin for Moat](https://a16z.com/services-led-growth/)
-- [Microsoft Frontier Company announcement](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/) · [ISE Code-With Engineering Playbook](https://microsoft.github.io/code-with-engineering-playbook/ISE/) · [Accenture Microsoft FDE practice](https://newsroom.accenture.com/news/2026/accenture-launches-microsoft-forward-deployed-engineering-practice-to-help-organizations-scale-ai-across-the-enterprise)
-- [Bloomberry: 1,000 FDE postings analysed](https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/) · [The Pragmatic Engineer: FDE heats up again](https://blog.pragmaticengineer.com/the-pulse-forward-deployed-engineering-heats-up-again/)
-
-**Frameworks**
-
-- [ALZ-Bicep (AVM migration notes)](https://github.com/Azure/ALZ-Bicep)
-- [Well-Architected Framework: AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/)
-- [Azure AI Landing Zones](https://github.com/Azure/AI-Landing-Zones)
-
-**Agents & AI**
-
-- [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) · [Foundry What's New (monthly)](https://devblogs.microsoft.com/foundry/category/whats-new/)
-- [Microsoft Agent Framework repo](https://github.com/microsoft/agent-framework) · [Orchestrations 1.0](https://devblogs.microsoft.com/agent-framework/agent-frameworks-orchestration-patterns-reach-1-0/) · [AG-UI](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/)
-- [Foundry IQ](https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/) · [Agentic retrieval](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview)
-- [Agent evaluators](https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators) · [AI Red Teaming Agent](https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent)
-- [Declarative vs custom engine agents](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview) · [Copilot Studio billing](https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management) · [GitHub Copilot harness costs](https://learn.microsoft.com/en-us/power-platform/admin/manage-usage-github-copilot-harness)
-- [Hosted agent sessions](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/manage-hosted-sessions) · [Toolbox](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/toolbox-overview) · [Agent Optimizer](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/agent-optimizer-overview) · [Control Plane](https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview) · [Agent networking](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/networking-options) · [Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/)
-
-**Data**
-
-- [OneLake: Shortcuts vs Mirroring](https://learn.microsoft.com/en-us/fabric/onelake/unify-data) · [fabric-cicd](https://microsoft.github.io/fabric-cicd/1.3.0/how_to/getting_started/) · [Sept 2026 Fabric feature summary](https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-september-2026-feature-summary/5325825)
-- [FabCon/SQLCon 2026 Barcelona announcements](https://azure.microsoft.com/en-us/blog/fabcon-and-sqlcon-2026-in-barcelona-building-the-data-foundation-for-microsoft-copilot-and-agents/)
-
-**Identity, security, governance**
-
-- [Entra Agent ID](https://learn.microsoft.com/en-us/entra/agent-id/whats-new-agent-id) · [Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) · [Agent 365 licensing FAQ](https://www.microsoft.com/licensing/faqs/122) · [Purview DSPM](https://learn.microsoft.com/en-us/purview/data-security-posture-management-learn-about)
-- [Zero Trust Workshop: AI guidance](https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_046) · [Defender agent security → Agent 365](https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/transition-agent-security-to-agent-365) · [Foundry RBAC](https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry)
-- [Azure IRAP](https://learn.microsoft.com/en-us/azure/compliance/offerings/offering-australia-irap)
-
-**Sovereign**
-
-- [Azure Local disconnected operations](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/azure-local/disconnected-operations-overview) · [Management cluster](https://learn.microsoft.com/en-us/azure/azure-local/manage/disconnected-operations-control-plane-appliance?view=azloc-2607) · [Foundry Local disconnected](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/foundry-local/disconnected-operations/concept-overview) · [SQL Server on Azure Local (disconnected)](https://learn.microsoft.com/en-us/sql/sql-server/azure-local/deploy-disconnected?view=sql-server-ver17)
-
-**Velocity & toolchain**
-
-- [Azure MCP Server](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/) · [azd Foundry agent extension](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/extensions/azure-ai-foundry-extension) · [Copilot custom agents](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
-
-- [HVE Core](https://microsoft.github.io/hve-core/) · [RPI](https://microsoft.github.io/hve-core/docs/rpi/) · [Agent catalog](https://microsoft.github.io/hve-core/docs/agents/) · [Repo](https://github.com/microsoft/hve-core)
-
-**Feeds to follow**
-
-- [Microsoft Foundry Blog](https://devblogs.microsoft.com/foundry/) · [Agent Framework Blog](https://devblogs.microsoft.com/agent-framework/) · [Fabric Updates Blog](https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs) · [Azure SQL Dev Corner](https://devblogs.microsoft.com/azure-sql/)
-
----
+| Document | What's in it |
+|---|---|
+| [The FDE role and market](docs/fde-role-and-market.md) | Palantir's origins, the 2026 investments company by company, job-posting statistics, critiques and Microsoft's FDE teams, all fully sourced |
+| [Microsoft technical reference](docs/microsoft-technical-reference.md) | The detailed seven-phase curriculum (data, cloud architecture, security, AI, delivery method, consulting, tooling), which features are generally available versus in preview, disconnected deployments, and the full certification table |
+| [Interview prep](docs/interview-prep.md) | The reported interview loop, seven case studies and rapid-fire questions |
+| [Reading list](docs/reading-list.md) | Every primary source, grouped by topic |
 
 ## 📖 Glossary
 
-| Term | Meaning |
+| Term | Plain meaning |
 |---|---|
-| **The Delta** | Gap between the core product and the customer's reality |
-| **Delta / Echo (Palantir)** | Palantir's internal names for forward-deployed software engineers and deployment strategists |
-| **ISE** | Industry Solutions Engineering: Microsoft's long-running forward-deployed engineering organisation |
-| **Microsoft Frontier Company** | Microsoft's US$2.5B customer-embedded AI deployment business (Jul 2026) |
-| **Services-led growth** | a16z's term for trading services margin for enterprise lock-in via FDEs |
-| **ALDO** | Azure Local Disconnected Operations |
-| **AVM** | Azure Verified Modules: Microsoft-supported IaC modules |
-| **AI Landing Zone** | Agent Landing Zone + AI Gateway Landing Zone reference implementation |
-| **OneLake Shortcut / Mirroring** | In-place reference vs database/catalog added (in place or replicated) |
-| **Fabric IQ** | Business-context layer in Fabric: semantic models, graph, ontology, operations agents |
-| **Foundry IQ** | Managed, permission-aware knowledge layer on Azure AI Search |
-| **Hosted agent** | Your containerised agent code, run by Foundry |
-| **Toolbox** | Curated tools shared via one governed MCP endpoint |
-| **MAF** | Microsoft Agent Framework (successor to Semantic Kernel + AutoGen) |
-| **Agent Harness** | Runtime around the model: planning, memory, compaction, approvals |
-| **MCP / A2A / AG-UI** | Agent↔tools / agent↔agent / agent↔user protocols |
-| **Entra Agent ID** | First-class identities for AI agents |
-| **Agent 365** | Microsoft's control plane to observe, govern and secure agents |
-| **Foundry Control Plane** | Foundry's fleet view: inventory, compliance, security signals and cost across projects |
-| **Work IQ** | M365 intelligence layer exposed to any agent via A2A, MCP and REST |
-| **Azure MCP Server** | Microsoft's MCP server exposing Azure services to AI agents |
-| **Copilot Credit** | Usage unit for Copilot Studio and related agent workloads |
-| **HVE / RPI** | Hyper Velocity Engineering / Research-Plan-Implement-Review |
-| **DSPM** | Purview Data Security Posture Management |
-| **IRAP** | Australian Infosec Registered Assessors Program, a risk-based assessment, not a certification |
+| **FDE** | Forward deployed engineer: a software engineer who works inside a customer's organisation to make a product work for them |
+| **The gap** | The distance between a product working in a demo and working in a real customer's environment. Also called "the Delta" |
+| **Delta / Echo** | Palantir's internal names for forward deployed engineers (Delta) and the domain experts who find the problem worth solving (Echo) |
+| **AI** | Artificial intelligence |
+| **LLM** | Large language model: an AI model that reads and writes text |
+| **RAG** | Retrieval-augmented generation: the AI looks up relevant documents before answering |
+| **Agent** | An AI model that can use tools to take actions, not just chat |
+| **MCP** | Model Context Protocol: an open standard for connecting tools and data to AI agents |
+| **A2A** | Agent-to-agent: a standard for AI agents to talk to each other |
+| **Evaluation (evals)** | Automated tests that score AI answers for correctness, grounding and safety |
+| **API** | Application programming interface: a way for one program to call another |
+| **SQL** | Structured Query Language: the standard language for querying databases |
+| **Infrastructure-as-code (IaC)** | Setting up cloud resources from scripts instead of clicking in a portal |
+| **CI/CD** | Continuous integration / continuous delivery: automatically testing and deploying code on every change |
+| **Production** | The live system real users depend on, as opposed to a demo or test copy |
+| **Runbook** | Step-by-step instructions for operating and fixing a system |
+| **Tenant** | A company's own private space in Microsoft's cloud, with its own users and rules |
+| **ISE** | Industry Solutions Engineering: Microsoft's long-running FDE team |
+| **HVE** | Hypervelocity Engineering: ISE's method for building with AI coding assistants throughout a project |
+| **SI** | Systems integrator: a consulting firm that builds and connects systems for clients |
+| **AWS** | Amazon Web Services, Amazon's cloud |
+| **Copilot** | Microsoft's brand for its AI assistants (Microsoft 365 Copilot, GitHub Copilot, Copilot Studio) |
 
----
+The [technical reference](docs/microsoft-technical-reference.md#-glossary) has a glossary of Microsoft-specific terms.
 
 ## 🤝 Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md). The house rules: **cite a source for every factual claim, label GA/preview status, and mark opinion with 💬.**
+See [CONTRIBUTING.md](./CONTRIBUTING.md). Keep this README readable for a beginner. Put detailed, fast-changing facts in `docs/`, and cite sources there.
+
+Inspired by [pierpaolo28/Awesome-FDE-Roadmap](https://github.com/pierpaolo28/Awesome-FDE-Roadmap).
 
 ## License
 
 MIT. See [LICENSE](./LICENSE).
+
+---
+
+## Sources
+
+[^wiki]: [Wikipedia: Forward deployed engineer](https://en.wikipedia.org/wiki/Forward_deployed_engineer): definition, Palantir's use of the title by 2009, the criticisms, and the 2026 announcements.
+[^palantir]: [Palantir: Dev versus Delta](https://blog.palantir.com/dev-versus-delta-demystifying-engineering-roles-at-palantir-ad44c2a6e87).
+[^bloomberry]: [Bloomberry: I analyzed 1,000 forward deployed engineer jobs](https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/) (January 2026, using Revealera job data): growth, skills, experience levels, salary and quota figures.
+[^a16z]: [Andreessen Horowitz: Trading Margin for Moat](https://a16z.com/services-led-growth/) (June 2025).
+[^openai]: [VKTR: OpenAI launches $4B deployment unit](https://www.vktr.com/ai-news/openai-launches-4b-deployment-unit/) and [OpenAI's announcement](https://openai.com/index/openai-launches-the-deployment-company/) (May 2026).
+[^ode]: [TechCrunch: Anthropic and Blackstone's Ode](https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/) (July 2026).
+[^google]: [The Decoder: Google is hiring hundreds of engineers to help customers adopt its AI](https://the-decoder.com/google-is-hiring-hundreds-of-engineers-to-help-customers-adopt-its-ai/) (May 2026).
+[^aws]: [CIO Dive: AWS creates forward deployed engineering hub](https://www.ciodive.com/news/aws-creates-forward-deployed-engineering-hub/824109/) (June 2026): US$1B, teams of 5–6, 45-day sprints.
+[^msft-frontier]: [Microsoft: Microsoft Frontier Company](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/) (2 July 2026).
+[^fy26]: [Microsoft: Looking back on FY26](https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/) (July 2026): the Novo Nordisk example.
+[^ise-swe]: Microsoft ISE job postings: [Principal Software Engineer](https://jobs.anitab.org/companies/microsoft/jobs/79366247-principal-software-engineer-ise) and [Principal Technical Program Manager, Forward Deployed Engineering](https://jobs.anitab.org/companies/microsoft/jobs/81414702-principal-technical-program-manager-forward-deployed-engineering) (2026).
+[^hve]: [Microsoft HVE Core](https://microsoft.github.io/hve-core/) and the [ISE Code-With Engineering Playbook](https://microsoft.github.io/code-with-engineering-playbook/ISE/).
+[^msft-job]: [Microsoft "Software Engineer – Forward Deployed Engineer" posting](https://zapply.jobs/jobs/26fc61ca-ad9a-4c72-9158-9b034a0bb550/) (job-board copy, October 2026).
+[^anthropic-job]: [Anthropic: Forward Deployed Engineer, Applied AI](https://jobs.generalcatalyst.com/companies/anthropic/jobs/70192292-forward-deployed-engineer-applied-ai).
+[^deloitte]: [Deloitte: Forward Deployed Engineer, Microsoft AI & Data](https://apply.deloitte.com/en_US/careers/JobDetail/Forward-Deployed-Engineer-Microsoft-AI-Data/350591).
+[^accenture]: [Accenture launches a Microsoft forward deployed engineering practice](https://newsroom.accenture.com/news/2026/accenture-launches-microsoft-forward-deployed-engineering-practice-to-help-organizations-scale-ai-across-the-enterprise) (March 2026).
+[^pragmatic]: [The Pragmatic Engineer: Forward deployed engineering heats up again](https://blog.pragmaticengineer.com/the-pulse-forward-deployed-engineering-heats-up-again/) (May 2026).
+[^foley]: [Directions on Microsoft (Mary Jo Foley): Microsoft launches its own forward deployed engineering unit](https://www.directionsonmicrosoft.com/microsoft-launches-its-own-forward-deployed-engineering-unit-the-frontier-company/?type=All) (July 2026). This is analysis, not a Microsoft statement.
+[^certs]: [Microsoft Learn: credentials](https://learn.microsoft.com/credentials/). Exam details and sources are in the [technical reference](docs/microsoft-technical-reference.md#-certification-path-post-2026-reset).
+[^interviews]: [fdeinterviews.com: Microsoft](https://fdeinterviews.com/company/microsoft). Candidate reports, not an official description.
