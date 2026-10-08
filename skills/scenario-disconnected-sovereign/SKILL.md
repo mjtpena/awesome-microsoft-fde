@@ -79,10 +79,10 @@ flowchart LR
 
 | Need | Fact to know | Source |
 |---|---|---|
-| Local cloud control plane | Azure Local disconnected operations (available since February 2026) runs the control plane on site. Production needs a **dedicated three-node management cluster**, minimum 24 physical cores per node, and 128 GB RAM per node in the standard configuration (512 GB for the datacenter configuration) | [Sovereign section](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#-sovereign-air-gapped--tactical-edge-deployment) |
+| Local cloud control plane | Azure Local disconnected operations runs the control plane on site. Production needs a **dedicated three-node management cluster**, minimum 24 physical cores per node, and 128 GB RAM per node in the standard configuration (512 GB for the datacenter configuration) | [Sovereign section](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#-sovereign-air-gapped--tactical-edge-deployment) |
 | Local AI | 🧪 Foundry Local on Azure Local is in preview: models come from a local registry filled by expansion packs, sign-in uses local Active Directory, and no telemetry goes to Microsoft | [Sovereign section](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#-sovereign-air-gapped--tactical-edge-deployment) |
 | Local productivity | Microsoft 365 Local: Exchange Server, SharePoint Server and Skype for Business Server on Azure Local | [Sovereign section](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#-sovereign-air-gapped--tactical-edge-deployment) |
-| Local database | SQL Server on Azure Local, generally available 28 Sep 2026. ⚠️ The SQL Server Arc extension isn't supported when disconnected | [Sovereign section](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#-sovereign-air-gapped--tactical-edge-deployment) |
+| Local database | SQL Server on Azure Local is generally available, connected and disconnected. ⚠️ The SQL Server Arc extension isn't supported when disconnected | [Sovereign section](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#-sovereign-air-gapped--tactical-edge-deployment) |
 
 ## Practise
 

@@ -109,6 +109,13 @@ def check_skill(folder, index_text):
     for target in re.findall(r"\]\((\.\./\.\./[^)]+|\.\./(?:\.\./)?(?:docs|README)[^)]*)\)", text):
         problem(skill, f"link leaves skills/ with a relative path; use {REPO_URL}... ({target})")
 
+    # Skills get copied into customer repositories and never updated, so dated
+    # facts and prices belong in the technical reference. Link targets are exempt.
+    prose = re.sub(r"\]\([^)]*\)|https?://\S+", "](...)", text)
+    for match in re.finditer(r"US\$|\$\d|\b20\d\d\b", prose):
+        line = prose[: match.start()].count("\n") + 1
+        problem(skill, f"line {line}: date or price in a skill; link to the technical reference instead")
+
     if f"({name}/SKILL.md)" not in index_text:
         problem(skill, "not listed in skills/README.md")
 
@@ -118,6 +125,10 @@ def main():
         text = path.read_text(encoding="utf-8")
         check_links(path, text)
         check_footnotes(path, text)
+
+    for path in sorted((ROOT / "docs").rglob("*.md")):
+        if path.name != "README.md" and "**Last verified:**" not in path.read_text(encoding="utf-8"):
+            problem(path, "missing a '**Last verified:**' date")
 
     index_text = (ROOT / "skills" / "README.md").read_text(encoding="utf-8")
     for folder in sorted(p for p in (ROOT / "skills").iterdir() if p.is_dir()):

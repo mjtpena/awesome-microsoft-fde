@@ -25,9 +25,7 @@ Rules for AI coding assistants (such as GitHub Copilot, Claude Code or Codex) wo
 ## Steps
 
 1. Look for existing instructions files: `AGENTS.md`, `.github/copilot-instructions.md`, `.github/instructions/`, `CLAUDE.md`. **If one exists, it's the main file:** add the template's sections to it. Only create `AGENTS.md` when there's none; several assistants read it.
-2. Ask which AI coding assistants the customer allows (from the access request) and check which files each one reads in its current documentation. Keep one set of rules: every other tool's file is a one-line pointer or import to the main file, never a second copy. Facts as of October 2026:
-   - GitHub Copilot's cloud agent reads `AGENTS.md`, `.github/copilot-instructions.md`, `.github/instructions/**.instructions.md` and `CLAUDE.md` ([GitHub changelog](https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions)).
-   - Claude Code reads `CLAUDE.md`, and reads `AGENTS.md` only when there's no `CLAUDE.md`. If both are needed, put `@AGENTS.md` (or `@` and the path to the main file) in `CLAUDE.md` to import it ([Claude Code docs](https://code.claude.com/docs/en/memory)).
+2. Ask which AI coding assistants the customer allows (from the access request) and check which files each one reads in its current documentation. Keep one set of rules: every other tool's file is a one-line pointer or import to the main file, never a second copy. The [technical reference](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#phase-7-fde-developer-toolchain-mcp-copilot-cloud-agent-azd) lists which files GitHub Copilot and Claude Code read, with a "Last verified" date.
 3. Fill "Customer rules" from the repository's existing linting config, contribution guide, CI checks and the access request.
 4. Fill "Decisions from ADRs" with a link to each accepted ADR that affects code.
 5. Keep only the engagement conventions you'll propose, and the scenario section for this engagement.

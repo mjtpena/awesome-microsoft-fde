@@ -2,6 +2,8 @@
 
 > Part of the [six pillars](README.md). **Our stance:** private networking is where deployments break. Learn it properly, because "it works in my subscription" means nothing at the customer.
 
+**Last verified:** 8 October 2026. Microsoft facts here are a summary of the [technical reference](../microsoft-technical-reference.md); if the two disagree, trust the reference and Microsoft Learn.
+
 ## In plain words
 
 Enterprise customers don't run AI on the open internet. Their cloud is split into controlled zones, traffic goes through firewalls, services talk over private connections, and policies block anything that doesn't follow the rules. An FDE has to design within those rules, or the security team will (rightly) stop the project.

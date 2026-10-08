@@ -12,7 +12,7 @@ Thanks for helping keep this roadmap accurate.
   - The template goes last, under `## Template`, inside a ` ````markdown ` fence (four backticks, so Mermaid blocks inside it still work). Only the document to fill in goes in the fence; guidance goes above it. Scenario-specific content goes in a clearly labelled section so readers can delete what doesn't apply.
   - Add the new skill to the tables in [skills/README.md](skills/README.md) and to the relevant scenario packs.
   - **Links:** people copy skill folders into their agent's skills directory, so links that leave the `skills/` folder (to `docs/` or the README files) must be absolute `https://github.com/mjtpena/awesome-microsoft-fde/blob/main/...` URLs. Links between sibling skills (`../adr/SKILL.md`) stay relative.
-  - **No prices or dates in templates.** A template gets copied into a customer's repository and is never updated. Name the meter, licence or requirement and link to the dated fact in `docs/microsoft-technical-reference.md`.
+  - **No prices or dates anywhere in a skill.** Skill folders get copied into agents' skill directories and customers' repositories, and are never updated. Name the meter, licence or requirement and link to the dated fact in `docs/microsoft-technical-reference.md`. `scripts/check_docs.py` enforces this.
   - **Internal notes stay out of the customer's repository.** Anything that assesses named people or carries feedback to the product team goes in a separate template block labelled "Internal" and is written to the team's own workspace.
   - Scenario packs use the layout: when to use, steps, our default design, skill kit, discovery questions, top risks, on Microsoft, practise.
 - **Opinions are welcome.** Mark them 💬 (or put them under "Our stance" / "Our take") and argue for them.
@@ -22,7 +22,7 @@ Thanks for helping keep this roadmap accurate.
 1. **Cite every factual claim.** Prefer Microsoft Learn, official Microsoft blogs, or Microsoft GitHub repos. Third-party sources are acceptable only when named as such.
 2. **Label status.** Use ✅ GA, 🧪 Preview, 🔜 Announced, ⚠️ Watch out.
 3. **Mark opinion.** Practitioner guidance gets 💬.
-4. **Date-stamp changes.** Update the "Facts checked" date in the README or the "Last verified" date in the relevant `docs/` page when you re-verify a section.
+4. **Date-stamp changes.** Update the "Facts checked" date in the README or the "Last verified" date in the relevant `docs/` page (every page under `docs/`, pillar pages included, carries one) when you re-verify a section.
 5. **No marketing copy.** Technical, specific, actionable.
 
 ## PR checklist

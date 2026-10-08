@@ -35,7 +35,7 @@ Each of these skills marks which part goes where.
 
 **Microsoft facts go stale** ⚠️
 
-Some skills name Microsoft services, roles, licences and preview features. These change monthly. The skills point to the [technical reference](../docs/microsoft-technical-reference.md), which carries a "Last verified" date. Check the fact there, then on Microsoft Learn, before you put it in front of a customer. Templates deliberately leave out prices and dates, because a copied template is never updated.
+Some skills name Microsoft services, roles, licences and preview features. These change monthly. The skills point to the [technical reference](../docs/microsoft-technical-reference.md), which carries a "Last verified" date. Check the fact there, then on Microsoft Learn, before you put it in front of a customer. Skills deliberately leave out prices and dates, because a copied skill is never updated.
 
 ## By engagement step
 

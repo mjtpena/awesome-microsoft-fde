@@ -2,6 +2,8 @@
 
 > Part of the [six pillars](README.md). **Our stance:** discovery and handover decide success more than the build does. The best code in the world fails if it solves the wrong problem or nobody owns it after you leave.
 
+**Last verified:** 8 October 2026. Microsoft facts here are a summary of the [technical reference](../microsoft-technical-reference.md); if the two disagree, trust the reference and Microsoft Learn.
+
 ## In plain words
 
 An FDE works with executives who sponsor the project, security and architecture teams who can block it, platform teams who'll run it, and end users who'll decide whether it's any good. The consulting pillar is the set of habits that keeps all of them pulling in the same direction: finding the real problem, agreeing what success looks like, showing progress, managing risk, and leaving the customer able to run it alone.
