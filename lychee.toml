@@ -5,8 +5,9 @@ timeout = 30
 # Many publishers and job boards block bots or rate-limit; treat those as alive.
 accept = ["200..=299", "403", "429"]
 exclude = [
-  '^https://github\.com/mjtpena/awesome-microsoft-fde/blob/main/', # checked offline by scripts/check_docs.py
-  '^https://github\.com/mjtpena/awesome-microsoft-fde/releases/',  # exists only once a release is published
+  # Links to this repository: file links are checked offline by scripts/check_docs.py,
+  # and issue forms and releases only exist once the PR adding them is merged.
+  '^https://github\.com/mjtpena/awesome-microsoft-fde(/|$)',
   '^https://www\.linkedin\.com/',
 ]
 exclude_path = ["node_modules"]
