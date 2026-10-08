@@ -74,7 +74,7 @@ flowchart LR
 
 The data-analytics company Palantir made the title popular in the late 2000s.[^wiki] Its own one-line definition is still the best: a product engineer works on **one capability for many customers**; a forward deployed engineer works with **one customer, using many capabilities**.[^palantir]
 
-**Our take:** most of an FDE's week isn't coding. Expect roughly a third building, a third unblocking (access, data, security, approvals) and a third talking (discovery, demos, decisions). People who only want the first third hate this job.
+**Our take:** most of an FDE's week isn't coding. In our experience it's roughly a third building, a third unblocking (access, data, security, approvals) and a third talking (discovery, demos, decisions). That's our estimate, not a measurement, but job postings point the same way: "working directly with customers" is the most common responsibility listed (55% of postings), ahead of building AI systems (37%).[^bloomberry] People who only want the building third hate this job.
 
 ## 2. How it differs from similar jobs
 
