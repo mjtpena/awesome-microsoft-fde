@@ -14,9 +14,37 @@ Each skill is one folder holding one self-contained Markdown file, `SKILL.md`, w
 
 The files use the open [Agent Skills](https://agentskills.io/) format, but they're plain Markdown with no tool-specific syntax, so any agent can follow them:
 
-- **Agents that support skills** (for example GitHub Copilot or Claude Code): copy the skill folders to where your agent reads skills from, such as `.github/skills/` or `.claude/skills/`. Check your tool's documentation for the current path.
+- **Agents that support skills** (for example GitHub Copilot or Claude Code): install them into the folder your agent reads skills from, such as `.github/skills/` or `.claude/skills/`. Check your tool's documentation for the current path. See [install](#install).
 - **Any other agent or chat assistant:** paste or attach the `SKILL.md` and ask it to follow the steps, or reference it from your agent's instructions file.
 - **A person:** read it and follow the same steps.
+
+### Install
+
+Run one of these from the root of the repository you're working in. Replace `.claude/skills` with your agent's skills folder.
+
+**Latest version** (needs Node.js):
+
+```bash
+npx degit mjtpena/awesome-microsoft-fde/skills .claude/skills
+```
+
+Add `--force` to overwrite skills you installed before. To pin a release, add its tag: `mjtpena/awesome-microsoft-fde/skills#v1.0.0`.
+
+**A released version, without Node.js:** every [release](https://github.com/mjtpena/awesome-microsoft-fde/releases) attaches `skills.zip`, which unpacks to a `skills/` folder.
+
+```bash
+# macOS / Linux
+curl -sL https://github.com/mjtpena/awesome-microsoft-fde/releases/latest/download/skills.zip -o skills.zip
+unzip -o skills.zip -d .claude && rm skills.zip
+```
+
+```powershell
+# Windows PowerShell
+Invoke-WebRequest https://github.com/mjtpena/awesome-microsoft-fde/releases/latest/download/skills.zip -OutFile skills.zip
+Expand-Archive skills.zip -DestinationPath .claude -Force; Remove-Item skills.zip
+```
+
+Before you update an installed copy, read the [changelog](../CHANGELOG.md): a major version means a template changed in a way that affects documents you've already filled in.
 
 **How to use them** 💬
 

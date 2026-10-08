@@ -16,6 +16,7 @@ People copy skill templates into customer repositories, so check this page when 
 - Outline answers to the interview case studies and answers to the rapid-fire questions.
 - A worked example: a filled-in threat model for a fictional knowledge assistant.
 - Versioned releases, each with a `skills.zip`, and this changelog.
+- One-line install commands for the skills.
 
 ### Changed
 

@@ -341,6 +341,12 @@ Candidates report Microsoft's loop as a recruiter screen, an online test, coding
 | [Regulated, private-only](skills/scenario-regulated-private/SKILL.md) | Banks, government, health: private networking and strict review |
 | [Disconnected or sovereign](skills/scenario-disconnected-sovereign/SKILL.md) | Sites with limited or no internet connection |
 
+Install them into your agent's skills folder with one command (needs Node.js), or see the [skills index](skills/README.md#install) for other options:
+
+```bash
+npx degit mjtpena/awesome-microsoft-fde/skills .claude/skills
+```
+
 Start with the [skills index](skills/README.md).
 
 ## 📚 Go deeper
