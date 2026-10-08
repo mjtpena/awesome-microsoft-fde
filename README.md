@@ -302,15 +302,13 @@ flowchart TD
 
 **Our take:** certifications get you past a recruiter's filter; they don't get you the job. A public repository with a deployed, tested, secured project beats three certificates. Take two or three as a syllabus, not a trophy shelf. Microsoft replaced several exams in 2026, so check before booking.[^certs]
 
-| Order | Exam | What it proves | Worth it? |
-|---|---|---|---|
-| 1 | **AI-901** Azure AI Fundamentals | Basic AI concepts and Microsoft's AI tools | Only if you're new to AI |
-| 2 | **AZ-104** Azure Administrator | You can run Azure: networks, identity, storage | **Yes**, it covers pillar 3 well |
-| 3 | **AI-103** Azure AI Apps and Agents Developer | You can build AI apps and agents in Foundry | **Yes**, the most relevant one |
-| 4 | **DP-700** Fabric Data Engineer | You can build data pipelines in Fabric | If data is your deep pillar |
-| 5 | **AZ-305** Azure Solutions Architect | You can design complete solutions (requires AZ-104) | Later, for senior roles |
-| Optional | **SC-500** Cloud and AI Security Engineer | You can secure cloud and AI workloads | If security is your deep pillar |
-| Optional | **AB-620** AI Agent Builder | Advanced agents in Copilot Studio | If your customers are low-code |
+A path that works for most FDEs:
+
+1. **AZ-104** Azure Administrator: networks, identity and storage. Covers pillar 3 well.
+2. **AI-103** Azure AI Apps and Agents Developer: building AI apps and agents in Foundry. The most relevant one.
+3. **One for your deep pillar:** DP-700 (Fabric data engineering), SC-500 (cloud and AI security) or AB-620 (Copilot Studio agents, if your customers are low-code).
+
+Take **AI-901** (Azure AI Fundamentals) first only if you're new to AI. Leave **AZ-305** (Azure Solutions Architect, which requires AZ-104) for senior roles.
 
 Full list with retirement dates: [technical reference](docs/microsoft-technical-reference.md#-certification-path-post-2026-reset).
 
