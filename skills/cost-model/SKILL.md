@@ -1,8 +1,46 @@
-# Cost Model: <Agent / System name>
+---
+name: cost-model
+description: "Estimate monthly running cost of an AI solution at expected usage and at 3× usage, list cost controls, and produce a one-slide summary for the sponsor. Use in design (draft) and hardening (final); critical for disconnected engagements where hardware dominates."
+---
 
-> **Step:** 5 Harden (draft in step 3) · **Pillar:** 6 Consulting and delivery · **Scenarios:** all (critical for disconnected, where hardware dominates)
->
-> **How to use:** estimate monthly running cost at expected usage, then show what happens at 3× usage. Use the customer's actual price sheet; list prices change. The goal is one slide the sponsor understands.
+# Cost Model
+
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 5 Harden (draft in step 3) · **Pillar:** [6 Consulting and delivery](../../docs/pillars/06-consulting-and-delivery.md)
+
+What the solution will cost per month and what drives it, on one slide the sponsor understands. Customers cancel projects late over cost surprises.
+
+## When to use
+
+- Draft in design, alongside the [use-case canvas](../ai-use-case-canvas/SKILL.md).
+- Finalise before go-live, and revisit when usage assumptions change.
+
+## Rules
+
+- Use the customer's actual price sheet: list prices change.
+- Always show what happens at 3× usage.
+- Every assumption has a source or reasoning.
+- Pair the estimate with controls (limits, budgets, alerts).
+
+## Steps
+
+1. Write the [template](#template) to `docs/engagement/cost-model.md` in the customer's repository.
+2. Fill usage assumptions with the sponsor; mark guesses as guesses.
+3. Fill the monthly cost table; check the Microsoft meters listed in the template comment.
+4. Tick the cost controls that are in place and raise the rest as risks.
+5. Write the one-slide summary last.
+
+Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
+
+## Scenarios
+
+Used in every scenario. **Critical** in: [disconnected or sovereign](../scenario-disconnected-sovereign/SKILL.md). Those packs say what to add.
+
+## Template
+
+Write everything inside the block below to the file named in the steps, then fill it in.
+
+````markdown
+# Cost Model: <Agent / System name>
 
 ## Usage assumptions
 
@@ -59,3 +97,4 @@
 ## One-slide summary
 
 > At <N> users, this costs about **<$X> per month**, mainly driven by **<top driver>**. At 3× usage it's **<$Y>**. Controls in place: <list>.
+````

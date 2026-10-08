@@ -24,7 +24,7 @@ Most enterprise AI applications are one of three things: an assistant that **ans
 | **Action agent** | Updates records, sends messages, triggers workflows | Safety, approvals, error recovery |
 | **Data agent** | Turns questions into queries over business data | Data modelling and correct numbers |
 
-Each has a [scenario pack](../../templates/README.md#scenario-packs).
+Each has a [scenario pack](../../skills/README.md#scenario-packs).
 
 ### Retrieval-augmented generation (RAG) in depth
 
@@ -113,9 +113,9 @@ Measure retrieval and generation separately. If the right passage wasn't retriev
 3. How do you choose the threshold for releasing an AI system?
 4. Copilot Studio or Foundry for this use case? Defend your answer on cost, ownership and skills.
 
-## Templates for this pillar
+## Skills for this pillar
 
-[`eval-plan.md`](../../templates/eval-plan.md) · [`ai-use-case-canvas.md`](../../templates/ai-use-case-canvas.md) · [`cost-model.md`](../../templates/cost-model.md) · [Knowledge assistant pack](../../templates/scenarios/knowledge-assistant.md)
+[`eval-plan`](../../skills/eval-plan/SKILL.md) · [`ai-use-case-canvas`](../../skills/ai-use-case-canvas/SKILL.md) · [`cost-model`](../../skills/cost-model/SKILL.md) · [Knowledge assistant pack](../../skills/scenario-knowledge-assistant/SKILL.md)
 
 ---
 

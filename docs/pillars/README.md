@@ -1,6 +1,6 @@
 # The Six Pillars
 
-> Part of the [Awesome Microsoft FDE](../../README.md) guide. Each page goes deep on one skill area. Every page has the same layout: the idea in plain words, **our stance**, the concepts you must understand, how it works on Microsoft, the mistakes we keep seeing, projects to prove the skill, interview questions, and the templates that go with it.
+> Part of the [Awesome Microsoft FDE](../../README.md) guide. Each page goes deep on one skill area. Every page has the same layout: the idea in plain words, **our stance**, the concepts you must understand, how it works on Microsoft, the mistakes we keep seeing, projects to prove the skill, interview questions, and the skills that go with it.
 
 Facts link to their sources. Anything marked 💬 is opinion.
 

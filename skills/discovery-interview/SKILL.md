@@ -1,8 +1,45 @@
-# Discovery Interview: <Name, role>
+---
+name: discovery-interview
+description: "Run and record a 30–45 minute discovery interview with a sponsor, end user, security person, operator or data owner, ending in a five-whys chain to a business measure. Use in the first weeks of an engagement to understand the problem before designing anything."
+---
 
-> **Step:** 2 Understand · **Pillar:** 6 Consulting and delivery · **Scenarios:** all
->
-> **How to use:** 30–45 minutes per person. Ask open questions, then ask "why?" again. Interview at least one sponsor, two end users, one security or risk person and one operator. Watching someone do the task beats any interview.
+# Discovery Interview
+
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 2 Understand · **Pillar:** [6 Consulting and delivery](../../docs/pillars/06-consulting-and-delivery.md)
+
+An interview guide and notes sheet for one person. Ask open questions, then ask "why?" again until you reach a number the business cares about.
+
+## When to use
+
+- Weeks one and two, before you commit to a design.
+- When a new stakeholder appears or the scope changes.
+
+## Rules
+
+- 30–45 minutes per person.
+- Interview at least one sponsor, two end users, one security or risk person and one operator.
+- Watching someone do the task beats any interview: ask them to show you.
+- Record quotes and observations, then the implication and follow-up for each.
+
+## Steps
+
+1. Write the [template](#template) to `docs/engagement/discovery/<name>.md`, one file per interviewee.
+2. Ask which role type the interviewee is and keep only the matching role section plus "For everyone".
+3. Add the scenario add-on questions for the engagement's scenario.
+4. After the interview, fill the notes table and the five-whys line. Feed the business measure into the [AI use-case canvas](../ai-use-case-canvas/SKILL.md).
+
+Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
+
+## Scenarios
+
+Used in every scenario. Each [scenario pack](../README.md#scenario-packs) says what to add.
+
+## Template
+
+Write everything inside the block below to the file named in the steps, then fill it in.
+
+````markdown
+# Discovery Interview: <Name, role>
 
 **Date:** · **Interviewer:** · **Role type:** Sponsor / End user / Security / Operator / Data owner
 
@@ -57,3 +94,4 @@
 |---|---|---|
 
 **The five whys for this person:** want → why → why → why → why → **business measure:**
+````

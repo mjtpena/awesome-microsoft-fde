@@ -21,7 +21,7 @@ An FDE works with executives who sponsor the project, security and architecture 
 
 - **The five whys:** ask "why?" until you reach a business outcome. "We want a chatbot" → "to answer policy questions" → "because the help desk is overloaded" → "because wait times cost us customer complaints" → **target: cut policy tickets by 30%**.
 - **Interview users, not just sponsors.** Watch someone do the task today. The workarounds tell you more than the requirements document.
-- Use [`discovery-interview.md`](../../templates/discovery-interview.md).
+- Use [`discovery-interview`](../../skills/discovery-interview/SKILL.md).
 
 ### The stakeholder map
 
@@ -32,11 +32,11 @@ An FDE works with executives who sponsor the project, security and architecture 
 | **Operator** | Platform or IT operations team | Something they can run: runbooks, monitoring, code they understand |
 | **End users** | The people doing the work | Something that actually saves them time |
 
-Use [`stakeholder-map.md`](../../templates/stakeholder-map.md).
+Use [`stakeholder-map`](../../skills/stakeholder-map/SKILL.md).
 
 ### Scoping and success measures
 
-A good scope fits on one page: the problem, who it's for, the success measure, what's in, what's explicitly out, and the exit criteria. The [`ai-use-case-canvas.md`](../../templates/ai-use-case-canvas.md) is that page.
+A good scope fits on one page: the problem, who it's for, the success measure, what's in, what's explicitly out, and the exit criteria. The [`ai-use-case-canvas`](../../skills/ai-use-case-canvas/SKILL.md) is that page.
 
 ### Cadence
 
@@ -49,11 +49,11 @@ flowchart LR
     FRI -. "field notes" .-> PG["Product team"]
 ```
 
-Use [`weekly-status.md`](../../templates/weekly-status.md): what we showed, what changed, risks, decisions needed. Keep it to one page.
+Use [`weekly-status`](../../skills/weekly-status/SKILL.md): what we showed, what changed, risks, decisions needed. Keep it to one page.
 
 ### Commercials
 
-You don't negotiate contracts, but you must explain running costs simply. Customers cancel projects late over cost surprises. Be able to show, on one slide, what the solution will cost per month at expected usage, and what drives it. Use [`cost-model.md`](../../templates/cost-model.md).
+You don't negotiate contracts, but you must explain running costs simply. Customers cancel projects late over cost surprises. Be able to show, on one slide, what the solution will cost per month at expected usage, and what drives it. Use [`cost-model`](../../skills/cost-model/SKILL.md).
 
 ### Managing risk
 
@@ -69,7 +69,7 @@ Handover starts in week one, not the last week. By the end, the customer needs:
 - a **backlog** of next steps, ranked;
 - **a named owner** who has already operated the system without you.
 
-Use [`runbook.md`](../../templates/runbook.md) and [`handover.md`](../../templates/handover.md).
+Use [`runbook`](../../skills/runbook/SKILL.md) and [`handover`](../../skills/handover/SKILL.md).
 
 ### Feeding back to the product
 
@@ -106,9 +106,9 @@ Write field notes as product feedback: what the customer tried, what broke, the 
 3. The architecture board rejects your design in week eight. What would you have done differently?
 4. How do you know a handover has succeeded?
 
-## Templates for this pillar
+## Skills for this pillar
 
-[`discovery-interview.md`](../../templates/discovery-interview.md) · [`stakeholder-map.md`](../../templates/stakeholder-map.md) · [`weekly-status.md`](../../templates/weekly-status.md) · [`cost-model.md`](../../templates/cost-model.md) · [`handover.md`](../../templates/handover.md)
+[`discovery-interview`](../../skills/discovery-interview/SKILL.md) · [`stakeholder-map`](../../skills/stakeholder-map/SKILL.md) · [`weekly-status`](../../skills/weekly-status/SKILL.md) · [`cost-model`](../../skills/cost-model/SKILL.md) · [`handover`](../../skills/handover/SKILL.md)
 
 ---
 

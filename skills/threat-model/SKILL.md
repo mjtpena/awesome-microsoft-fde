@@ -1,8 +1,46 @@
-# Threat Model: <Agent / System name>
+---
+name: threat-model
+description: "Draft an AI-specific threat model: assets, system flow and trust boundaries, identities and permissions per tool, threats such as prompt injection, excessive agency and data leakage, detection, response and a red-team plan. Use in design, before the security review; critical for action agents, regulated and disconnected engagements."
+---
 
-> **Step:** 3 Design · **Pillar:** 4 Security and identity · **Scenarios:** all (critical for action agent, regulated and disconnected)
->
-> **How to use:** draft it in week two and take it to the security team as a conversation, not a finished verdict. Update it whenever a tool, data source or permission changes. See [Pillar 4](../docs/pillars/04-security-and-identity.md).
+# Threat Model
+
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 3 Design · **Pillar:** [4 Security and identity](../../docs/pillars/04-security-and-identity.md)
+
+The document you take to the security team as a conversation, not a finished verdict. See [Pillar 4](../../docs/pillars/04-security-and-identity.md).
+
+## When to use
+
+- Week two, as soon as there is a rough architecture.
+- Whenever a tool, data source or permission changes.
+
+## Rules
+
+- Meet the security team with a draft, early. Security review is a design input, not a final gate. 💬
+- Mark every trust boundary on the diagram.
+- For every threat, say how the defence is tested, not just what it is.
+- Record who accepts any residual risk.
+
+## Steps
+
+1. Write the [template](#template) to `docs/security/threat-model.md` in the customer's repository.
+2. List assets and draw the flow from the current architecture, marking trust boundaries.
+3. Fill one row per tool and data source in the identities table.
+4. Go through every threat row; mark "doesn't apply" with a reason rather than deleting it.
+5. Add the scenario add-on and the red-team plan, then book the review with security.
+
+Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
+
+## Scenarios
+
+Used in every scenario. **Critical** in: [action-taking agent](../scenario-action-agent/SKILL.md), [regulated, private-only](../scenario-regulated-private/SKILL.md), [disconnected or sovereign](../scenario-disconnected-sovereign/SKILL.md). Those packs say what to add.
+
+## Template
+
+Write everything inside the block below to the file named in the steps, then fill it in.
+
+````markdown
+# Threat Model: <Agent / System name>
 
 **Version:** · **Date:** · **Reviewed with (security):**
 
@@ -68,3 +106,4 @@ flowchart LR
 - **Knowledge assistant:** oversharing review result for each source; proof that a low-privilege user can't retrieve restricted content.
 - **Regulated:** map each defence to the customer's control framework; record who accepts residual risk.
 - **Disconnected:** physical threats, removable-media transfer, and how you patch without internet.
+````

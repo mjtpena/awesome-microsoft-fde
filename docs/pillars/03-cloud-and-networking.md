@@ -89,9 +89,9 @@ flowchart LR
 3. Why put a gateway in front of models, even for a prototype?
 4. How do you plan IP address space for an AI workload?
 
-## Templates for this pillar
+## Skills for this pillar
 
-[`access-request.md`](../../templates/access-request.md) · [`adr.md`](../../templates/adr.md) · [`go-live-readiness.md`](../../templates/go-live-readiness.md) · [Regulated, private-only pack](../../templates/scenarios/regulated-private.md)
+[`access-request`](../../skills/access-request/SKILL.md) · [`adr`](../../skills/adr/SKILL.md) · [`go-live-readiness`](../../skills/go-live-readiness/SKILL.md) · [Regulated, private-only pack](../../skills/scenario-regulated-private/SKILL.md)
 
 ---
 

@@ -1,6 +1,11 @@
+---
+name: scenario-disconnected-sovereign
+description: "Plan a disconnected or sovereign engagement (defence, classified government, remote sites, ships) with little or no internet: default design, which skills to use and what to add, discovery questions, top risks and the Microsoft services. Combine with the knowledge, action or data pack."
+---
+
 # Scenario Pack: Disconnected or Sovereign
 
-> Part of the [templates](../README.md). **The engagement:** defence, classified government, remote industrial sites, ships. Little or no internet connection, and data that must never leave the site or country. **Hardest pillar:** [3 Cloud and networking](../../docs/pillars/03-cloud-and-networking.md).
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **The engagement:** defence, classified government, remote industrial sites, ships. Little or no internet connection, and data that must never leave the site or country. **Hardest pillar:** [3 Cloud and networking](../../docs/pillars/03-cloud-and-networking.md).
 
 ## Our default design 💬
 
@@ -23,18 +28,18 @@ flowchart LR
 - **The update process is a product.** Design, document and rehearse the offline update before go-live.
 - **Preview features carry extra risk here,** because you can't patch quickly. Get written acceptance for each one.
 
-## Template kit
+## Skill kit
 
-| Template | What to add for this scenario |
+| Skill | What to add for this scenario |
 |---|---|
-| [`access-request.md`](../access-request.md) | **Critical.** Physical access, media-transfer approval, local directory accounts |
-| [`stakeholder-map.md`](../stakeholder-map.md) | Site manager, media-transfer approver, local operations lead |
-| [`adr.md`](../adr.md) | Model choice for local hardware; update and transfer process; local identity |
-| [`threat-model.md`](../threat-model.md) | Physical threats, removable media, patching without internet |
-| [`eval-plan.md`](../eval-plan.md) | Evaluation must run on site with local models |
-| [`cost-model.md`](../cost-model.md) | **Critical.** Hardware, power, support and on-site people instead of consumption |
-| [`go-live-readiness.md`](../go-live-readiness.md) | Core + disconnected add-ons |
-| [`runbook.md`](../runbook.md) | **Critical.** Offline updates, diagnostics without internet, local contacts |
+| [`access-request`](../access-request/SKILL.md) | **Critical.** Physical access, media-transfer approval, local directory accounts |
+| [`stakeholder-map`](../stakeholder-map/SKILL.md) | Site manager, media-transfer approver, local operations lead |
+| [`adr`](../adr/SKILL.md) | Model choice for local hardware; update and transfer process; local identity |
+| [`threat-model`](../threat-model/SKILL.md) | Physical threats, removable media, patching without internet |
+| [`eval-plan`](../eval-plan/SKILL.md) | Evaluation must run on site with local models |
+| [`cost-model`](../cost-model/SKILL.md) | **Critical.** Hardware, power, support and on-site people instead of consumption |
+| [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + disconnected add-ons |
+| [`runbook`](../runbook/SKILL.md) | **Critical.** Offline updates, diagnostics without internet, local contacts |
 
 ## Discovery questions
 

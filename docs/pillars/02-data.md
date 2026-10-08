@@ -18,7 +18,7 @@ AI answers are only as good as the data behind them. In a real organisation, tha
 
 ### The data audit
 
-For every source, answer: what system holds it, what format it's in, how big it is, how fresh it needs to be, who owns it, how you get access, what's wrong with it, and how sensitive it is. Use the [`data-audit.md`](../../templates/data-audit.md) template.
+For every source, answer: what system holds it, what format it's in, how big it is, how fresh it needs to be, who owns it, how you get access, what's wrong with it, and how sensitive it is. Use the [`data-audit`](../../skills/data-audit/SKILL.md) skill.
 
 ### Getting data in: reference, replicate or copy
 
@@ -81,9 +81,9 @@ Measure quality along a few simple dimensions: complete, accurate, consistent, c
 3. How do you make sure an AI assistant respects document permissions?
 4. How would you chunk a 200-page policy manual with tables?
 
-## Templates for this pillar
+## Skills for this pillar
 
-[`data-audit.md`](../../templates/data-audit.md) · [`ai-use-case-canvas.md`](../../templates/ai-use-case-canvas.md) · [Data and analytics agent pack](../../templates/scenarios/data-agent.md)
+[`data-audit`](../../skills/data-audit/SKILL.md) · [`ai-use-case-canvas`](../../skills/ai-use-case-canvas/SKILL.md) · [Data and analytics agent pack](../../skills/scenario-data-agent/SKILL.md)
 
 ---
 

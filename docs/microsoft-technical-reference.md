@@ -2,6 +2,8 @@
 
 > Part of the [Awesome Microsoft FDE](../README.md) guide. The Microsoft stack, the seven-phase curriculum, the applied AI playbook, sovereign deployment, engagement lifecycle and certifications.
 > New to the topic? Start with the [README](../README.md) first: it explains the ideas in plain language. This page is the detailed, fully sourced reference.
+>
+> Not official Microsoft documentation. See the [disclaimer](../README.md#disclaimer); for anything that matters, confirm against Microsoft Learn.
 
 **Last verified:** 7 October 2026.
 
@@ -417,9 +419,9 @@ timeline
 
 ---
 
-## 📋 Artifact Templates
+## 📋 Skills
 
-The [templates index](../templates/README.md) has 14 templates, one or more for each engagement step and tagged by pillar, plus five scenario packs: [knowledge assistant](../templates/scenarios/knowledge-assistant.md), [action-taking agent](../templates/scenarios/action-agent.md), [data agent](../templates/scenarios/data-agent.md), [regulated / private-only](../templates/scenarios/regulated-private.md) and [disconnected / sovereign](../templates/scenarios/disconnected-sovereign.md).
+The [skills index](../skills/README.md) has 14 skills (each a self-contained `SKILL.md` that ends with its template), one or more for each engagement step and tagged by pillar, plus five scenario packs: [knowledge assistant](../skills/scenario-knowledge-assistant/SKILL.md), [action-taking agent](../skills/scenario-action-agent/SKILL.md), [data agent](../skills/scenario-data-agent/SKILL.md), [regulated / private-only](../skills/scenario-regulated-private/SKILL.md) and [disconnected / sovereign](../skills/scenario-disconnected-sovereign/SKILL.md).
 
 ## 🏅 Certification Path (post-2026 reset)
 

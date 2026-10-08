@@ -1,8 +1,47 @@
-# Access Request: <Customer> / <Engagement>
+---
+name: access-request
+description: "Draft a single day-one access request listing every account, cloud role, network path, dataset, licence and repository permission an FDE needs at a customer, each with an approver and status. Use at the start of an engagement or when access is blocking work."
+---
 
-> **Step:** 1 Get access · **Pillars:** 3 Cloud and networking, 4 Security and identity · **Scenarios:** all (critical for regulated and disconnected)
->
-> **How to use:** send this on day one, as one document, to one named person at the customer. Access delays are the most common reason engagements slip. Every row has an owner and a date.
+# Access Request
+
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 1 Get access · **Pillars:** [3 Cloud and networking](../../docs/pillars/03-cloud-and-networking.md), [4 Security and identity](../../docs/pillars/04-security-and-identity.md)
+
+One document, sent on day one to one named person, that lists everything you need access to. Access delays are the most common reason engagements slip.
+
+## When to use
+
+- Day one of any engagement, before you write code.
+- Whenever a new system, dataset or environment comes into scope.
+- Weekly, to update the blocked-items table and escalate.
+
+## Rules
+
+- Send it as **one document to one named person** at the customer, not a trickle of emails.
+- Every row has an owner and a date.
+- Ask for **least-privilege, time-limited** roles and say so in the request. Security teams approve faster when you ask for less.
+- Never ask for secrets for the solution's own identity: request a managed identity or agent identity.
+
+## Steps
+
+1. Write the [template](#template) to `docs/engagement/access-request.md` in the customer's repository.
+2. Ask for the customer, engagement name, named customer contact and the date access is needed by.
+3. Fill each table from what you know about the architecture; mark unknowns as questions rather than guessing.
+4. Add the regulated or disconnected add-ons if they apply; delete the ones that don't.
+5. List anything already blocked in the last table, with the date it became blocked.
+
+Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
+
+## Scenarios
+
+Used in every scenario. **Critical** in: [regulated, private-only](../scenario-regulated-private/SKILL.md), [disconnected or sovereign](../scenario-disconnected-sovereign/SKILL.md). Those packs say what to add.
+
+## Template
+
+Write everything inside the block below to the file named in the steps, then fill it in.
+
+````markdown
+# Access Request: <Customer> / <Engagement>
 
 **Requested by:** · **Customer contact:** · **Date sent:** · **Needed by:**
 
@@ -70,3 +109,4 @@
 
 | Item | Blocked since | Impact | Escalated to |
 |---|---|---|---|
+````

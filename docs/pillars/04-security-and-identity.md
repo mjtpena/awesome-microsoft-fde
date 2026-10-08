@@ -37,7 +37,7 @@ Grant the minimum permissions for each tool, scoped to specific resources, for t
 | **Tool misuse** | The agent calls a tool with harmful arguments | Input validation in the tool, rate limits, human approval |
 | **Unbounded cost** | Loops or abuse run up the bill | Gateway token limits, budgets, loop limits |
 
-Use the [`threat-model.md`](../../templates/threat-model.md) template to work through these for each engagement.
+Use the [`threat-model`](../../skills/threat-model/SKILL.md) skill to work through these for each engagement.
 
 ### Data protection
 
@@ -94,9 +94,9 @@ flowchart LR
 3. A customer has 300 unknown agents. What's your first week?
 4. Who must be licensed for Agent 365, and why does it matter for Defender?
 
-## Templates for this pillar
+## Skills for this pillar
 
-[`threat-model.md`](../../templates/threat-model.md) · [`access-request.md`](../../templates/access-request.md) · [`go-live-readiness.md`](../../templates/go-live-readiness.md) · [Action-taking agent pack](../../templates/scenarios/action-agent.md)
+[`threat-model`](../../skills/threat-model/SKILL.md) · [`access-request`](../../skills/access-request/SKILL.md) · [`go-live-readiness`](../../skills/go-live-readiness/SKILL.md) · [Action-taking agent pack](../../skills/scenario-action-agent/SKILL.md)
 
 ---
 

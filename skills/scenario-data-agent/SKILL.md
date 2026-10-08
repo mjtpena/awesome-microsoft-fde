@@ -1,6 +1,11 @@
+---
+name: scenario-data-agent
+description: "Plan a data and analytics agent engagement that answers plain-English questions over business data: default design, which skills to use and what to add, discovery questions, top risks and the Microsoft services. Use when users want to query sales, finance or operations data."
+---
+
 # Scenario Pack: Data and Analytics Agent
 
-> Part of the [templates](../README.md). **The engagement:** "Let people ask our sales, finance or operations data questions in plain English." **Hardest pillar:** [2 Data](../../docs/pillars/02-data.md).
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **The engagement:** "Let people ask our sales, finance or operations data questions in plain English." **Hardest pillar:** [2 Data](../../docs/pillars/02-data.md).
 
 ## Our default design 💬
 
@@ -17,16 +22,16 @@ flowchart LR
 - **Show the query or calculation with every answer,** so users can check it.
 - **Match a trusted report.** If the agent's number differs from the finance report, users will trust neither.
 
-## Template kit
+## Skill kit
 
-| Template | What to add for this scenario |
+| Skill | What to add for this scenario |
 |---|---|
-| [`discovery-interview.md`](../discovery-interview.md) | Which reports people trust; which metric definitions are disputed |
-| [`data-audit.md`](../data-audit.md) | **Critical.** Fill the business-data section: questions → tables → trusted report → definition owner |
-| [`adr.md`](../adr.md) | Data layer the agent queries; metric definitions; query limits |
-| [`eval-plan.md`](../eval-plan.md) | Numbers compared to the trusted report; ambiguous questions that need clarification |
-| [`cost-model.md`](../cost-model.md) | Query compute on the data platform |
-| [`go-live-readiness.md`](../go-live-readiness.md) | Core + data-agent add-ons |
+| [`discovery-interview`](../discovery-interview/SKILL.md) | Which reports people trust; which metric definitions are disputed |
+| [`data-audit`](../data-audit/SKILL.md) | **Critical.** Fill the business-data section: questions → tables → trusted report → definition owner |
+| [`adr`](../adr/SKILL.md) | Data layer the agent queries; metric definitions; query limits |
+| [`eval-plan`](../eval-plan/SKILL.md) | Numbers compared to the trusted report; ambiguous questions that need clarification |
+| [`cost-model`](../cost-model/SKILL.md) | Query compute on the data platform |
+| [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + data-agent add-ons |
 
 ## Discovery questions
 

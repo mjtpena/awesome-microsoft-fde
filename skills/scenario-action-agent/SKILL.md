@@ -1,6 +1,11 @@
+---
+name: scenario-action-agent
+description: "Plan an action-taking agent engagement where the agent updates records, sends messages or triggers workflows: default design with approvals and audit, which skills to use and what to add, discovery questions, top risks and the Microsoft services. Use when the agent will write or change anything."
+---
+
 # Scenario Pack: Action-Taking Agent
 
-> Part of the [templates](../README.md). **The engagement:** "Update the ticket, draft and send the email, file the claim, trigger the workflow." **Hardest pillar:** [4 Security and identity](../../docs/pillars/04-security-and-identity.md).
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **The engagement:** "Update the ticket, draft and send the email, file the claim, trigger the workflow." **Hardest pillar:** [4 Security and identity](../../docs/pillars/04-security-and-identity.md).
 
 ## Our default design 💬
 
@@ -20,16 +25,16 @@ flowchart LR
 - **One tool, one purpose.** "Update ticket status" is a tool; "call the ticketing API" isn't.
 - **Design for failure:** every write tool has a dry-run mode, a clear error and a documented rollback.
 
-## Template kit
+## Skill kit
 
-| Template | What to add for this scenario |
+| Skill | What to add for this scenario |
 |---|---|
-| [`ai-use-case-canvas.md`](../ai-use-case-canvas.md) | List every action, whether it's reversible, and its approval point |
-| [`threat-model.md`](../threat-model.md) | **Critical.** Fill the action-agent add-on: blast radius, approval and rollback per action |
-| [`adr.md`](../adr.md) | Approval design, tool design, audit trail |
-| [`eval-plan.md`](../eval-plan.md) | Tool-call accuracy, approval requested, failure handling, requests that must be declined |
-| [`go-live-readiness.md`](../go-live-readiness.md) | Core + action-agent add-ons |
-| [`runbook.md`](../runbook.md) | Kill switch; finding and reversing actions from a time window |
+| [`ai-use-case-canvas`](../ai-use-case-canvas/SKILL.md) | List every action, whether it's reversible, and its approval point |
+| [`threat-model`](../threat-model/SKILL.md) | **Critical.** Fill the action-agent add-on: blast radius, approval and rollback per action |
+| [`adr`](../adr/SKILL.md) | Approval design, tool design, audit trail |
+| [`eval-plan`](../eval-plan/SKILL.md) | Tool-call accuracy, approval requested, failure handling, requests that must be declined |
+| [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + action-agent add-ons |
+| [`runbook`](../runbook/SKILL.md) | Kill switch; finding and reversing actions from a time window |
 
 ## Discovery questions
 

@@ -1,8 +1,44 @@
-# Go-Live Readiness: <Agent / System name>
+---
+name: go-live-readiness
+description: "Track go-live readiness with a core checklist (identity, network, data, quality and safety, operations), scenario add-ons and Microsoft-specific checks, ending in a go / no-go decision. Use from week three of the build until the go-live decision."
+---
 
-> **Step:** 5 Harden · **Pillars:** 3 Cloud and networking, 4 Security and identity, 5 AI applications · **Scenarios:** core checklist for all, plus add-ons
->
-> **How to use:** start ticking this in week three, not go-live week. Every unticked box needs an owner and a date, or a written risk acceptance. The Microsoft-specific checks at the end come from the [technical reference](../docs/microsoft-technical-reference.md).
+# Go-Live Readiness
+
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 5 Harden · **Pillars:** [3 Cloud and networking](../../docs/pillars/03-cloud-and-networking.md), [4 Security and identity](../../docs/pillars/04-security-and-identity.md), [5 AI applications](../../docs/pillars/05-ai-applications.md)
+
+The checklist for the go / no-go meeting. The Microsoft-specific checks come from the [technical reference](../../docs/microsoft-technical-reference.md).
+
+## When to use
+
+- Start ticking in week three, not go-live week.
+- At the go / no-go meeting.
+
+## Rules
+
+- Every unticked box needs an owner and a date, or a written risk acceptance.
+- Tick a box only with evidence (a test, a log, a sign-off).
+- Keep the core checklist for every scenario; add the scenario add-ons on top.
+
+## Steps
+
+1. Write the [template](#template) to `docs/engagement/go-live-readiness.md` in the customer's repository.
+2. Keep the core checklist plus the add-ons for this engagement's scenarios; delete the rest.
+3. For each unticked box, add an owner and date inline.
+4. Before the decision meeting, link evidence for each ticked box and record the decision and signature.
+
+Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
+
+## Scenarios
+
+Used in every scenario. **Critical** in: [action-taking agent](../scenario-action-agent/SKILL.md), [regulated, private-only](../scenario-regulated-private/SKILL.md), [disconnected or sovereign](../scenario-disconnected-sovereign/SKILL.md). Those packs say what to add.
+
+## Template
+
+Write everything inside the block below to the file named in the steps, then fill it in.
+
+````markdown
+# Go-Live Readiness: <Agent / System name>
 
 **Target go-live:** · **Decision meeting:** · **Go / no-go owner:**
 
@@ -80,3 +116,4 @@
 - [ ] Purview oversharing assessment reviewed for indexed SharePoint sites
 
 **Decision:** Go / No-go / Go with conditions · **Signed:** · **Date:**
+````

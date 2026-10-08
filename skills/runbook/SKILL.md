@@ -1,8 +1,45 @@
-# Runbook: <Agent / System name>
+---
+name: runbook
+description: "Write an operations runbook for an AI system that someone on call at 2 a.m. who didn't build it can follow: where things are, routine operations, health checks, incident playbooks, kill switch, rollback and escalation. Use from the build phase through handover; critical for action agents and disconnected sites."
+---
 
-> **Step:** 6 Hand over (start writing in step 4) · **Pillar:** 1 Software engineering · **Scenarios:** all (critical for action agent and disconnected)
->
-> **How to use:** written for the person on call at 2 a.m. who didn't build this. Test it by having someone else follow it to fix a simulated incident. If they need to ask you anything, the runbook isn't finished.
+# Runbook
+
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 6 Hand over (start writing in step 4) · **Pillar:** [1 Software engineering](../../docs/pillars/01-software-engineering.md)
+
+How to operate and fix the system without you.
+
+## When to use
+
+- Start in the build phase, as soon as there is something deployed.
+- Update after every incident or operational change.
+
+## Rules
+
+- Write for the person on call at 2 a.m. who didn't build this.
+- Test it by having someone else fix a simulated incident using only the runbook. If they need to ask you anything, it isn't finished.
+- The kill switch and rollback sections are never empty.
+
+## Steps
+
+1. Write the [template](#template) to `docs/operations/runbook.md` in the customer's repository.
+2. Fill "Where things are" from the infrastructure-as-code, not from memory.
+3. Turn every past incident into a row in the incidents table.
+4. Keep the scenario section for this engagement and delete the rest.
+5. Schedule a runbook drill and record it in the [handover](../handover/SKILL.md).
+
+Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
+
+## Scenarios
+
+Used in every scenario. **Critical** in: [action-taking agent](../scenario-action-agent/SKILL.md), [disconnected or sovereign](../scenario-disconnected-sovereign/SKILL.md). Those packs say what to add.
+
+## Template
+
+Write everything inside the block below to the file named in the steps, then fill it in.
+
+````markdown
+# Runbook: <Agent / System name>
 
 **Owner:** · **On-call / support group:** · **Last tested:** · **Repository:**
 
@@ -69,3 +106,4 @@ How to return to the previous version:
 
 | Level | Who | When | Contact |
 |---|---|---|---|
+````

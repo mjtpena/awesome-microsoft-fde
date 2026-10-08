@@ -1,6 +1,11 @@
+---
+name: scenario-knowledge-assistant
+description: "Plan a knowledge-assistant (RAG) engagement that answers questions from company documents: default design, which skills to use and what to add, discovery questions, top risks and the Microsoft services. Use when the customer wants answers from policies, manuals or documents."
+---
+
 # Scenario Pack: Knowledge Assistant
 
-> Part of the [templates](../README.md). **The engagement:** "Answer questions from our policies, manuals and documents." The most common first AI project. **Hardest pillars:** [2 Data](../../docs/pillars/02-data.md) and [5 AI applications](../../docs/pillars/05-ai-applications.md).
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **The engagement:** "Answer questions from our policies, manuals and documents." The most common first AI project. **Hardest pillars:** [2 Data](../../docs/pillars/02-data.md) and [5 AI applications](../../docs/pillars/05-ai-applications.md).
 
 ## Our default design 💬
 
@@ -18,18 +23,18 @@ flowchart LR
 - **Permission-trimmed retrieval is non-negotiable.** Run an oversharing review before indexing anything.
 - **Every answer cites its sources**, and "I don't know" is an acceptable answer.
 
-## Template kit
+## Skill kit
 
-| Template | What to add for this scenario |
+| Skill | What to add for this scenario |
 |---|---|
-| [`discovery-interview.md`](../discovery-interview.md) | Collect the top 20 questions and the source-of-truth documents for each |
-| [`data-audit.md`](../data-audit.md) | Fill the **documents** section: types, scans, tables, out-of-date content, oversharing |
-| [`ai-use-case-canvas.md`](../ai-use-case-canvas.md) | Scenario = knowledge assistant; actions = none |
-| [`adr.md`](../adr.md) | Ingestion, chunking, search type, permission trimming |
-| [`threat-model.md`](../threat-model.md) | Data leakage and indirect prompt injection from documents |
-| [`eval-plan.md`](../eval-plan.md) | Retrieval score, citation correctness, "I don't know" cases, low-privilege run |
-| [`go-live-readiness.md`](../go-live-readiness.md) | Core + knowledge-assistant add-ons |
-| [`runbook.md`](../runbook.md) | Re-indexing and urgent document removal |
+| [`discovery-interview`](../discovery-interview/SKILL.md) | Collect the top 20 questions and the source-of-truth documents for each |
+| [`data-audit`](../data-audit/SKILL.md) | Fill the **documents** section: types, scans, tables, out-of-date content, oversharing |
+| [`ai-use-case-canvas`](../ai-use-case-canvas/SKILL.md) | Scenario = knowledge assistant; actions = none |
+| [`adr`](../adr/SKILL.md) | Ingestion, chunking, search type, permission trimming |
+| [`threat-model`](../threat-model/SKILL.md) | Data leakage and indirect prompt injection from documents |
+| [`eval-plan`](../eval-plan/SKILL.md) | Retrieval score, citation correctness, "I don't know" cases, low-privilege run |
+| [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + knowledge-assistant add-ons |
+| [`runbook`](../runbook/SKILL.md) | Re-indexing and urgent document removal |
 
 ## Discovery questions
 

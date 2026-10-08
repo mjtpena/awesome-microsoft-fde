@@ -6,6 +6,9 @@
 
 **Who it's for:** engineers, data people, consultants and students who want to know what the job really is and how to get good at it. Every acronym is spelled out the first time it appears and listed in the [glossary](#-glossary).
 
+> [!IMPORTANT]
+> **Not an official Microsoft resource.** This is an independent community guide. It isn't written, reviewed, endorsed or sponsored by Microsoft or any of its forward deployed engineering teams. See the [disclaimer](#disclaimer).
+
 *Facts checked on 7 October 2026.*
 
 ---
@@ -47,7 +50,7 @@
 **Part 3: Practise and go deeper**
 
 12. [Practise: four interview scenarios](#12-practise-four-interview-scenarios)
-13. [Templates and scenario packs](#13-templates-and-scenario-packs)
+13. [Skills and scenario packs](#13-skills-and-scenario-packs)
 14. [Go deeper](#-go-deeper)
 15. [Glossary](#-glossary)
 
@@ -156,7 +159,7 @@ flowchart LR
 
 **When are you done?** The system runs in the customer's environment, tests prove it works, and a named person at the customer owns it. A merged pull request doesn't count.
 
-Every step has a ready-made template. See [templates and scenario packs](#13-templates-and-scenario-packs).
+Every step has a ready-made skill. See [skills and scenario packs](#13-skills-and-scenario-packs).
 
 ## 5. The six pillars
 
@@ -326,19 +329,19 @@ Talk through each out loud using the six steps from [section 4](#4-an-engagement
 
 Candidates report Microsoft's loop as a recruiter screen, an online test, coding screens, then an onsite with coding, system design and a behavioural round.[^interviews] More in [interview prep](docs/interview-prep.md).
 
-## 13. Templates and scenario packs
+## 13. Skills and scenario packs
 
-[`/templates`](./templates) has a template for every step of an engagement, each tagged with the pillar it serves. It also has **scenario packs**: opinionated starting kits for the five engagements you'll meet most often.
+[`/skills`](./skills) has a skill for every step of an engagement, each tagged with the pillar it serves. Each skill is one Markdown file (`SKILL.md`, in its own folder) that says when and how to use it and ends with the template to fill in. They follow the open Agent Skills format, so you can follow them yourself or hand them to any AI agent, such as GitHub Copilot or Claude Code. It also has **scenario packs**: opinionated starting kits for the five engagements you'll meet most often.
 
 | Scenario pack | The engagement |
 |---|---|
-| [Knowledge assistant](templates/scenarios/knowledge-assistant.md) | Answer questions from company documents (RAG) |
-| [Action-taking agent](templates/scenarios/action-agent.md) | An agent that updates records, sends messages or triggers workflows |
-| [Data and analytics agent](templates/scenarios/data-agent.md) | Natural-language questions over business data |
-| [Regulated, private-only](templates/scenarios/regulated-private.md) | Banks, government, health: private networking and strict review |
-| [Disconnected or sovereign](templates/scenarios/disconnected-sovereign.md) | Sites with limited or no internet connection |
+| [Knowledge assistant](skills/scenario-knowledge-assistant/SKILL.md) | Answer questions from company documents (RAG) |
+| [Action-taking agent](skills/scenario-action-agent/SKILL.md) | An agent that updates records, sends messages or triggers workflows |
+| [Data and analytics agent](skills/scenario-data-agent/SKILL.md) | Natural-language questions over business data |
+| [Regulated, private-only](skills/scenario-regulated-private/SKILL.md) | Banks, government, health: private networking and strict review |
+| [Disconnected or sovereign](skills/scenario-disconnected-sovereign/SKILL.md) | Sites with limited or no internet connection |
 
-Start with the [templates index](templates/README.md).
+Start with the [skills index](skills/README.md).
 
 ## 📚 Go deeper
 
@@ -388,6 +391,15 @@ The [technical reference](docs/microsoft-technical-reference.md#-glossary) has a
 See [CONTRIBUTING.md](./CONTRIBUTING.md). Opinions are welcome: label them as opinions and argue for them. Facts need a source.
 
 Inspired by [pierpaolo28/Awesome-FDE-Roadmap](https://github.com/pierpaolo28/Awesome-FDE-Roadmap).
+
+## Disclaimer
+
+This is an independent, community-maintained project. It is **not affiliated with, endorsed by or sponsored by Microsoft Corporation**, and nothing here is official Microsoft guidance, policy or a description of how Microsoft's own teams work.
+
+- **Opinions are ours.** Everything marked as opinion reflects the contributors' field experience, not Microsoft's position.
+- **Facts go out of date.** Products, features, prices and licensing change often. Always check [Microsoft Learn](https://learn.microsoft.com/) and the customer's own agreements before relying on anything here.
+- **No warranty.** The skills are starting points, provided as-is under the [license](./LICENSE). You're responsible for how you use them in a customer engagement.
+- **Trademarks.** Microsoft, Azure, Microsoft 365, Copilot, Fabric, Entra and other product names are trademarks of the Microsoft group of companies. Other names are the property of their owners. They're used here only to identify the products being discussed.
 
 ## License
 

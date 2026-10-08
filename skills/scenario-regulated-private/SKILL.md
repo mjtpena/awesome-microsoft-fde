@@ -1,6 +1,11 @@
+---
+name: scenario-regulated-private
+description: "Plan a regulated, private-only engagement (banks, insurers, government, healthcare) with private networking and formal security review: default design, which skills to use and what to add, discovery questions, top risks and the Microsoft services. Combine with the knowledge, action or data pack."
+---
+
 # Scenario Pack: Regulated, Private-Only
 
-> Part of the [templates](../README.md). **The engagement:** banks, insurers, government agencies, healthcare. "Nothing touches the public internet", a formal security review, and a regulator watching. Combine this pack with the knowledge, action or data pack. **Hardest pillars:** [3 Cloud and networking](../../docs/pillars/03-cloud-and-networking.md) and [4 Security and identity](../../docs/pillars/04-security-and-identity.md).
+> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **The engagement:** banks, insurers, government agencies, healthcare. "Nothing touches the public internet", a formal security review, and a regulator watching. Combine this pack with the knowledge, action or data pack. **Hardest pillars:** [3 Cloud and networking](../../docs/pillars/03-cloud-and-networking.md) and [4 Security and identity](../../docs/pillars/04-security-and-identity.md).
 
 ## Our default design 💬
 
@@ -22,15 +27,15 @@ flowchart LR
 - **Check region and data-residency rules for every component,** including logs and model processing.
 - **Plan for longer timelines:** in our experience, review cycles often add weeks. Put them in the plan from day one.
 
-## Template kit
+## Skill kit
 
-| Template | What to add for this scenario |
+| Skill | What to add for this scenario |
 |---|---|
-| [`access-request.md`](../access-request.md) | **Critical.** Clearances, data-handling agreement, approved devices, log location |
-| [`stakeholder-map.md`](../stakeholder-map.md) | Risk owner, privacy officer, external assessor |
-| [`adr.md`](../adr.md) | Private networking; each exception; log retention and location |
-| [`threat-model.md`](../threat-model.md) | Map defences to the customer's control framework; record who accepts residual risk |
-| [`go-live-readiness.md`](../go-live-readiness.md) | Core + regulated add-ons |
+| [`access-request`](../access-request/SKILL.md) | **Critical.** Clearances, data-handling agreement, approved devices, log location |
+| [`stakeholder-map`](../stakeholder-map/SKILL.md) | Risk owner, privacy officer, external assessor |
+| [`adr`](../adr/SKILL.md) | Private networking; each exception; log retention and location |
+| [`threat-model`](../threat-model/SKILL.md) | Map defences to the customer's control framework; record who accepts residual risk |
+| [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + regulated add-ons |
 
 ## Discovery questions
 
