@@ -54,6 +54,8 @@ def anchors(path, cache={}):
 
 def check_links(path, text):
     for target in re.findall(r"\]\(([^)\s]+)\)", strip_code(text)):
+        if "/awesome-microsoft-fde" in target and not target.startswith(REPO_URL.split("/blob/")[0]):
+            problem(path, f"link to this repository has the wrong owner: {target}")
         if target.startswith(REPO_URL):
             file_part, _, anchor = target[len(REPO_URL):].partition("#")
             dest = ROOT / file_part

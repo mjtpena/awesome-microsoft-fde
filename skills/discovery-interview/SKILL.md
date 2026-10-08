@@ -25,7 +25,7 @@ An interview guide and notes sheet for one person. Ask open questions, then ask 
 
 1. Write the [template](#template) to `docs/engagement/discovery/<name>.md`, one file per interviewee.
 2. Ask which role type the interviewee is and keep only the matching role section plus "For everyone".
-3. Copy the "Discovery questions" from each [scenario pack](https://github.com/mjtpe/awesome-microsoft-fde/blob/main/skills/README.md#scenario-packs) the engagement uses into "Scenario questions". The packs are the only place those questions are kept.
+3. Copy the "Discovery questions" from each [scenario pack](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md#scenario-packs) the engagement uses into "Scenario questions". The packs are the only place those questions are kept.
 4. After the interview, fill the notes table and the five-whys line. Feed the business measure into the [AI use-case canvas](../ai-use-case-canvas/SKILL.md).
 
 Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
