@@ -327,7 +327,7 @@ Talk through each out loud using the six steps from [section 4](#4-an-engagement
 3. **Low code or full code?** The architecture board asks why you chose Copilot Studio over Microsoft Foundry, or the reverse. *Cover cost, who maintains it, and the customer team's skills.*
 4. **Too many agents.** A company finds 300 AI agents built by different teams, and nobody knows what they can access. *How do you take inventory, assign owners and control access?*
 
-Candidates report Microsoft's loop as a recruiter screen, an online test, coding screens, then an onsite with coding, system design and a behavioural round.[^interviews] More in [interview prep](docs/interview-prep.md).
+Candidates report Microsoft's loop as a recruiter screen, an online test, coding screens, then an onsite with coding, system design and a behavioural round.[^interviews] [Interview prep](docs/interview-prep.md) has outline answers for each of these, three more cases and rapid-fire questions with answers.
 
 ## 13. Skills and scenario packs
 
