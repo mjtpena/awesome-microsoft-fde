@@ -20,7 +20,7 @@ Thanks for helping keep this roadmap accurate. By taking part you agree to the [
 
 ## House rules
 
-1. **Cite every factual claim.** Prefer Microsoft Learn, official Microsoft blogs, or Microsoft GitHub repos. Third-party sources are acceptable only when named as such.
+1. **Cite every factual claim.** Prefer Microsoft Learn, official Microsoft blogs, or Microsoft GitHub repos. Third-party sources are acceptable only when named as such. Job postings and other pages that disappear: add an `[archived](https://web.archive.org/...)` link next to the source, but only after checking that the snapshot shows the text you cite (many job boards archive as an empty page).
 2. **Label status.** Use ✅ GA, 🧪 Preview, 🔜 Announced, ⚠️ Watch out.
 3. **Mark opinion.** Practitioner guidance gets 💬.
 4. **Date-stamp changes.** Update the "Facts checked" date in the README or the "Last verified" date in the relevant `docs/` page (every page under `docs/`, pillar pages included, carries one) when you re-verify a section.
