@@ -2,6 +2,8 @@
 
 > Part of the [six pillars](README.md). **Our stance:** retrieval quality and evaluation matter more than which model you pick. Write the tests before you tune the prompt.
 
+**Last verified:** 8 October 2026. Microsoft facts here are a summary of the [technical reference](../microsoft-technical-reference.md); if the two disagree, trust the reference and Microsoft Learn.
+
 ## In plain words
 
 Most enterprise AI applications are one of three things: an assistant that **answers questions from company knowledge**, an agent that **takes actions** in company systems, or an agent that **answers questions about company data**. Building a demo of any of these takes a day. Making it right often enough, safe enough and cheap enough for daily use takes the rest of the engagement.

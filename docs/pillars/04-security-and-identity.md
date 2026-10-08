@@ -2,6 +2,8 @@
 
 > Part of the [six pillars](README.md). **Our stance:** every agent gets its own identity and the least access it needs. Security review is a design input, not a final gate.
 
+**Last verified:** 8 October 2026. Microsoft facts here are a summary of the [technical reference](../microsoft-technical-reference.md); if the two disagree, trust the reference and Microsoft Learn.
+
 ## In plain words
 
 An AI agent is a new kind of user. It reads data, calls systems and sometimes changes things. Security teams ask four questions about it: **Who is it? What can it reach? What stops it being tricked? Who can see what it did?** An FDE who can answer those clearly gets to production. One who can't gets stuck in review.

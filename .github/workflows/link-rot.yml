@@ -1,0 +1,30 @@
+name: Weekly link check
+
+# Sources disappear between PRs. Check every Monday and open an issue
+# listing the dead links, instead of failing someone's unrelated PR.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  link-rot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config lychee.toml --no-progress "**/*.md"
+          output: lychee/report.md
+          fail: false
+      - if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Weekly link check: dead links found"
+          content-filepath: lychee/report.md
+          labels: stale-fact

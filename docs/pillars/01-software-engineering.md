@@ -2,6 +2,8 @@
 
 > Part of the [six pillars](README.md). **Our stance:** production habits beat clever code. You're often the only engineer on site, so whatever you skip, nobody else will catch.
 
+**Last verified:** 8 October 2026. Microsoft facts here are a summary of the [technical reference](../microsoft-technical-reference.md); if the two disagree, trust the reference and Microsoft Learn.
+
 ## In plain words
 
 An FDE writes code that has to keep running after they leave, in someone else's environment, maintained by people they've just met. That changes what "good code" means. It means boring, readable, tested, observable, and deployable by someone else with one command.

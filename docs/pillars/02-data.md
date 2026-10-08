@@ -2,6 +2,8 @@
 
 > Part of the [six pillars](README.md). **Our stance:** every AI project is a data project in disguise. Audit the data before you promise anything.
 
+**Last verified:** 8 October 2026. Microsoft facts here are a summary of the [technical reference](../microsoft-technical-reference.md); if the two disagree, trust the reference and Microsoft Learn.
+
 ## In plain words
 
 AI answers are only as good as the data behind them. In a real organisation, that data is spread across old databases, spreadsheets, file shares and software-as-a-service tools. It's often out of date, duplicated or locked behind permissions nobody remembers granting. The FDE's data job is to find it, judge its quality, get it to where the AI can use it, and keep the original permissions intact.

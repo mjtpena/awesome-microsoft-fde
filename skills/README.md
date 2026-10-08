@@ -14,15 +14,43 @@ Each skill is one folder holding one self-contained Markdown file, `SKILL.md`, w
 
 The files use the open [Agent Skills](https://agentskills.io/) format, but they're plain Markdown with no tool-specific syntax, so any agent can follow them:
 
-- **Agents that support skills** (for example GitHub Copilot or Claude Code): copy the skill folders to where your agent reads skills from, such as `.github/skills/` or `.claude/skills/`. Check your tool's documentation for the current path.
+- **Agents that support skills** (for example GitHub Copilot or Claude Code): install them into the folder your agent reads skills from, such as `.github/skills/` or `.claude/skills/`. Check your tool's documentation for the current path. See [install](#install).
 - **Any other agent or chat assistant:** paste or attach the `SKILL.md` and ask it to follow the steps, or reference it from your agent's instructions file.
 - **A person:** read it and follow the same steps.
+
+### Install
+
+Run one of these from the root of the repository you're working in. Replace `.claude/skills` with your agent's skills folder.
+
+**Latest version** (needs Node.js):
+
+```bash
+npx degit mjtpena/awesome-microsoft-fde/skills .claude/skills
+```
+
+Add `--force` to overwrite skills you installed before. To pin a release, add its tag: `mjtpena/awesome-microsoft-fde/skills#v1.0.0`.
+
+**A released version, without Node.js:** every [release](https://github.com/mjtpena/awesome-microsoft-fde/releases) attaches `skills.zip`, which unpacks to a `skills/` folder.
+
+```bash
+# macOS / Linux
+curl -sL https://github.com/mjtpena/awesome-microsoft-fde/releases/latest/download/skills.zip -o skills.zip
+unzip -o skills.zip -d .claude && rm skills.zip
+```
+
+```powershell
+# Windows PowerShell
+Invoke-WebRequest https://github.com/mjtpena/awesome-microsoft-fde/releases/latest/download/skills.zip -OutFile skills.zip
+Expand-Archive skills.zip -DestinationPath .claude -Force; Remove-Item skills.zip
+```
+
+Before you update an installed copy, read the [changelog](../CHANGELOG.md): a major version means a template changed in a way that affects documents you've already filled in.
 
 **How to use them** 💬
 
 1. Pick the [scenario pack](#scenario-packs) closest to your engagement. It lists the skills you need and the questions specific to that scenario.
 2. Follow each skill's steps and write its template into the customer's repository (for example `docs/engagement/`), not your own drive. The work you deliver belongs to the customer.
-3. Delete sections that don't apply. A short, filled-in document beats a long, empty one.
+3. Delete sections that don't apply. A short, filled-in document beats a long, empty one. The [worked examples](../examples/README.md) show the level of detail to aim for.
 
 **What stays internal** 💬
 
@@ -35,7 +63,7 @@ Each of these skills marks which part goes where.
 
 **Microsoft facts go stale** ⚠️
 
-Some skills name Microsoft services, roles, licences and preview features. These change monthly. The skills point to the [technical reference](../docs/microsoft-technical-reference.md), which carries a "Last verified" date. Check the fact there, then on Microsoft Learn, before you put it in front of a customer. Templates deliberately leave out prices and dates, because a copied template is never updated.
+Some skills name Microsoft services, roles, licences and preview features. These change monthly. The skills point to the [technical reference](../docs/microsoft-technical-reference.md), which carries a "Last verified" date. Check the fact there, then on Microsoft Learn, before you put it in front of a customer. Skills deliberately leave out prices and dates, because a copied skill is never updated.
 
 ## By engagement step
 

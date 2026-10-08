@@ -74,7 +74,7 @@ flowchart LR
 
 The data-analytics company Palantir made the title popular in the late 2000s.[^wiki] Its own one-line definition is still the best: a product engineer works on **one capability for many customers**; a forward deployed engineer works with **one customer, using many capabilities**.[^palantir]
 
-**Our take:** most of an FDE's week isn't coding. Expect roughly a third building, a third unblocking (access, data, security, approvals) and a third talking (discovery, demos, decisions). People who only want the first third hate this job.
+**Our take:** most of an FDE's week isn't coding. In our experience it's roughly a third building, a third unblocking (access, data, security, approvals) and a third talking (discovery, demos, decisions). That's our estimate, not a measurement, but job postings point the same way: "working directly with customers" is the most common responsibility listed (55% of postings), ahead of building AI systems (37%).[^bloomberry] People who only want the building third hate this job.
 
 ## 2. How it differs from similar jobs
 
@@ -302,15 +302,13 @@ flowchart TD
 
 **Our take:** certifications get you past a recruiter's filter; they don't get you the job. A public repository with a deployed, tested, secured project beats three certificates. Take two or three as a syllabus, not a trophy shelf. Microsoft replaced several exams in 2026, so check before booking.[^certs]
 
-| Order | Exam | What it proves | Worth it? |
-|---|---|---|---|
-| 1 | **AI-901** Azure AI Fundamentals | Basic AI concepts and Microsoft's AI tools | Only if you're new to AI |
-| 2 | **AZ-104** Azure Administrator | You can run Azure: networks, identity, storage | **Yes**, it covers pillar 3 well |
-| 3 | **AI-103** Azure AI Apps and Agents Developer | You can build AI apps and agents in Foundry | **Yes**, the most relevant one |
-| 4 | **DP-700** Fabric Data Engineer | You can build data pipelines in Fabric | If data is your deep pillar |
-| 5 | **AZ-305** Azure Solutions Architect | You can design complete solutions (requires AZ-104) | Later, for senior roles |
-| Optional | **SC-500** Cloud and AI Security Engineer | You can secure cloud and AI workloads | If security is your deep pillar |
-| Optional | **AB-620** AI Agent Builder | Advanced agents in Copilot Studio | If your customers are low-code |
+A path that works for most FDEs:
+
+1. **AZ-104** Azure Administrator: networks, identity and storage. Covers pillar 3 well.
+2. **AI-103** Azure AI Apps and Agents Developer: building AI apps and agents in Foundry. The most relevant one.
+3. **One for your deep pillar:** DP-700 (Fabric data engineering), SC-500 (cloud and AI security) or AB-620 (Copilot Studio agents, if your customers are low-code).
+
+Take **AI-901** (Azure AI Fundamentals) first only if you're new to AI. Leave **AZ-305** (Azure Solutions Architect, which requires AZ-104) for senior roles.
 
 Full list with retirement dates: [technical reference](docs/microsoft-technical-reference.md#-certification-path-post-2026-reset).
 
@@ -327,7 +325,7 @@ Talk through each out loud using the six steps from [section 4](#4-an-engagement
 3. **Low code or full code?** The architecture board asks why you chose Copilot Studio over Microsoft Foundry, or the reverse. *Cover cost, who maintains it, and the customer team's skills.*
 4. **Too many agents.** A company finds 300 AI agents built by different teams, and nobody knows what they can access. *How do you take inventory, assign owners and control access?*
 
-Candidates report Microsoft's loop as a recruiter screen, an online test, coding screens, then an onsite with coding, system design and a behavioural round.[^interviews] More in [interview prep](docs/interview-prep.md).
+Candidates report Microsoft's loop as a recruiter screen, an online test, coding screens, then an onsite with coding, system design and a behavioural round.[^interviews] [Interview prep](docs/interview-prep.md) has outline answers for each of these, three more cases and rapid-fire questions with answers.
 
 ## 13. Skills and scenario packs
 
@@ -341,6 +339,12 @@ Candidates report Microsoft's loop as a recruiter screen, an online test, coding
 | [Regulated, private-only](skills/scenario-regulated-private/SKILL.md) | Banks, government, health: private networking and strict review |
 | [Disconnected or sovereign](skills/scenario-disconnected-sovereign/SKILL.md) | Sites with limited or no internet connection |
 
+Install them into your agent's skills folder with one command (needs Node.js), or see the [skills index](skills/README.md#install) for other options:
+
+```bash
+npx degit mjtpena/awesome-microsoft-fde/skills .claude/skills
+```
+
 Start with the [skills index](skills/README.md).
 
 ## 📚 Go deeper
@@ -352,6 +356,7 @@ Start with the [skills index](skills/README.md).
 | [Microsoft technical reference](docs/microsoft-technical-reference.md) | The detailed seven-phase curriculum, which features are generally available versus in preview, disconnected deployments and the full certification table |
 | [Interview prep](docs/interview-prep.md) | The reported interview loop, seven case studies and rapid-fire questions |
 | [Reading list](docs/reading-list.md) | Every primary source, grouped by topic |
+| [Worked examples](examples/README.md) | Filled-in skill templates for a fictional engagement, so you can see what "done" looks like |
 
 ## 📖 Glossary
 
@@ -419,7 +424,7 @@ MIT. See [LICENSE](./LICENSE).
 [^aws]: [CIO Dive: AWS creates forward deployed engineering hub](https://www.ciodive.com/news/aws-creates-forward-deployed-engineering-hub/824109/) (June 2026): US$1B, teams of 5–6, 45-day sprints.
 [^msft-frontier]: [Microsoft: Microsoft Frontier Company](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/) (2 July 2026).
 [^fy26]: [Microsoft: Looking back on FY26](https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/) (July 2026): the Novo Nordisk example.
-[^ise-swe]: Microsoft ISE job postings: [Principal Software Engineer](https://jobs.anitab.org/companies/microsoft/jobs/79366247-principal-software-engineer-ise) and [Principal Technical Program Manager, Forward Deployed Engineering](https://jobs.anitab.org/companies/microsoft/jobs/81414702-principal-technical-program-manager-forward-deployed-engineering) (2026).
+[^ise-swe]: Microsoft ISE job postings: [Principal Software Engineer](https://jobs.anitab.org/companies/microsoft/jobs/79366247-principal-software-engineer-ise) ([archived](https://web.archive.org/web/20260614170608/https://jobs.anitab.org/companies/microsoft/jobs/79366247-principal-software-engineer-ise)) and [Principal Technical Program Manager, Forward Deployed Engineering](https://jobs.anitab.org/companies/microsoft/jobs/81414702-principal-technical-program-manager-forward-deployed-engineering) ([archived](https://web.archive.org/web/20260613192559/https://jobs.anitab.org/companies/microsoft/jobs/81414702-principal-technical-program-manager-forward-deployed-engineering)) (2026).
 [^hve]: [Microsoft HVE Core](https://microsoft.github.io/hve-core/) and the [ISE Code-With Engineering Playbook](https://microsoft.github.io/code-with-engineering-playbook/ISE/).
 [^msft-job]: [Microsoft "Software Engineer – Forward Deployed Engineer" posting](https://zapply.jobs/jobs/26fc61ca-ad9a-4c72-9158-9b034a0bb550/) (job-board copy, October 2026).
 [^anthropic-job]: [Anthropic: Forward Deployed Engineer, Applied AI](https://jobs.generalcatalyst.com/companies/anthropic/jobs/70192292-forward-deployed-engineer-applied-ai).

@@ -7,7 +7,7 @@ description: "Draft an AI-specific threat model: assets, system flow and trust b
 
 > Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 3 Design · **Pillar:** [4 Security and identity](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/04-security-and-identity.md)
 
-The document you take to the security team as a conversation, not a finished verdict. See [Pillar 4](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/04-security-and-identity.md).
+The document you take to the security team as a conversation, not a finished verdict. See [Pillar 4](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/04-security-and-identity.md), and a [filled-in example](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/examples/knowledge-assistant/threat-model.md) for a fictional knowledge assistant.
 
 ## When to use
 
