@@ -12,4 +12,5 @@
 - [ ] README stays beginner-friendly: acronyms spelled out on first use and added to the glossary
 - [ ] New skills live in their own folder with a single self-contained `SKILL.md` (frontmatter `name` matches the folder, template at the end) and are listed in `skills/README.md`
 - [ ] Relative links and Mermaid diagrams checked
+- [ ] CHANGELOG.md "Unreleased" updated if a skill or template changed
 - [ ] "Facts checked" / "Last verified" date updated if a section was re-checked

@@ -25,6 +25,7 @@ Thanks for helping keep this roadmap accurate.
 3. **Mark opinion.** Practitioner guidance gets 💬.
 4. **Date-stamp changes.** Update the "Facts checked" date in the README or the "Last verified" date in the relevant `docs/` page (every page under `docs/`, pillar pages included, carries one) when you re-verify a section.
 5. **No marketing copy.** Technical, specific, actionable.
+6. **Log template changes.** Add a line under "Unreleased" in [CHANGELOG.md](CHANGELOG.md) for anything a reader would want to know before updating a copied skill. To release, rename "Unreleased" to the version and push a `vX.Y.Z` tag; the release workflow attaches `skills.zip`.
 
 ## PR checklist
 
