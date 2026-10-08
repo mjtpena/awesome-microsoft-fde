@@ -25,7 +25,7 @@ An interview guide and notes sheet for one person. Ask open questions, then ask 
 
 1. Write the [template](#template) to `docs/engagement/discovery/<name>.md`, one file per interviewee.
 2. Ask which role type the interviewee is and keep only the matching role section plus "For everyone".
-3. Add the scenario add-on questions for the engagement's scenario.
+3. Copy the "Discovery questions" from each [scenario pack](https://github.com/mjtpe/awesome-microsoft-fde/blob/main/skills/README.md#scenario-packs) the engagement uses into "Scenario questions". The packs are the only place those questions are kept.
 4. After the interview, fill the notes table and the five-whys line. Feed the business measure into the [AI use-case canvas](../ai-use-case-canvas/SKILL.md).
 
 Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
@@ -80,13 +80,9 @@ Write everything inside the block below to the file named in the steps, then fil
 - Where does the data live? How fresh is it? What's wrong with it?
 - Who can see it today, and should the AI respect the same permissions?
 
-## Scenario add-ons
+## Scenario questions
 
-- **Knowledge assistant:** What are the top 20 questions people ask? Which documents are the source of truth? How often do they change?
-- **Action agent:** Which actions are reversible? What's the cost of a wrong action? Who approves today?
-- **Data agent:** Which reports do people trust? Which metric definitions are disputed?
-- **Regulated:** Which regulator or framework applies? Who signs the risk acceptance?
-- **Disconnected:** How often is the site connected? How do software updates arrive today?
+<!-- Paste the "Discovery questions" from the scenario pack(s) for this engagement. -->
 
 ## Notes
 

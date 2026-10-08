@@ -15,6 +15,7 @@ Thanks for helping keep this roadmap accurate.
   - **No prices or dates anywhere in a skill.** Skill folders get copied into agents' skill directories and customers' repositories, and are never updated. Name the meter, licence or requirement and link to the dated fact in `docs/microsoft-technical-reference.md`. `scripts/check_docs.py` enforces this.
   - **Internal notes stay out of the customer's repository.** Anything that assesses named people or carries feedback to the product team goes in a separate template block labelled "Internal" and is written to the team's own workspace.
   - Scenario packs use the layout: when to use, steps, our default design, skill kit, discovery questions, top risks, on Microsoft, practise.
+  - **Keep each piece of scenario content in one place.** What goes into a filled-in document lives in that skill's template, under "Scenario add-ons"; the pack's skill kit names the add-on to fill and doesn't restate it. Discovery questions live only in the packs; the `discovery-interview` template tells readers to paste them in.
 - **Opinions are welcome.** Mark them 💬 (or put them under "Our stance" / "Our take") and argue for them.
 
 ## House rules
