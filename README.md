@@ -352,6 +352,7 @@ Start with the [skills index](skills/README.md).
 | [Microsoft technical reference](docs/microsoft-technical-reference.md) | The detailed seven-phase curriculum, which features are generally available versus in preview, disconnected deployments and the full certification table |
 | [Interview prep](docs/interview-prep.md) | The reported interview loop, seven case studies and rapid-fire questions |
 | [Reading list](docs/reading-list.md) | Every primary source, grouped by topic |
+| [Worked examples](examples/README.md) | Filled-in skill templates for a fictional engagement, so you can see what "done" looks like |
 
 ## 📖 Glossary
 

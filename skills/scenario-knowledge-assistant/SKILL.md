@@ -46,7 +46,7 @@ flowchart LR
 | [`data-audit`](../data-audit/SKILL.md) | Fill the **documents** section: types, scans, tables, out-of-date content, oversharing |
 | [`ai-use-case-canvas`](../ai-use-case-canvas/SKILL.md) | Scenario = knowledge assistant; actions = none |
 | [`adr`](../adr/SKILL.md) | Ingestion, chunking, search type, permission trimming |
-| [`threat-model`](../threat-model/SKILL.md) | Data leakage and indirect prompt injection from documents |
+| [`threat-model`](../threat-model/SKILL.md) | Data leakage and indirect prompt injection from documents. See the [worked example](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/examples/knowledge-assistant/threat-model.md) |
 | [`eval-plan`](../eval-plan/SKILL.md) | Retrieval score, citation correctness, "I don't know" cases, low-privilege run |
 | [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + knowledge-assistant add-ons |
 | [`runbook`](../runbook/SKILL.md) | Re-indexing and urgent document removal |

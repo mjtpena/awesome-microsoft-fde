@@ -22,7 +22,7 @@ The files use the open [Agent Skills](https://agentskills.io/) format, but they'
 
 1. Pick the [scenario pack](#scenario-packs) closest to your engagement. It lists the skills you need and the questions specific to that scenario.
 2. Follow each skill's steps and write its template into the customer's repository (for example `docs/engagement/`), not your own drive. The work you deliver belongs to the customer.
-3. Delete sections that don't apply. A short, filled-in document beats a long, empty one.
+3. Delete sections that don't apply. A short, filled-in document beats a long, empty one. The [worked examples](../examples/README.md) show the level of detail to aim for.
 
 **What stays internal** 💬
 
