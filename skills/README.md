@@ -37,7 +37,7 @@ npx degit mjtpena/awesome-microsoft-fde/skills .claude/skills
 
 Add `--force` to overwrite skills you installed before. To pin a release, add its tag: `mjtpena/awesome-microsoft-fde/skills#v1.0.0`.
 
-**A released version, without Node.js:** every [release](https://github.com/mjtpena/awesome-microsoft-fde/releases) attaches `skills.zip`, which unpacks to a `skills/` folder.
+**A released version, without Node.js:** every [release](https://github.com/mjtpena/awesome-microsoft-fde/releases) attaches `skills.zip`, which unpacks to a `skills/` folder. Replace `.claude` with the folder that holds your agent's `skills/` folder, such as `.github`.
 
 ```bash
 # macOS / Linux
