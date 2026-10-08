@@ -5,9 +5,9 @@ description: "Write an evaluation plan for an AI agent: golden set built with th
 
 # Evaluation Plan
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 3 Design (written), 4–5 Build and harden (run on every change) · **Pillar:** [5 AI applications](../../docs/pillars/05-ai-applications.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 3 Design (written), 4–5 Build and harden (run on every change) · **Pillar:** [5 AI applications](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/05-ai-applications.md)
 
-How you'll prove the AI is good enough to ship. If you can't measure it, you can't ship it. See [Pillar 5](../../docs/pillars/05-ai-applications.md).
+How you'll prove the AI is good enough to ship. If you can't measure it, you can't ship it. See [Pillar 5](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/05-ai-applications.md).
 
 ## When to use
 
@@ -72,10 +72,11 @@ Case format:
 
 💬 Score retrieval and generation separately. If retrieval fails, no prompt change will help.
 
-<!-- Microsoft: Foundry agent evaluators act like pass/fail unit tests; Microsoft's example release bar is 85% Task Adherence.
+<!-- Microsoft: the recommended primary measure is a rubric evaluator generated from the agent's context, plus built-in
+     safety evaluators; Microsoft's example release bar is 85% Task Adherence.
      If the agent uses the Azure AI Search tool, avoid groundedness and tool-call evaluators; put retrieved content in the
      dataset as `context` and use Retrieval / Document Retrieval evaluators instead.
-     See docs/microsoft-technical-reference.md#evaluation--agentops -->
+     See https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#evaluation--agentops -->
 
 ## When it runs
 

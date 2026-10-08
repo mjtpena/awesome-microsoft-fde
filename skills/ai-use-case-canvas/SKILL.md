@@ -5,7 +5,7 @@ description: "Write the one-page scope for an AI engagement: problem, business m
 
 # AI Use-Case Canvas
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 2 Understand · **Pillars:** [5 AI applications](../../docs/pillars/05-ai-applications.md), [6 Consulting and delivery](../../docs/pillars/06-consulting-and-delivery.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 2 Understand · **Pillars:** [5 AI applications](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/05-ai-applications.md), [6 Consulting and delivery](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/06-consulting-and-delivery.md)
 
 The one-page scope. If a box is empty, that's your next discovery question.
 
@@ -32,7 +32,7 @@ Write everything into the customer's repository, not your own drive. Everything 
 
 ## Scenarios
 
-Used in every scenario. Each [scenario pack](../README.md#scenario-packs) says what to add.
+Used in every scenario. Each [scenario pack](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md#scenario-packs) says what to add.
 
 ## Template
 

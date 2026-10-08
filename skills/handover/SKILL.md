@@ -1,11 +1,11 @@
 ---
 name: handover
-description: "Document an engagement handover: what was delivered, results against exit criteria, evaluation baseline, RACI, named owner, knowledge transfer, ranked backlog, accepted risks and product feedback. Use from week one and complete when the customer's owner has run the system alone for a week."
+description: "Document an engagement handover: what was delivered, results against exit criteria, evaluation baseline, RACI, named owner, knowledge transfer, ranked backlog, accepted risks, and known product issues with workarounds. Use from week one and complete when the customer's owner has run the system alone for a week."
 ---
 
 # Handover
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 6 Hand over · **Pillar:** [6 Consulting and delivery](../../docs/pillars/06-consulting-and-delivery.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 6 Hand over · **Pillar:** [6 Consulting and delivery](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/06-consulting-and-delivery.md)
 
 Proof the customer can run the system without you. You've succeeded when they don't call you for routine work.
 
@@ -19,6 +19,7 @@ Proof the customer can run the system without you. You've succeeded when they do
 - Handover is complete when the named owner has operated the system **without you for at least one week**. Signing the document isn't the finish line; that week is.
 - Results are measured against the exit criteria in the [use-case canvas](../ai-use-case-canvas/SKILL.md).
 - The evaluation baseline becomes the customer's alert threshold.
+- Tell the customer about known product issues that affect them, with the workaround and a public tracking link where one exists. Your internal feedback to the product team stays in your internal [field notes](../weekly-status/SKILL.md), not here. 💬
 
 ## Steps
 
@@ -27,12 +28,13 @@ Proof the customer can run the system without you. You've succeeded when they do
 3. Copy the exit criteria from the use-case canvas and fill in evidence.
 4. Record the evaluation baseline from the latest [evaluation](../eval-plan/SKILL.md) results log.
 5. Fill the RACI with named people, not teams, then record the week the owner ran it alone.
+6. From your internal field notes, copy only the product issues the customer needs to know about into "Known product issues": the symptom, the workaround, and a public link if there is one.
 
 Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
 
 ## Scenarios
 
-Used in every scenario. Each [scenario pack](../README.md#scenario-packs) says what to add.
+Used in every scenario. Each [scenario pack](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md#scenario-packs) says what to add.
 
 ## Template
 
@@ -102,10 +104,10 @@ The scores at handover. If future scores fall below these, quality has dropped.
 | Issue / risk | Impact | Accepted by | Review date |
 |---|---|---|---|
 
-## Feedback sent to the product team
+## Known product issues and workarounds
 
-| Issue | Where it was filed | Status |
-|---|---|---|
+| Issue | Affects | Workaround | Public tracking link (if any) |
+|---|---|---|---|
 
 **Accepted by (customer owner):** · **Date:**
 ````

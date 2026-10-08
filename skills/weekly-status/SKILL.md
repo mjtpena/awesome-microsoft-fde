@@ -1,13 +1,13 @@
 ---
 name: weekly-status
-description: "Write a one-page weekly status after the Friday demo: overall RAG status, one-sentence summary, what was shown, decisions needed with dates, risks and blockers, next week, and field notes for the product team. Use every week of an engagement."
+description: "Write a one-page weekly status after the Friday demo: overall RAG status, one-sentence summary, what was shown, decisions needed with dates, risks and blockers, next week, plus internal field notes for the product team kept outside the customer's repository. Use every week of an engagement."
 ---
 
 # Weekly Status
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** Every week, after the Friday demo · **Pillar:** [6 Consulting and delivery](../../docs/pillars/06-consulting-and-delivery.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** Every week, after the Friday demo · **Pillar:** [6 Consulting and delivery](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/06-consulting-and-delivery.md)
 
-One page that tells the sponsor whether to worry, even if they only read the first three lines.
+One page that tells the sponsor whether to worry, even if they only read the first three lines. Plus a running, **internal** log of field notes for the product team.
 
 ## When to use
 
@@ -18,7 +18,8 @@ One page that tells the sponsor whether to worry, even if they only read the fir
 - One page. Send it the same day.
 - Lead with the overall status and what changed.
 - Every decision you need has an owner and a date.
-- Record field notes for the product team: that loop is part of the job.
+- Record field notes for the product team: that loop is part of the job. 💬
+- **Field notes stay internal.** They go in your own organisation's engagement workspace, not in the status page or the customer's repository. Share only what the customer's agreement with you allows: describe the problem, not their data.
 
 ## Steps
 
@@ -26,16 +27,19 @@ One page that tells the sponsor whether to worry, even if they only read the fir
 2. Fill the first three lines last, once you know the whole picture.
 3. Pull risks from the previous week's status and update them rather than starting fresh.
 4. Carry unresolved blockers from the [access request](../access-request/SKILL.md).
+5. Append this week's field notes to `field-notes.md` in your team's internal engagement workspace. If there's no internal location, ask; don't put them in the customer's repository.
 
-Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
+Delete sections that don't apply: a short, filled-in document beats a long, empty one.
 
 ## Scenarios
 
-Used in every scenario. Each [scenario pack](../README.md#scenario-packs) says what to add.
+Used in every scenario. Each [scenario pack](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md#scenario-packs) says what to add.
 
 ## Template
 
-Write everything inside the block below to the file named in the steps, then fill it in.
+Two blocks. Write each to the location named in the steps, then fill it in.
+
+### Customer repository: weekly status
 
 ````markdown
 # Weekly Status: <Engagement> · Week <N>
@@ -66,9 +70,15 @@ Write everything inside the block below to the file named in the steps, then fil
 ## Next week
 
 -
+````
 
-## Field notes for the product team
+### Internal: field notes log
 
-| What broke or was missing | Workaround | Seen before? | Suggested fix |
-|---|---|---|---|
+````markdown
+# Field Notes: <Customer> / <Engagement>
+
+> Internal to the delivery team. Don't copy into the customer's repository or tenant. Describe problems, not customer data.
+
+| Week | Product / feature | What broke or was missing | Workaround | Seen at other customers? | Suggested fix | Filed where (link) |
+|---|---|---|---|---|---|---|
 ````

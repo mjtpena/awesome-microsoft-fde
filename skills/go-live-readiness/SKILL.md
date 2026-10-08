@@ -5,9 +5,9 @@ description: "Track go-live readiness with a core checklist (identity, network, 
 
 # Go-Live Readiness
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 5 Harden · **Pillars:** [3 Cloud and networking](../../docs/pillars/03-cloud-and-networking.md), [4 Security and identity](../../docs/pillars/04-security-and-identity.md), [5 AI applications](../../docs/pillars/05-ai-applications.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 5 Harden · **Pillars:** [3 Cloud and networking](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/03-cloud-and-networking.md), [4 Security and identity](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/04-security-and-identity.md), [5 AI applications](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/05-ai-applications.md)
 
-The checklist for the go / no-go meeting. The Microsoft-specific checks come from the [technical reference](../../docs/microsoft-technical-reference.md).
+The checklist for the go / no-go meeting. The Microsoft-specific checks come from the [technical reference](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md).
 
 ## When to use
 
@@ -75,7 +75,7 @@ Write everything inside the block below to the file named in the steps, then fil
 ## Scenario add-ons
 
 ### Knowledge assistant
-- [ ] Every answer cites its source; citation correctness above the bar
+- [ ] Every answer cites its source **in the channel users actually use**; citation correctness above the bar
 - [ ] Refresh schedule for each source is running and monitored
 - [ ] "I don't know" behaviour tested for questions with no answer in the documents
 
@@ -104,11 +104,15 @@ Write everything inside the block below to the file named in the steps, then fil
 
 ## Microsoft-specific checks
 
+<!-- These change often. Check each one against the technical reference (it carries a "Last verified" date)
+     and Microsoft Learn before the go / no-go meeting: https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md -->
+
 - [ ] Agent identity via Entra Agent ID or managed identity; agent registered in Agent 365 (if licensed)
-- [ ] Agent 365 licences in place if Defender must protect Foundry or Copilot Studio agents (required since 1 Jul 2026)
+- [ ] Agent 365 licences in place if Defender must protect Foundry or Copilot Studio agents
 - [ ] Callers who only invoke agents use the **Foundry Agent Consumer** role; keyless sign-in, because keys bypass role-based access
 - [ ] API Management AI gateway: token limits, logging, `llm-content-safety` (also covers MCP and agent-to-agent payloads)
 - [ ] Publishing to Teams / Microsoft 365 with public access disabled: `enable_m365_public_endpoint` approved by security; Bot Service rights granted
+- [ ] Foundry agent published to Teams / Microsoft 365: missing citations and streaming accepted by the sponsor; Microsoft 365 data handling accepted by the data-residency owner
 - [ ] Agent tools routed through the virtual network (separate template) if required
 - [ ] Hosted agents: network egress policy set; protocol chosen (Responses vs Invocations) with publishing and agent-to-agent needs checked
 - [ ] If the agent uses the Azure AI Search tool: groundedness measured with `context` in the dataset, not the tool-call evaluators

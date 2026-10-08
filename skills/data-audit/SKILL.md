@@ -5,7 +5,7 @@ description: "Audit every data source an AI solution depends on: system, format,
 
 # Data Audit
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 2 Understand · **Pillar:** [2 Data](../../docs/pillars/02-data.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 2 Understand · **Pillar:** [2 Data](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/02-data.md)
 
 A sheet that proves you know where the data is, how good it is, who can see it and how you'll get it.
 

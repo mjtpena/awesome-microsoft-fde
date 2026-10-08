@@ -5,7 +5,7 @@ description: "Write an operations runbook for an AI system that someone on call 
 
 # Runbook
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 6 Hand over (start writing in step 4) · **Pillar:** [1 Software engineering](../../docs/pillars/01-software-engineering.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 6 Hand over (start writing in step 4) · **Pillar:** [1 Software engineering](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/01-software-engineering.md)
 
 How to operate and fix the system without you.
 

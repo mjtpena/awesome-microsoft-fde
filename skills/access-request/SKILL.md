@@ -5,7 +5,7 @@ description: "Draft a single day-one access request listing every account, cloud
 
 # Access Request
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 1 Get access · **Pillars:** [3 Cloud and networking](../../docs/pillars/03-cloud-and-networking.md), [4 Security and identity](../../docs/pillars/04-security-and-identity.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 1 Get access · **Pillars:** [3 Cloud and networking](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/03-cloud-and-networking.md), [4 Security and identity](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/04-security-and-identity.md)
 
 One document, sent on day one to one named person, that lists everything you need access to. Access delays are the most common reason engagements slip.
 
@@ -96,9 +96,10 @@ Write everything inside the block below to the file named in the steps, then fil
 |---|---|---|---|
 | | | | |
 
-<!-- Microsoft examples: Fabric capacity (F2+ for data agents), Copilot Studio capacity/credits, Microsoft 365 Copilot,
-     Agent 365 (needed for Defender coverage of Foundry/Copilot Studio agents since 1 Jul 2026),
-     E5 / E5 Compliance for Purview AI posture features. See docs/pillars/04-security-and-identity.md -->
+<!-- Microsoft licences and capacity to check: Fabric capacity (data agents need a minimum SKU), Copilot Studio credits,
+     Microsoft 365 Copilot, Agent 365 (needed for Defender coverage of Foundry and Copilot Studio agents),
+     E5 / E5 Compliance for Purview AI posture features.
+     Current requirements, not copied here because they change: https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#phase-3-identity-security--governance-for-agents -->
 
 ## Scenario add-ons
 

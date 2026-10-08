@@ -21,8 +21,21 @@ The files use the open [Agent Skills](https://agentskills.io/) format, but they'
 **How to use them** 💬
 
 1. Pick the [scenario pack](#scenario-packs) closest to your engagement. It lists the skills you need and the questions specific to that scenario.
-2. Follow each skill's steps and write its template into the customer's repository (for example `docs/engagement/`), not your own drive. Everything you write belongs to the customer.
+2. Follow each skill's steps and write its template into the customer's repository (for example `docs/engagement/`), not your own drive. The work you deliver belongs to the customer.
 3. Delete sections that don't apply. A short, filled-in document beats a long, empty one.
+
+**What stays internal** 💬
+
+A few notes are for your own team, not the customer: candid assessments of named people, and feedback to the product team about what broke. Anyone at the customer can read their repository, including the security lead you've marked as "against". Keep these in your own organisation's engagement workspace, never in the customer's tenant:
+
+- The support and influence assessment in [`stakeholder-map`](stakeholder-map/SKILL.md). The decisions and approvals table can go in the customer's repository.
+- Field notes for the product team from [`weekly-status`](weekly-status/SKILL.md) and [`handover`](handover/SKILL.md). Tell the customer about known product issues and workarounds that affect them, in the handover.
+
+Each of these skills marks which part goes where.
+
+**Microsoft facts go stale** ⚠️
+
+Some skills name Microsoft services, roles, licences and preview features. These change monthly. The skills point to the [technical reference](../docs/microsoft-technical-reference.md), which carries a "Last verified" date. Check the fact there, then on Microsoft Learn, before you put it in front of a customer. Templates deliberately leave out prices and dates, because a copied template is never updated.
 
 ## By engagement step
 
@@ -32,7 +45,7 @@ flowchart LR
     S1 --- T1["access-request"]
     S2 --- T2["discovery-interview<br/>stakeholder-map<br/>ai-use-case-canvas<br/>data-audit"]
     S3 --- T3["adr<br/>threat-model<br/>eval-plan"]
-    S4 --- T4["copilot-instructions"]
+    S4 --- T4["agent-instructions"]
     S5 --- T5["cost-model<br/>go-live-readiness"]
     S6 --- T6["runbook<br/>handover"]
 ```
@@ -47,7 +60,7 @@ flowchart LR
 | 3. Design | [`adr`](adr/SKILL.md) | One page per important decision, with options and consequences | All |
 | 3. Design | [`threat-model`](threat-model/SKILL.md) | AI-specific threats and defences, for the security review | 4 |
 | 3. Design | [`eval-plan`](eval-plan/SKILL.md) | Golden set, metrics and the bar for release | 5 |
-| 4. Build | [`copilot-instructions`](copilot-instructions/SKILL.md) | Rules for AI coding assistants in the customer's repository | 1 |
+| 4. Build | [`agent-instructions`](agent-instructions/SKILL.md) | Rules for AI coding assistants in the customer's repository | 1 |
 | Every week | [`weekly-status`](weekly-status/SKILL.md) | One-page status after each Friday demo | 6 |
 | 5. Harden | [`cost-model`](cost-model/SKILL.md) | Monthly running cost at expected usage, and what drives it | 6 |
 | 5. Harden | [`go-live-readiness`](go-live-readiness/SKILL.md) | Core checklist plus scenario add-ons | 3, 4, 5 |
@@ -78,7 +91,7 @@ Packs combine: a bank's knowledge assistant uses both the knowledge-assistant an
 | adr | ● | ● | ● | ●● | ●● |
 | threat-model | ● | ●● | ● | ●● | ●● |
 | eval-plan | ●● | ●● | ●● | ● | ● |
-| copilot-instructions | ● | ● | ● | ● | ● |
+| agent-instructions | ● | ● | ● | ● | ● |
 | cost-model | ● | ● | ● | ● | ●● |
 | go-live-readiness | ● | ●● | ● | ●● | ●● |
 | runbook | ● | ●● | ● | ● | ●● |

@@ -5,7 +5,22 @@ description: "Plan a data and analytics agent engagement that answers plain-Engl
 
 # Scenario Pack: Data and Analytics Agent
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **The engagement:** "Let people ask our sales, finance or operations data questions in plain English." **Hardest pillar:** [2 Data](../../docs/pillars/02-data.md).
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **The engagement:** "Let people ask our sales, finance or operations data questions in plain English." **Hardest pillar:** [2 Data](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/02-data.md).
+
+## When to use
+
+- Users want to ask questions of sales, finance or operations data in plain English.
+- Combine with the [regulated](../scenario-regulated-private/SKILL.md) pack when it applies, and with the [action-agent](../scenario-action-agent/SKILL.md) pack if the agent will also change data.
+
+## Steps
+
+1. Collect the 20 questions people ask analysts most often, and the trusted report each answer must match. Load any pack you need to combine with this one.
+2. Before building, get the disputed metric definitions settled by a named owner, and confirm a curated layer exists for the agent to query. If it doesn't, building it is the first piece of work.
+3. Add the discovery questions below to each [discovery interview](../discovery-interview/SKILL.md), alongside the role questions.
+4. Run each skill in the skill kit in engagement-step order, adding what the table says. Do the ones marked **Critical** first.
+5. Compare the default design with the customer's constraints. Record every departure, and every design choice the skill kit lists, in an [ADR](../adr/SKILL.md).
+6. Copy the top risks into the [threat model](../threat-model/SKILL.md) and the next [weekly status](../weekly-status/SKILL.md).
+7. Before quoting anything from "On Microsoft" to the customer, check it against the technical reference and Microsoft Learn.
 
 ## Our default design 💬
 
@@ -52,13 +67,15 @@ flowchart LR
 
 ## On Microsoft
 
+⚠️ Facts below match the [technical reference](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md) as last verified there. Microsoft services, licences and preview status change monthly: check the reference and Microsoft Learn before quoting any of these to a customer.
+
 | Need | Our default | Source |
 |---|---|---|
-| Getting data in | Mirroring for operational databases; shortcuts for open-format data | [Phase 1](../../docs/microsoft-technical-reference.md#phase-1-data-engineering-on-microsoft-fabric) |
-| The agent | Fabric data agent (generally available; F2 capacity or higher; runs with the user's identity and data permissions) | [Phase 4](../../docs/microsoft-technical-reference.md#copilot-studio--m365-copilot-extensibility) |
-| Where users meet it | Fabric data agent added as a tool in Copilot Studio | [Phase 4](../../docs/microsoft-technical-reference.md#copilot-studio--m365-copilot-extensibility) |
-| Business context | Fabric IQ semantic models and ontology | [Stack](../../docs/microsoft-technical-reference.md#-the-microsoft-fde-stack-oct-2026) |
-| Deployment | `fabric-cicd` with an explicit `token_credential` | [Phase 1](../../docs/microsoft-technical-reference.md#phase-1-data-engineering-on-microsoft-fabric) |
+| Getting data in | Mirroring for operational databases; shortcuts for open-format data | [Phase 1](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#phase-1-data-engineering-on-microsoft-fabric) |
+| The agent | Fabric data agent (generally available; F2 capacity or higher; runs with the user's identity and data permissions, including row- and column-level security). ⚠️ Needs the tenant settings for cross-geo processing and storing for AI, so check data residency first | [Phase 4](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#copilot-studio--m365-copilot-extensibility) |
+| Where users meet it | Fabric data agent added as a tool in Copilot Studio | [Phase 4](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#copilot-studio--m365-copilot-extensibility) |
+| Business context | Fabric IQ semantic models and ontology | [Stack](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#-the-microsoft-fde-stack-oct-2026) |
+| Deployment | `fabric-cicd` with an explicit `token_credential` | [Phase 1](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#phase-1-data-engineering-on-microsoft-fabric) |
 
 ## Practise
 

@@ -5,7 +5,7 @@ description: "Estimate monthly running cost of an AI solution at expected usage 
 
 # Cost Model
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 5 Harden (draft in step 3) · **Pillar:** [6 Consulting and delivery](../../docs/pillars/06-consulting-and-delivery.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 5 Harden (draft in step 3) · **Pillar:** [6 Consulting and delivery](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/06-consulting-and-delivery.md)
 
 What the solution will cost per month and what drives it, on one slide the sponsor understands. Customers cancel projects late over cost surprises.
 
@@ -68,16 +68,18 @@ Write everything inside the block below to the file named in the steps, then fil
 | **Total** | | | | | |
 | **At 3× usage** | | | | | |
 
-<!-- Microsoft meters to check (each billed differently):
+<!-- Microsoft meters to check (each billed differently). Rates aren't copied here because they change:
+     use the customer's price sheet, and the current rates in the technical reference.
      - Foundry model and agent consumption
      - Azure AI Search tier
      - Fabric capacity (F SKU)
-     - Copilot Studio: Copilot Credits (e.g. generative answer = 2, agent action = 5, tenant graph grounding = 10);
-       GitHub Copilot harness usage is NOT covered by Microsoft 365 Copilot licences
-     - Work IQ API: Copilot Credits (0.1 per tool call)
-     - Agent 365: per user (US$15/user/month standalone or within Microsoft 365 E7)
+     - Copilot Studio: Copilot Credits, charged at different rates for answers, actions and tenant graph grounding;
+       employee-facing use by Microsoft 365 Copilot-licensed users is not charged; GitHub Copilot harness usage is not
+       covered by Microsoft 365 Copilot licences; with prepaid capacity, agents are disabled once overage passes a threshold
+     - Work IQ API: Copilot Credits per tool call
+     - Agent 365: licensed per user, not per agent
      - API Management tier, Application Insights / Log Analytics ingestion
-     Sources: docs/microsoft-technical-reference.md -->
+     Current rates: https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#copilot-studio--m365-copilot-extensibility and https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#phase-3-identity-security--governance-for-agents -->
 
 ## Cost controls
 

@@ -1,13 +1,13 @@
 ---
 name: stakeholder-map
-description: "Map an engagement's sponsors, likely blockers, operators, end users and data owners by influence and support, plus who decides and approves what. Use in week one and revisit every two weeks, especially in regulated or disconnected engagements where approvers multiply."
+description: "Map an engagement's sponsors, likely blockers, operators, end users and data owners by influence and support (kept internal), plus who decides and approves what (shared with the customer). Use in week one and revisit every two weeks, especially in regulated or disconnected engagements where approvers multiply."
 ---
 
 # Stakeholder Map
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 2 Understand · **Pillar:** [6 Consulting and delivery](../../docs/pillars/06-consulting-and-delivery.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 2 Understand · **Pillar:** [6 Consulting and delivery](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/06-consulting-and-delivery.md)
 
-A table and quadrant chart of the people who can make or break the engagement, and a list of who signs off on which decision.
+Two documents. An **internal** assessment of the people who can make or break the engagement, and a **shared** list of who signs off on which decision.
 
 ## When to use
 
@@ -16,18 +16,19 @@ A table and quadrant chart of the people who can make or break the engagement, a
 
 ## Rules
 
+- **The assessment of people stays internal.** Anyone at the customer can read their repository, including the security lead you've marked as "against". Keep it in your own organisation's engagement workspace, never in the customer's tenant. 💬
+- Write the assessment as you'd be comfortable having it read aloud: what each person needs, not opinions of their character.
 - The people most likely to block you are the ones you haven't met yet. Fill gaps by asking "who else needs to agree?"
-- Record what each person needs from you, not just their title.
 - Note lead times for every approval: they decide your schedule.
 
 ## Steps
 
-1. Write the [template](#template) to `docs/engagement/stakeholder-map.md` in the customer's repository.
-2. Fill the map from the discovery interviews; leave rows for roles you haven't met yet.
-3. Update the Mermaid quadrant chart points to match.
-4. Fill the decisions and approvals table, then add the regulated or disconnected roles if they apply.
+1. Ask where your team keeps internal engagement notes. Write the internal template there as `stakeholder-map.md`. If there's no internal location, stop and ask; don't fall back to the customer's repository.
+2. Write the shared template to `docs/engagement/decisions-and-approvals.md` in the customer's repository.
+3. Fill the internal map from the discovery interviews. Leave rows for roles you haven't met yet, and update the quadrant chart points to match.
+4. Fill the shared decisions and approvals table, then add the regulated or disconnected roles if they apply.
 
-Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
+Delete sections that don't apply: a short, filled-in document beats a long, empty one.
 
 ## Scenarios
 
@@ -35,10 +36,14 @@ Used in every scenario. **Critical** in: [regulated, private-only](../scenario-r
 
 ## Template
 
-Write everything inside the block below to the file named in the steps, then fill it in.
+Two blocks. Write each to the location named in the steps, then fill it in.
+
+### Internal: stakeholder assessment
 
 ````markdown
 # Stakeholder Map: <Customer> / <Engagement>
+
+> Internal to the delivery team. Don't copy into the customer's repository or tenant.
 
 ## The map
 
@@ -66,7 +71,16 @@ quadrantChart
     End users: [0.35, 0.7]
 ```
 
-## Decisions and approvals
+## Scenario add-ons
+
+- **Regulated:** add the risk owner who signs the risk acceptance, the privacy officer, and any external assessor.
+- **Disconnected:** add the site commander or site manager, the person who approves media transfer, and the local operations lead.
+````
+
+### Customer repository: decisions and approvals
+
+````markdown
+# Decisions and Approvals: <Customer> / <Engagement>
 
 | Decision | Who decides | Who must be consulted | Lead time |
 |---|---|---|---|
@@ -75,9 +89,6 @@ quadrantChart
 | Production change | | | |
 | Budget for running costs | | | |
 | Owner after handover | | | |
-
-## Scenario add-ons
-
-- **Regulated:** add the risk owner who signs the risk acceptance, the privacy officer, and any external assessor.
-- **Disconnected:** add the site commander or site manager, the person who approves media transfer, and the local operations lead.
+| Risk acceptance (regulated) | | | |
+| Media transfer onto site (disconnected) | | | |
 ````

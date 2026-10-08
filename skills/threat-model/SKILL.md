@@ -5,9 +5,9 @@ description: "Draft an AI-specific threat model: assets, system flow and trust b
 
 # Threat Model
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 3 Design · **Pillar:** [4 Security and identity](../../docs/pillars/04-security-and-identity.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 3 Design · **Pillar:** [4 Security and identity](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/04-security-and-identity.md)
 
-The document you take to the security team as a conversation, not a finished verdict. See [Pillar 4](../../docs/pillars/04-security-and-identity.md).
+The document you take to the security team as a conversation, not a finished verdict. See [Pillar 4](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/04-security-and-identity.md).
 
 ## When to use
 
@@ -97,8 +97,8 @@ flowchart LR
 - After launch: schedule and owner
 
 <!-- Microsoft: AI Red Teaming Agent (PyRIT) supports scheduled post-deployment scans;
-     Defender coverage for Foundry/Copilot Studio agents needs Agent 365 since 1 Jul 2026.
-     See docs/microsoft-technical-reference.md, Phase 3. -->
+     Defender coverage for Foundry and Copilot Studio agents needs Agent 365 licences.
+     See https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md, Phase 3. -->
 
 ## Scenario add-ons
 

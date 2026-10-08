@@ -5,7 +5,7 @@ description: "Write an architecture decision record (ADR): context, options with
 
 # Architecture Decision Record
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 3 Design · **Pillars:** all
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 3 Design · **Pillars:** all
 
 One page per decision that would be expensive to reverse. Reviewers in regulated and disconnected engagements want this paper trail.
 

@@ -5,7 +5,7 @@ description: "Run and record a 30–45 minute discovery interview with a sponsor
 
 # Discovery Interview
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **Step:** 2 Understand · **Pillar:** [6 Consulting and delivery](../../docs/pillars/06-consulting-and-delivery.md)
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **Step:** 2 Understand · **Pillar:** [6 Consulting and delivery](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/06-consulting-and-delivery.md)
 
 An interview guide and notes sheet for one person. Ask open questions, then ask "why?" again until you reach a number the business cares about.
 
@@ -32,7 +32,7 @@ Write everything into the customer's repository, not your own drive. Everything 
 
 ## Scenarios
 
-Used in every scenario. Each [scenario pack](../README.md#scenario-packs) says what to add.
+Used in every scenario. Each [scenario pack](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md#scenario-packs) says what to add.
 
 ## Template
 

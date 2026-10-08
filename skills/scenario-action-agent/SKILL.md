@@ -5,7 +5,22 @@ description: "Plan an action-taking agent engagement where the agent updates rec
 
 # Scenario Pack: Action-Taking Agent
 
-> Part of the [skills](../README.md) in the [Awesome Microsoft FDE](../../README.md) guide. **The engagement:** "Update the ticket, draft and send the email, file the claim, trigger the workflow." **Hardest pillar:** [4 Security and identity](../../docs/pillars/04-security-and-identity.md).
+> Part of the [skills](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/skills/README.md) in the [Awesome Microsoft FDE](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/README.md) guide. **The engagement:** "Update the ticket, draft and send the email, file the claim, trigger the workflow." **Hardest pillar:** [4 Security and identity](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/pillars/04-security-and-identity.md).
+
+## When to use
+
+- The agent will update records, send messages, file requests or trigger workflows: anything that writes or changes something.
+- Usually combined with the [knowledge-assistant](../scenario-knowledge-assistant/SKILL.md) or [data-agent](../scenario-data-agent/SKILL.md) pack, and with the [regulated](../scenario-regulated-private/SKILL.md) pack when it applies.
+
+## Steps
+
+1. List every action the agent would take. For each, record with the sponsor whether it's reversible, what a wrong action costs and who approves it today. Load any pack you need to combine with this one.
+2. Plan the first release with read tools only. Add write tools one at a time, each with approval, dry run, audit log and rollback, once evaluation shows the agent picks tools reliably.
+3. Add the discovery questions below to each [discovery interview](../discovery-interview/SKILL.md), alongside the role questions.
+4. Run each skill in the skill kit in engagement-step order, adding what the table says. Do the ones marked **Critical** first.
+5. Compare the default design with the customer's constraints. Record every departure, and every design choice the skill kit lists, in an [ADR](../adr/SKILL.md).
+6. Copy the top risks into the [threat model](../threat-model/SKILL.md) and the next [weekly status](../weekly-status/SKILL.md).
+7. Before quoting anything from "On Microsoft" to the customer, check it against the technical reference and Microsoft Learn.
 
 ## Our default design 💬
 
@@ -55,13 +70,15 @@ flowchart LR
 
 ## On Microsoft
 
+⚠️ Facts below match the [technical reference](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md) as last verified there. Microsoft services, licences and preview status change monthly: check the reference and Microsoft Learn before quoting any of these to a customer.
+
 | Need | Our default | Source |
 |---|---|---|
-| Agent code | Microsoft Agent Framework with tool approval; hosted in Foundry | [Phase 4](../../docs/microsoft-technical-reference.md#microsoft-agent-framework-maf) |
-| Approvals in the UI | AG-UI supports human-in-the-loop approvals | [Phase 4](../../docs/microsoft-technical-reference.md#microsoft-agent-framework-maf) |
-| Agent identity | Entra Agent ID; register in Agent 365 | [Phase 3](../../docs/microsoft-technical-reference.md#phase-3-identity-security--governance-for-agents) |
-| Shared tools | Foundry Toolboxes: curated tools behind one governed MCP endpoint | [Phase 4](../../docs/microsoft-technical-reference.md#microsoft-foundry-agent-service) |
-| Low-code actions | Copilot Studio agent actions (billed at 5 Copilot Credits each) | [Phase 4](../../docs/microsoft-technical-reference.md#copilot-studio--m365-copilot-extensibility) |
+| Agent code | Microsoft Agent Framework with tool approval; hosted in Foundry | [Phase 4](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#microsoft-agent-framework-maf) |
+| Approvals in the UI | AG-UI supports human-in-the-loop approvals | [Phase 4](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#microsoft-agent-framework-maf) |
+| Agent identity | Entra Agent ID; register in Agent 365 | [Phase 3](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#phase-3-identity-security--governance-for-agents) |
+| Shared tools | Foundry Toolboxes: curated tools behind one governed MCP endpoint | [Phase 4](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#microsoft-foundry-agent-service) |
+| Low-code actions | Copilot Studio agent actions (billed at 5 Copilot Credits each) | [Phase 4](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#copilot-studio--m365-copilot-extensibility) |
 
 ## Practise
 

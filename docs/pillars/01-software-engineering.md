@@ -56,7 +56,7 @@ The productive pattern is **research → plan → implement → review**: the as
 | Infrastructure-as-code | **Bicep or Terraform with Azure Verified Modules (AVM)** | AVM is the default starter for the Azure Landing Zone accelerator ([ALZ-Bicep](https://github.com/Azure/ALZ-Bicep)) | [Phase 2](../microsoft-technical-reference.md#phase-2-azure-architecture--ai-landing-zones) |
 | Agent deploy loop | **`azd ai agent`** | `init` → `run` locally → `up` → `invoke` / `monitor` → `down` ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/init-agent-project)) | [Phase 7](../microsoft-technical-reference.md#phase-7-fde-developer-toolchain-mcp-copilot-cloud-agent-azd) |
 
-💬 Our default engagement setup: HVE Core agents in the customer's repository, a [`copilot-instructions`](../../skills/copilot-instructions/SKILL.md) that encodes their rules, Azure MCP Server for cloud context, and `azd` for a repeatable deploy.
+💬 Our default engagement setup: HVE Core agents in the customer's repository, an [`agent-instructions`](../../skills/agent-instructions/SKILL.md) file that encodes their rules, Azure MCP Server for cloud context, and `azd` for a repeatable deploy.
 
 ## Mistakes we keep seeing 💬
 
@@ -82,7 +82,7 @@ The productive pattern is **research → plan → implement → review**: the as
 
 ## Skills for this pillar
 
-[`copilot-instructions`](../../skills/copilot-instructions/SKILL.md) · [`adr`](../../skills/adr/SKILL.md) · [`runbook`](../../skills/runbook/SKILL.md)
+[`agent-instructions`](../../skills/agent-instructions/SKILL.md) · [`adr`](../../skills/adr/SKILL.md) · [`runbook`](../../skills/runbook/SKILL.md)
 
 ---
 

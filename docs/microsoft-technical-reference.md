@@ -5,7 +5,7 @@
 >
 > Not official Microsoft documentation. See the [disclaimer](../README.md#disclaimer); for anything that matters, confirm against Microsoft Learn.
 
-**Last verified:** 7 October 2026.
+**Last verified:** 8 October 2026.
 
 ### How to read this page
 
@@ -136,6 +136,7 @@ Almost every engagement starts with a data audit.
 - ⚠️ All workspace resources must be in the same region as the VNet (models excepted) ([Microsoft template](https://github.com/microsoft-foundry/foundry-samples/tree/main/infrastructure/infrastructure-setup-terraform/15b-private-network-standard-agent-setup-byovnet/)). The agent subnet choice reportedly can't be changed after deployment, so design IP space first ([summary of Microsoft field guide](https://www.smfclearinghouse.com/blog/2026-07-25-foundry-standard-agents-byovnet-networking-playbook/)).
 - ⚠️ The standard private-network template doesn't route **agent tools** through the VNet; Microsoft points to a separate template for that ([Microsoft template](https://github.com/microsoft-foundry/foundry-samples/blob/main/infrastructure/infrastructure-setup-bicep/15-private-network-standard-agent-setup/README.md)).
 - ⚠️ **M365/Teams publishing breaks the "fully private" story:** Microsoft 365 doesn't support private connectivity to agents. With public network access disabled, you must use the REST API and `enable_m365_public_endpoint`, which opens only the source-IP-filtered Activity Protocol route ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot-virtual-network)). Publishing also needs Azure Bot Service rights, which Foundry roles don't grant ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot)).
+- ⚠️ **Foundry agents published to Microsoft 365 and Teams don't support streaming responses or citations**, and Microsoft 365 and Teams process and store the agent's responses under Microsoft 365's own data-handling and residency terms. Check both before promising cited answers in Teams or a single data boundary ([Learn](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot-virtual-network)).
 
 **Prove it 💬** Deploy the AI Landing Zone (Bicep or Terraform) with private networking. Put APIM in front of a Foundry model, with token limits and semantic caching.
 
@@ -235,10 +236,11 @@ It also provides **Toolboxes** (one governed MCP endpoint for tools), tracing/ev
 - **Declarative agents** use Copilot's own orchestrator and models with your instructions, knowledge and actions. **Custom engine agents** bring their own orchestrator and models ([Learn](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview)).
 - The M365 Agents Toolkit (successor to Teams Toolkit) scaffolds agents for M365 Copilot and Teams, integrates with the M365 Agents SDK for self-hosted agents, and ships CI/CD actions for GitHub and Azure DevOps ([M365 dev blog](https://devblogs.microsoft.com/microsoft365dev/introducing-the-microsoft-365-agents-toolkit/)).
 - MCP support in declarative agents ✅ GA (Dec 2025) ([M365 dev blog](https://devblogs.microsoft.com/microsoft365dev/build-declarative-agents-for-microsoft-365-copilot-with-mcp/)). Copilot discovers MCP tools dynamically at runtime by default, or you can pin them in the plugin manifest ([Learn](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins)).
-- **Fabric data agents ✅ GA** need F2+ (or P1+ with Fabric enabled) and run under the user's Entra identity and data permissions ([Learn](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent), [create](https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-data-agent)). In Copilot Studio they're now added as a tool (**Fabric IQ Data MCP**), not a connected agent ([Fabric blog](https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-data-agents-in-microsoft-copilot-studio-generally-available/5362882)).
+- **Fabric data agents ✅ GA** need F2+ (or P1+ with Fabric enabled) and run under the user's Entra identity and data permissions, including row- and column-level security. ⚠️ They also need the tenant settings for cross-geo processing and storing for AI turned on, which a data-residency review must approve ([Learn](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent), [create](https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-data-agent)). In Copilot Studio they're now added as a tool (**Fabric IQ Data MCP**), not a connected agent ([Fabric blog](https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabric-data-agents-in-microsoft-copilot-studio-generally-available/5362882)).
 - **Copilot Studio billing (standard harness)** ([Learn](https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management)):
   - Billed in **Copilot Credits**: classic answer = 1, generative answer = 2, agent action = 5, tenant graph grounding = 10, 100 agent-flow actions = 13.
   - Not charged for M365 Copilot-licensed employees (B2E). Bring-your-own Foundry models are billed separately.
+  - ⚠️ With prepaid capacity, custom agents are **disabled** once consumption reaches 125% of capacity; set per-agent monthly limits or a pay-as-you-go meter ([Learn](https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management)).
 - ⚠️ **GitHub Copilot harness:** building, testing, evaluating and running these agents all consume Copilot Credits, and **this is not covered by an M365 Copilot licence**. Computer use (CUA) is also always billed ([Learn](https://learn.microsoft.com/en-us/power-platform/admin/manage-usage-github-copilot-harness)). Use the Power Platform admin center controls to cap and monitor credits per environment and per agent ([Learn](https://learn.microsoft.com/en-us/power-platform/admin/manage-usage-github-copilot-harness)).
 
 ---
