@@ -17,6 +17,7 @@ People copy skill templates into customer repositories, so check this page when 
 - A worked example: a filled-in threat model for a fictional knowledge assistant.
 - Versioned releases, each with a `skills.zip`, and this changelog.
 - One-line install commands for the skills.
+- Issue templates for stale facts and skill proposals, a code of conduct and a security policy.
 
 ### Changed
 

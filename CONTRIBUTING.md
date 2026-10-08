@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping keep this roadmap accurate.
+Thanks for helping keep this roadmap accurate. By taking part you agree to the [code of conduct](CODE_OF_CONDUCT.md). Found a fact that's out of date? [Open a stale-fact issue](https://github.com/mjtpe/awesome-microsoft-fde/issues/new?template=stale-fact.yml). Security concerns go through [SECURITY.md](SECURITY.md).
 
 ## Where things go
 

@@ -1,0 +1,40 @@
+name: Propose a skill or scenario pack
+description: A document FDEs keep writing that deserves its own skill, or an engagement type that needs a pack.
+title: "Skill: "
+labels: ["new-skill"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Proposed name
+      description: Lowercase with hyphens, like the existing folders.
+      placeholder: data-retention-plan
+    validations:
+      required: true
+  - type: dropdown
+    id: step
+    attributes:
+      label: Engagement step
+      options:
+        - 1. Get access
+        - 2. Understand
+        - 3. Design
+        - 4. Build
+        - 5. Harden
+        - 6. Hand over
+        - Every week
+        - Scenario pack
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What goes wrong without it?
+      description: The mistake you've seen in real engagements that this skill would prevent.
+    validations:
+      required: true
+  - type: textarea
+    id: outline
+    attributes:
+      label: Outline
+      description: Sections of the template, and which existing skills or packs it connects to.

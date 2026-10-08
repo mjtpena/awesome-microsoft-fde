@@ -1,0 +1,36 @@
+name: A fact is out of date or wrong
+description: A product name, status, price, licence, date or claim no longer matches its source.
+title: "Stale fact: "
+labels: ["stale-fact"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks. Microsoft facts change monthly, so these reports keep the guide useful.
+  - type: input
+    id: location
+    attributes:
+      label: Where is it?
+      description: File and section, or a link to the line on GitHub.
+      placeholder: docs/microsoft-technical-reference.md, Phase 3, Agent 365 row
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What the guide says
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: What's true now
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Microsoft Learn or an official Microsoft blog if possible. Name third-party sources as such.
+    validations:
+      required: true
