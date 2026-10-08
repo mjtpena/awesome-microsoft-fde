@@ -1,9 +1,11 @@
 # Microsoft FDE Interview Prep
 
-> Part of the [Awesome Microsoft FDE](../README.md) guide. The reported interview loop, case studies with outline answers, and rapid-fire questions with answers.
+> Part of the [Awesome Microsoft FDE](../README.md) guide. The reported interview loop for forward deployed engineer (FDE) roles, case studies with outline answers, and rapid-fire questions with answers.
 > New to the topic? Start with the [README](../README.md) first: it explains the ideas in plain language. This page is the detailed reference.
 
 **Last verified:** 8 October 2026.
+
+Acronyms are spelled out the first time they appear. The [README glossary](../README.md#-glossary) explains the general terms and the [technical reference glossary](microsoft-technical-reference.md#-glossary) the Microsoft ones.
 
 Every rapid-fire answer links to the section of the [technical reference](microsoft-technical-reference.md) or the [role research](fde-role-and-market.md) where its source is cited. The case-study outlines are opinion (💬): they show one strong answer, not the only one.
 
@@ -11,7 +13,7 @@ Every rapid-fire answer links to the section of the [technical reference](micros
 
 ### The Microsoft FDE interview loop (reported)
 
-Candidate reports describe a 4–6 week process: recruiter screen → online assessment (often Azure/AI services) → one or two LeetCode-style phone screens → onsite with two coding rounds focused on production-grade code, a system-design round (e.g. a recommender on Azure) and a combined hiring-manager/behavioural round ([fdeinterviews.com](https://fdeinterviews.com/company/microsoft)). ⚠️ This is self-reported and unofficial, and loops vary by org (ISE, Frontier Company, product groups), so confirm with your recruiter.
+Candidate reports describe a 4–6 week process: recruiter screen → online assessment (often Azure/AI services) → one or two LeetCode-style phone screens → onsite with two coding rounds focused on production-grade code, a system-design round (e.g. a recommender on Azure) and a combined hiring-manager/behavioural round ([fdeinterviews.com](https://fdeinterviews.com/company/microsoft)). ⚠️ This is self-reported and unofficial, and loops vary by org (Industry Solutions Engineering (ISE), Frontier Company, product groups), so confirm with your recruiter.
 
 ### Case studies (practise out loud) 💬
 
@@ -19,14 +21,14 @@ Talk through each one before you open the outline. Interviewers care more about 
 
 #### 1. The locked tenant (README scenario 1)
 
-No app registrations, private endpoints only, 4 weeks to ship a RAG agent.
+No app registrations, private endpoints only, 4 weeks to ship a retrieval-augmented generation (RAG) agent.
 
 <details>
 <summary>Outline answer</summary>
 
 - **First questions:** who can approve identities and network changes, and how long does that take? Which document collections, for which users? Must users reach it from Teams?
 - **Identity:** no app registrations doesn't mean no identity. Propose an Entra Agent ID blueprint and managed identities, and submit the request on day one ([Phase 3](microsoft-technical-reference.md#phase-3-identity-security--governance-for-agents)).
-- **Network:** AI Landing Zone with Foundry Standard Setup on the customer's own virtual network, and APIM as the gateway ([Phase 2](microsoft-technical-reference.md#phase-2-azure-architecture--ai-landing-zones)).
+- **Network:** AI Landing Zone with Foundry Standard Setup on the customer's own virtual network, and Azure API Management (APIM) as the gateway ([Phase 2](microsoft-technical-reference.md#phase-2-azure-architecture--ai-landing-zones)).
 - **Knowledge:** Foundry IQ knowledge base with permission trimming; test with a low-privilege user ([RAG blueprint](microsoft-technical-reference.md#enterprise-rag-blueprint-azure)).
 - **The trap to name:** if they want it in Teams, publishing needs a source-IP-filtered public route. Raise that in week one, not week four (case 7).
 
@@ -42,7 +44,7 @@ Finance wants an agent that explains budget variances using SAP actuals and Shar
 - **First questions:** which numbers are authoritative, at what grain, and who signs them off? Who may see which cost centres?
 - **Data:** bring SAP in with Mirroring (proprietary source) and keep open-format data in place with Shortcuts ([Phase 1](microsoft-technical-reference.md#phase-1-data-engineering-on-microsoft-fabric)). Build a Gold star schema and a semantic model the business already trusts.
 - **Agent:** Fabric data agent over the Gold model, added to Copilot Studio as a tool; it runs under the user's identity, so row-level security still applies ([Copilot Studio](microsoft-technical-reference.md#copilot-studio--m365-copilot-extensibility)).
-- **Documents:** run the Purview DSPM oversharing assessment on the SharePoint sites before indexing the commentary.
+- **Documents:** run the oversharing assessment in Purview Data Security Posture Management (DSPM) on the SharePoint sites before indexing the commentary.
 - **Watch out:** Fabric data agents need cross-geo AI tenant settings, which need a data-residency decision.
 
 </details>
@@ -69,9 +71,9 @@ The assistant gave an executive a confidently wrong answer.
 
 - **First questions:** who maintains it after handover, and what skills does that team have? What usage do you expect?
 - **Cost:** Copilot Studio bills Copilot Credits per answer and action, and agents are disabled at 125% of prepaid capacity; GitHub Copilot harness usage isn't covered by Microsoft 365 Copilot licences. ([Copilot Studio](microsoft-technical-reference.md#copilot-studio--m365-copilot-extensibility)).
-- **Lifecycle:** Copilot Studio uses Power Platform environments and solutions; Foundry uses code, CI/CD and `azd`.
+- **Lifecycle:** Copilot Studio uses Power Platform environments and solutions; Foundry uses code, continuous integration and delivery (CI/CD) pipelines and the Azure Developer CLI (`azd`).
 - **Architecture guidance:** the Well-Architected Framework for AI covers Foundry workloads; Copilot Studio is explicitly out of its scope and has its own reference architectures ([Phase 2](microsoft-technical-reference.md#phase-2-azure-architecture--ai-landing-zones)).
-- **Recommendation:** whichever the customer's team can run without you, with the reason recorded in an ADR.
+- **Recommendation:** whichever the customer's team can run without you, with the reason recorded in an architecture decision record (ADR).
 
 </details>
 
@@ -86,7 +88,7 @@ A document assistant with no internet connection; updates arrive by approved med
 - **Platform:** Azure Local disconnected operations (ALDO) with a dedicated three-node management cluster; size it from the published minimums ([Sovereign](microsoft-technical-reference.md#-sovereign-air-gapped--tactical-edge-deployment)).
 - **Models:** Foundry Local on Azure Local is in preview, so get written acceptance of the preview risk and pin versions. Models come from a local registry filled by expansion packs.
 - **Identity and data:** local Active Directory; SQL Server on Azure Local, without the Arc extension when disconnected.
-- **Operations:** a runbook for the monthly update, a support bundle you've tested, and signed artifacts with an SBOM.
+- **Operations:** a runbook for the monthly update, a support bundle you've tested, and signed artifacts with a software bill of materials (SBOM).
 
 </details>
 
@@ -111,7 +113,7 @@ A document assistant with no internet connection; updates arrive by approved med
 <summary>Outline answer</summary>
 
 - **First questions:** does the security policy allow an inbound, source-IP-filtered route? Are cited answers a requirement?
-- **The fact:** Microsoft 365 doesn't support private connectivity to agents. With public network access disabled, publish through the REST API with `enable_m365_public_endpoint`, which opens only the Activity Protocol route, filtered by source IP ([Phase 2](microsoft-technical-reference.md#phase-2-azure-architecture--ai-landing-zones)).
+- **The fact:** Microsoft 365 doesn't support private connectivity to agents. With public network access disabled, publish through the Foundry REST API with `enable_m365_public_endpoint`, which opens only the Activity Protocol route, filtered by source IP ([Phase 2](microsoft-technical-reference.md#phase-2-azure-architecture--ai-landing-zones)).
 - **Also needed:** Azure Bot Service rights, which Foundry roles don't grant.
 - **Second trap:** Foundry agents in Teams don't support citations or streaming, and Microsoft 365 handles the responses under its own data terms.
 - **Answer:** offer compensating controls (IP filtering, gateway logging, content safety) and let security decide, or propose Copilot Studio or a declarative agent instead.
@@ -128,9 +130,9 @@ When the source uses a proprietary format. Shortcuts only work with open formats
 </details>
 
 <details>
-<summary>What does the MAF harness enable by default, and what is opt-in?</summary>
+<summary>What does the Microsoft Agent Framework (MAF) harness enable by default, and what is opt-in?</summary>
 
-Most features are on by default and can be removed one by one, including context compaction, planning, file memory, todo tracking, skills and tool approval. Shell, file access, background sub-agents and auto-looping are opt-in and emit warnings ([MAF](microsoft-technical-reference.md#microsoft-agent-framework-maf)).
+In MAF, most harness features are on by default and can be removed one by one, including context compaction, planning, file memory, todo tracking, skills and tool approval. Shell, file access, background sub-agents and auto-looping are opt-in and emit warnings ([MAF](microsoft-technical-reference.md#microsoft-agent-framework-maf)).
 
 </details>
 
@@ -144,14 +146,14 @@ Sequential, Concurrent, Handoff, Group Chat and Magentic. Magentic is the manage
 <details>
 <summary>MCP vs A2A vs AG-UI?</summary>
 
-MCP connects an agent to tools and data. A2A connects agents to each other. AG-UI connects an agent to a user interface: streaming, approvals and shared state ([MAF](microsoft-technical-reference.md#microsoft-agent-framework-maf)).
+The Model Context Protocol (MCP) connects an agent to tools and data. Agent-to-agent (A2A) connects agents to each other. The agent–user interaction protocol (AG-UI) connects an agent to a user interface: streaming, approvals and shared state ([MAF](microsoft-technical-reference.md#microsoft-agent-framework-maf)).
 
 </details>
 
 <details>
 <summary>Which Foundry IQ API version for GA vs preview knowledge sources?</summary>
 
-`2026-04-01` for generally available knowledge sources; `2026-08-01-preview` for preview sources or LLM-based query planning on non-web sources ([Foundry IQ](microsoft-technical-reference.md#foundry-iq-enterprise-knowledge)).
+`2026-04-01` for generally available (GA) knowledge sources; `2026-08-01-preview` for preview sources or query planning by a large language model (LLM) on non-web sources ([Foundry IQ](microsoft-technical-reference.md#foundry-iq-enterprise-knowledge)).
 
 </details>
 
@@ -163,7 +165,7 @@ The SQL Server Arc extension, so you manage it with local tools ([Sovereign](mic
 </details>
 
 <details>
-<summary>Is GitHub Copilot harness usage in Copilot Studio covered by an M365 Copilot licence?</summary>
+<summary>Is GitHub Copilot harness usage in Copilot Studio covered by a Microsoft 365 Copilot licence?</summary>
 
 No. Building, testing, evaluating and running those agents all consume Copilot Credits, and computer use is always billed ([Copilot Studio](microsoft-technical-reference.md#copilot-studio--m365-copilot-extensibility)).
 
@@ -200,7 +202,7 @@ Agent-related Entra ID Governance (access packages, lifecycle workflows) and Net
 <details>
 <summary>Why is IRAP not a certification?</summary>
 
-IRAP is a risk-based assessment framework, not a pass/fail exercise. Azure services being assessed up to PROTECTED doesn't remove the need for your own deployment's risk decision ([Phase 3](microsoft-technical-reference.md#phase-3-identity-security--governance-for-agents)).
+IRAP (the Australian Infosec Registered Assessors Program) is a risk-based assessment framework, not a pass/fail exercise. Azure services being assessed up to PROTECTED doesn't remove the need for your own deployment's risk decision ([Phase 3](microsoft-technical-reference.md#phase-3-identity-security--governance-for-agents)).
 
 </details>
 
@@ -268,7 +270,7 @@ OpenAI's Deployment Company and Ode with Anthropic are separate companies funded
 </details>
 
 <details>
-<summary>A CIO asks whether a Frontier Company engagement locks them into Microsoft. How do you answer honestly?</summary>
+<summary>A chief information officer (CIO) asks whether a Frontier Company engagement locks them into Microsoft. How do you answer honestly?</summary>
 
 💬 Yes, it can, and say so. Analysts describe free deployment help as customer-acquisition cost paid back through consumption. Then show what reduces lock-in: open protocols (MCP, A2A), portable code, the customer owning the repository and decisions in ADRs, and a handover their team can run ([Critiques](fde-role-and-market.md#the-critiques-know-them-before-the-interview)).
 
