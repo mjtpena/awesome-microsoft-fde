@@ -5,7 +5,7 @@
 
 **Last verified:** 7 October 2026.
 
-### How to read this page
+## How to read this page
 
 | Marker | Meaning |
 |---|---|

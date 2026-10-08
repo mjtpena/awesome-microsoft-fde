@@ -1,9 +1,11 @@
 ## What changed
 
 ## Sources
+
 <!-- One link per new or changed factual claim -->
 
 ## Checklist
+
 - [ ] Every new factual claim cited (footnotes in the README, inline links in docs/)
 - [ ] Generally available / preview / announced labels correct
 - [ ] Opinion marked with 💬 or placed under "Our stance" / "Our take"

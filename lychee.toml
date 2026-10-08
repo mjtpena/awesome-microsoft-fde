@@ -1,0 +1,11 @@
+# External link checking. Run locally with: lychee --config lychee.toml .
+max_concurrency = 8
+max_retries = 3
+timeout = 30
+# Many publishers and job boards block bots or rate-limit; treat those as alive.
+accept = ["200..=299", "403", "429"]
+exclude = [
+  "^https://github\.com/mjtpena/awesome-microsoft-fde/blob/main/", # checked offline by scripts/check_docs.py
+  "^https://www\.linkedin\.com/",
+]
+exclude_path = ["node_modules"]
