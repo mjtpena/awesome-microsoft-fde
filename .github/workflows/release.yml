@@ -36,7 +36,8 @@ jobs:
           fi
 
       - name: Package the skills
-        run: zip -r skills.zip skills
+        # The index's relative links break once installed, so ship only the skill folders.
+        run: zip -r skills.zip skills -x skills/README.md
 
       - name: Publish the release
         env:

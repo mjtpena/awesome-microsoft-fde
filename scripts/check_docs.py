@@ -97,9 +97,14 @@ def check_skill(folder, index_text):
     fields = dict(re.findall(r"^(\w+): (.*)$", front.group(1), re.M))
     if fields.get("name") != name:
         problem(skill, f"frontmatter name {fields.get('name')!r} doesn't match folder {name!r}")
+    # Agent Skills rules; VS Code silently skips a skill whose name breaks them.
+    if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", name) or len(name) > 64:
+        problem(skill, "name must be at most 64 lowercase letters, digits and single hyphens")
     description = fields.get("description", "")
     if not (description.startswith('"') and description.endswith('"')):
         problem(skill, "description must be a quoted string")
+    elif not 1 <= len(description[1:-1]) <= 1024:
+        problem(skill, f"description must be 1-1024 characters, found {len(description[1:-1])}")
 
     if not name.startswith("scenario-"):
         h2s = re.findall(r"^## (.+)$", strip_code(text), re.M)
