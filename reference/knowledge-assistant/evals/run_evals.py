@@ -137,7 +137,8 @@ def _mark(value: bool | None, good: bool = True) -> str:
 
 
 def print_report(results: list[CaseResult], rows: list[tuple[str, object, str, bool]]) -> None:
-    print(f"{'case':<16} {'category':<19} {'retrieval':<10} {'leak-doc':<9} {'refusal':<8} {'citation':<9} {'facts':<6} {'leak-text':<9}")
+    header = ("case", 16), ("category", 19), ("retrieval", 10), ("leak-doc", 9), ("refusal", 8), ("citation", 9), ("facts", 6)
+    print(" ".join(f"{name:<{width}}" for name, width in header) + " leak-text")
     for r in results:
         print(
             f"{r.id:<16} {r.category:<19} {_mark(r.retrieval_hit):<10} {_mark(r.forbidden_doc_retrieved, False):<9} "

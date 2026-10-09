@@ -55,7 +55,7 @@ def test_gate_fails_on_any_leak_even_with_perfect_quality():
     good = score_case(CASE, [passage("motor-excess-policy")], Answer("£95 [motor-excess-policy]", ["motor-excess-policy"]))
     leak = score_case(REFUSE, [passage("pricing-motor-rate-review-draft")], Answer.refusal())
     rows = gate(summarise([good, leak]), {"retrieval_hit_rate_at_k": 0.9, "forbidden_doc_retrieved_max": 0})
-    assert dict((name, ok) for name, _, _, ok in rows) == {"retrieval_hit_rate_at_k": True, "forbidden_doc_retrieved": False}
+    assert {name: ok for name, _, _, ok in rows} == {"retrieval_hit_rate_at_k": True, "forbidden_doc_retrieved": False}
 
 
 def test_unscored_metrics_are_skipped_by_the_gate():

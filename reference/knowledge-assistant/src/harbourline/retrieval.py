@@ -9,8 +9,9 @@ from __future__ import annotations
 import math
 import re
 from collections import Counter
+from collections.abc import Sequence
 from dataclasses import replace
-from typing import Protocol, Sequence
+from typing import Protocol
 
 from .corpus import Passage
 
@@ -65,7 +66,7 @@ class LocalRetriever:
         terms = set(tokenize(question))
         total_idf = sum(self._idf(t) for t in terms) or 1.0
         results = []
-        for passage, doc, length in zip(self._passages, self._docs, self._lengths):
+        for passage, doc, length in zip(self._passages, self._docs, self._lengths, strict=True):
             if not allowed.intersection(passage.groups):
                 continue  # permission trimming: the user can't see this passage
             score = 0.0

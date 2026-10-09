@@ -1,7 +1,11 @@
 # Motor excess policy (copy)
 
 Groups: all-staff
-Source: file share, legacy policies folder
+Source: file share, published folder
+
+## Young drivers
+
+An additional excess of £250 applies when the driver is under 25.
 
 ## Windscreen and glass
 

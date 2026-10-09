@@ -9,8 +9,8 @@ from __future__ import annotations
 
 import asyncio
 import re
+from collections.abc import Sequence
 from dataclasses import dataclass, field
-from typing import Sequence
 
 from .corpus import Passage
 
@@ -32,7 +32,7 @@ class Answer:
     refused: bool = False
 
     @classmethod
-    def refusal(cls) -> "Answer":
+    def refusal(cls) -> Answer:
         return cls(REFUSAL, [], True)
 
 

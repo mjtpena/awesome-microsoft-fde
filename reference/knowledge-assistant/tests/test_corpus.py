@@ -19,11 +19,11 @@ def test_document_with_no_status_is_not_indexed():
 
 
 def test_the_original_rule_would_have_let_the_incident_through():
-    # Before the amendment, the rule was "skip superseded". Keep this test so
-    # nobody "simplifies" the rule back.
+    # Before the amendment, a file-share document in `published` with no status
+    # counted as current. Keep this test so nobody "simplifies" the rule back.
     legacy = Document("legacy", "copy", status=None, groups=("all-staff",))
-    original_rule_skips = legacy.status == "superseded"
-    assert not original_rule_skips
+    original_rule_indexes_it = legacy.status in (None, "current")
+    assert original_rule_indexes_it
     assert index_decision(legacy) is not None
 
 

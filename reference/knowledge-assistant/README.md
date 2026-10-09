@@ -38,7 +38,7 @@ flowchart LR
 
 The same ingestion rule ([`corpus.py`](src/harbourline/corpus.py)) feeds both retrievers, so the offline eval and the cloud index can't disagree about which version is current. Both answerers follow one contract: cite a retrieved document, or refuse. An answer whose citations don't match a retrieved document is turned into a refusal ([`answering.py`](src/harbourline/answering.py)).
 
-💬 The [examples](../../examples/README.md) use a Foundry prompt agent and a Foundry IQ knowledge base (ADR-001, ADR-002). This reference uses a few lines of Agent Framework code and a plain search index instead, so every moving part is visible and the gate runs without a cloud. The evaluation approach carries over unchanged.
+💬 The [examples](../../examples/README.md) use a Foundry prompt agent and a Foundry IQ knowledge base (ADR-001, ADR-002). This reference uses a few lines of [Agent Framework](../../docs/microsoft-technical-reference.md#microsoft-agent-framework-maf) code and a plain search index instead, so every moving part is visible and the gate runs without a cloud. The evaluation approach carries over unchanged.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ python evals/run_evals.py --retriever azure --answerer llm           # same gate
 python evals/run_evals.py --retriever azure --answerer llm --judge   # adds an LLM faithfulness check
 ```
 
-`azd up` asks for an environment name, subscription and region. Pick a region where your model is available as a Global Standard deployment, or change `modelName`, `modelVersion` and `modelCapacity` in [`infra/main.bicep`](infra/main.bicep).
+`azd up` asks for an environment name, subscription and region. Role assignments can take a few minutes to apply; if the index hook fails with a 403, wait and run `azd hooks run postprovision`. Pick a region where your model is available as a Global Standard deployment, or change `modelName`, `modelVersion` and `modelCapacity` in [`infra/main.bicep`](infra/main.bicep).
 
 Sign in to the Azure CLI and the Azure Developer CLI as the same person. The gateway accepts tokens only from the app's managed identity and from the person who ran `azd up` (their object ID is in the policy), and `DefaultAzureCredential` tries the Azure CLI before the Azure Developer CLI.
 
@@ -127,7 +127,9 @@ The one fact-match miss is real and left in on purpose: for "How should I suppor
 
 The extractive answerer's refusal threshold was set **from the golden set, not by feel**: the first guess (0.6) refused 8 answerable questions. The cases showed a clean gap between must-refuse questions (match below 0.2) and answerable ones (above 0.3), so the threshold is 0.25. That's the loop the guide means: write the cases, run them, then tune.
 
-**When something goes wrong in the pilot, add a case before you fix it.** The incident's eight new cases are why the golden set grew from 120 to 128 in the examples. Here, `superseded-01` and `hard-01` play that part.
+**When something goes wrong in the pilot, add a case before you fix it.** The incident's eight new cases are why the golden set grew from 120 to 128 in the examples. Here, `hard-01` and `superseded-01` play that part.
+
+**Try breaking it.** In [`corpus.py`](src/harbourline/corpus.py), make `index_decision` return `None` when `doc.status is None` (the rule before week 6) and run the gate again. Retrieval hit rate stays at 100%, because the current policy is still retrieved, but the old copy comes back too: three cases retrieve a forbidden document, three answers quote old amounts, citation accuracy falls to 80% and the run fails. That's the incident, caught before a pilot user sees it, and it's why hit rate alone is not enough.
 
 ## Layout
 

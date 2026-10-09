@@ -3,9 +3,10 @@
 Two rules live here because they were both learned the hard way:
 
 * ADR-003 (amended in week 6): index only documents whose status is
-  ``current``. A document with *no* status is left out, not let in. The week-6
-  incident was an old file-share copy with no status that the original rule
-  ("exclude superseded") let through.
+  ``current``. A document with *no* status is held for the policy owner's
+  review, not indexed. The week-6 incident was an old file-share copy with no
+  status that the original rule treated as current because it sat in the
+  ``published`` folder.
 * Indirect prompt injection: passages that look like instructions to an AI are
   dropped at ingestion. This is a cheap screen, not a defence you can rely on;
   production adds a content-safety service on the gateway (see README).
@@ -68,7 +69,7 @@ def parse_document(path: Path) -> Document:
 def index_decision(doc: Document) -> str | None:
     """Return why a document must NOT be indexed, or None if it may be."""
     if doc.status is None:
-        return "no Status line: a version rule must decide (ADR-003), so it is left out"
+        return "no Status line: held for the policy owner's review, not indexed (ADR-003 amendment)"
     if doc.status != "current":
         return f"status is {doc.status!r}, not 'current'"
     if not doc.groups:

@@ -10,6 +10,12 @@ People copy skill templates into customer repositories, so check this page when 
 
 ## Unreleased
 
+Nothing yet.
+
+## 1.0.0
+
+The first versioned release: 20 skills, five scenario packs, a worked example for every skill and a runnable reference implementation.
+
 ### Added
 
 - Six skills for the moments that decide engagements: `engagement-kickoff`, `scope-reset`, `responsible-ai-impact-assessment`, `red-team`, `incident-review` and `field-feedback` (internal), with rows in every scenario pack.
