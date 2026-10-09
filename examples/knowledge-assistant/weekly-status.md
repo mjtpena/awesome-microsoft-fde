@@ -12,7 +12,7 @@ In the engagement, each week is its own file in Harbourline's repository (`docs/
 
 **Overall:** 🟢 On track · **Target date:** go-live in week 9 · **Change since last week:** first status
 
-**In one sentence:** we have production data approval, 14 discovery interviews done, and a stakeholder map everyone has seen; nothing is built on real data yet, which is where we expected to be.
+**In one sentence:** we have production data approval, the first round of discovery interviews done, and a stakeholder map everyone has seen; nothing is built on real data yet, which is where we expected to be.
 
 #### What we showed
 
@@ -23,7 +23,7 @@ In the engagement, each week is its own file in Harbourline's repository (`docs/
 
 - Production data approval granted on Thursday, nine working days after the [access request](access-request.md) went in on day 1.
 - [Engagement charter](engagement-kickoff.md) signed at Monday's kickoff.
-- 14 [discovery interviews](discovery-interview.md): claims handlers, team leaders, underwriting, pricing, security, identity, records. The top 20 questions are drafted, each with the source-of-truth document named by M. Costa or A. Novak.
+- [Discovery interviews](discovery-interview.md): claims handlers, team leaders, underwriting, pricing, security, identity, records. The top 20 questions are drafted, each with the source-of-truth document named by M. Costa or A. Novak.
 - [Stakeholder map](stakeholder-map.md) shared. G. Patel (Head of Pricing) added as an approver after the pricing interview: the Pricing site holds drafts that only their team may see.
 
 #### Decisions needed (with a date)
@@ -112,7 +112,7 @@ In the engagement, each week is its own file in Harbourline's repository (`docs/
 
 #### What changed
 
-- **Incident** ([incident review](incident-review.md)). On Tuesday a Motor team leader asked about the young-driver excess and got the figure from a superseded policy, with a confident citation. They forwarded it to D. Whitfield. Timeline: reported 10:40, pilot paused 11:05 by switching the agent's instructions to a holding message, root cause found 15:30.
+- **Incident** ([incident review](incident-review.md)). On Tuesday a Motor team leader asked about the young-driver excess and got the figure from a superseded policy, with a confident citation. They forwarded it to D. Whitfield. Timeline: reported 10:40, pilot paused 11:05 with the kill switch (API disabled on the gateway), root cause found 15:30.
 - **Root cause was retrieval, not the model.** Monday's scheduled re-index picked up an old copy of the Motor Excess Policy in the file share's `published` folder. It had no `Status`, so the version rule didn't apply, and it ranked above the current version. Faithfulness stayed at 96%: the model faithfully quoted the wrong document.
 - Fix: the old copy and four other unflagged duplicates removed from the index; [ADR-003](adr-003-current-version-only.md) amended so a file-share document is indexed only if no SharePoint document with the same policy ID exists; a duplicate-version check added to every re-index; re-indexing now runs in test first and must pass the evaluation before production. Pilot resumed Thursday 16:00.
 - Eight cases added to the golden set (GS-121 to GS-128). Field feedback filed with the product team ([field-feedback.md](field-feedback.md)).
@@ -124,7 +124,7 @@ In the engagement, each week is its own file in Harbourline's repository (`docs/
 |---|---|---|---|---|
 | Widen the pilot to 60 handlers in week 7 | Widen on schedule; wait another week | Widen, if the week-7 full run passes with all 8 incident cases correct | Week 7, Tuesday | D. Whitfield |
 | Who approves a production re-index from now on | Platform on-call alone; on-call plus a passing evaluation run | A passing test-environment run is the approval; on-call just presses the button | Week 7, Monday | S. Adeyemi |
-| Clean up the 1,200 non-published legacy files that duplicate SharePoint policies | Archive; leave and rely on the version rule | Archive, owned by A. Novak's team. It's the real fix; the rule is the safety net | Week 8 | A. Novak |
+| Clean up the legacy files in the file share's `published` folder that duplicate SharePoint policies | Archive; leave and rely on the version rule | Archive, owned by A. Novak's team. It's the real fix; the rule is the safety net | Week 8 | A. Novak |
 
 #### Risks and blockers
 

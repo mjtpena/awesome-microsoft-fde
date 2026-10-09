@@ -2,7 +2,7 @@
 
 > Part of the [Awesome Microsoft FDE](../README.md) guide. The narrative, practitioner version of the "Mistakes we keep seeing" sections in the [pillar pages](pillars/README.md): what goes wrong on a forward deployed engineering (FDE) engagement, how to spot it early, and what to do about it.
 > New to the topic? Start with the [README](../README.md) first, then [Pillar 6: Consulting and delivery](pillars/06-consulting-and-delivery.md). This page assumes you know what discovery, a weekly demo and a handover are.
-
+>
 > Not official Microsoft guidance. See the [disclaimer](../README.md#disclaimer).
 
 **Last verified:** 9 October 2026.
