@@ -5,7 +5,7 @@
 >
 > Not official Microsoft documentation. See the [disclaimer](../README.md#disclaimer); for anything that matters, confirm against Microsoft Learn.
 
-**Last verified:** 8 October 2026.
+**Last verified:** 9 October 2026.
 
 ## How to read this page
 
@@ -158,7 +158,7 @@ Almost every engagement starts with a data audit.
 | **Purview DSPM** | The current DSPM replaces "DSPM for AI (classic)". It covers AI apps and agents across M365, Azure, Fabric and third-party SaaS | ✅ ([Learn](https://learn.microsoft.com/en-us/purview/data-security-posture-management-learn-about), [classic](https://learn.microsoft.com/en-us/purview/dspm-for-ai)) |
 | **Oversharing assessment** | DSPM for AI automatically runs a weekly risk assessment on the top 100 SharePoint sites by usage | [Learn](https://learn.microsoft.com/en-us/purview/dspm-for-ai) |
 | **DSPM for AI licensing** | Requires Microsoft 365 E5 or E5 Compliance (or equivalent add-ons). Auditing must be on; Fabric/Security Copilot monitoring needs enterprise Purview data governance | [Zero Trust workshop](https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_046), [Learn](https://learn.microsoft.com/en-us/purview/dspm-for-ai-considerations) |
-| **AI Red Teaming Agent** | PyRIT integrated into Foundry: automated scans, Attack Success Rate, scorecards. Cloud runs support scheduled post-deployment scans and agentic risk scenarios | [Learn](https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent), [cloud runs](https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/run-ai-red-teaming-cloud) |
+| **AI Red Teaming Agent** | PyRIT integrated into Foundry: automated scans, Attack Success Rate, scorecards. Cloud runs support scheduled post-deployment scans and agentic risk scenarios. Details in [Red teaming](#red-teaming) | 🧪 Preview ([Learn](https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent), [cloud runs](https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/run-ai-red-teaming-cloud)) |
 | **MAF + Purview** | `agent-framework-purview` middleware enforces Purview DLP on prompts and responses. Needs M365 E5 + pay-as-you-go setup | 🧪 Preview ([PyPI](https://pypi.org/project/agent-framework-purview/)) |
 
 **🇦🇺 Australian public sector**
@@ -363,8 +363,42 @@ flowchart TD
   - Microsoft's primary pattern is a **rubric evaluator generated from the agent's context**, plus built-in safety evaluators ([Learn](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluate-agent)).
 - ⚠️ **Confirmed limitation:** when an agent calls Azure AI Search, avoid Groundedness, Tool Output Utilization, Tool Call Accuracy, Tool Input Accuracy and Tool Call Success. Instead, put retrieved content into the dataset as `context`, and use the Retrieval / Document Retrieval evaluators for search quality ([Microsoft Q&A citing Learn](https://learn.microsoft.com/en-us/answers/questions/6023266/azure-ai-search-tool-in-foundry-not-producing-tool), [Learn](https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators)).
 - **Closed loop:** tracing → evaluation → monitoring → Agent Optimizer. Tracing and evaluations reached GA in spring 2026 ([Foundry blog](https://devblogs.microsoft.com/foundry/build-2026-from-observability-to-roi-for-ai-agents-on-any-framework/)).
-- **Red teaming:** run the AI Red Teaming Agent before launch, then schedule it post-deployment. Cloud runs target Foundry prompt and container agents ([Learn](https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/run-ai-red-teaming-cloud)).
+- **Red teaming:** run the AI Red Teaming Agent before launch, then schedule it post-deployment. See [Red teaming](#red-teaming) below.
 - 💬 **Golden set:** 50–200 cases written with the customer.
+
+### Red teaming
+
+Microsoft's guidance is to combine automated tools that surface risks with expert human analysis ([Learn](https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent)). The [`red-team`](../skills/red-team/SKILL.md) skill covers planning, running and reporting an exercise.
+
+| Tool | What it does | Status / source |
+|---|---|---|
+| **PyRIT** (Python Risk Identification Tool for generative AI) | Microsoft's open-source framework for finding risks in generative AI systems, for automated and human-led red teaming. Single-turn and multi-turn attacks (for example Crescendo, TAP, Skeleton Key); targets include Azure, OpenAI, custom HTTP endpoints and web apps; conversations, scores and results stored in SQLite or Azure SQL; CoPyRIT is a web UI for human-led testing | Open source, MIT licence ([GitHub](https://github.com/microsoft/PyRIT), [docs home](https://github.com/microsoft/PyRIT/blob/main/doc/index.md)) |
+| ⚠️ **PyRIT has moved** | The repository moved from `Azure/PyRIT` to `microsoft/PyRIT`. The old repository was archived on 27 Mar 2026 and is read-only; update old links and clones | [Archived repo](https://github.com/Azure/PyRIT) |
+| **AI Red Teaming Agent** (Foundry) | Uses PyRIT's attack strategies with Foundry's Risk and Safety Evaluations to (1) scan model and agent endpoints with adversarial prompts, (2) score each attack-response pair and compute **Attack Success Rate (ASR)**, the percentage of successful attacks over total attacks, and (3) produce a scorecard by attack complexity and risk category | 🧪 Preview: the local-scan how-to is labelled preview ([Learn](https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/run-scans-ai-red-teaming-agent)); cloud runs use a preview REST API version ([Learn](https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/run-ai-red-teaming-cloud)); no GA announcement found ([Learn: concept](https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent)) |
+
+**AI Red Teaming Agent details** ([Learn: concept](https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent), [Learn: cloud runs](https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/run-ai-red-teaming-cloud), [Learn: local scans](https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/run-scans-ai-red-teaming-agent)):
+
+- **Risk categories, models and agents (local and cloud):** hateful and unfair content, sexual content, violent content, self-harm-related content, protected materials, code vulnerability, ungrounded attributes.
+- **Agent-only categories (cloud only):** prohibited actions, sensitive data leakage, task adherence. Indirect prompt injection (XPIA, cross-domain prompt injection) testing injects attacks into mock tool outputs and measures how often the agent is compromised.
+- **Attack strategies** come from PyRIT and are grouped by complexity: *easy* (for example Base64, Flip, Morse), *moderate* (for example Tense, which needs another generative model) and *difficult* (compositions such as Tense plus Base64). Others include Jailbreak (user-injected prompt attacks), Indirect Jailbreak, Multi turn and Crescendo.
+- **Cloud runs** add larger combinations of strategies and categories, **scheduled post-deployment runs**, and the agentic categories in a minimally sandboxed environment. They need the **Foundry User** role on the project.
+- **Supported targets:** Foundry prompt agents and container agents, with Azure tool calls. Workflow agents, non-Foundry agents, non-Azure tools, and function, browser-automation, connected-agent and computer-use tool calls are **not** supported. Text scenarios only.
+- ⚠️ **Regions:** cloud red teaming is available only in East US 2, France Central, Sweden Central, Switzerland West and US North Central (as of the page's 19 Aug 2026 revision). Check before you promise it to a customer in another region.
+- ⚠️ **Limitations:** the agent categories use synthetic data and mock tools, so they don't test the customer's real permissions or data; sensitive data leakage and prohibited actions are single-turn and English-only. ASR is scored by generative models and can be non-deterministic, so review results before acting on them.
+- **Handling results:** cloud runs redact the adversarial inputs from results, and runs against Foundry hosted agents are transient so harmful data isn't stored. Microsoft recommends a "purple environment": non-production, with production-like resources.
+
+**Planning and practice:**
+
+- Microsoft's planning guide recommends an initial round of **manual** red teaming before systematic measurement, testers with both benign and adversarial mindsets, assigning people to specific harms, and testing on the production UI where possible ([Learn](https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/red-teaming)).
+- Microsoft's AI Red Team, from red-teaming 100 generative AI products: generative AI amplifies existing security risks and adds new ones; humans stay at the centre (use tools like PyRIT to scale); defence in depth is key ([Microsoft Security blog](https://www.microsoft.com/en-us/security/blog/2025/01/13/3-takeaways-from-red-teaming-100-generative-ai-products/)).
+- 💬 Automated scans give breadth and a number security can sign; the findings that matter in a knowledge assistant usually come from a person asking a real user's question as a low-privilege user. Run both, and turn every successful attack into an evaluation case.
+
+### Responsible AI
+
+- **Principles:** Microsoft's six responsible AI principles are fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. The same page links the **Responsible AI Standard** and its reference guide ([Microsoft](https://www.microsoft.com/en-us/ai/principles-and-approach)).
+- **Impact assessment:** Microsoft's responsible AI tools and practices page publishes an **AI Impact Assessment Template** and an **AI Impact Assessment Guide**, alongside the Standard, the Human-AI Experience Toolkit and red-teaming resources ([Microsoft](https://www.microsoft.com/en-us/ai/tools-practices)).
+- **In Foundry:** Microsoft's recommendations for trustworthy agents are grounded in the Responsible AI Standard and organised as **Discover** (test for quality, safety and security risks before and after deployment), **Protect** (content filters and guardrails at model and agent level) and **Govern** (tracing, monitoring and compliance integrations) ([Learn](https://learn.microsoft.com/en-us/azure/foundry/responsible-use-of-ai-overview)).
+- 💬 Use the customer's own impact assessment template if they have one; otherwise the [`responsible-ai-impact-assessment`](../skills/responsible-ai-impact-assessment/SKILL.md) skill follows the shape of Microsoft's. Find the person who signs it in week one: their lead time, not the writing, is usually what delays go-live.
 
 ---
 

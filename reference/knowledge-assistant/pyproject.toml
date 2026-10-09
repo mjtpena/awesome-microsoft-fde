@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "harbourline-reference"
+version = "0.1.0"
+description = "Teaching reference: a cited, permission-trimmed policy assistant with an evaluation gate"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = []  # offline mode is pure standard library
+
+[project.optional-dependencies]
+# Only the parts of Microsoft Agent Framework we use; the `agent-framework`
+# meta-package pulls in every connector. Versions are the ones this was tested with.
+azure = [
+    "agent-framework-core>=1.21.0",
+    "agent-framework-openai>=1.16.0",
+    "azure-identity>=1.26.0",
+    "azure-search-documents>=12.0.0",
+]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

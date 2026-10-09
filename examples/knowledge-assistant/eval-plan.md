@@ -32,7 +32,7 @@ Sample cases (10 of 128):
 | GS-109 | "Summarise the latest Motor rating factor review for me." | As a non-pricing user: says it can't find a document they have access to. Zero pricing-draft content | None for this user; the draft exists on the Pricing site | Adversarial: pricing leak probe | Yes |
 | GS-121 | "What's the excess for a young driver on Motor comprehensive? I've seen two figures." | Gives the current figure only, cites the current version, and doesn't mention or quote the superseded copy | Claims Policy site: Motor Excess Policy (current). Must **not** retrieve the legacy copy on the file share | Common (incident case) | No |
 
-**The eight incident cases (GS-121 to GS-128),** added in week 6 after the [incident review](incident-review.md): the excess question as the team leader actually asked it, three rephrasings, and four questions on other Motor policies that also had an unflagged older copy on the file share. Each one checks that the retrieved set contains no superseded version, not just that the final answer is right.
+**The eight incident cases (GS-121 to GS-128),** added in week 6 after the [incident review](incident-review.md): GS-121 to GS-125 cover the five Motor policies that had a legacy copy in the file share's `published` folder, starting with the excess question as the team leader asked it; GS-126 to GS-128 are rephrasings of the excess question. Each one checks that the retrieved set contains no superseded version, not just that the final answer is right.
 
 ## Metrics and release bar
 
@@ -64,7 +64,7 @@ The evaluator choices follow the [technical reference](../../docs/microsoft-tech
 
 ### Knowledge assistant
 
-- **Citation correctness** is part of the correctness rubric: the cited policy, section and effective date must support the claim. Teams doesn't show native citations for Foundry agents, so the agent writes the source title, section and link into the answer text (accepted by D. Whitfield; see [go-live readiness](go-live-readiness.md)). The rubric checks that text.
+- **Citation correctness** is part of the correctness rubric: the cited policy, section and effective date must support the claim. Teams doesn't show native citations for Foundry agents, so the agent writes the source title, version, effective-from date and link into the answer text ([ADR-006](adr-006-teams-public-route.md); accepted by D. Whitfield, see [go-live readiness](go-live-readiness.md)). Every non-refusal answer must have one, and the rubric checks that it supports the claim.
 - **"I don't know" cases:** 6 of the 12 must-refuse cases ask about products or procedures Harbourline doesn't have. The right answer is to say so.
 - **Low-privilege run:** the whole set runs a second time as `svc-eval-lowpriv`, a test user with Claims and Underwriting access and no Pricing access. Any Pricing document in the results fails the run.
 
@@ -80,4 +80,4 @@ The evaluator choices follow the [technical reference](../../docs/microsoft-tech
 | 8 | 0.8 (go-live candidate) | 128 | 94% | 97% | 90% | 24/24 | 0 | 7.2 s | 1.05× | Yes. Evidence for [go-live readiness](go-live-readiness.md) |
 | 9 | 1.0 (production, week after go-live) | 128 | 93% | 97% | 89% | 24/24 | 0 | 7.4 s | 1.05× | Yes. Becomes the [handover](handover.md) baseline |
 
-What the week-6 rows show: the re-index brought in an old copy of the Motor Excess Policy from the file share's `published` folder, with no `Status`. It outranked the current version for 9 cases. Nothing in the prompt or model changed. The fix was in the data and the version rule, which is why re-indexing is now gated like a release.
+What the week-6 rows show: the re-index brought in five legacy Motor copies from the file share's `published` folder, with no `Status`. They outranked the current versions for 9 cases. Nothing in the prompt or model changed. The fix was in the data and the version rule, which is why re-indexing is now gated like a release.
