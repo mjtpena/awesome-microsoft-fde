@@ -1,0 +1,7 @@
+{
+  "cases": [
+    {"skill": "threat-model", "reference": "examples/knowledge-assistant/threat-model.md",
+     "task": "Write the threat model for the second security review (week 2).",
+     "must_include": ["R. Okafor", "Pricing", "ADR-006", "kill switch"]}
+  ]
+}
