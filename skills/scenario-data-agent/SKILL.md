@@ -46,6 +46,7 @@ flowchart LR
 | [`scope-reset`](../scope-reset/SKILL.md) | Narrow to one domain with an owner when there's no agreed semantic model |
 | [`adr`](../adr/SKILL.md) | Data layer the agent queries; metric definitions; query limits |
 | [`eval-plan`](../eval-plan/SKILL.md) | Numbers compared to the trusted report; ambiguous questions that need clarification |
+| [`responsible-ai-impact-assessment`](../responsible-ai-impact-assessment/SKILL.md) | Fill the data-agent add-on: wrong numbers presented with confidence, and who checks a figure before it reaches a report or a decision |
 | [`red-team`](../red-team/SKILL.md) | Queries for rows or tables the user can't see; expensive queries as cost attacks |
 | [`cost-model`](../cost-model/SKILL.md) | Query compute on the data platform |
 | [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + data-agent add-ons |

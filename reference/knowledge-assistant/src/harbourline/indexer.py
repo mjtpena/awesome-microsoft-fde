@@ -36,5 +36,25 @@ def build_index(endpoint: str, index_name: str, data_dir: Path = DEFAULT_DATA_DI
         {"id": p.id, "doc_id": p.doc_id, "title": p.title, "section": p.section, "content": p.content, "groups": list(p.groups)}
         for p in passages
     ]
-    SearchClient(endpoint, index_name, credential).upload_documents(documents=docs)
-    return [f"indexed {len(docs)} passages into {index_name}"] + [f"skipped {s}" for s in skipped]
+    client = SearchClient(endpoint, index_name, credential)
+    _check(client.upload_documents(documents=docs), "upload")
+
+    # Uploads are upserts, so a passage from a document that is now superseded
+    # would stay searchable. Delete every key that isn't in this run's set:
+    # this is the current-version rule from ADR-003, enforced in the index.
+    current = {d["id"] for d in docs}
+    stale = [{"id": r["id"]} for r in client.search(search_text="*", select=["id"]) if r["id"] not in current]
+    if stale:
+        _check(client.delete_documents(documents=stale), "delete")
+
+    return (
+        [f"indexed {len(docs)} passages into {index_name}", f"removed {len(stale)} stale passages"]
+        + [f"skipped {s}" for s in skipped]
+    )
+
+
+def _check(results, action: str) -> None:
+    """Fail the hook if any document failed, instead of reporting success."""
+    failed = [f"{r.key}: {r.error_message}" for r in results if not r.succeeded]
+    if failed:
+        raise RuntimeError(f"{action} failed for {len(failed)} passage(s): " + "; ".join(failed))

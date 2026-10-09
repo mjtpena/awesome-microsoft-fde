@@ -44,6 +44,7 @@ flowchart LR
 
 | Skill | What to add for this scenario |
 |---|---|
+| [`engagement-kickoff`](../engagement-kickoff/SKILL.md) | Fill the action-agent add-on: every action in or out of scope, and who must approve an action before go-live |
 | [`ai-use-case-canvas`](../ai-use-case-canvas/SKILL.md) | List every action, whether it's reversible, and its approval point |
 | [`scope-reset`](../scope-reset/SKILL.md) | Re-sequence to read-only or draft-only when write actions can't yet be approved or reversed safely |
 | [`threat-model`](../threat-model/SKILL.md) | **Critical.** Fill the action-agent add-on: blast radius, approval and rollback per action |

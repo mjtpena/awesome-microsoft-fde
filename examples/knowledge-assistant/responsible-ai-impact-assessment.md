@@ -78,7 +78,7 @@ Draft 0.2 went to F. Lindqvist in week 3, after the [scope reset](scope-reset.md
 | Before acting on an answer | The handler | That the cited policy says what the answer says, and is current | Policy title, section, effective date and link in every answer |
 | Reporting a wrong answer | Any user | Flag it in one click | Thumbs-down in Teams; triaged weekly by M. Costa; real failures become golden cases |
 | Monitoring quality after go-live | M. Costa's group, then S. Adeyemi's team | Weekly sample of 50 production answers; evaluation baseline as the alert threshold | Weekly retrieval check (incident action 5); [handover](handover.md) baseline |
-| Turning it off | Platform on-call | | Kill switch on the gateway, used for real in week 6 ([runbook](runbook.md#kill-switch)) |
+| Turning it off | Platform on-call | | Kill switch on the gateway, drilled in weeks 8 and 10 ([runbook](runbook.md#kill-switch)). The week-6 incident was contained by urgent document removal instead, without turning the assistant off |
 
 ## 8. Transparency to users
 
