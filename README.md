@@ -1,15 +1,68 @@
 # 🚀 Awesome Microsoft FDE
 
-> An opinionated guide to becoming a **Forward Deployed Engineer (FDE)**: the engineer who goes into a customer's organisation and doesn't leave until the thing works. Part 1 covers the role and applies anywhere. Part 2 shows how it's done on Microsoft's cloud.
+![Awesome Microsoft FDE: a guide and accelerator for forward deployed engineers, with 20 skills, 5 scenario packs, 22 worked examples and a runnable reference, along the engagement from kickoff to handover](docs/assets/banner.svg)
+
+[![Docs checks](https://github.com/mjtpena/awesome-microsoft-fde/actions/workflows/docs.yml/badge.svg)](https://github.com/mjtpena/awesome-microsoft-fde/actions/workflows/docs.yml) [![Reference evals](https://github.com/mjtpena/awesome-microsoft-fde/actions/workflows/reference-evals.yml/badge.svg)](https://github.com/mjtpena/awesome-microsoft-fde/actions/workflows/reference-evals.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+> An opinionated guide **and a working kit** for **Forward Deployed Engineers (FDEs)**: the engineers who go into a customer's organisation and don't leave until the thing works. Part 1 covers the role and applies anywhere. Part 2 shows how it's done on Microsoft's cloud. Part 3 is the kit: a skill for every document you'll write, one engagement worked from kickoff to handover, and runnable code with its tests.
 
 **This guide takes sides.** Facts carry numbered footnotes. Everything without a footnote is our opinion, formed from field work, and you're free to disagree. A guide that lists every option equally is a bookmark folder, and this one tries not to be.
 
-**Who it's for:** engineers, data people, consultants and students who want to know what the job really is and how to get good at it. Every acronym is spelled out the first time it appears and listed in the [glossary](#-glossary).
+**Who it's for:** engineers, data people, consultants and students who want to know what the job really is and how to get good at it, and FDEs who want a head start on their next engagement. Every acronym is spelled out the first time it appears and listed in the [glossary](#-glossary).
 
 > [!IMPORTANT]
 > **Not an official Microsoft resource.** This is an independent community guide. It isn't written, reviewed, endorsed or sponsored by Microsoft or any of its forward deployed engineering teams. See the [disclaimer](#disclaimer).
 
 *Facts checked on 7 October 2026.*
+
+---
+
+## 🧰 What's in the box
+
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "15px", "primaryColor": "#16213b", "primaryTextColor": "#ffffff", "git0": "#16213b", "cScale1": "#dbe8fb", "cScaleLabel1": "#0b1220", "cScaleInv1": "#2a78d6", "cScale2": "#d5f2e7", "cScaleLabel2": "#0b1220", "cScaleInv2": "#1baf7a", "cScale3": "#fde3d6", "cScaleLabel3": "#0b1220", "cScaleInv3": "#eb6834", "cScale4": "#e6e3fb", "cScaleLabel4": "#0b1220", "cScaleInv4": "#4a3aa7"}}}%%
+mindmap
+  root((Awesome<br/>Microsoft FDE))
+    Learn the job
+      This guide, Parts 1 and 2
+      Six pillar deep dives
+      Field guide and career ladder
+      Interview prep with answers
+    Run an engagement
+      20 skills, one per document
+      5 scenario packs
+    See it done
+      22 worked examples
+      Runnable reference code
+    Keep it honest
+      Skill evaluations
+      Checks on every change
+```
+
+| You want to… | Start with | What you get |
+|---|---|---|
+| **Understand the job** | [Part 1](#part-1-the-role) and [the six pillars](docs/pillars/) | What an FDE does, how an engagement runs, what to learn and in what order |
+| **Do it on Microsoft** | [Part 2](#part-2-doing-it-on-microsoft) and the [technical reference](docs/microsoft-technical-reference.md) | Who does this work at Microsoft, its products in plain words, where to build an agent, which certifications matter |
+| **Run your next engagement** | [Skills and scenario packs](#12-skills-and-scenario-packs) | 20 skills that each end in a template for one document (charter, access request, threat model, evaluation plan, runbook and more), and 5 packs that say which ones your kind of engagement needs |
+| **See what "done" looks like** | [One engagement, worked end to end](#13-one-engagement-worked-end-to-end) | 22 filled-in documents from a fictional 10-week engagement, including the week-3 scope reset and the week-6 incident |
+| **Start from working code** | [The reference implementation](#14-the-reference-implementation) | A small knowledge assistant that runs offline, an evaluation gate that fails the build below the bar, and the Azure infrastructure as code |
+| **Trust what you copy** | [How the kit is tested](#15-how-the-kit-is-tested) | Every example is graded against its skill's template, and the reference code's tests and evaluation gate run whenever it changes |
+| **Get hired** | [Practise](#16-practise-four-interview-scenarios) and [interview prep](docs/interview-prep.md) | Four interview scenarios here, seven case studies with outline answers there |
+
+**Try it in a few minutes.** Put the skills where your AI coding agent reads them, or run the reference assistant on your laptop. Offline, it needs no Azure account, no keys and no model.
+
+```bash
+# The skills, into your agent's skills folder (needs Node.js)
+npx degit mjtpena/awesome-microsoft-fde/skills .claude/skills
+
+# The reference assistant, offline (needs Python 3.11 or later)
+git clone https://github.com/mjtpena/awesome-microsoft-fde.git
+cd awesome-microsoft-fde/reference/knowledge-assistant
+python -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+python evals/run_evals.py     # the evaluation gate: 27 test cases, exits non-zero below the bar
+python -m harbourline ask --offline "What is the excess for a windscreen replacement?"
+```
 
 ---
 
@@ -47,12 +100,18 @@
 10. [Choosing where to build an AI agent](#10-choosing-where-to-build-an-ai-agent)
 11. [Certifications: which ones, and how much they matter](#11-certifications-which-ones-and-how-much-they-matter)
 
-**Part 3: Practise and go deeper**
+**Part 3: The kit**
 
-12. [Practise: four interview scenarios](#12-practise-four-interview-scenarios)
-13. [Skills and scenario packs](#13-skills-and-scenario-packs)
-14. [Go deeper](#-go-deeper)
-15. [Glossary](#-glossary)
+12. [Skills and scenario packs](#12-skills-and-scenario-packs)
+13. [One engagement, worked end to end](#13-one-engagement-worked-end-to-end)
+14. [The reference implementation](#14-the-reference-implementation)
+15. [How the kit is tested](#15-how-the-kit-is-tested)
+
+**Part 4: Practise and go deeper**
+
+16. [Practise: four interview scenarios](#16-practise-four-interview-scenarios)
+17. [Go deeper](#-go-deeper)
+18. [Glossary](#-glossary)
 
 ---
 
@@ -159,7 +218,7 @@ flowchart LR
 
 **When are you done?** The system runs in the customer's environment, tests prove it works, and a named person at the customer owns it. A merged pull request doesn't count.
 
-Every step has a ready-made skill. See [skills and scenario packs](#13-skills-and-scenario-packs). To see all of it done once, end to end, read the [worked examples](examples/README.md): one fictional engagement with every document filled in, including the week-6 incident and the week-3 scope reset.
+Every step has a ready-made skill (see [skills and scenario packs](#12-skills-and-scenario-packs)). To see all of it done once, read [one engagement, worked end to end](#13-one-engagement-worked-end-to-end): every document filled in, including the week-3 scope reset and the week-6 incident.
 
 Two things the table leaves out, because nobody plans for them: **cutting scope** when the data says the original ask won't work, and **reviewing an incident** when the AI gets something wrong in front of an executive. Both happen on most engagements. Both have a skill ([`scope-reset`](skills/scope-reset/SKILL.md), [`incident-review`](skills/incident-review/SKILL.md)).
 
@@ -318,9 +377,165 @@ Full list with retirement dates: [technical reference](docs/microsoft-technical-
 
 ---
 
-# Part 3: Practise and go deeper
+# Part 3: The kit
 
-## 12. Practise: four interview scenarios
+Everything in Part 3 is something you can copy into a real engagement, or run. It's organised around the six steps from [section 4](#4-an-engagement-start-to-finish).
+
+## 12. Skills and scenario packs
+
+A **skill** is one Markdown file (`SKILL.md`, in its own folder in [`/skills`](./skills)) that says when to use it, the rules, the steps, and ends with a template for one document to write into the customer's repository. The files follow the open [Agent Skills](https://agentskills.io/) format, so you can follow them yourself or hand them to an AI agent such as GitHub Copilot or Claude Code. They're plain Markdown, so any chat assistant can use them too.
+
+There are 20 skills, one for each document an engagement needs, from the kickoff charter to the handover:
+
+```mermaid
+flowchart TB
+    subgraph FIRST[" "]
+        direction LR
+        S0["0 · Kick off<br/>―――――――<br/>engagement-kickoff"] --> S1["1 · Get access<br/>―――――――<br/>access-request"] --> S2["2 · Understand<br/>―――――――<br/>discovery-interview<br/>stakeholder-map<br/>ai-use-case-canvas<br/>data-audit<br/>scope-reset"] --> S3["3 · Design<br/>―――――――<br/>adr<br/>threat-model<br/>eval-plan<br/>responsible-ai-impact-assessment"]
+    end
+    subgraph SECOND[" "]
+        direction LR
+        S4["4 · Build<br/>―――――――<br/>agent-instructions"] --> S5["5 · Harden<br/>―――――――<br/>cost-model<br/>red-team<br/>go-live-readiness<br/>incident-review"] --> S6["6 · Hand over<br/>―――――――<br/>runbook<br/>handover"]
+        S6 ~~~ WK(["Every week<br/>―――――――<br/>weekly-status<br/>field-feedback"])
+    end
+    FIRST --> SECOND
+    classDef step fill:#dbe8fb,stroke:#2a78d6,color:#0b1220
+    classDef weekly fill:#e6e3fb,stroke:#4a3aa7,color:#0b1220
+    class S0,S1,S2,S3,S4,S5,S6 step
+    class WK weekly
+    style FIRST fill:none,stroke:none
+    style SECOND fill:none,stroke:none
+```
+
+Each skill is tagged with the [pillars](#5-the-six-pillars) it serves, and a skill can serve more than one. Count them and belief 2 shows up in the files: 11 of the 20 serve consulting and delivery, more than serve AI applications.
+
+```mermaid
+%%{init: {"xyChart": {"height": 340}, "themeVariables": {"xyChart": {"plotColorPalette": "#2a78d6"}}}}%%
+xychart-beta horizontal
+    title "Skills that serve each pillar (out of 20)"
+    x-axis ["1 Software engineering", "2 Data", "3 Cloud and networking", "4 Security and identity", "5 AI applications", "6 Consulting and delivery"]
+    y-axis "Number of skills" 0 --> 12
+    bar [3, 2, 3, 6, 7, 11]
+```
+
+**Scenario packs** are opinionated starting kits for the five engagements you'll meet most often. Each one names the skills you need, what to add to each for that scenario, the default design, the discovery questions and the top risks. Packs combine: a bank's knowledge assistant uses the knowledge-assistant and regulated packs together.
+
+| Scenario pack | The engagement | Hardest pillar |
+|---|---|---|
+| [Knowledge assistant](skills/scenario-knowledge-assistant/SKILL.md) | Answer questions from company documents (RAG) | 2 Data, 5 AI |
+| [Action-taking agent](skills/scenario-action-agent/SKILL.md) | An agent that updates records, sends messages or triggers workflows | 4 Security |
+| [Data and analytics agent](skills/scenario-data-agent/SKILL.md) | Natural-language questions over business data | 2 Data |
+| [Regulated, private-only](skills/scenario-regulated-private/SKILL.md) | Banks, government, health: private networking and strict review | 3 Networking, 4 Security |
+| [Disconnected or sovereign](skills/scenario-disconnected-sovereign/SKILL.md) | Sites with limited or no internet connection | 3 Networking |
+
+Install them into your agent's skills folder with one command (needs Node.js), or see the [skills index](skills/README.md#install) for a release download and Windows instructions:
+
+```bash
+npx degit mjtpena/awesome-microsoft-fde/skills .claude/skills
+```
+
+Start with the [skills index](skills/README.md): it has the full table, which skills each pack uses, and what stays internal rather than going into the customer's repository. Before you update an installed copy, read the [changelog](CHANGELOG.md).
+
+**Our take:** start from the pack, not the skill list. Deleting a section that doesn't apply takes a minute; noticing that you never thought about it takes an incident.
+
+## 13. One engagement, worked end to end
+
+Templates show you what to write. The [worked examples](examples/README.md) show what a good one looks like. They follow one fictional engagement, the **Harbourline Insurance** policy assistant, from day 0 to handover, with every skill filled in: 22 documents that agree with one shared fact sheet and with each other.
+
+Harbourline has about 900 claims handlers. Discovery found them spending a median of 22 minutes per complex claim finding the right policy, and 1 in 12 audited claim decisions cited a superseded version. The assistant answers handlers' questions in Teams from the current policies only, cites its source, and changes nothing. Everything in it is invented: the company, the people and the numbers.
+
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "cScale0": "#dbe8fb", "cScaleLabel0": "#0b1220", "cScaleInv0": "#2a78d6", "cScale1": "#dbe8fb", "cScaleLabel1": "#0b1220", "cScaleInv1": "#2a78d6", "cScale2": "#dbe8fb", "cScaleLabel2": "#0b1220", "cScaleInv2": "#2a78d6", "cScale3": "#dbe8fb", "cScaleLabel3": "#0b1220", "cScaleInv3": "#2a78d6", "cScale4": "#fde3d6", "cScaleLabel4": "#0b1220", "cScaleInv4": "#eb6834", "cScale5": "#dbe8fb", "cScaleLabel5": "#0b1220", "cScaleInv5": "#2a78d6", "cScale6": "#dbe8fb", "cScaleLabel6": "#0b1220", "cScaleInv6": "#2a78d6"}}}%%
+timeline
+    title Harbourline Insurance, a fictional 10-week engagement
+    Weeks 0–1 : Access request sent on day 1 : Kickoff, discovery interviews, stakeholder map
+    Week 2 : Use-case canvas signed : Six architecture decisions, threat model, evaluation plan
+    Week 3 : Data audit finds 31% of claims policies in several versions : Scope reset to internal handlers, Motor and Property first
+    Weeks 4–5 : First version on real data with 12 pilot handlers : 120 test cases, first full run passes the bar
+    Week 6 : Incident, the assistant cites a superseded policy : Incident review, 8 new test cases, feedback to the product team
+    Weeks 7–8 : Red team, responsible AI sign-off : Go-live readiness review, cost model agreed
+    Weeks 9–10 : Go-live to about 900 handlers : Runbook and handover to named owners
+```
+
+The week-6 incident is the part to read first. The assistant quoted an old excess amount to a team leader, who forwarded it to the sponsor. It looked like the model making things up. It was retrieval: an old copy of the policy sat in a file share's published folder with no status, and the indexing rule treated it as current. The evaluation scores show the dip below the 85% release bar (the orange line) and the recovery:
+
+```mermaid
+%%{init: {"xyChart": {"height": 340}, "themeVariables": {"xyChart": {"plotColorPalette": "#2a78d6, #eb6834"}}}}%%
+xychart-beta
+    title "Answer correctness (%), weeks 5 to 7"
+    x-axis ["Week 5", "Week 6, after the re-index", "Week 7, after the fix"]
+    y-axis "Correct answers (%)" 0 --> 100
+    bar [88, 81, 90]
+    line [85, 85, 85]
+```
+
+Start with the [incident review](examples/knowledge-assistant/incident-review.md), the [scope reset](examples/knowledge-assistant/scope-reset.md) and the [threat model](examples/knowledge-assistant/threat-model.md), or read all 22 [in engagement order](examples/README.md#the-examples).
+
+## 14. The reference implementation
+
+The [reference implementation](reference/knowledge-assistant/README.md) is the Harbourline assistant as a small codebase you can run, read and break. It's teaching code, not production code, and it says what it leaves out.
+
+```mermaid
+flowchart TB
+    subgraph ASK["Answering a question"]
+        direction LR
+        Q["Handler's<br/>question"] --> R["Retriever<br/>current policies only,<br/>only what this<br/>handler may see"] --> A["Answerer<br/>cites a retrieved<br/>document or refuses"] --> GW["Azure API Management<br/>checks the Entra token,<br/>limits tokens per caller"] --> M["Model in<br/>Microsoft Foundry<br/>via managed identity"]
+    end
+    subgraph GATE["The evaluation gate, offline in CI"]
+        direction LR
+        G["27 golden<br/>test cases"] --> SC["Score retrieval<br/>and the answer<br/>separately"] --> F{"Any score<br/>below the bar?"} -- "yes" --> X["Pull request<br/>fails"]
+    end
+    ASK -- "scored on every change by" --> GATE
+```
+
+| What it shows | Where |
+|---|---|
+| **Tests for the AI's answers before tuning** (belief 5). 27 golden cases, scored on retrieval and on the answer separately, with a release bar | [`evals/`](reference/knowledge-assistant/evals/) |
+| **A gateway in front of every model from day one.** The app never holds model access; Azure API Management checks the caller's Microsoft Entra token, limits tokens per caller and records usage | [`infra/apim-policy.xml`](reference/knowledge-assistant/infra/apim-policy.xml) |
+| **Index only the current version.** A document with no status is held back, not let in: the lesson of the week-6 incident | [`corpus.py`](reference/knowledge-assistant/src/harbourline/corpus.py) |
+| **Permission trimming in retrieval, not in the prompt.** A handler's search never returns the pricing draft, so no clever question can leak it; a pricing user can see it | [`retrieval.py`](reference/knowledge-assistant/src/harbourline/retrieval.py) |
+| **No keys.** Every call uses Entra tokens; keys are switched off on Azure AI Search, the Foundry account and Application Insights | [`infra/`](reference/knowledge-assistant/infra/) |
+
+It runs offline with no Azure account. When you want the real thing, one command (`azd up`, from the Azure Developer CLI) creates the Azure resources, written in Bicep, and loads the search index, so the same gate can run against a real model. Those resources bill by the hour, so read the [cost warning](reference/knowledge-assistant/README.md#cost-warning) first.
+
+**Why scoring retrieval separately matters.** Put the week-6 bug back (let a document with no status into the index) and rerun the gate. Retrieval still finds the right policy every time, so a hit-rate check alone would pass. The old copy comes back too, and the answers start quoting it:
+
+| Metric | Release bar | As shipped | With the week-6 bug |
+|---|---|---|---|
+| Retrieval hit rate (right document in the top 5) | ≥ 90% | ✅ 100% | ✅ 100% |
+| Citation accuracy | ≥ 90% | ✅ 100% | ❌ 80% |
+| Fact match | ≥ 85% | ✅ 95% | ❌ 80% |
+| Refusal accuracy on must-refuse questions | 100% | ✅ 100% | ✅ 100% |
+| Forbidden documents retrieved | 0 | ✅ 0 | ❌ 3 |
+| Forbidden content in answers | 0 | ✅ 0 | ❌ 3 |
+
+The gate fails, and the incident is caught before a pilot user sees it. Try it yourself with the [break-it exercise](reference/knowledge-assistant/README.md#how-the-evaluation-gate-works).
+
+## 15. How the kit is tested
+
+The guide tells you to test an AI system with fixed cases and a bar on every change. The kit is held to the same rule. Skills are meant to be handed to AI agents, so a template that drifts, or an example that no longer follows it, counts as broken even if it reads well.
+
+```mermaid
+flowchart LR
+    PR["Pull request"] --> H["House rules<br/>links, anchors, footnotes,<br/>skill layout, no dates or<br/>prices inside skills"]
+    PR --> X["Worked examples graded<br/>against their skill templates"]
+    PR --> L["Markdown lint"]
+    PR --> W["External links"]
+    PR --> RE["Reference code<br/>unit tests and the<br/>evaluation gate<br/>(when it changes)"]
+    H & X & L & W & RE --> MG["Merge"]
+    MG --> TG["Version tag"] --> REL["Release with skills.zip"]
+    MON(["Every Monday"]) --> ST["Dead links, and pages<br/>not re-checked in 90 days"] --> IS["Issue labelled stale-fact"]
+```
+
+- **[Skill evaluations](skill-evals/README.md)** explain how to run any skill through your own agent and grade the result: a structure check that a script runs, and a six-question rubric for judgement.
+- **[Contributing](CONTRIBUTING.md)** lists every check and the command to run it locally.
+- **[Releases](CHANGELOG.md)** are versioned. A major version means a template changed in a way that affects documents you've already filled in.
+
+---
+
+# Part 4: Practise and go deeper
+
+## 16. Practise: four interview scenarios
 
 Talk through each out loud using the six steps from [section 4](#4-an-engagement-start-to-finish). Interviewers care more about your first three questions than your final architecture.
 
@@ -329,27 +544,7 @@ Talk through each out loud using the six steps from [section 4](#4-an-engagement
 3. **Low code or full code?** The architecture board asks why you chose Copilot Studio over Microsoft Foundry, or the reverse. *Cover cost, who maintains it, and the customer team's skills.*
 4. **Too many agents.** A company finds 300 AI agents built by different teams, and nobody knows what they can access. *How do you take inventory, assign owners and control access?*
 
-Candidates report Microsoft's loop as a recruiter screen, an online test, coding screens, then an onsite with coding, system design and a behavioural round.[^interviews] [Interview prep](docs/interview-prep.md) has outline answers for each of these, three more cases and rapid-fire questions with answers.
-
-## 13. Skills and scenario packs
-
-[`/skills`](./skills) has a skill for every step of an engagement, each tagged with the pillar it serves. Each skill is one Markdown file (`SKILL.md`, in its own folder) that says when and how to use it and ends with the template to fill in. They follow the open Agent Skills format, so you can follow them yourself or hand them to any AI agent, such as GitHub Copilot or Claude Code. It also has **scenario packs**: opinionated starting kits for the five engagements you'll meet most often. Every skill has a [worked example](examples/README.md), and the skills are themselves [tested](skill-evals/README.md): CI checks that each example still follows its skill's template.
-
-| Scenario pack | The engagement |
-|---|---|
-| [Knowledge assistant](skills/scenario-knowledge-assistant/SKILL.md) | Answer questions from company documents (RAG) |
-| [Action-taking agent](skills/scenario-action-agent/SKILL.md) | An agent that updates records, sends messages or triggers workflows |
-| [Data and analytics agent](skills/scenario-data-agent/SKILL.md) | Natural-language questions over business data |
-| [Regulated, private-only](skills/scenario-regulated-private/SKILL.md) | Banks, government, health: private networking and strict review |
-| [Disconnected or sovereign](skills/scenario-disconnected-sovereign/SKILL.md) | Sites with limited or no internet connection |
-
-Install them into your agent's skills folder with one command (needs Node.js), or see the [skills index](skills/README.md#install) for other options:
-
-```bash
-npx degit mjtpena/awesome-microsoft-fde/skills .claude/skills
-```
-
-Start with the [skills index](skills/README.md).
+Candidates report Microsoft's loop as a recruiter screen, an online test, coding screens, then an onsite with coding, system design and a behavioural round.[^interviews] [Interview prep](docs/interview-prep.md) has outline answers for each of these, three more cases and rapid-fire questions with answers. For scenario 2, the Harbourline [incident review](examples/knowledge-assistant/incident-review.md) is a full worked answer.
 
 ## 📚 Go deeper
 
@@ -365,6 +560,7 @@ Start with the [skills index](skills/README.md).
 | [Worked examples](examples/README.md) | One fictional engagement from kickoff to handover, with every skill filled in, so you can see what "done" looks like |
 | [Reference implementation](reference/knowledge-assistant/README.md) | The same engagement as runnable code: a small knowledge assistant, its evaluation gate and the Azure infrastructure |
 | [Skill evaluations](skill-evals/README.md) | How the skills themselves are tested, and how to run one through your own agent and grade the output |
+| [Changelog](CHANGELOG.md) | What changed in each release, and what to check before you update a skill you've already copied |
 
 ## 📖 Glossary
 
@@ -374,6 +570,9 @@ Start with the [skills index](skills/README.md).
 | **The gap** | The distance between a product working in a demo and working in a real customer's environment. Also called "the Delta" |
 | **Delta / Echo** | Palantir's internal names for forward deployed engineers (Delta) and the domain experts who find the problem worth solving (Echo) |
 | **Pillar** | One of the six skill areas in this guide |
+| **Skill** | One Markdown file that tells a person or an AI agent how to produce one engagement document, ending in its template |
+| **Scenario pack** | A starting kit for one common kind of engagement: which skills to use, what to add to each, and the top risks |
+| **Worked example** | A skill's template filled in for the fictional Harbourline engagement, to show the level of detail to aim for |
 | **AI** | Artificial intelligence |
 | **LLM** | Large language model: an AI model that reads and writes text |
 | **RAG** | Retrieval-augmented generation: the AI looks up relevant documents before answering |
@@ -384,10 +583,17 @@ Start with the [skills index](skills/README.md).
 | **Attack success rate** | In a red-team exercise, the share of attacks that got the AI to do something it shouldn't |
 | **Blameless review** | A review of a failure that looks for what in the system allowed it, not for someone to blame |
 | **Golden set** | A fixed list of test questions with agreed good answers, used to score an AI system every time it changes |
+| **Evaluation gate** | An automated check that scores the golden set on every change and fails it if any score falls below the agreed release bar |
+| **Permission trimming** | Filtering search results so each user only ever retrieves documents they're allowed to see |
+| **Token** | A small chunk of text, roughly part of a word. AI models are priced and rate-limited by the tokens they read and write |
 | **API** | Application programming interface: a way for one program to call another |
 | **SQL** | Structured Query Language: the standard language for querying databases |
 | **Infrastructure-as-code (IaC)** | Setting up cloud resources from scripts instead of clicking in a portal |
+| **Bicep** | Microsoft's language for writing Azure infrastructure as code |
+| **CLI** | Command-line interface: a program you run by typing commands, such as the Azure Developer CLI (`azd`) |
+| **Managed identity** | An identity Azure gives a resource so it can sign in to other services without a password or key |
 | **CI/CD** | Continuous integration / continuous delivery: automatically testing and deploying code on every change |
+| **Pull request** | A proposed change to a code repository, reviewed and tested before it's merged |
 | **Production** | The live system real users depend on, as opposed to a demo or test copy |
 | **Red team** | People or tools that attack a system on purpose, before real attackers do, to find its weaknesses |
 | **Runbook** | Step-by-step instructions for operating and fixing a system |

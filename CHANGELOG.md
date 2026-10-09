@@ -10,7 +10,11 @@ People copy skill templates into customer repositories, so check this page when 
 
 ## Unreleased
 
-Nothing yet.
+### Changed
+
+- **README:** opens with what the kit contains and a quickstart, and a new Part 3, "The kit", covers the skills and scenario packs, the worked Harbourline engagement, the reference implementation and how the kit is tested, with diagrams and charts. The interview scenarios are now section 16. Templates unchanged.
+- **CI:** the workflows use the Node.js 24 versions of their actions (`actions/checkout@v6`, `actions/setup-python@v6`, `actions/upload-artifact@v6`, `DavidAnson/markdownlint-cli2-action@v24`, `peter-evans/create-issue-from-file@v6`), which clears the Node.js 20 deprecation warning on every job.
+- **Markdown lint:** repeated headings are allowed when they sit under different parents (MD024 `siblings_only`), so each release section in this changelog can have its own "Added" and "Changed".
 
 ## 1.0.0
 

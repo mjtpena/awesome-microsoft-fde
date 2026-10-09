@@ -17,7 +17,7 @@ Candidate reports describe a 4–6 week process: recruiter screen → online ass
 
 ### Case studies (practise out loud) 💬
 
-Talk through each one before you open the outline. Interviewers care more about your first three questions than your final architecture. Cases 1, 3, 4 and 6 are the detailed versions of the four scenarios in the [README](../README.md#12-practise-four-interview-scenarios).
+Talk through each one before you open the outline. Interviewers care more about your first three questions than your final architecture. Cases 1, 3, 4 and 6 are the detailed versions of the four scenarios in the [README](../README.md#16-practise-four-interview-scenarios).
 
 #### 1. The locked tenant (README scenario 1)
 

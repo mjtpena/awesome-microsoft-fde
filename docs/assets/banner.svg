@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="380" viewBox="0 0 1280 380" role="img" aria-labelledby="title desc">
+  <title id="title">Awesome Microsoft FDE</title>
+  <desc id="desc">A field guide and accelerator for forward deployed engineers: 20 skills, 5 scenario packs, 22 worked examples and a runnable reference implementation, organised along the engagement from kickoff to handover. An independent community project, not official Microsoft guidance.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#16213b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3987e5"/>
+      <stop offset="1" stop-color="#9085e9"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+    .eyebrow { font-size: 15px; font-weight: 600; letter-spacing: 2px; fill: #8fb4e8; }
+    .title { font-size: 56px; font-weight: 700; fill: #ffffff; }
+    .sub { font-size: 21px; fill: #c9d2e0; }
+    .num { font-size: 30px; font-weight: 700; fill: #ffffff; }
+    .label { font-size: 15px; fill: #c9d2e0; }
+    .step { font-size: 15px; font-weight: 600; fill: #e6ecf5; }
+    .stepn { font-size: 13px; font-weight: 700; fill: #0b1220; }
+    .foot { font-size: 13px; fill: #8a97ad; }
+  </style>
+
+  <rect width="1280" height="380" rx="24" fill="url(#bg)"/>
+  <rect x="64" y="44" width="72" height="4" rx="2" fill="url(#accent)"/>
+
+  <text class="eyebrow" x="64" y="82">FORWARD DEPLOYED ENGINEERING · GUIDE AND ACCELERATOR</text>
+  <text class="title" x="62" y="144">Awesome Microsoft FDE</text>
+  <text class="sub" x="64" y="186">Go into the customer's organisation and don't leave</text>
+  <text class="sub" x="64" y="214">until the thing works, and someone there owns it.</text>
+
+  <g>
+    <rect x="872" y="44" width="168" height="80" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text class="num" x="892" y="86">20</text>
+    <text class="label" x="892" y="110">skills</text>
+    <rect x="1048" y="44" width="168" height="80" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text class="num" x="1068" y="86">5</text>
+    <text class="label" x="1068" y="110">scenario packs</text>
+    <rect x="872" y="136" width="168" height="80" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text class="num" x="892" y="178">22</text>
+    <text class="label" x="892" y="202">worked examples</text>
+    <rect x="1048" y="136" width="168" height="80" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text class="num" x="1068" y="178">1</text>
+    <text class="label" x="1068" y="202">runnable reference</text>
+  </g>
+
+  <rect x="96" y="276" width="1088" height="4" rx="2" fill="url(#accent)"/>
+  <g>
+    <circle cx="96" cy="278" r="14" fill="#3987e5"/>
+    <text class="stepn" x="96" y="283" text-anchor="middle">0</text>
+    <text class="step" x="96" y="320" text-anchor="middle">Kick off</text>
+    <circle cx="277" cy="278" r="14" fill="#4c86e6"/>
+    <text class="stepn" x="277" y="283" text-anchor="middle">1</text>
+    <text class="step" x="277" y="320" text-anchor="middle">Get access</text>
+    <circle cx="459" cy="278" r="14" fill="#5f86e7"/>
+    <text class="stepn" x="459" y="283" text-anchor="middle">2</text>
+    <text class="step" x="459" y="320" text-anchor="middle">Understand</text>
+    <circle cx="640" cy="278" r="14" fill="#6a86e7"/>
+    <text class="stepn" x="640" y="283" text-anchor="middle">3</text>
+    <text class="step" x="640" y="320" text-anchor="middle">Design</text>
+    <circle cx="821" cy="278" r="14" fill="#7585e8"/>
+    <text class="stepn" x="821" y="283" text-anchor="middle">4</text>
+    <text class="step" x="821" y="320" text-anchor="middle">Build</text>
+    <circle cx="1003" cy="278" r="14" fill="#8285e8"/>
+    <text class="stepn" x="1003" y="283" text-anchor="middle">5</text>
+    <text class="step" x="1003" y="320" text-anchor="middle">Harden</text>
+    <circle cx="1184" cy="278" r="14" fill="#9085e9"/>
+    <text class="stepn" x="1184" y="283" text-anchor="middle">6</text>
+    <text class="step" x="1184" y="320" text-anchor="middle">Hand over</text>
+  </g>
+
+  <text class="foot" x="64" y="360">Independent community project. Not written, reviewed or endorsed by Microsoft.</text>
+</svg>
