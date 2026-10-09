@@ -58,7 +58,7 @@ A stop paper gives the customer what they learnt, what would have to change for 
 5. Present it to the wider group with the sponsor leading or alongside you. Get the decision in writing.
 6. Update everything the decision changes, in the same week:
    - [Use-case canvas](../ai-use-case-canvas/SKILL.md): users, sources, shape, out of scope, exit criteria. Bump the version and get it re-signed.
-   - [ADRs](../adr/SKILL.md): a new ADR for the scope decision itself, and mark any ADR the change supersedes.
+   - [ADRs](../adr/SKILL.md): a new ADR when the decision changes the architecture, and mark any ADR the change supersedes. The scope-reset paper itself records the scope decision.
    - [Data audit](../data-audit/SKILL.md): which sources are now in or out.
    - [Evaluation plan](../eval-plan/SKILL.md): remove or add golden-set categories; check the release bar still fits.
    - The plan and the backlog: deferred items, with their trigger to return.
