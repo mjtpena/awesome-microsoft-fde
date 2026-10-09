@@ -38,6 +38,8 @@ The regulated and disconnected rows from the template are deleted: neither appli
 
 > Internal to the delivery team. Don't copy into the customer's repository or tenant.
 
+#### The map
+
 | Name | Role | Type | Influence (H/M/L) | Support today (for / neutral / against) | What they need from us | How often we meet |
 |---|---|---|---|---|---|---|
 | D. Whitfield | Head of Claims Operations | Sponsor | H | For, but pushing for more scope than one quarter can carry | Evidence the audit number will move; a clear "not yet" on the portal with reasons they can take upwards | Weekly demo; 15 minutes before each status |

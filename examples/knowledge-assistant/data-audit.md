@@ -4,7 +4,7 @@
 
 **Version:** 1.0 · **Date:** week 3, day 2 · **Audited by:** T. Osei, E. Marsh, with A. Novak (data owner) and L. Moreau (SharePoint administrator) · **Feeds:** the [scope reset](scope-reset.md), [ADR-003](adr-003-current-version-only.md), the [threat model](threat-model.md)
 
-Production data access arrived on week 1, day 5 (see the [access request](access-request.md)), so this audit ran in weeks 2 and 3 against real content. Every access path was tested as `svc-test-motor`, a low-privilege account with a Motor handler's groups.
+Production data access arrived on week 1, day 5 (see the [access request](access-request.md)), so this audit ran in weeks 2 and 3 against real content. Every access path was tested as `svc-eval-lowpriv`, a low-privilege account with a Motor handler's groups.
 
 ## Sources
 
@@ -22,7 +22,7 @@ Production data access arrived on week 1, day 5 (see the [access request](access
 | Claims Policy: 31% in more than one version | Exported file names, titles and modified dates for all 2,400 documents. Normalised titles (case, "v2", "FINAL", dates stripped) and counted groups with more than one file: 744 documents sit in such groups. A. Novak checked 50 groups by hand and agreed 47 were genuine duplicates of one policy | Can't index everything and hope ranking picks the right one. Index only the current version ([ADR-003](adr-003-current-version-only.md)) |
 | Claims Policy: no reliable "current" flag | The site has a `Current` yes/no column. It's filled on 38% of documents, and 9 of the 50 checked groups had two documents marked current | Use a version rule agreed with A. Novak instead: highest published major version, then latest "effective from" date in the document header |
 | Underwriting: clean | `Status` filled on every document; A. Novak's team sampled 30 and all matched what they consider current | Use `Status = Current` directly. Lowest-risk source; good first test |
-| Pricing: overshared | SharePoint oversharing assessment, then confirmed by opening five draft documents as `svc-test-motor`. All five opened | **Blocker.** Permission trimming faithfully reproduces bad permissions. L. Moreau fixes the sharing before anything is indexed; G. Patel's approval is conditional on it |
+| Pricing: overshared | SharePoint oversharing assessment, then confirmed by opening five draft documents as `svc-eval-lowpriv`. All five opened | **Blocker.** Permission trimming faithfully reproduces bad permissions. L. Moreau fixes the sharing before anything is indexed; G. Patel's approval is conditional on it |
 | File share: 140 scans with no text layer | Text extraction run over the `published` folder; 140 of the 600 returned no text | Not searchable as they stand. OCR them during ingestion and have A. Novak's team spot-check 20; the method sits under ADR-002 |
 | File share: no version metadata | No status column exists on a file share; folder names are the only signal | Treated as one version per file. ⚠️ This is the gap the week-6 incident came through: see the [incident review](incident-review.md) and the [ADR-003 amendment](adr-003-current-version-only.md#amendment-1-week-6) |
 
@@ -39,7 +39,7 @@ Production data access arrived on week 1, day 5 (see the [access request](access
 
 | Source | How permissions work today | Will the AI respect them? How? | Tested with a low-privilege user? |
 |---|---|---|---|
-| Claims Policy, Underwriting | Site groups; all claims staff can read | Yes: permission-trimmed retrieval using each document's access-control list ([RAG blueprint](../../docs/microsoft-technical-reference.md#enterprise-rag-blueprint-azure)) | Yes. 20 questions as `svc-test-motor`; results matched what the account can open |
+| Claims Policy, Underwriting | Site groups; all claims staff can read | Yes: permission-trimmed retrieval using each document's access-control list ([RAG blueprint](../../docs/microsoft-technical-reference.md#enterprise-rag-blueprint-azure)) | Yes. 20 questions as `svc-eval-lowpriv`; results matched what the account can open |
 | Pricing | **Broken:** everyone can read | Only once fixed. Trimming copies today's permissions, good or bad | Yes, and it failed (see above). Repeat after the fix and after every re-index: 25 pricing questions, pass bar zero pricing content |
 | File share | NTFS groups; `published` readable by all staff | Yes, through the indexer's permission metadata | Yes. Five questions; all returned |
 

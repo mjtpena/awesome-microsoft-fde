@@ -13,7 +13,7 @@
 | E. Marsh, T. Osei | Corporate accounts in Harbourline's Entra tenant (not guest), with multifactor authentication | Sign in to Azure, SharePoint and Teams as a Harbourline user | J. Tan (Identity Lead) | Granted | Week 0, day 3 |
 | Product engineer (part-time) | Guest account, development resource group only | Pair on the agent and evaluation code | J. Tan | Granted | Week 0, day 4 |
 | E. Marsh, T. Osei | Harbourline virtual desktop | The file share is only reachable from the corporate network | S. Adeyemi (Platform team lead) | Granted | Week 0, day 5 |
-| T. Osei | Low-privilege test user `svc-test-motor`: a Motor handler's groups, **no** Pricing access | Permission-trimming tests in the [evaluation plan](eval-plan.md) and the [threat model](threat-model.md#4-threats) | L. Moreau (SharePoint administrator) | Granted | Week 1, day 2 |
+| T. Osei | Low-privilege test user `svc-eval-lowpriv`: a Motor handler's groups, **no** Pricing access | Permission-trimming tests in the [evaluation plan](eval-plan.md) and the [threat model](threat-model.md#4-threats) | L. Moreau (SharePoint administrator) | Granted | Week 1, day 2 |
 
 ## Cloud permissions
 

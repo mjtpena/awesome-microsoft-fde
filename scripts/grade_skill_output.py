@@ -42,13 +42,15 @@ def template_of(skill):
 
 
 def headings(text, level):
-    text = re.sub(r"^```.*?^```\s*$", "", text, flags=re.S | re.M)
+    # Ignore code blocks, except Markdown ones: an output can itself be a
+    # file to write, such as an instructions file shown in a ```markdown block.
+    text = re.sub(r"^```(?!markdown).*?^```\s*$", "", text, flags=re.S | re.M)
     return re.findall(rf"^{'#' * level} (.+?)\s*$", text, re.M)
 
 
 def normalise(heading):
-    """Compare headings loosely: drop numbering, placeholders, emoji and case."""
-    heading = re.sub(r"<[^>]*>|[^\w\s]", " ", heading.lower())
+    """Compare headings loosely: drop numbering, asides in brackets, placeholders, emoji and case."""
+    heading = re.sub(r"\([^)]*\)|<[^>]*>|[^\w\s]", " ", heading.lower())
     heading = re.sub(r"^\s*\d+\s+", "", heading)
     return " ".join(heading.split())
 
@@ -56,7 +58,7 @@ def normalise(heading):
 def grade(skill, output_path, case=None):
     case = case or {}
     output = output_path.read_text(encoding="utf-8")
-    found = {normalise(h) for level in (2, 3) for h in headings(output, level)}
+    found = {normalise(h) for level in (2, 3, 4) for h in headings(output, level)}
     optional = {normalise(h) for h in case.get("optional_sections", [])}
     failures = []
 

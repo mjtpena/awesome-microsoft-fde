@@ -44,12 +44,15 @@ flowchart LR
 |---|---|
 | [`discovery-interview`](../discovery-interview/SKILL.md) | Collect the top 20 questions and the source-of-truth documents for each |
 | [`data-audit`](../data-audit/SKILL.md) | Fill the **documents** section: types, scans, tables, out-of-date content, oversharing |
+| [`scope-reset`](../scope-reset/SKILL.md) | Typical triggers: no source of truth for "current", or a customer-facing channel added to an internal assistant. See the [worked example](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/examples/knowledge-assistant/scope-reset.md) |
 | [`ai-use-case-canvas`](../ai-use-case-canvas/SKILL.md) | Scenario = knowledge assistant; actions = none |
 | [`adr`](../adr/SKILL.md) | Ingestion, chunking, search type, permission trimming |
 | [`threat-model`](../threat-model/SKILL.md) | Data leakage and indirect prompt injection from documents. See the [worked example](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/examples/knowledge-assistant/threat-model.md) |
-| [`eval-plan`](../eval-plan/SKILL.md) | Retrieval score, citation correctness, "I don't know" cases, low-privilege run |
-| [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + knowledge-assistant add-ons |
-| [`runbook`](../runbook/SKILL.md) | Re-indexing and urgent document removal |
+| [`red-team`](../red-team/SKILL.md) | Seed a test document with hidden instructions; probe restricted content as a low-privilege user. See the [worked example](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/examples/knowledge-assistant/red-team.md) |
+| [`eval-plan`](../eval-plan/SKILL.md) | Retrieval score, citation correctness, "I don't know" cases, low-privilege run. See the [worked example](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/examples/knowledge-assistant/eval-plan.md) |
+| [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + knowledge-assistant add-ons. See the [worked example](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/examples/knowledge-assistant/go-live-readiness.md) |
+| [`runbook`](../runbook/SKILL.md) | Re-indexing and urgent document removal. See the [worked example](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/examples/knowledge-assistant/runbook.md) |
+| [`incident-review`](../incident-review/SKILL.md) | Check the permissions, data and retrieval layers first (stale, duplicate or overshared documents); add the failing question and rephrasings to the golden set. See the [worked example](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/examples/knowledge-assistant/incident-review.md) |
 
 ## Discovery questions
 

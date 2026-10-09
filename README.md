@@ -74,7 +74,7 @@ flowchart LR
 
 The data-analytics company Palantir made the title popular in the late 2000s.[^wiki] Its own one-line definition is still the best: a product engineer works on **one capability for many customers**; a forward deployed engineer works with **one customer, using many capabilities**.[^palantir]
 
-**Our take:** most of an FDE's week isn't coding. In our experience it's roughly a third building, a third unblocking (access, data, security, approvals) and a third talking (discovery, demos, decisions). That's our estimate, not a measurement, but job postings point the same way: "working directly with customers" is the most common responsibility listed (55% of postings), ahead of building AI systems (37%).[^bloomberry] People who only want the building third hate this job.
+**Our take:** most of an FDE's week isn't coding. In our experience it's roughly a third building, a third unblocking (access, data, security, approvals) and a third talking (discovery, demos, decisions). That's our estimate, not a measurement ([help us measure it](https://github.com/mjtpena/awesome-microsoft-fde/issues/new?template=field-survey.yml)), but job postings point the same way: "working directly with customers" is the most common responsibility listed (55% of postings), ahead of building AI systems (37%).[^bloomberry] People who only want the building third hate this job.
 
 ## 2. How it differs from similar jobs
 
@@ -159,7 +159,9 @@ flowchart LR
 
 **When are you done?** The system runs in the customer's environment, tests prove it works, and a named person at the customer owns it. A merged pull request doesn't count.
 
-Every step has a ready-made skill. See [skills and scenario packs](#13-skills-and-scenario-packs).
+Every step has a ready-made skill. See [skills and scenario packs](#13-skills-and-scenario-packs). To see all of it done once, end to end, read the [worked examples](examples/README.md): one fictional engagement with every document filled in, including the week-6 incident and the week-3 scope reset.
+
+Two things the table leaves out, because nobody plans for them: **cutting scope** when the data says the original ask won't work, and **reviewing an incident** when the AI gets something wrong in front of an executive. Both happen on most engagements. Both have a skill ([`scope-reset`](skills/scope-reset/SKILL.md), [`incident-review`](skills/incident-review/SKILL.md)).
 
 ## 5. The six pillars
 
@@ -211,6 +213,8 @@ flowchart LR
 | 2. Build with AI | A chatbot that answers questions about a set of PDFs and cites its sources. Write 50 test questions and measure how often it's right | 5 |
 | 3. Make it real | Deploy that chatbot with no public internet exposure, user sign-in, logging of every request and a spending cap, all from a script | 3, 4 |
 | 4. Field-ready | Treat a friend as "the customer". Run discovery, build for two weeks, hand over with a runbook they can follow without you | 6 |
+
+Stuck on Stage 2 or 3? The [reference implementation](reference/knowledge-assistant/README.md) is a small, tested knowledge assistant with an evaluation gate in CI and the Azure infrastructure as code. Read it, break it, then build your own.
 
 **Our take:** skip Stage 3 and you'll fail your first real engagement. Tutorials stop at Stage 2, and customers start at Stage 3.
 
@@ -329,7 +333,7 @@ Candidates report Microsoft's loop as a recruiter screen, an online test, coding
 
 ## 13. Skills and scenario packs
 
-[`/skills`](./skills) has a skill for every step of an engagement, each tagged with the pillar it serves. Each skill is one Markdown file (`SKILL.md`, in its own folder) that says when and how to use it and ends with the template to fill in. They follow the open Agent Skills format, so you can follow them yourself or hand them to any AI agent, such as GitHub Copilot or Claude Code. It also has **scenario packs**: opinionated starting kits for the five engagements you'll meet most often.
+[`/skills`](./skills) has a skill for every step of an engagement, each tagged with the pillar it serves. Each skill is one Markdown file (`SKILL.md`, in its own folder) that says when and how to use it and ends with the template to fill in. They follow the open Agent Skills format, so you can follow them yourself or hand them to any AI agent, such as GitHub Copilot or Claude Code. It also has **scenario packs**: opinionated starting kits for the five engagements you'll meet most often. Every skill has a [worked example](examples/README.md), and the skills are themselves [tested](skill-evals/README.md): CI checks that each example still follows its skill's template.
 
 | Scenario pack | The engagement |
 |---|---|
@@ -355,8 +359,12 @@ Start with the [skills index](skills/README.md).
 | [The FDE role and market](docs/fde-role-and-market.md) | Palantir's origins, the 2026 investments company by company, job-posting statistics, critiques and Microsoft's FDE teams, all fully sourced |
 | [Microsoft technical reference](docs/microsoft-technical-reference.md) | The detailed seven-phase curriculum, which features are generally available versus in preview, disconnected deployments and the full certification table |
 | [Interview prep](docs/interview-prep.md) | The reported interview loop, seven case studies and rapid-fire questions |
+| [The field guide](docs/field-guide.md) | What actually goes wrong: the first 30 days, working on a locked-down customer desktop, political failure modes, scope creep, adoption, leaving well and avoiding burnout |
+| [From FDE to principal](docs/career-ladder.md) | How the job changes with seniority, what a principal actually does, anti-patterns of senior FDEs and building evidence for promotion |
 | [Reading list](docs/reading-list.md) | Every primary source, grouped by topic |
-| [Worked examples](examples/README.md) | Filled-in skill templates for a fictional engagement, so you can see what "done" looks like |
+| [Worked examples](examples/README.md) | One fictional engagement from kickoff to handover, with every skill filled in, so you can see what "done" looks like |
+| [Reference implementation](reference/knowledge-assistant/README.md) | The same engagement as runnable code: a small knowledge assistant, its evaluation gate and the Azure infrastructure |
+| [Skill evaluations](skill-evals/README.md) | How the skills themselves are tested, and how to run one through your own agent and grade the output |
 
 ## 📖 Glossary
 
@@ -373,12 +381,15 @@ Start with the [skills index](skills/README.md).
 | **MCP** | Model Context Protocol: an open standard for connecting tools and data to AI agents |
 | **A2A** | Agent-to-agent: a standard for AI agents to talk to each other |
 | **Evaluation (evals)** | Automated tests that score AI answers for correctness, grounding and safety |
+| **Attack success rate** | In a red-team exercise, the share of attacks that got the AI to do something it shouldn't |
+| **Blameless review** | A review of a failure that looks for what in the system allowed it, not for someone to blame |
 | **Golden set** | A fixed list of test questions with agreed good answers, used to score an AI system every time it changes |
 | **API** | Application programming interface: a way for one program to call another |
 | **SQL** | Structured Query Language: the standard language for querying databases |
 | **Infrastructure-as-code (IaC)** | Setting up cloud resources from scripts instead of clicking in a portal |
 | **CI/CD** | Continuous integration / continuous delivery: automatically testing and deploying code on every change |
 | **Production** | The live system real users depend on, as opposed to a demo or test copy |
+| **Red team** | People or tools that attack a system on purpose, before real attackers do, to find its weaknesses |
 | **Runbook** | Step-by-step instructions for operating and fixing a system |
 | **ADR** | Architecture decision record: a one-page note of a decision, the options and why |
 | **RACI** | Responsible, Accountable, Consulted, Informed: a table of who does what after handover |

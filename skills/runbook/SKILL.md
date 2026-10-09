@@ -12,7 +12,7 @@ How to operate and fix the system without you.
 ## When to use
 
 - Start in the build phase, as soon as there is something deployed.
-- Update after every incident or operational change.
+- Update after every incident or operational change. The [incident review](../incident-review/SKILL.md) names the row to add.
 
 ## Rules
 

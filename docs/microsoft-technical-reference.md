@@ -458,7 +458,7 @@ timeline
 
 ## 📋 Skills
 
-The [skills index](../skills/README.md) has 14 skills (each a self-contained `SKILL.md` that ends with its template), one or more for each engagement step and tagged by pillar, plus five scenario packs: [knowledge assistant](../skills/scenario-knowledge-assistant/SKILL.md), [action-taking agent](../skills/scenario-action-agent/SKILL.md), [data agent](../skills/scenario-data-agent/SKILL.md), [regulated / private-only](../skills/scenario-regulated-private/SKILL.md) and [disconnected / sovereign](../skills/scenario-disconnected-sovereign/SKILL.md).
+The [skills index](../skills/README.md) has 20 skills (each a self-contained `SKILL.md` that ends with its template), one or more for each engagement step and tagged by pillar, plus five scenario packs: [knowledge assistant](../skills/scenario-knowledge-assistant/SKILL.md), [action-taking agent](../skills/scenario-action-agent/SKILL.md), [data agent](../skills/scenario-data-agent/SKILL.md), [regulated / private-only](../skills/scenario-regulated-private/SKILL.md) and [disconnected / sovereign](../skills/scenario-disconnected-sovereign/SKILL.md).
 
 ## 🏅 Certification Path (post-2026 reset)
 

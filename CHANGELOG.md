@@ -12,6 +12,14 @@ People copy skill templates into customer repositories, so check this page when 
 
 ### Added
 
+- Six skills for the moments that decide engagements: `engagement-kickoff`, `scope-reset`, `responsible-ai-impact-assessment`, `red-team`, `incident-review` and `field-feedback` (internal), with rows in every scenario pack.
+- A worked example for every skill: one fictional engagement (Harbourline Insurance) from kickoff to handover, with a shared fact sheet in `examples/README.md` that every example agrees with.
+- A reference implementation in `reference/knowledge-assistant/`: a small knowledge assistant that runs offline, an evaluation gate that scores retrieval and answers separately and runs in CI, and Bicep for the Azure resources.
+- Skill evaluations: `scripts/grade_skill_output.py` checks a skill's output against its template, and CI grades every worked example with it. `skill-evals/README.md` explains how to run a skill through your own agent and judge the result.
+- Two docs pages: the field guide (what actually goes wrong) and From FDE to principal (how the job changes with seniority).
+- Technical reference: Red teaming and Responsible AI subsections. PyRIT's repository has moved to `microsoft/PyRIT`.
+- A weekly freshness check that opens an issue when a page hasn't been re-verified for 90 days (`python scripts/check_docs.py --stale-days 90`).
+- A field survey issue form, to replace the guide's estimate of how an FDE's week splits with data.
 - Automated checks on every pull request: links and anchors, footnotes, skill structure, Markdown lint and external links, plus a weekly dead-link report.
 - Outline answers to the interview case studies and answers to the rapid-fire questions.
 - A worked example: a filled-in threat model for a fictional knowledge assistant.
@@ -21,6 +29,7 @@ People copy skill templates into customer repositories, so check this page when 
 
 ### Changed
 
+- **`threat-model`, `eval-plan`, `runbook`, `weekly-status`:** link to the new `red-team`, `incident-review` and `field-feedback` skills. Templates unchanged.
 - **`discovery-interview`:** the "Scenario add-ons" section of the template is now "Scenario questions"; paste the questions from your scenario pack. The packs are the only copy.
 - **`agent-instructions`:** the list of files each coding assistant reads moved to the technical reference.
 - Pillar pages carry a "Last verified" date, and skills no longer contain dates or prices.

@@ -87,6 +87,8 @@ Write field notes as product feedback: what the customer tried, what broke, the 
 
 ## Mistakes we keep seeing 💬
 
+The [field guide](../field-guide.md) tells these stories at length: the warning signs, what to do and which skill helps. For how this pillar grows with seniority, see [From FDE to principal](../career-ladder.md).
+
 - Starting to build before anyone agreed what success means.
 - Meeting the security team for the first time in the go-live week.
 - A handover document written in the last two days, which nobody reads.
@@ -110,7 +112,7 @@ Write field notes as product feedback: what the customer tried, what broke, the 
 
 ## Skills for this pillar
 
-[`discovery-interview`](../../skills/discovery-interview/SKILL.md) · [`stakeholder-map`](../../skills/stakeholder-map/SKILL.md) · [`weekly-status`](../../skills/weekly-status/SKILL.md) · [`cost-model`](../../skills/cost-model/SKILL.md) · [`handover`](../../skills/handover/SKILL.md)
+[`engagement-kickoff`](../../skills/engagement-kickoff/SKILL.md) · [`discovery-interview`](../../skills/discovery-interview/SKILL.md) · [`scope-reset`](../../skills/scope-reset/SKILL.md) · [`stakeholder-map`](../../skills/stakeholder-map/SKILL.md) · [`weekly-status`](../../skills/weekly-status/SKILL.md) · [`cost-model`](../../skills/cost-model/SKILL.md) · [`incident-review`](../../skills/incident-review/SKILL.md) · [`field-feedback`](../../skills/field-feedback/SKILL.md) · [`handover`](../../skills/handover/SKILL.md)
 
 ---
 
