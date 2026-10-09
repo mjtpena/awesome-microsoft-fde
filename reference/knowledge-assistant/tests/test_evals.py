@@ -1,8 +1,9 @@
 """The scorer is code that gates releases, so it gets tests too."""
 
+from run_evals import gate, score_case, summarise
+
 from harbourline.answering import Answer
 from harbourline.corpus import Passage
-from run_evals import gate, score_case, summarise
 
 
 def passage(doc_id):
