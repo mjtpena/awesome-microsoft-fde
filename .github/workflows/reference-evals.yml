@@ -23,8 +23,8 @@ jobs:
       run:
         working-directory: reference/knowledge-assistant
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Install
@@ -36,7 +36,7 @@ jobs:
         run: python evals/run_evals.py
       - name: Keep the results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: eval-results
           path: reference/knowledge-assistant/evals/results.json

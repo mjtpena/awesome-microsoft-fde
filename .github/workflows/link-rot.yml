@@ -15,7 +15,7 @@ jobs:
   link-rot:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
@@ -23,7 +23,7 @@ jobs:
           output: lychee/report.md
           fail: false
       - if: steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v5
+        uses: peter-evans/create-issue-from-file@v6
         with:
           title: "Weekly link check: dead links found"
           content-filepath: lychee/report.md
@@ -34,8 +34,8 @@ jobs:
     # quarter is probably wrong somewhere.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - id: check
@@ -51,7 +51,7 @@ jobs:
             } > freshness.md
           fi
       - if: steps.check.outputs.stale == 'true'
-        uses: peter-evans/create-issue-from-file@v5
+        uses: peter-evans/create-issue-from-file@v6
         with:
           title: "Quarterly re-verification: pages are out of date"
           content-filepath: freshness.md

@@ -1,8 +1,9 @@
 {
-  // Rules switched off on purpose. Everything else uses markdownlint's defaults.
+  // Rules switched off or adjusted on purpose. Everything else uses markdownlint's defaults.
   "config": {
     "MD013": false, // line length: prose is written one paragraph per line
-    "MD025": false, // the README uses H1s for its three parts
+    "MD024": { "siblings_only": true }, // each CHANGELOG release repeats "Added" and "Changed"
+    "MD025": false, // the README uses H1s for its four parts
     "MD029": false, // README contents numbering continues across parts
     "MD033": { "allowed_elements": ["details", "summary", "br"] },
     "MD036": false, // bold lead-ins such as "Prove it" are intentional
