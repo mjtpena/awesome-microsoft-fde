@@ -1,0 +1,12 @@
+# Azure Developer CLI project. `azd up` provisions infra/ and then loads the
+# sample documents into Azure AI Search. There is no hosted app service here:
+# the CLI runs wherever you run it (see README, "What it deliberately leaves out").
+name: harbourline-knowledge-assistant
+infra:
+  provider: bicep
+  path: infra
+  module: main
+hooks:
+  postprovision:
+    shell: sh
+    run: python -m harbourline index

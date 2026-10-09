@@ -47,14 +47,19 @@ flowchart LR
 
 | Skill | What to add for this scenario |
 |---|---|
+| [`engagement-kickoff`](../engagement-kickoff/SKILL.md) | Where the team works, how code and models move in and out, clearances per person |
 | [`access-request`](../access-request/SKILL.md) | **Critical.** Physical access, media-transfer approval, local directory accounts |
 | [`stakeholder-map`](../stakeholder-map/SKILL.md) | Site manager, media-transfer approver, local operations lead |
 | [`adr`](../adr/SKILL.md) | Model choice for local hardware; update and transfer process; local identity |
 | [`threat-model`](../threat-model/SKILL.md) | Physical threats, removable media, patching without internet |
+| [`red-team`](../red-team/SKILL.md) | Cloud red-team runs need internet access and a supported region; plan local tooling instead. See the [technical reference](https://github.com/mjtpena/awesome-microsoft-fde/blob/main/docs/microsoft-technical-reference.md#red-teaming) |
 | [`eval-plan`](../eval-plan/SKILL.md) | Evaluation must run on site with local models |
 | [`cost-model`](../cost-model/SKILL.md) | **Critical.** Hardware, power, support and on-site people instead of consumption |
 | [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + disconnected add-ons |
 | [`runbook`](../runbook/SKILL.md) | **Critical.** Offline updates, diagnostics without internet, local contacts |
+| [`incident-review`](../incident-review/SKILL.md) | Record how evidence was collected and moved off site |
+| [`scope-reset`](../scope-reset/SKILL.md) | Pivot or stop when a required model or service isn't available in the target environment |
+| [`field-feedback`](../field-feedback/SKILL.md) | Features that assume internet access |
 
 ## Discovery questions
 

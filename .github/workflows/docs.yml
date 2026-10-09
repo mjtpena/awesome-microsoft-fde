@@ -19,6 +19,8 @@ jobs:
           python-version: "3.12"
       - name: Links, anchors, footnotes and skill structure
         run: python scripts/check_docs.py
+      - name: Worked examples follow their skill templates
+        run: python scripts/grade_skill_output.py --examples
 
   markdownlint:
     name: Markdown lint

@@ -18,7 +18,7 @@ One page that tells the sponsor whether to worry, even if they only read the fir
 - One page. Send it the same day.
 - Lead with the overall status and what changed.
 - Every decision you need has an owner and a date.
-- Record field notes for the product team: that loop is part of the job. 💬
+- Record field notes for the product team: that loop is part of the job. 💬 Turn each one worth fixing into a [field-feedback](../field-feedback/SKILL.md) report.
 - **Field notes stay internal.** They go in your own organisation's engagement workspace, not in the status page or the customer's repository. Share only what the customer's agreement with you allows: describe the problem, not their data.
 
 ## Steps

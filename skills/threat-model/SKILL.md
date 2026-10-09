@@ -27,7 +27,7 @@ The document you take to the security team as a conversation, not a finished ver
 2. List assets and draw the flow from the current architecture, marking trust boundaries.
 3. Fill one row per tool and data source in the identities table.
 4. Go through every threat row; mark "doesn't apply" with a reason rather than deleting it.
-5. Add the scenario add-on and the red-team plan, then book the review with security.
+5. Add the scenario add-on and the red-team plan, then book the review with security. Plan and report the red-team run itself with [`red-team`](../red-team/SKILL.md).
 
 Write everything into the customer's repository, not your own drive. Everything you write belongs to the customer. Delete sections that don't apply: a short, filled-in document beats a long, empty one.
 

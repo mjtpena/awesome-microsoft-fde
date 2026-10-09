@@ -1,0 +1,42 @@
+name: Reference evals
+
+# The reference implementation's evaluation gate: unit tests plus the offline
+# golden-set run. A pull request that drops a metric below evals/thresholds.json fails.
+on:
+  pull_request:
+    paths:
+      - "reference/**"
+      - ".github/workflows/reference-evals.yml"
+  push:
+    branches: [main]
+    paths:
+      - "reference/**"
+
+permissions:
+  contents: read
+
+jobs:
+  knowledge-assistant:
+    name: Knowledge assistant
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: reference/knowledge-assistant
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        # The azure extra lets the fake-gateway contract test run; nothing calls Azure.
+        run: pip install -e ".[azure,dev]"
+      - name: Unit tests
+        run: pytest -q
+      - name: Evaluation gate (offline)
+        run: python evals/run_evals.py
+      - name: Keep the results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: reference/knowledge-assistant/evals/results.json

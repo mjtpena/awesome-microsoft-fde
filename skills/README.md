@@ -57,6 +57,7 @@ Before you update an installed copy, read the [changelog](../CHANGELOG.md): a ma
 A few notes are for your own team, not the customer: candid assessments of named people, and feedback to the product team about what broke. Anyone at the customer can read their repository, including the security lead you've marked as "against". Keep these in your own organisation's engagement workspace, never in the customer's tenant:
 
 - The support and influence assessment in [`stakeholder-map`](stakeholder-map/SKILL.md). The decisions and approvals table can go in the customer's repository.
+- All of [`field-feedback`](field-feedback/SKILL.md), and the internal block of [`incident-review`](incident-review/SKILL.md).
 - Field notes for the product team from [`weekly-status`](weekly-status/SKILL.md) and [`handover`](handover/SKILL.md). Tell the customer about known product issues and workarounds that affect them, in the handover.
 
 Each of these skills marks which part goes where.
@@ -69,29 +70,36 @@ Some skills name Microsoft services, roles, licences and preview features. These
 
 ```mermaid
 flowchart LR
-    S1["1 · Get access"] --> S2["2 · Understand"] --> S3["3 · Design"] --> S4["4 · Build"] --> S5["5 · Harden"] --> S6["6 · Hand over"]
+    S0["0 · Kick off"] --> S1["1 · Get access"] --> S2["2 · Understand"] --> S3["3 · Design"] --> S4["4 · Build"] --> S5["5 · Harden"] --> S6["6 · Hand over"]
+    S0 --- T0["engagement-kickoff"]
     S1 --- T1["access-request"]
-    S2 --- T2["discovery-interview<br/>stakeholder-map<br/>ai-use-case-canvas<br/>data-audit"]
-    S3 --- T3["adr<br/>threat-model<br/>eval-plan"]
+    S2 --- T2["discovery-interview<br/>stakeholder-map<br/>ai-use-case-canvas<br/>data-audit<br/>scope-reset"]
+    S3 --- T3["adr<br/>threat-model<br/>eval-plan<br/>responsible-ai-impact-assessment"]
     S4 --- T4["agent-instructions"]
-    S5 --- T5["cost-model<br/>go-live-readiness"]
+    S5 --- T5["cost-model<br/>red-team<br/>go-live-readiness<br/>incident-review"]
     S6 --- T6["runbook<br/>handover"]
 ```
 
 | Step | Skill | What it's for | Pillars |
 |---|---|---|---|
+| 0. Kick off | [`engagement-kickoff`](engagement-kickoff/SKILL.md) | The one-page charter: problem, success measure, scope, exit criteria, team, cadence, decisions | 6 |
 | 1. Get access | [`access-request`](access-request/SKILL.md) | Every account, role, network path and dataset you need, requested on day one | 3, 4 |
 | 2. Understand | [`discovery-interview`](discovery-interview/SKILL.md) | Questions for sponsors, users, security and operators | 6 |
 | 2. Understand | [`stakeholder-map`](stakeholder-map/SKILL.md) | Who sponsors, who can block, who operates, who uses | 6 |
 | 2. Understand | [`ai-use-case-canvas`](ai-use-case-canvas/SKILL.md) | The one-page scope: problem, measure, shape, platform, exit criteria | 5, 6 |
 | 2. Understand | [`data-audit`](data-audit/SKILL.md) | Where the data is, how good it is, how you'll get it | 2 |
+| 2. Understand | [`scope-reset`](scope-reset/SKILL.md) | When the agreed scope won't work: options, evidence, the sponsor's decision, what changes | 6 |
 | 3. Design | [`adr`](adr/SKILL.md) | One page per important decision, with options and consequences | All |
 | 3. Design | [`threat-model`](threat-model/SKILL.md) | AI-specific threats and defences, for the security review | 4 |
 | 3. Design | [`eval-plan`](eval-plan/SKILL.md) | Golden set, metrics and the bar for release | 5 |
+| 3. Design | [`responsible-ai-impact-assessment`](responsible-ai-impact-assessment/SKILL.md) | Intended uses, harms, mitigations and how each is tested, for privacy and responsible AI reviewers | 4, 5 |
 | 4. Build | [`agent-instructions`](agent-instructions/SKILL.md) | Rules for AI coding assistants in the customer's repository | 1 |
 | Every week | [`weekly-status`](weekly-status/SKILL.md) | One-page status after each Friday demo | 6 |
+| Every week | [`field-feedback`](field-feedback/SKILL.md) | One product-gap report per field finding, reproduced without customer data (internal) | 6 |
 | 5. Harden | [`cost-model`](cost-model/SKILL.md) | Monthly running cost at expected usage, and what drives it | 6 |
+| 5. Harden | [`red-team`](red-team/SKILL.md) | Attack the agent before launch and on a schedule; attack success rate against an agreed bar | 4, 5 |
 | 5. Harden | [`go-live-readiness`](go-live-readiness/SKILL.md) | Core checklist plus scenario add-ons | 3, 4, 5 |
+| 4–5 and after go-live | [`incident-review`](incident-review/SKILL.md) | Blameless review of an AI failure: failing layer, contributing factors, new evaluation cases, actions | 5, 6 |
 | 6. Hand over | [`runbook`](runbook/SKILL.md) | How to operate and fix the system without you | 1 |
 | 6. Hand over | [`handover`](handover/SKILL.md) | RACI, named owner, evaluation baseline, backlog, sign-off | 6 |
 
@@ -111,18 +119,24 @@ Packs combine: a bank's knowledge assistant uses both the knowledge-assistant an
 
 | Skill | Knowledge | Action | Data | Regulated | Disconnected |
 |---|:-:|:-:|:-:|:-:|:-:|
+| engagement-kickoff | ● | ● | ● | ● | ● |
 | access-request | ● | ● | ● | ●● | ●● |
 | discovery-interview | ● | ● | ● | ● | ● |
 | stakeholder-map | ● | ● | ● | ●● | ●● |
 | ai-use-case-canvas | ● | ● | ● | ● | ● |
 | data-audit | ●● | ● | ●● | ● | ● |
+| scope-reset | ● | ● | ● | ● | ● |
 | adr | ● | ● | ● | ●● | ●● |
 | threat-model | ● | ●● | ● | ●● | ●● |
 | eval-plan | ●● | ●● | ●● | ● | ● |
+| responsible-ai-impact-assessment | ● | ● | ● | ●● | ● |
 | agent-instructions | ● | ● | ● | ● | ● |
 | cost-model | ● | ● | ● | ● | ●● |
+| red-team | ● | ●● | ● | ●● | ● |
 | go-live-readiness | ● | ●● | ● | ●● | ●● |
+| incident-review | ● | ●● | ● | ●● | ● |
 | runbook | ● | ●● | ● | ● | ●● |
 | handover | ● | ● | ● | ● | ● |
+| field-feedback | ● | ● | ● | ● | ● |
 
 ● use it · ●● it's critical in this scenario; the pack says what to add

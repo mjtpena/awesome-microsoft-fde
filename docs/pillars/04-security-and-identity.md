@@ -98,7 +98,7 @@ flowchart LR
 
 ## Skills for this pillar
 
-[`threat-model`](../../skills/threat-model/SKILL.md) · [`access-request`](../../skills/access-request/SKILL.md) · [`go-live-readiness`](../../skills/go-live-readiness/SKILL.md) · [Action-taking agent pack](../../skills/scenario-action-agent/SKILL.md)
+[`threat-model`](../../skills/threat-model/SKILL.md) · [`red-team`](../../skills/red-team/SKILL.md) · [`responsible-ai-impact-assessment`](../../skills/responsible-ai-impact-assessment/SKILL.md) · [`access-request`](../../skills/access-request/SKILL.md) · [`go-live-readiness`](../../skills/go-live-readiness/SKILL.md) · [Action-taking agent pack](../../skills/scenario-action-agent/SKILL.md)
 
 ---
 

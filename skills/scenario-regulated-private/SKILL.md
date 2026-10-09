@@ -46,11 +46,17 @@ flowchart LR
 
 | Skill | What to add for this scenario |
 |---|---|
+| [`engagement-kickoff`](../engagement-kickoff/SKILL.md) | Name the risk owner, privacy officer and external assessor; put review lead times in the first two weeks |
 | [`access-request`](../access-request/SKILL.md) | **Critical.** Clearances, data-handling agreement, approved devices, log location |
 | [`stakeholder-map`](../stakeholder-map/SKILL.md) | Risk owner, privacy officer, external assessor |
 | [`adr`](../adr/SKILL.md) | Private networking; each exception; log retention and location |
 | [`threat-model`](../threat-model/SKILL.md) | Map defences to the customer's control framework; record who accepts residual risk |
+| [`responsible-ai-impact-assessment`](../responsible-ai-impact-assessment/SKILL.md) | **Critical.** Map harms and mitigations to the regulator's expectations; the privacy officer signs it |
+| [`red-team`](../red-team/SKILL.md) | **Critical.** Agree rules of engagement with the risk owner; keep evidence for the external assessor |
 | [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + regulated add-ons |
+| [`incident-review`](../incident-review/SKILL.md) | **Critical.** Follow the customer's incident and breach procedure first; map actions to their control framework |
+| [`scope-reset`](../scope-reset/SKILL.md) | Re-sequence when the approval cycle outlasts the engagement |
+| [`field-feedback`](../field-feedback/SKILL.md) | Features missing from private-networking or regional deployments |
 
 ## Discovery questions
 

@@ -1,7 +1,7 @@
 name: Weekly link check
 
-# Sources disappear between PRs. Check every Monday and open an issue
-# listing the dead links, instead of failing someone's unrelated PR.
+# Sources disappear and facts go stale between PRs. Check every Monday and
+# open an issue, instead of failing someone's unrelated PR.
 on:
   schedule:
     - cron: "0 6 * * 1"
@@ -27,4 +27,32 @@ jobs:
         with:
           title: "Weekly link check: dead links found"
           content-filepath: lychee/report.md
+          labels: stale-fact
+
+  freshness:
+    # Microsoft facts change monthly. A page nobody has re-verified in a
+    # quarter is probably wrong somewhere.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - id: check
+        run: |
+          if python scripts/check_docs.py --stale-days 90 > stale.txt; then
+            echo "stale=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+            {
+              echo "These pages haven't been re-verified for more than 90 days. Check their facts against the sources, then update the date."
+              echo
+              sed 's/^/- /' stale.txt
+            } > freshness.md
+          fi
+      - if: steps.check.outputs.stale == 'true'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Quarterly re-verification: pages are out of date"
+          content-filepath: freshness.md
           labels: stale-fact

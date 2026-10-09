@@ -135,6 +135,10 @@ pie showData title "Experience asked for in FDE postings (%)"
 
 💬 Azure appears in only 18% of postings, behind AWS (32%) and GCP (22%). Most FDE prep material is AWS- or GCP-flavoured, which is why a Microsoft-specific roadmap is worth having. Government/defence at 18% matches the sovereign section of this guide.
 
+### How the week really splits: a field survey (open)
+
+The README estimates an FDE's week as roughly a third building, a third unblocking and a third talking. 💬 That's field experience, not data. To replace it with data, we're collecting answers through a [public survey form](https://github.com/mjtpena/awesome-microsoft-fde/issues/new?template=field-survey.yml): employer type, experience, the percentage split of a typical week and the most common blocker. We'll publish totals here, never individual answers, once at least 30 people have answered.
+
 ### The critiques (know them before the interview)
 
 - **Title arbitrage:** academics describe the title as rebranding solutions or integration engineering to signal importance ([Wikipedia](https://en.wikipedia.org/wiki/Forward_deployed_engineer)).

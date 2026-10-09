@@ -44,12 +44,17 @@ flowchart LR
 
 | Skill | What to add for this scenario |
 |---|---|
+| [`engagement-kickoff`](../engagement-kickoff/SKILL.md) | Fill the action-agent add-on: every action in or out of scope, and who must approve an action before go-live |
 | [`ai-use-case-canvas`](../ai-use-case-canvas/SKILL.md) | List every action, whether it's reversible, and its approval point |
+| [`scope-reset`](../scope-reset/SKILL.md) | Re-sequence to read-only or draft-only when write actions can't yet be approved or reversed safely |
 | [`threat-model`](../threat-model/SKILL.md) | **Critical.** Fill the action-agent add-on: blast radius, approval and rollback per action |
+| [`responsible-ai-impact-assessment`](../responsible-ai-impact-assessment/SKILL.md) | Fill the action-agent add-on: harm if each action is wrong, reversibility, approval step |
 | [`adr`](../adr/SKILL.md) | Approval design, tool design, audit trail |
 | [`eval-plan`](../eval-plan/SKILL.md) | Tool-call accuracy, approval requested, failure handling, requests that must be declined |
+| [`red-team`](../red-team/SKILL.md) | **Critical.** Tool misuse and indirect prompt injection that tries to trigger a write; confirm every write still asks for approval |
 | [`go-live-readiness`](../go-live-readiness/SKILL.md) | Core + action-agent add-ons |
 | [`runbook`](../runbook/SKILL.md) | Kill switch; finding and reversing actions from a time window |
+| [`incident-review`](../incident-review/SKILL.md) | **Critical.** List every action taken, whether it was reversed and who approved it; a wrong action that reached a customer goes to executives |
 
 ## Discovery questions
 

@@ -18,7 +18,7 @@ How you'll prove the AI is good enough to ship. If you can't measure it, you can
 
 - Co-write the golden set with the customer's subject-matter experts: they define "good".
 - Score retrieval and generation separately. If retrieval fails, no prompt change will help. 💬
-- Add every real production failure to the golden set.
+- Add every real production failure to the golden set. The [incident review](../incident-review/SKILL.md) says which cases to add.
 - A release below the bar is blocked.
 
 ## Steps

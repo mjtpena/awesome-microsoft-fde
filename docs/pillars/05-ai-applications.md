@@ -117,7 +117,7 @@ Measure retrieval and generation separately. If the right passage wasn't retriev
 
 ## Skills for this pillar
 
-[`eval-plan`](../../skills/eval-plan/SKILL.md) · [`ai-use-case-canvas`](../../skills/ai-use-case-canvas/SKILL.md) · [`cost-model`](../../skills/cost-model/SKILL.md) · [Knowledge assistant pack](../../skills/scenario-knowledge-assistant/SKILL.md)
+[`eval-plan`](../../skills/eval-plan/SKILL.md) · [`ai-use-case-canvas`](../../skills/ai-use-case-canvas/SKILL.md) · [`cost-model`](../../skills/cost-model/SKILL.md) · [`red-team`](../../skills/red-team/SKILL.md) · [`responsible-ai-impact-assessment`](../../skills/responsible-ai-impact-assessment/SKILL.md) · [`incident-review`](../../skills/incident-review/SKILL.md) · [Reference implementation](../../reference/knowledge-assistant/README.md) · [Knowledge assistant pack](../../skills/scenario-knowledge-assistant/SKILL.md)
 
 ---
 

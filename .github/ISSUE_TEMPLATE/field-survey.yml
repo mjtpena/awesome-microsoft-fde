@@ -1,0 +1,81 @@
+name: "Field survey: how an FDE week really splits"
+description: Tell us how your last typical week as a forward deployed engineer split between building, unblocking and talking.
+title: "Field survey: "
+labels: ["field-survey"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The README says an FDE's week is "roughly a third building, a third unblocking and a third talking". That's an estimate from field work, not a measurement. Help us replace it with data.
+
+        **This issue is public and shows your GitHub username.** Don't name customers, projects or colleagues. Answer for your last typical week, not your best one. We publish only totals, in `docs/fde-role-and-market.md`, once at least 30 people have answered.
+  - type: dropdown
+    id: employer
+    attributes:
+      label: Who employs you?
+      options:
+        - A cloud provider or AI lab
+        - A software vendor
+        - A consulting firm or systems integrator
+        - The customer organisation itself (internal FDE team)
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: experience
+    attributes:
+      label: Years doing forward deployed or similar customer-embedded engineering
+      options:
+        - Less than 1
+        - 1 to 3
+        - 3 to 6
+        - More than 6
+    validations:
+      required: true
+  - type: input
+    id: building
+    attributes:
+      label: Building (percent)
+      description: Writing code, infrastructure, data pipelines, evaluations, debugging.
+      placeholder: "35"
+    validations:
+      required: true
+  - type: input
+    id: unblocking
+    attributes:
+      label: Unblocking (percent)
+      description: Chasing access, permissions, data, security reviews, approvals, environments.
+      placeholder: "30"
+    validations:
+      required: true
+  - type: input
+    id: talking
+    attributes:
+      label: Talking (percent)
+      description: Discovery, demos, status meetings, decisions, training, writing for people.
+      placeholder: "30"
+    validations:
+      required: true
+  - type: input
+    id: other
+    attributes:
+      label: Anything else (percent)
+      description: Travel, internal admin, pre-sales. The four numbers should add up to about 100.
+      placeholder: "5"
+  - type: dropdown
+    id: blocker
+    attributes:
+      label: What blocked you most often in your last engagement?
+      options:
+        - Access and permissions
+        - Data quality or availability
+        - Security or compliance review
+        - Decision-makers unavailable
+        - Product bugs or missing features
+        - Unclear scope or success measure
+        - Other
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything we should know? (optional)
+      description: No customer names or confidential details.

@@ -3,10 +3,15 @@
 
 Run from the repository root: python scripts/check_docs.py
 Exits non-zero and prints one line per problem.
+
+With --stale-days N, it instead lists pages whose "Last verified" or
+"Facts checked" date is more than N days old. The weekly job runs this.
 """
 
+import argparse
 import re
 import sys
+from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -122,7 +127,35 @@ def check_skill(folder, index_text):
         problem(skill, "not listed in skills/README.md")
 
 
+VERIFIED_DATE = re.compile(r"(?:\*\*Last verified:\*\*|\*Facts checked on) (\d{1,2} \w+ \d{4})")
+
+
+def check_freshness(max_age_days, today):
+    """List pages whose verification date is older than max_age_days."""
+    stale = []
+    for path in [ROOT / "README.md", *sorted((ROOT / "docs").rglob("*.md"))]:
+        match = VERIFIED_DATE.search(path.read_text(encoding="utf-8"))
+        if not match:
+            continue
+        checked = datetime.strptime(match.group(1), "%d %B %Y").date()
+        age = (today - checked).days
+        if age > max_age_days:
+            stale.append(f"{path.relative_to(ROOT).as_posix()}: last verified {match.group(1)} ({age} days ago)")
+    return stale
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--stale-days", type=int, metavar="N",
+                        help="only list pages whose verification date is more than N days old")
+    args = parser.parse_args()
+    if args.stale_days is not None:
+        stale = check_freshness(args.stale_days, date.today())
+        for line in stale:
+            print(line)
+        print(f"{len(stale)} page(s) need re-verifying" if stale else "All pages verified recently.")
+        return 1 if stale else 0
+
     for path in markdown_files():
         text = path.read_text(encoding="utf-8")
         check_links(path, text)
