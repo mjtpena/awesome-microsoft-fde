@@ -14,13 +14,20 @@ Each skill is one folder holding one self-contained Markdown file, `SKILL.md`, w
 
 The files use the open [Agent Skills](https://agentskills.io/) format, but they're plain Markdown with no tool-specific syntax, so any agent can follow them:
 
-- **Agents that support skills** (for example GitHub Copilot or Claude Code): install them into the folder your agent reads skills from, such as `.github/skills/` or `.claude/skills/`. Check your tool's documentation for the current path. See [install](#install).
+- **Agents that support skills** (for example GitHub Copilot or Claude Code): install them into the folder your agent reads skills from, such as `.github/skills/` or `.claude/skills/`. See [install](#install) for each tool's folders, and check its documentation if they've moved.
 - **Any other agent or chat assistant:** paste or attach the `SKILL.md` and ask it to follow the steps, or reference it from your agent's instructions file.
 - **A person:** read it and follow the same steps.
 
 ### Install
 
-Run one of these from the root of the repository you're working in. Replace `.claude/skills` with your agent's skills folder.
+Run one of these from the root of the repository you're working in. Replace `.claude/skills` with your agent's skills folder:
+
+| Agent | Skills folder in the repository | Skills folder for every repository |
+|---|---|---|
+| GitHub Copilot in VS Code | `.github/skills/`, `.claude/skills/` or `.agents/skills/` | `~/.copilot/skills/`, `~/.claude/skills/` or `~/.agents/skills/` |
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+
+Each skill appears as a `/` command, such as `/adr`, and the agent can also load one by itself when your request matches its description. Install all the skills into one folder: they link to each other. The `npx degit` command copies this README too; agents ignore it, and you can delete it.
 
 **Latest version** (needs Node.js):
 
@@ -30,7 +37,7 @@ npx degit mjtpena/awesome-microsoft-fde/skills .claude/skills
 
 Add `--force` to overwrite skills you installed before. To pin a release, add its tag: `mjtpena/awesome-microsoft-fde/skills#v1.0.0`.
 
-**A released version, without Node.js:** every [release](https://github.com/mjtpena/awesome-microsoft-fde/releases) attaches `skills.zip`, which unpacks to a `skills/` folder.
+**A released version, without Node.js:** every [release](https://github.com/mjtpena/awesome-microsoft-fde/releases) attaches `skills.zip`, which unpacks to a `skills/` folder. Replace `.claude` with the folder that holds your agent's `skills/` folder, such as `.github`.
 
 ```bash
 # macOS / Linux

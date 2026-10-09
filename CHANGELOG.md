@@ -30,7 +30,8 @@ The first versioned release: 20 skills, five scenario packs, a worked example fo
 - Outline answers to the interview case studies and answers to the rapid-fire questions.
 - A worked example: a filled-in threat model for a fictional knowledge assistant.
 - Versioned releases, each with a `skills.zip`, and this changelog.
-- One-line install commands for the skills.
+- One-line install commands for the skills, with the skills folders that GitHub Copilot in VS Code and Claude Code read.
+- The docs check enforces the Agent Skills limits on skill names and descriptions.
 - Issue templates for stale facts and skill proposals, a code of conduct and a security policy.
 
 ### Changed
@@ -39,6 +40,7 @@ The first versioned release: 20 skills, five scenario packs, a worked example fo
 - **`discovery-interview`:** the "Scenario add-ons" section of the template is now "Scenario questions"; paste the questions from your scenario pack. The packs are the only copy.
 - **`agent-instructions`:** the list of files each coding assistant reads moved to the technical reference.
 - Pillar pages carry a "Last verified" date, and skills no longer contain dates or prices.
+- `skills.zip` holds only the skill folders, not the skills index.
 
 ## Before versioning (up to October 2026)
 
