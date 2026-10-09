@@ -13,6 +13,7 @@
 - **Harbourline's standard is "no public endpoints".** R. Okafor: "No exceptions without an ADR." Every Azure resource in the design sits behind private endpoints.
 - **Microsoft 365 can't connect to agents privately.** With public network access disabled, Teams publishing needs a separately enabled, source-IP-filtered route for Microsoft 365 traffic only ([technical reference, Phase 2](../../docs/microsoft-technical-reference.md#phase-2-azure-architecture--ai-landing-zones)). There is no fully private option for Teams today.
 - **Two further Teams constraints**, from the same section of the [technical reference](../../docs/microsoft-technical-reference.md#phase-2-azure-architecture--ai-landing-zones): Foundry agents published to Teams don't support streaming or citations as a structured feature, and Teams processes and stores the agent's responses under Microsoft 365's own data-handling terms. Publishing also needs Azure Bot Service rights that Foundry roles don't grant.
+- **Internal staff only.** After the [week-3 scope reset](scope-reset.md) this route serves Teams for internal handlers only. There is no route from the customer claims portal; a portal release would need its own ADR.
 - The assistant is read-only ([ADR-004](adr-004-read-only.md)) and retrieval is permission-trimmed, which limits what a caller on this route could ever get.
 
 ## Options considered

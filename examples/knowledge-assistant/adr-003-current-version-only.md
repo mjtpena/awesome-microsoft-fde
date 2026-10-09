@@ -46,18 +46,19 @@ We will index only the current version of each policy, because a single answer p
 
 ## Amendment 1 (week 6)
 
-**Date:** week 6, day 4 · **Agreed by:** A. Novak, D. Whitfield, R. Okafor (Security Architect), E. Marsh
+**Date:** week 6, day 5 · **Agreed by:** A. Novak, D. Whitfield, R. Okafor (Security Architect), E. Marsh
 
 **What happened.** The assistant cited a superseded Motor excess policy to a team leader, who forwarded it to D. Whitfield. The cause was retrieval, not the model. An old copy of the policy sat on the file share with no status. Under the original decision every `published` file-share document counted as current, so the old copy was indexed alongside the current SharePoint version and ranked higher for that question. The rule de-duplicated within each source but never across sources. Correctness on the golden set fell from 88% to 81% after the week-6 re-index. Full timeline in the [incident review](incident-review.md).
 
 **The amendment.**
 
-1. **File-share documents that duplicate a SharePoint document's normalised title are excluded**, unless A. Novak marks the file-share copy current in a small allow-list kept in the repository (`ingestion/fileshare-allowlist.csv`).
-2. **Re-index check.** Every re-index builds the new index alongside the live one and must pass two gates before it's swapped in:
-   - the cross-source duplicate-title report shows no title indexed twice;
-   - the golden-set retrieval subset, including the eight cases added after the incident, meets the release bar in the [evaluation plan](eval-plan.md).
-   If either fails, the live index stays and the platform on-call is alerted. Steps are in the [runbook](runbook.md).
+1. **File-share documents that duplicate a SharePoint document are excluded**, matched on policy reference or, where there's none, normalised title, unless A. Novak marks the file-share copy current in a small allow-list kept in the repository (`ingestion/fileshare-allowlist.csv`). File-share documents with neither a policy reference nor a clear title match are held for A. Novak's review rather than indexed.
+2. **Re-index check.** A re-index is treated as a release. It runs on the test index first and must pass two gates before production is re-indexed:
+   - the cross-source duplicate report shows no policy indexed twice;
+   - the full evaluation run, including the eight cases added after the incident (GS-121 to GS-128), meets the release bar in the [evaluation plan](eval-plan.md). The production re-index needs that passing run's ID.
 
-**Result.** 212 file-share documents excluded as duplicates; A. Novak allow-listed 9 of them. Correctness recovered to 90% in week 7. The gap that let a status-less copy through is filed as [field feedback](field-feedback.md).
+   If either fails, production keeps its current index and the platform on-call is alerted. Steps are in the [runbook](runbook.md).
+
+**Result.** Five Motor policies had an older file-share copy; all are now excluded, along with the other cross-source duplicates the report found. Correctness recovered to 90% in week 7. The gap that let a status-less copy through is filed as [field feedback](field-feedback.md).
 
 💬 The skill says never edit an accepted ADR; supersede it. We appended a dated amendment instead, and left the original text untouched above it, because the decision itself (index only the current version) stands and only the rule for one source tightened. R. Okafor agreed. If the decision had changed, a new ADR would have superseded this one.

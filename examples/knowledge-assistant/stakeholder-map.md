@@ -2,7 +2,7 @@
 
 > **Worked example.** A filled-in [`stakeholder-map`](../../skills/stakeholder-map/SKILL.md) for a fictional engagement; see [examples](../README.md). Everything below, including names and systems, is invented. The skill produces two documents that live in different places. Both are shown here so you can see the difference in tone and content.
 
-**Last updated:** week 3, day 2 (after the [scope reset](scope-reset.md)) · **Built from:** the [discovery interviews](discovery-interview.md) and the [kickoff](engagement-kickoff.md)
+**Last updated:** week 3, day 5 (after the [scope reset](scope-reset.md)) · **Built from:** the [discovery interviews](discovery-interview.md) and the [kickoff](engagement-kickoff.md)
 
 ## Part 1: Customer repository (`docs/engagement/decisions-and-approvals.md`)
 
@@ -25,6 +25,7 @@ Shared with Harbourline. Anyone in the claims, security or platform teams can re
 | Production change | S. Adeyemi (Platform team lead), pipeline approval | R. Okafor for changes to the gateway or network | Weekly change window, Thursday |
 | Budget for running costs | K. Brennan (IT Finance) | D. Whitfield | Monthly finance review; needs the [cost model](cost-model.md) |
 | Go-live | D. Whitfield | R. Okafor, F. Lindqvist, S. Adeyemi | At the [go-live readiness](go-live-readiness.md) review |
+| Customer-facing release (portal) | Compliance lead, with D. Whitfield | R. Okafor, F. Lindqvist | Not in release 1; see the [scope reset](scope-reset.md) |
 | Owner after handover | S. Adeyemi (technical), D. Whitfield (business) | K. Brennan | Agreed in week 1; confirmed in the [handover](handover.md) |
 
 The regulated and disconnected rows from the template are deleted: neither applies.
@@ -49,6 +50,7 @@ The regulated and disconnected rows from the template are deleted: neither appli
 | L. Moreau | SharePoint administrator | Approver | L | Neutral. Busy; the Pricing fix is one of many tickets | A precise, small change request with a test we run for them | As needed |
 | F. Lindqvist | Data Protection Officer | Approver | M | Neutral. Wants specifics, not reassurance | Retention periods in writing; where Teams stores responses | Weeks 2, 5 and 7 |
 | K. Brennan | IT Finance | Budget owner | M | Neutral. Has seen AI pilots with no running-cost estimate | A cost model with a range and the levers that change it | Weeks 2 and 8 |
+| Compliance lead | Compliance (met week 3) | Approver for any customer-facing release | M | Neutral. Clear that a policyholder-facing answer is customer communication | Early sight of anything that could reach policyholders; informed only for release 1 | Informed fortnightly; approver for the portal backlog item |
 | H. Ito | Records manager | Approver | L | Neutral | A retention period to approve | Once, week 3 |
 | Product engineer | Vendor product team | Product team (our side) | L at Harbourline | For | [Field feedback](field-feedback.md) on the Teams citation gap and indexing behaviour | Fortnightly |
 

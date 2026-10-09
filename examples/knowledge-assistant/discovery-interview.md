@@ -18,7 +18,7 @@ Pasted from the [knowledge-assistant scenario pack](../../skills/scenario-knowle
 
 **Date:** week 1, day 2 · **Interviewer:** E. Marsh · **Role type:** Sponsor
 
-### For everyone
+### For everyone (D. Whitfield)
 
 1. **Good outcome in six months:** "Handlers stop asking each other which version is current." Measured by the quality audit and handle time.
 2. **Today:** complex claims stall while handlers search. Team leaders answer the same policy questions repeatedly.
@@ -32,7 +32,7 @@ Pasted from the [knowledge-assistant scenario pack](../../skills/scenario-knowle
 - **Running budget:** K. Brennan (IT Finance) owns it; D. Whitfield will fund it from the claims operations budget if the measure moves.
 - **Who could stop it:** R. Okafor (security), G. Patel (anything touching pricing). D. Whitfield also wants a customer-facing version in the claims portal and access for all 4,000 staff. We noted this as a scope risk for the [canvas](ai-use-case-canvas.md).
 
-### Notes
+### Notes (D. Whitfield)
 
 | Quote / observation | Implication | Follow-up |
 |---|---|---|
@@ -45,7 +45,7 @@ Pasted from the [knowledge-assistant scenario pack](../../skills/scenario-knowle
 
 **Date:** week 1, day 3 · **Interviewer:** T. Osei · **Role type:** End user
 
-### For everyone
+### For everyone (M. Costa)
 
 1. **Good outcome:** new handlers answer their own policy questions in their first month.
 2. **Today:** shown live. Searched Claims Policy for "excess windscreen", got 11 results, opened four, checked dates by hand, then messaged a colleague to confirm.
@@ -59,7 +59,7 @@ Pasted from the [knowledge-assistant scenario pack](../../skills/scenario-knowle
 - **How they know it's right:** the document date and asking a senior handler. Neither is reliable.
 - **What would make them stop:** one wrong answer they'd been told to trust.
 
-### Notes
+### Notes (M. Costa)
 
 | Quote / observation | Implication | Follow-up |
 |---|---|---|
@@ -73,7 +73,7 @@ Pasted from the [knowledge-assistant scenario pack](../../skills/scenario-knowle
 
 **Date:** week 1, day 3 · **Interviewer:** E. Marsh · **Role type:** Security
 
-### For everyone
+### For everyone (R. Okafor)
 
 1. **Good outcome:** an AI system that passed review once and stays inside the rules.
 2. **Today:** new systems go through architecture review and a threat model; about four weeks.
@@ -87,7 +87,7 @@ Pasted from the [knowledge-assistant scenario pack](../../skills/scenario-knowle
 - **Classifications:** Internal and Confidential. Pricing drafts are Confidential.
 - **Standards:** Entra sign-in only, no keys; private endpoints; logs to the security operations Log Analytics workspace.
 
-### Notes
+### Notes (R. Okafor)
 
 | Quote / observation | Implication | Follow-up |
 |---|---|---|
@@ -100,7 +100,7 @@ Pasted from the [knowledge-assistant scenario pack](../../skills/scenario-knowle
 
 **Date:** week 1, day 4 · **Interviewer:** T. Osei · **Role type:** Operator
 
-### For everyone
+### For everyone (S. Adeyemi)
 
 1. **Good outcome:** "My team can run it at 3am without calling you."
 2. **Today:** the platform team runs Azure landing zones and the shared APIM instance.
@@ -114,7 +114,7 @@ Pasted from the [knowledge-assistant scenario pack](../../skills/scenario-knowle
 - **Deployments:** Azure DevOps pipelines; S. Adeyemi approves production.
 - **What breaks most:** expired credentials and silent indexing failures.
 
-### Notes
+### Notes (S. Adeyemi)
 
 | Quote / observation | Implication | Follow-up |
 |---|---|---|

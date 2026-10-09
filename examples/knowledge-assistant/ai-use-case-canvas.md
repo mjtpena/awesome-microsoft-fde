@@ -2,12 +2,12 @@
 
 > **Worked example.** A filled-in [`ai-use-case-canvas`](../../skills/ai-use-case-canvas/SKILL.md) for a fictional engagement; see [examples](../README.md). Everything below, including names and systems, is invented. Microsoft product facts follow the [technical reference](../../docs/microsoft-technical-reference.md); check it before relying on them.
 
-**Version:** 1.1 · **Built from:** the [discovery interviews](discovery-interview.md) and the [data audit](data-audit.md)
+**Version:** 2 · **Built from:** the [discovery interviews](discovery-interview.md) and the [data audit](data-audit.md)
 
 | Version | Date | Change | Agreed by |
 |---|---|---|---|
-| 1.0 | Week 2, day 3 | First signed version. Users: all 4,000 staff, plus a customer-facing version in the claims portal | D. Whitfield |
-| 1.1 | Week 3, day 4 | **Scope reset.** Release 1 narrowed to internal claims handlers, Motor and Property first. Customer portal and all-staff access moved to "out of scope for release 1". Driven by the [data audit](data-audit.md): Claims Policy versioning and the Pricing oversharing couldn't be fixed for 4,000 users and the public in the time left. Full reasoning in the [scope reset](scope-reset.md) | D. Whitfield, re-signed |
+| 1 | Week 2, day 3 | First signed version. Users: all 4,000 staff, plus a customer-facing version in the claims portal | D. Whitfield |
+| 2 | Week 3, day 5 | **Scope reset.** Release 1 narrowed to internal claims handlers, Motor and Property first. Customer portal and all-staff access moved to "out of scope for release 1". Driven by the [data audit](data-audit.md): Claims Policy versioning and the Pricing oversharing couldn't be fixed for 4,000 users and the public in the time left. Full reasoning in the [scope reset](scope-reset.md) | D. Whitfield, re-signed |
 
 ## The problem
 
@@ -60,7 +60,7 @@
 - [ ] [Runbook](runbook.md) and [handover](handover.md) accepted, including the re-index check
 - [ ] Baseline for both success measures recorded before go-live, so the quarter-after measurement has something to compare against
 
-**Agreed by (sponsor):** D. Whitfield · **Date:** week 2, day 3 (v1.0); re-signed week 3, day 4 (v1.1)
+**Agreed by (sponsor):** D. Whitfield · **Date:** week 2, day 3 (version 1); re-signed week 3, day 5 (version 2)
 
 ## Open questions for the sponsor
 
